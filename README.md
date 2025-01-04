@@ -28,11 +28,12 @@ Rocket launches, space events and crewed spaceflight. The Launch Library 2 API i
 
 #### Tags:
 
- - API
+ - Agencies, Throttle, Api-throttle, Astronauts, Celestial, Bodies, Agency, Types, Configurations, Astronaut, Countries, Docking, Stages, Licenses, Variants, Locations, Languages, Launch, Launcher, Precisions, Closure, Station, Spacecraft, Timeline, Events, Starship, Previous, Expeditions, Landings, Families, Launchers, Launches, Patches, Pads, Flights, Payloads, Programs, Stations, Spacewalks
 
 #### Properties
 
 - [Documentation](https://thespacedevs.com/llapi)
+- [OpenAPI](properties/thespacedevs-ll2-api-openapi.yml)
 
 ## Maintainers
 
