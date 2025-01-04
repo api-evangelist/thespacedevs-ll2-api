@@ -10,6 +10,8 @@ apis:
     properties:
       - url: https://thespacedevs.com/llapi
         type: Documentation
+      - type: OpenAPI
+        url: properties/thespacedevs-ll2-api-openapi.yml
     description: >-
       Rocket launches, space events and crewed spaceflight. The Launch Library 2
       API is the official successor of the popular Launch Library API. It keeps
