@@ -508,7 +508,7 @@ paths:
         GET:
         Returns a range of information about your API access
       tags:
-        - APIs
+        - Throttle
         - Api-throttle
       security:
         - cookieAuth: []
@@ -1005,7 +1005,7 @@ paths:
             type: string
       tags:
         - Celestial
-        - Celestial_bodies
+        - Bodies
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -1071,7 +1071,7 @@ paths:
           required: true
       tags:
         - Celestial
-        - Celestial_bodies
+        - Bodies
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -1130,9 +1130,9 @@ paths:
           schema:
             type: string
       tags:
-        - Configurations
         - Agency
         - Types
+        - Configurations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -1175,9 +1175,9 @@ paths:
           description: A unique value identifying this agency type.
           required: true
       tags:
-        - Configurations
         - Agency
         - Types
+        - Configurations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -1236,8 +1236,8 @@ paths:
           schema:
             type: string
       tags:
+        - Astronaut
         - Configurations
-        - Roles
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -1278,8 +1278,8 @@ paths:
           description: A unique integer value identifying this Astronaut Role.
           required: true
       tags:
+        - Astronaut
         - Configurations
-        - Roles
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -1338,8 +1338,8 @@ paths:
           schema:
             type: string
       tags:
+        - Astronaut
         - Configurations
-        - Statuses
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -1380,8 +1380,8 @@ paths:
           description: A unique integer value identifying this Astronaut Status.
           required: true
       tags:
+        - Astronaut
         - Configurations
-        - Statuses
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -1440,8 +1440,9 @@ paths:
           schema:
             type: string
       tags:
-        - Configurations
+        - Astronaut
         - Types
+        - Configurations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -1482,8 +1483,9 @@ paths:
           description: A unique integer value identifying this Astronaut Type.
           required: true
       tags:
-        - Configurations
+        - Astronaut
         - Types
+        - Configurations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -1542,9 +1544,9 @@ paths:
           schema:
             type: string
       tags:
-        - Configurations
-        - Body
+        - Celestial
         - Types
+        - Configurations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -1587,9 +1589,9 @@ paths:
           description: A unique value identifying this celestial body type.
           required: true
       tags:
-        - Configurations
-        - Body
+        - Celestial
         - Types
+        - Configurations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -1647,6 +1649,7 @@ paths:
           schema:
             type: string
       tags:
+        - Countries
         - Configurations
       security:
         - cookieAuth: []
@@ -1687,8 +1690,8 @@ paths:
           description: A unique integer value identifying this Country.
           required: true
       tags:
+        - Countries
         - Configurations
-        - Config
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -1747,8 +1750,8 @@ paths:
           schema:
             type: string
       tags:
+        - Docking
         - Configurations
-        - Locations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -1789,8 +1792,8 @@ paths:
           description: A unique integer value identifying this Docking Location.
           required: true
       tags:
+        - Docking
         - Configurations
-        - Locations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -1849,8 +1852,8 @@ paths:
           schema:
             type: string
       tags:
-        - Configurations
         - Types
+        - Configurations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -1893,8 +1896,8 @@ paths:
           description: A unique value identifying this event type.
           required: true
       tags:
-        - Configurations
         - Types
+        - Configurations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -1953,9 +1956,9 @@ paths:
           schema:
             type: string
       tags:
-        - Configurations
         - Stages
         - Types
+        - Configurations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -1998,9 +2001,9 @@ paths:
           description: A unique value identifying this first stage type.
           required: true
       tags:
-        - Configurations
         - Stages
         - Types
+        - Configurations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -2059,8 +2062,8 @@ paths:
           schema:
             type: string
       tags:
-        - Configurations
         - Licenses
+        - Configurations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -2101,8 +2104,8 @@ paths:
           description: A unique integer value identifying this image license.
           required: true
       tags:
-        - Configurations
         - Licenses
+        - Configurations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -2161,9 +2164,9 @@ paths:
           schema:
             type: string
       tags:
-        - Configurations
         - Variants
         - Types
+        - Configurations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -2204,9 +2207,9 @@ paths:
           description: A unique integer value identifying this image variant type.
           required: true
       tags:
-        - Configurations
         - Variants
         - Types
+        - Configurations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -2265,8 +2268,8 @@ paths:
           schema:
             type: string
       tags:
-        - Configurations
         - Types
+        - Configurations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -2307,8 +2310,8 @@ paths:
           description: A unique integer value identifying this Info URL Type.
           required: true
       tags:
-        - Configurations
         - Types
+        - Configurations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -2367,8 +2370,8 @@ paths:
           schema:
             type: string
       tags:
-        - Configurations
         - Locations
+        - Configurations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -2409,8 +2412,8 @@ paths:
           description: A unique integer value identifying this landing location.
           required: true
       tags:
-        - Configurations
         - Locations
+        - Configurations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -2469,8 +2472,8 @@ paths:
           schema:
             type: string
       tags:
-        - Configurations
         - Types
+        - Configurations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -2511,8 +2514,8 @@ paths:
           description: A unique integer value identifying this landing type.
           required: true
       tags:
-        - Configurations
         - Types
+        - Configurations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -2570,6 +2573,7 @@ paths:
           schema:
             type: string
       tags:
+        - Languages
         - Configurations
       security:
         - cookieAuth: []
@@ -2610,8 +2614,8 @@ paths:
           description: A unique integer value identifying this Language.
           required: true
       tags:
+        - Languages
         - Configurations
-        - Config
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -2670,8 +2674,8 @@ paths:
           schema:
             type: string
       tags:
+        - Launch
         - Configurations
-        - Statuses
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -2714,8 +2718,8 @@ paths:
           description: A unique value identifying this Launch Status.
           required: true
       tags:
+        - Launch
         - Configurations
-        - Statuses
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -2774,8 +2778,8 @@ paths:
           schema:
             type: string
       tags:
+        - Launcher
         - Configurations
-        - Statuses
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -2816,8 +2820,8 @@ paths:
           description: A unique integer value identifying this Launcher Status.
           required: true
       tags:
+        - Launcher
         - Configurations
-        - Statuses
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -2876,8 +2880,8 @@ paths:
           schema:
             type: string
       tags:
-        - Configurations
         - Types
+        - Configurations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -2920,8 +2924,8 @@ paths:
           description: A unique value identifying this mission type.
           required: true
       tags:
-        - Configurations
         - Types
+        - Configurations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -2980,6 +2984,7 @@ paths:
           schema:
             type: string
       tags:
+        - Precisions
         - Configurations
       security:
         - cookieAuth: []
@@ -3023,8 +3028,8 @@ paths:
           description: A unique value identifying this Net Precision.
           required: true
       tags:
+        - Precisions
         - Configurations
-        - Config
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -3083,8 +3088,8 @@ paths:
           schema:
             type: string
       tags:
-        - Configurations
         - Types
+        - Configurations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -3125,8 +3130,8 @@ paths:
           description: A unique integer value identifying this Notices Type.
           required: true
       tags:
-        - Configurations
         - Types
+        - Configurations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -3225,7 +3230,6 @@ paths:
           required: true
       tags:
         - Configurations
-        - Config
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -3284,8 +3288,8 @@ paths:
           schema:
             type: string
       tags:
-        - Configurations
         - Types
+        - Configurations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -3328,8 +3332,8 @@ paths:
           description: A unique value identifying this payload type.
           required: true
       tags:
-        - Configurations
         - Types
+        - Configurations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -3388,8 +3392,8 @@ paths:
           schema:
             type: string
       tags:
-        - Configurations
         - Types
+        - Configurations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -3432,8 +3436,8 @@ paths:
           description: A unique value identifying this program type.
           required: true
       tags:
-        - Configurations
         - Types
+        - Configurations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -3492,8 +3496,8 @@ paths:
           schema:
             type: string
       tags:
-        - Configurations
         - Closure
+        - Configurations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -3534,9 +3538,8 @@ paths:
           description: A unique integer value identifying this Road Closure Type.
           required: true
       tags:
-        - Configurations
         - Closure
-        - Config
+        - Configurations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -3595,8 +3598,8 @@ paths:
           schema:
             type: string
       tags:
-        - Configurations
         - Station
+        - Configurations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -3637,9 +3640,8 @@ paths:
           description: A unique integer value identifying this Space Station Status.
           required: true
       tags:
-        - Configurations
         - Station
-        - Config
+        - Configurations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -3698,9 +3700,9 @@ paths:
           schema:
             type: string
       tags:
-        - Configurations
-        - Configuration
+        - Spacecraft
         - Types
+        - Configurations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -3743,9 +3745,9 @@ paths:
             Type.
           required: true
       tags:
-        - Configurations
-        - Configuration
+        - Spacecraft
         - Types
+        - Configurations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -3804,8 +3806,8 @@ paths:
           schema:
             type: string
       tags:
+        - Spacecraft
         - Configurations
-        - Statuses
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -3846,8 +3848,8 @@ paths:
           description: A unique integer value identifying this Spacecraft Status.
           required: true
       tags:
+        - Spacecraft
         - Configurations
-        - Statuses
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -3906,9 +3908,10 @@ paths:
           schema:
             type: string
       tags:
-        - Configurations
+        - Timeline
         - Events
         - Types
+        - Configurations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -3949,9 +3952,10 @@ paths:
           description: A unique integer value identifying this Timeline Event Type.
           required: true
       tags:
-        - Configurations
+        - Timeline
         - Events
         - Types
+        - Configurations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -4010,8 +4014,8 @@ paths:
           schema:
             type: string
       tags:
-        - Configurations
         - Types
+        - Configurations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -4052,8 +4056,8 @@ paths:
           description: A unique integer value identifying this Video URL Type.
           required: true
       tags:
-        - Configurations
         - Types
+        - Configurations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -4095,7 +4099,7 @@ paths:
         Find all the FAQs and support links on the documentation homepage -
         [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)
       tags:
-        - Dashboard
+        - Starship
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -4240,7 +4244,7 @@ paths:
             type: integer
       tags:
         - Docking
-        - Docking_events
+        - Events
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -4322,7 +4326,7 @@ paths:
           required: true
       tags:
         - Docking
-        - Docking_events
+        - Events
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -6631,7 +6635,7 @@ paths:
             type: integer
       tags:
         - Launcher
-        - Launcher_configurations
+        - Configurations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -6742,7 +6746,7 @@ paths:
           required: true
       tags:
         - Launcher
-        - Launcher_configurations
+        - Configurations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -9477,8 +9481,7 @@ paths:
           name: total_launch_count__lte
           schema:
             type: integer
-      tags:
-        - Locations
+      tags: []
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -9555,8 +9558,7 @@ paths:
             type: integer
           description: A unique integer value identifying this Location.
           required: true
-      tags:
-        - Locations
+      tags: []
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -9688,8 +9690,7 @@ paths:
           schema:
             type: string
       tags:
-        - Mission
-        - Mission_patches
+        - Patches
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -9763,8 +9764,7 @@ paths:
           description: A unique integer value identifying this Mission Patch.
           required: true
       tags:
-        - Mission
-        - Mission_patches
+        - Patches
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -10138,8 +10138,7 @@ paths:
           schema:
             type: string
       tags:
-        - Payload
-        - Payload_flights
+        - Flights
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -10196,8 +10195,7 @@ paths:
           description: A unique integer value identifying this Payload Flight.
           required: true
       tags:
-        - Payload
-        - Payload_flights
+        - Flights
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -10717,8 +10715,7 @@ paths:
           schema:
             type: integer
       tags:
-        - Space
-        - Space_stations
+        - Stations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -10796,8 +10793,7 @@ paths:
           description: A unique integer value identifying this Space Station.
           required: true
       tags:
-        - Space
-        - Space_stations
+        - Stations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -11303,7 +11299,7 @@ paths:
             type: string
       tags:
         - Spacecraft
-        - Spacecraft_configurations
+        - Configurations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -11379,7 +11375,7 @@ paths:
           required: true
       tags:
         - Spacecraft
-        - Spacecraft_configurations
+        - Configurations
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -11467,7 +11463,7 @@ paths:
             type: integer
       tags:
         - Spacecraft
-        - Spacecraft_flights
+        - Flights
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -11526,7 +11522,7 @@ paths:
           required: true
       tags:
         - Spacecraft
-        - Spacecraft_flights
+        - Flights
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -11956,8 +11952,7 @@ paths:
           description: A search term.
           schema:
             type: string
-      tags:
-        - Updates
+      tags: []
       security:
         - cookieAuth: []
         - Token_Authentication: []
@@ -12014,8 +12009,7 @@ paths:
             type: integer
           description: A unique integer value identifying this Update.
           required: true
-      tags:
-        - Id
+      tags: []
       security:
         - cookieAuth: []
         - Token_Authentication: []
