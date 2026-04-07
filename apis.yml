@@ -6,44 +6,44 @@ apis:
     name: TheSpaceDevs LL2 API
     tags:
       - Agencies
-      - Throttle
-      - Api-throttle
-      - Astronauts
-      - Celestial
-      - Bodies
       - Agency
-      - Types
-      - Configurations
+      - Api-Throttle
       - Astronaut
+      - Astronauts
+      - Bodies
+      - Celestial
+      - Closure
+      - Configurations
       - Countries
       - Docking
-      - Stages
-      - Licenses
-      - Variants
-      - Locations
+      - Events
+      - Expeditions
+      - Families
+      - Flights
+      - Landings
       - Languages
       - Launch
       - Launcher
-      - Precisions
-      - Closure
-      - Station
-      - Spacecraft
-      - Timeline
-      - Events
-      - Starship
-      - Previous
-      - Expeditions
-      - Landings
-      - Families
       - Launchers
       - Launches
-      - Patches
+      - Licenses
+      - Locations
       - Pads
-      - Flights
+      - Patches
       - Payloads
+      - Precisions
+      - Previous
       - Programs
-      - Stations
+      - Spacecraft
       - Spacewalks
+      - Stages
+      - Starship
+      - Station
+      - Stations
+      - Throttle
+      - Timeline
+      - Types
+      - Variants
     humanURL: https://thespacedevs.com/llapi
     properties:
       - url: https://thespacedevs.com/llapi
