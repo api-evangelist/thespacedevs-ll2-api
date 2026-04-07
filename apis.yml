@@ -66,17 +66,12 @@ created: '2024-11-07T00:00:00.000Z'
 modified: '2026-03-16'
 position: Consuming
 description: >-
-  TheSpaceDevs LL2 API is a powerful tool that allows developers to access and
-  interact with data related to satellite launches and missions. With this API,
-  users can retrieve information about upcoming launches, track the status of
-  ongoing missions, and access historical data on past missions. The API
-  provides real-time updates on launch schedules, mission timelines, and
-  spacecraft telemetry, making it an invaluable resource for anyone interested
-  in the space industry. Additionally, TheSpaceDevs LL2 API offers advanced
-  filtering and search capabilities, enabling developers to easily find the
-  specific information they need. With this API, developers can build a wide
-  range of applications and services that enhance our understanding and
-  exploration of outer space.
+  TheSpaceDevs LL2 API is a powerful tool that allows developers to access and interact
+  with data related to satellite launches and missions. With this API, users can retrieve
+  information about upcoming launches, track the status of ongoing missions, and access
+  historical data on past missions. The API provides real-time updates on launch schedules,
+  mission timelines, and spacecraft telemetry, making it an invaluable resource for
+  anyone interested in the space industry.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
