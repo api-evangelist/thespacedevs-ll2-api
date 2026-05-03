@@ -14,6 +14,7 @@ paths:
   /2.3.0/agencies/:
     get:
       operationId: agencies_list
+      summary: List Agencies
       description: >-
         #### Modes
 
@@ -398,6 +399,7 @@ paths:
   /2.3.0/agencies/{id}/:
     get:
       operationId: agencies_retrieve
+      summary: Get Agency
       description: >-
         #### Modes
 
@@ -502,6 +504,7 @@ paths:
   /2.3.0/api-throttle/:
     get:
       operationId: api_throttle_list
+      summary: Get API Throttle Status
       description: |-
         API endpoint that allows API Throttle information to be viewed.
 
@@ -525,6 +528,7 @@ paths:
   /2.3.0/astronauts/:
     get:
       operationId: astronauts_list
+      summary: List Astronauts
       description: >-
         #### Modes
 
@@ -839,6 +843,7 @@ paths:
   /2.3.0/astronauts/{id}/:
     get:
       operationId: astronauts_retrieve
+      summary: Get Astronaut
       description: >-
         #### Modes
 
@@ -927,6 +932,7 @@ paths:
   /2.3.0/celestial_bodies/:
     get:
       operationId: celestial_bodies_list
+      summary: List Celestial Bodies
       description: >-
         #### Modes
 
@@ -1020,6 +1026,7 @@ paths:
   /2.3.0/celestial_bodies/{id}/:
     get:
       operationId: celestial_bodies_retrieve
+      summary: Get Celestial Body
       description: >-
         #### Modes
 
@@ -1085,6 +1092,7 @@ paths:
   /2.3.0/config/agency_types/:
     get:
       operationId: config_agency_types_list
+      summary: List Agency Types
       description: >-
         #### Number of results
 
@@ -1146,6 +1154,7 @@ paths:
   /2.3.0/config/agency_types/{id}/:
     get:
       operationId: config_agency_types_retrieve
+      summary: Get Agency Type
       description: >-
         #### Number of results
 
@@ -1191,6 +1200,7 @@ paths:
   /2.3.0/config/astronaut_roles/:
     get:
       operationId: config_astronaut_roles_list
+      summary: List Astronaut Roles
       description: >-
         #### Number of results
 
@@ -1251,6 +1261,7 @@ paths:
   /2.3.0/config/astronaut_roles/{id}/:
     get:
       operationId: config_astronaut_roles_retrieve
+      summary: Get Astronaut Role
       description: >-
         #### Number of results
 
@@ -1293,6 +1304,7 @@ paths:
   /2.3.0/config/astronaut_statuses/:
     get:
       operationId: config_astronaut_statuses_list
+      summary: List Astronaut Statuses
       description: >-
         #### Number of results
 
@@ -1353,6 +1365,7 @@ paths:
   /2.3.0/config/astronaut_statuses/{id}/:
     get:
       operationId: config_astronaut_statuses_retrieve
+      summary: Get Astronaut Status
       description: >-
         #### Number of results
 
@@ -1395,6 +1408,7 @@ paths:
   /2.3.0/config/astronaut_types/:
     get:
       operationId: config_astronaut_types_list
+      summary: List Astronaut Types
       description: >-
         #### Number of results
 
@@ -1456,6 +1470,7 @@ paths:
   /2.3.0/config/astronaut_types/{id}/:
     get:
       operationId: config_astronaut_types_retrieve
+      summary: Get Astronaut Type
       description: >-
         #### Number of results
 
@@ -1499,6 +1514,7 @@ paths:
   /2.3.0/config/celestial_body_types/:
     get:
       operationId: config_celestial_body_types_list
+      summary: List Celestial Body Types
       description: >-
         #### Number of results
 
@@ -1560,6 +1576,7 @@ paths:
   /2.3.0/config/celestial_body_types/{id}/:
     get:
       operationId: config_celestial_body_types_retrieve
+      summary: Get Celestial Body Type
       description: >-
         #### Number of results
 
@@ -1605,6 +1622,7 @@ paths:
   /2.3.0/config/countries/:
     get:
       operationId: config_countries_list
+      summary: List Countries
       description: >-
         #### Number of results
 
@@ -1664,6 +1682,7 @@ paths:
   /2.3.0/config/countries/{id}/:
     get:
       operationId: config_countries_retrieve
+      summary: Get Country
       description: >-
         #### Number of results
 
@@ -1705,6 +1724,7 @@ paths:
   /2.3.0/config/docking_locations/:
     get:
       operationId: config_docking_locations_list
+      summary: List Docking Locations
       description: >-
         #### Number of results
 
@@ -1765,6 +1785,7 @@ paths:
   /2.3.0/config/docking_locations/{id}/:
     get:
       operationId: config_docking_locations_retrieve
+      summary: Get Docking Location
       description: >-
         #### Number of results
 
@@ -1807,6 +1828,7 @@ paths:
   /2.3.0/config/event_types/:
     get:
       operationId: config_event_types_list
+      summary: List Event Types
       description: >-
         #### Number of results
 
@@ -1867,6 +1889,7 @@ paths:
   /2.3.0/config/event_types/{id}/:
     get:
       operationId: config_event_types_retrieve
+      summary: Get Event Type
       description: >-
         #### Number of results
 
@@ -1911,6 +1934,7 @@ paths:
   /2.3.0/config/first_stage_types/:
     get:
       operationId: config_first_stage_types_list
+      summary: List First Stage Types
       description: >-
         #### Number of results
 
@@ -1972,6 +1996,7 @@ paths:
   /2.3.0/config/first_stage_types/{id}/:
     get:
       operationId: config_first_stage_types_retrieve
+      summary: Get First Stage Type
       description: >-
         #### Number of results
 
@@ -2017,6 +2042,7 @@ paths:
   /2.3.0/config/image_licenses/:
     get:
       operationId: config_image_licenses_list
+      summary: List Image Licenses
       description: >-
         #### Number of results
 
@@ -2077,6 +2103,7 @@ paths:
   /2.3.0/config/image_licenses/{id}/:
     get:
       operationId: config_image_licenses_retrieve
+      summary: Get Image License
       description: >-
         #### Number of results
 
@@ -2119,6 +2146,7 @@ paths:
   /2.3.0/config/image_variant_types/:
     get:
       operationId: config_image_variant_types_list
+      summary: List Image Variant Types
       description: >-
         #### Number of results
 
@@ -2180,6 +2208,7 @@ paths:
   /2.3.0/config/image_variant_types/{id}/:
     get:
       operationId: config_image_variant_types_retrieve
+      summary: Get Image Variant Type
       description: >-
         #### Number of results
 
@@ -2223,6 +2252,7 @@ paths:
   /2.3.0/config/infourl_types/:
     get:
       operationId: config_infourl_types_list
+      summary: List Info URL Types
       description: >-
         #### Number of results
 
@@ -2283,6 +2313,7 @@ paths:
   /2.3.0/config/infourl_types/{id}/:
     get:
       operationId: config_infourl_types_retrieve
+      summary: Get Info URL Type
       description: >-
         #### Number of results
 
@@ -2325,6 +2356,7 @@ paths:
   /2.3.0/config/landing_locations/:
     get:
       operationId: config_landing_locations_list
+      summary: List Landing Locations
       description: >-
         #### Number of results
 
@@ -2385,6 +2417,7 @@ paths:
   /2.3.0/config/landing_locations/{id}/:
     get:
       operationId: config_landing_locations_retrieve
+      summary: Get Landing Location
       description: >-
         #### Number of results
 
@@ -2427,6 +2460,7 @@ paths:
   /2.3.0/config/landing_types/:
     get:
       operationId: config_landing_types_list
+      summary: List Landing Types
       description: >-
         #### Number of results
 
@@ -2487,6 +2521,7 @@ paths:
   /2.3.0/config/landing_types/{id}/:
     get:
       operationId: config_landing_types_retrieve
+      summary: Get Landing Type
       description: >-
         #### Number of results
 
@@ -2529,6 +2564,7 @@ paths:
   /2.3.0/config/languages/:
     get:
       operationId: config_languages_list
+      summary: List Languages
       description: >-
         #### Number of results
 
@@ -2588,6 +2624,7 @@ paths:
   /2.3.0/config/languages/{id}/:
     get:
       operationId: config_languages_retrieve
+      summary: Get Language
       description: >-
         #### Number of results
 
@@ -2629,6 +2666,7 @@ paths:
   /2.3.0/config/launch_statuses/:
     get:
       operationId: config_launch_statuses_list
+      summary: List Launch Statuses
       description: >-
         #### Number of results
 
@@ -2689,6 +2727,7 @@ paths:
   /2.3.0/config/launch_statuses/{id}/:
     get:
       operationId: config_launch_statuses_retrieve
+      summary: Get Launch Status
       description: >-
         #### Number of results
 
@@ -2733,6 +2772,7 @@ paths:
   /2.3.0/config/launcher_statuses/:
     get:
       operationId: config_launcher_statuses_list
+      summary: List Launcher Statuses
       description: >-
         #### Number of results
 
@@ -2793,6 +2833,7 @@ paths:
   /2.3.0/config/launcher_statuses/{id}/:
     get:
       operationId: config_launcher_statuses_retrieve
+      summary: Get Launcher Status
       description: >-
         #### Number of results
 
@@ -2835,6 +2876,7 @@ paths:
   /2.3.0/config/mission_types/:
     get:
       operationId: config_mission_types_list
+      summary: List Mission Types
       description: >-
         #### Number of results
 
@@ -2895,6 +2937,7 @@ paths:
   /2.3.0/config/mission_types/{id}/:
     get:
       operationId: config_mission_types_retrieve
+      summary: Get Mission Type
       description: >-
         #### Number of results
 
@@ -2939,6 +2982,7 @@ paths:
   /2.3.0/config/net_precisions/:
     get:
       operationId: config_net_precisions_list
+      summary: List Net Precisions
       description: >-
         #### Number of results
 
@@ -2999,6 +3043,7 @@ paths:
   /2.3.0/config/net_precisions/{id}/:
     get:
       operationId: config_net_precisions_retrieve
+      summary: Get Net Precision
       description: >-
         #### Number of results
 
@@ -3043,6 +3088,7 @@ paths:
   /2.3.0/config/notice_types/:
     get:
       operationId: config_notice_types_list
+      summary: List Notice Types
       description: >-
         #### Number of results
 
@@ -3103,6 +3149,7 @@ paths:
   /2.3.0/config/notice_types/{id}/:
     get:
       operationId: config_notice_types_retrieve
+      summary: Get Notice Type
       description: >-
         #### Number of results
 
@@ -3145,6 +3192,7 @@ paths:
   /2.3.0/config/orbits/:
     get:
       operationId: config_orbits_list
+      summary: List Orbits
       description: >-
         #### Number of results
 
@@ -3203,6 +3251,7 @@ paths:
   /2.3.0/config/orbits/{id}/:
     get:
       operationId: config_orbits_retrieve
+      summary: Get Orbit
       description: >-
         #### Number of results
 
@@ -3243,6 +3292,7 @@ paths:
   /2.3.0/config/payload_types/:
     get:
       operationId: config_payload_types_list
+      summary: List Payload Types
       description: >-
         #### Number of results
 
@@ -3303,6 +3353,7 @@ paths:
   /2.3.0/config/payload_types/{id}/:
     get:
       operationId: config_payload_types_retrieve
+      summary: Get Payload Type
       description: >-
         #### Number of results
 
@@ -3347,6 +3398,7 @@ paths:
   /2.3.0/config/program_types/:
     get:
       operationId: config_program_types_list
+      summary: List Program Types
       description: >-
         #### Number of results
 
@@ -3407,6 +3459,7 @@ paths:
   /2.3.0/config/program_types/{id}/:
     get:
       operationId: config_program_types_retrieve
+      summary: Get Program Type
       description: >-
         #### Number of results
 
@@ -3451,6 +3504,7 @@ paths:
   /2.3.0/config/road_closure_statuses/:
     get:
       operationId: config_road_closure_statuses_list
+      summary: List Road Closure Statuses
       description: >-
         #### Number of results
 
@@ -3511,6 +3565,7 @@ paths:
   /2.3.0/config/road_closure_statuses/{id}/:
     get:
       operationId: config_road_closure_statuses_retrieve
+      summary: Get Road Closure Status
       description: >-
         #### Number of results
 
@@ -3553,6 +3608,7 @@ paths:
   /2.3.0/config/space_station_statuses/:
     get:
       operationId: config_space_station_statuses_list
+      summary: List Space Station Statuses
       description: >-
         #### Number of results
 
@@ -3613,6 +3669,7 @@ paths:
   /2.3.0/config/space_station_statuses/{id}/:
     get:
       operationId: config_space_station_statuses_retrieve
+      summary: Get Space Station Status
       description: >-
         #### Number of results
 
@@ -3655,6 +3712,7 @@ paths:
   /2.3.0/config/spacecraft_configuration_types/:
     get:
       operationId: config_spacecraft_configuration_types_list
+      summary: List Spacecraft Configuration Types
       description: >-
         #### Number of results
 
@@ -3716,6 +3774,7 @@ paths:
   /2.3.0/config/spacecraft_configuration_types/{id}/:
     get:
       operationId: config_spacecraft_configuration_types_retrieve
+      summary: Get Spacecraft Configuration Type
       description: >-
         #### Number of results
 
@@ -3761,6 +3820,7 @@ paths:
   /2.3.0/config/spacecraft_statuses/:
     get:
       operationId: config_spacecraft_statuses_list
+      summary: List Spacecraft Statuses
       description: >-
         #### Number of results
 
@@ -3821,6 +3881,7 @@ paths:
   /2.3.0/config/spacecraft_statuses/{id}/:
     get:
       operationId: config_spacecraft_statuses_retrieve
+      summary: Get Spacecraft Status
       description: >-
         #### Number of results
 
@@ -4115,6 +4176,7 @@ paths:
   /2.3.0/docking_events/:
     get:
       operationId: docking_events_list
+      summary: List Docking Events
       description: >-
         #### Modes
 
@@ -4259,6 +4321,7 @@ paths:
   /2.3.0/docking_events/{id}/:
     get:
       operationId: docking_events_retrieve
+      summary: Get Docking Event
       description: >-
         #### Modes
 
@@ -4340,6 +4403,7 @@ paths:
   /2.3.0/events/:
     get:
       operationId: events_list
+      summary: List Events
       description: >-
         #### Modes
 
@@ -4558,6 +4622,7 @@ paths:
   /2.3.0/events/{id}/:
     get:
       operationId: events_retrieve
+      summary: Get Event
       description: >-
         #### Modes
 
@@ -4632,6 +4697,7 @@ paths:
   /2.3.0/events/previous/:
     get:
       operationId: events_previous_list
+      summary: List Previous Events
       description: >-
         #### Modes
 
@@ -4852,6 +4918,7 @@ paths:
   /2.3.0/events/previous/{id}/:
     get:
       operationId: events_previous_retrieve
+      summary: Get Previous Event
       description: >-
         #### Modes
 
@@ -4928,6 +4995,7 @@ paths:
   /2.3.0/events/upcoming/:
     get:
       operationId: events_upcoming_list
+      summary: List Upcoming Events
       description: >-
         #### Modes
 
@@ -5155,6 +5223,7 @@ paths:
   /2.3.0/events/upcoming/{id}/:
     get:
       operationId: events_upcoming_retrieve
+      summary: Get Upcoming Event
       description: >-
         #### Modes
 
@@ -5231,6 +5300,7 @@ paths:
   /2.3.0/expeditions/:
     get:
       operationId: expeditions_list
+      summary: List Expeditions
       description: >-
         #### Modes
 
@@ -5398,6 +5468,7 @@ paths:
   /2.3.0/expeditions/{id}/:
     get:
       operationId: expeditions_retrieve
+      summary: Get Expedition
       description: >-
         #### Modes
 
@@ -5474,6 +5545,7 @@ paths:
   /2.3.0/landings/:
     get:
       operationId: landings_list
+      summary: List Landings
       description: >-
         #### Modes
 
@@ -5674,6 +5746,7 @@ paths:
   /2.3.0/landings/{id}/:
     get:
       operationId: landings_retrieve
+      summary: Get Landing
       description: >-
         #### Modes
 
@@ -5756,6 +5829,7 @@ paths:
   /2.3.0/launcher_configuration_families/:
     get:
       operationId: launcher_configuration_families_list
+      summary: List Launcher Configuration Families
       description: >-
         #### Modes
 
@@ -6133,6 +6207,7 @@ paths:
   /2.3.0/launcher_configuration_families/{id}/:
     get:
       operationId: launcher_configuration_families_retrieve
+      summary: Get Launcher Configuration Family
       description: >-
         #### Modes
 
@@ -6243,6 +6318,7 @@ paths:
   /2.3.0/launcher_configurations/:
     get:
       operationId: launcher_configurations_list
+      summary: List Launcher Configurations
       description: >-
         #### Modes
 
@@ -6650,6 +6726,7 @@ paths:
   /2.3.0/launcher_configurations/{id}/:
     get:
       operationId: launcher_configurations_retrieve
+      summary: Get Launcher Configuration
       description: >-
         #### Modes
 
@@ -6760,6 +6837,7 @@ paths:
   /2.3.0/launchers/:
     get:
       operationId: launchers_list
+      summary: List Launchers
       description: >-
         #### Modes
 
@@ -6984,6 +7062,7 @@ paths:
   /2.3.0/launchers/{id}/:
     get:
       operationId: launchers_retrieve
+      summary: Get Launcher
       description: >-
         #### Modes
 
@@ -7066,6 +7145,7 @@ paths:
   /2.3.0/launches/:
     get:
       operationId: launches_list
+      summary: List Launches
       description: >-
         #### Modes
 
@@ -7689,6 +7769,7 @@ paths:
   /2.3.0/launches/{id}/:
     get:
       operationId: launches_retrieve
+      summary: Get Launch
       description: >-
         #### Modes
 
@@ -7816,6 +7897,7 @@ paths:
   /2.3.0/launches/previous/:
     get:
       operationId: launches_previous_list
+      summary: List Previous Launches
       description: >-
         #### Modes
 
@@ -8442,6 +8524,7 @@ paths:
   /2.3.0/launches/previous/{id}/:
     get:
       operationId: launches_previous_retrieve
+      summary: Get Previous Launch
       description: >-
         #### Modes
 
@@ -8572,6 +8655,7 @@ paths:
   /2.3.0/launches/upcoming/:
     get:
       operationId: launches_upcoming_list
+      summary: List Upcoming Launches
       description: >-
         #### Modes
 
@@ -9205,6 +9289,7 @@ paths:
   /2.3.0/launches/upcoming/{id}/:
     get:
       operationId: launches_upcoming_retrieve
+      summary: Get Upcoming Launch
       description: >-
         #### Modes
 
@@ -9335,6 +9420,7 @@ paths:
   /2.3.0/locations/:
     get:
       operationId: locations_list
+      summary: List Locations
       description: >-
         #### Modes
 
@@ -9495,6 +9581,7 @@ paths:
   /2.3.0/locations/{id}/:
     get:
       operationId: locations_retrieve
+      summary: Get Location
       description: >-
         #### Modes
 
@@ -9572,6 +9659,7 @@ paths:
   /2.3.0/mission_patches/:
     get:
       operationId: mission_patches_list
+      summary: List Mission Patches
       description: >-
         #### Modes
 
@@ -9705,6 +9793,7 @@ paths:
   /2.3.0/mission_patches/{id}/:
     get:
       operationId: mission_patches_retrieve
+      summary: Get Mission Patch
       description: >-
         #### Modes
 
@@ -9778,6 +9867,7 @@ paths:
   /2.3.0/pads/:
     get:
       operationId: pads_list
+      summary: List Launch Pads
       description: >-
         #### Filters
 
@@ -9989,6 +10079,7 @@ paths:
   /2.3.0/pads/{id}/:
     get:
       operationId: pads_retrieve
+      summary: Get Launch Pad
       description: >-
         #### Filters
 
@@ -10065,6 +10156,7 @@ paths:
   /2.3.0/payload_flights/:
     get:
       operationId: payload_flights_list
+      summary: List Payload Flights
       description: >-
         #### Modes
 
@@ -10153,6 +10245,7 @@ paths:
   /2.3.0/payload_flights/{id}/:
     get:
       operationId: payload_flights_retrieve
+      summary: Get Payload Flight
       description: >-
         #### Modes
 
@@ -10209,6 +10302,7 @@ paths:
   /2.3.0/payloads/:
     get:
       operationId: payloads_list
+      summary: List Payloads
       description: >-
         #### Modes
 
@@ -10339,6 +10433,7 @@ paths:
   /2.3.0/payloads/{id}/:
     get:
       operationId: payloads_retrieve
+      summary: Get Payload
       description: >-
         #### Modes
 
@@ -10414,6 +10509,7 @@ paths:
   /2.3.0/programs/:
     get:
       operationId: programs_list
+      summary: List Programs
       description: >-
         #### Modes
 
@@ -10488,6 +10584,7 @@ paths:
   /2.3.0/programs/{id}/:
     get:
       operationId: programs_retrieve
+      summary: Get Program
       description: >-
         #### Modes
 
@@ -10536,6 +10633,7 @@ paths:
   /2.3.0/space_stations/:
     get:
       operationId: space_stations_list
+      summary: List Space Stations
       description: >-
         #### Modes
 
@@ -10730,6 +10828,7 @@ paths:
   /2.3.0/space_stations/{id}/:
     get:
       operationId: space_stations_retrieve
+      summary: Get Space Station
       description: >-
         #### Modes
 
@@ -10807,6 +10906,7 @@ paths:
   /2.3.0/spacecraft/:
     get:
       operationId: spacecraft_list
+      summary: List Spacecraft
       description: >-
         #### Modes
 
@@ -10929,6 +11029,7 @@ paths:
   /2.3.0/spacecraft/{id}/:
     get:
       operationId: spacecraft_retrieve
+      summary: Get Spacecraft
       description: >-
         #### Modes
 
@@ -11004,6 +11105,7 @@ paths:
   /2.3.0/spacecraft_configuration_families/:
     get:
       operationId: spacecraft_configuration_families_list
+      summary: List Spacecraft Configuration Families
       description: >-
         #### Modes
 
@@ -11117,6 +11219,7 @@ paths:
   /2.3.0/spacecraft_configuration_families/{id}/:
     get:
       operationId: spacecraft_configuration_families_retrieve
+      summary: Get Spacecraft Configuration Family
       description: >-
         #### Modes
 
@@ -11196,6 +11299,7 @@ paths:
   /2.3.0/spacecraft_configurations/:
     get:
       operationId: spacecraft_configurations_list
+      summary: List Spacecraft Configurations
       description: >-
         #### Modes
 
@@ -11314,6 +11418,7 @@ paths:
   /2.3.0/spacecraft_configurations/{id}/:
     get:
       operationId: spacecraft_configurations_retrieve
+      summary: Get Spacecraft Configuration
       description: >-
         #### Modes
 
@@ -11389,6 +11494,7 @@ paths:
   /2.3.0/spacecraft_flights/:
     get:
       operationId: spacecraft_flights_list
+      summary: List Spacecraft Flights
       description: >-
         #### Modes
 
@@ -11478,6 +11584,7 @@ paths:
   /2.3.0/spacecraft_flights/{id}/:
     get:
       operationId: spacecraft_flights_retrieve
+      summary: Get Spacecraft Flight
       description: >-
         #### Modes
 
@@ -11536,6 +11643,7 @@ paths:
   /2.3.0/spacewalks/:
     get:
       operationId: spacewalks_list
+      summary: List Spacewalks
       description: >-
         #### Modes
 
@@ -11796,6 +11904,7 @@ paths:
   /2.3.0/spacewalks/{id}/:
     get:
       operationId: spacewalks_retrieve
+      summary: Get Spacewalk
       description: >-
         #### Modes
 
@@ -11873,6 +11982,7 @@ paths:
   /2.3.0/updates/:
     get:
       operationId: updates_list
+      summary: List Updates
       description: >-
         #### Filters
 
@@ -11966,6 +12076,7 @@ paths:
   /2.3.0/updates/{id}/:
     get:
       operationId: updates_retrieve
+      summary: Get Update
       description: >-
         #### Filters
 
@@ -20052,6 +20163,6 @@ components:
       name: sessionid
 servers:
   - url: https://ll.thespacedevs.com/
-    description: Production API (  rate-limited)
+    description: Production API (ï¿½ rate-limited)
   - url: https://lldev.thespacedevs.com/
     description: Development API (stale and limited data, for development testing only)

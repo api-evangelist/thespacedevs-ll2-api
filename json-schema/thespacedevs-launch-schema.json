@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/thespacedevs-ll2-api/blob/main/json-schema/thespacedevs-launch-schema.json",
+  "title": "Space Launch Record",
+  "description": "A rocket launch record from the TheSpaceDevs Launch Library 2 API.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique identifier for the launch."
+    },
+    "name": {
+      "type": "string",
+      "description": "Launch name (e.g., 'Starship | Flight 9')."
+    },
+    "status": {
+      "type": "object",
+      "description": "Launch status.",
+      "properties": {
+        "id": { "type": "integer" },
+        "name": { "type": "string" },
+        "abbrev": { "type": "string" },
+        "description": { "type": "string" }
+      }
+    },
+    "net": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true,
+      "description": "Net launch time (No Earlier Than) in UTC."
+    },
+    "window_start": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true,
+      "description": "Launch window open time in UTC."
+    },
+    "window_end": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true,
+      "description": "Launch window close time in UTC."
+    },
+    "rocket": {
+      "type": "object",
+      "description": "Rocket and launcher configuration.",
+      "properties": {
+        "id": { "type": "integer" },
+        "configuration": {
+          "type": "object",
+          "properties": {
+            "id": { "type": "integer" },
+            "name": { "type": "string" },
+            "family": { "type": "string" },
+            "full_name": { "type": "string" }
+          }
+        }
+      }
+    },
+    "mission": {
+      "type": "object",
+      "nullable": true,
+      "description": "Mission details.",
+      "properties": {
+        "id": { "type": "integer" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "type": { "type": "string" },
+        "orbit": {
+          "type": "object",
+          "properties": {
+            "id": { "type": "integer" },
+            "name": { "type": "string" },
+            "abbrev": { "type": "string" }
+          }
+        }
+      }
+    },
+    "pad": {
+      "type": "object",
+      "description": "Launch pad details.",
+      "properties": {
+        "id": { "type": "integer" },
+        "name": { "type": "string" },
+        "latitude": { "type": "string" },
+        "longitude": { "type": "string" },
+        "location": {
+          "type": "object",
+          "properties": {
+            "id": { "type": "integer" },
+            "name": { "type": "string" },
+            "country_code": { "type": "string" }
+          }
+        }
+      }
+    },
+    "launch_service_provider": {
+      "type": "object",
+      "description": "The agency responsible for the launch.",
+      "properties": {
+        "id": { "type": "integer" },
+        "name": { "type": "string" },
+        "abbrev": { "type": "string" },
+        "type": { "type": "string" }
+      }
+    },
+    "probability": {
+      "type": "integer",
+      "nullable": true,
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Launch probability percentage (0-100)."
+    }
+  }
+}

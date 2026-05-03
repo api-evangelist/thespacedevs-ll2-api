@@ -1,0 +1,172 @@
+vocabulary:
+  provider: TheSpaceDevs Launch Library 2
+  description: >-
+    Vocabulary and taxonomy for TheSpaceDevs Launch Library 2 API,
+    covering rocket launches, spacecraft, astronauts, space stations,
+    orbital mechanics, and the global space launch industry.
+  terms:
+    - term: Launch Library 2 (LL2)
+      definition: >-
+        The official successor to the Launch Library API, maintained by
+        TheSpaceDevs community. Provides comprehensive data on rocket
+        launches, space events, and crewed spaceflight missions.
+      tags:
+        - Core Concept
+        - API
+
+    - term: NET (No Earlier Than)
+      definition: >-
+        The earliest possible launch date and time. Used when the exact
+        launch window has not been confirmed. Expressed as UTC datetime.
+      tags:
+        - Launch Timing
+        - Core Concept
+
+    - term: Launch Status
+      definition: >-
+        The current go/no-go state of a launch.
+      tags:
+        - Status
+        - Launch
+      values:
+        - "Go (1)": Launch is confirmed and on schedule.
+        - "TBD (2)": To Be Determined — date not set.
+        - "Success (3)": Launch completed successfully.
+        - "Failure (4)": Launch ended in failure.
+        - "Hold (5)": Launch is on hold.
+        - "In Flight (6)": Vehicle is currently airborne.
+        - "Partial Failure (7)": Launch partially succeeded.
+        - "TBC (8)": To Be Confirmed — tentative date.
+
+    - term: Launch Window
+      definition: >-
+        The time period during which a launch can occur, bounded by
+        window_start and window_end. Determined by orbital mechanics,
+        range safety, and vehicle constraints.
+      tags:
+        - Launch Timing
+
+    - term: Launch Service Provider
+      definition: >-
+        The organization responsible for executing the launch (e.g., SpaceX,
+        Roscosmos, ISRO, ULA). Distinct from the mission owner.
+      tags:
+        - Agency
+        - Organization
+
+    - term: Launch Pad
+      definition: >-
+        The physical launch facility (pad) from which a rocket launches.
+        Associated with a geographic location and launch provider.
+      tags:
+        - Infrastructure
+        - Location
+
+    - term: Launcher Configuration
+      definition: >-
+        The specific variant of a rocket vehicle (e.g., Falcon 9 Block 5,
+        Atlas V 551, Ariane 5 ECA). Each configuration has its own
+        performance, physical characteristics, and success record.
+      tags:
+        - Vehicle
+        - Technical
+
+    - term: Prime Mover (Space Context)
+      definition: >-
+        Not applicable to rocketry. In LL2 context, the launch vehicle
+        is described by its configuration and family.
+      tags:
+        - Disambiguation
+
+    - term: Orbit
+      definition: >-
+        The orbital regime a payload is delivered to (e.g., LEO, GEO, SSO, TLI).
+      tags:
+        - Orbital Mechanics
+      values:
+        - LEO: Low Earth Orbit (160-2000 km)
+        - GEO: Geostationary Earth Orbit (~35,786 km)
+        - MEO: Medium Earth Orbit (2000-35,786 km)
+        - SSO: Sun-Synchronous Orbit
+        - TLI: Trans-Lunar Injection
+        - HEO: Highly Elliptical Orbit
+        - ISS: International Space Station orbit
+
+    - term: EVA (Extravehicular Activity)
+      definition: >-
+        A spacewalk — an excursion by an astronaut outside a spacecraft or
+        space station. Tracked in LL2 as a spacewalk record.
+      tags:
+        - Spacewalk
+        - Crewed Spaceflight
+
+    - term: Expedition
+      definition: >-
+        A crewed mission assignment period aboard a space station. ISS
+        expeditions are numbered sequentially (e.g., Expedition 70).
+      tags:
+        - Space Station
+        - Crewed Spaceflight
+
+    - term: Docking Event
+      definition: >-
+        The physical connection of a spacecraft to a docking port on a
+        space station or another spacecraft.
+      tags:
+        - Spacecraft Operations
+
+    - term: Mode
+      definition: >-
+        LL2 API parameter controlling response detail level.
+      tags:
+        - API Parameter
+      values:
+        - list: Minimal fields (id, name, status, net).
+        - normal: Standard fields (default).
+        - detailed: Full data including all related objects.
+
+  domains:
+    - name: Launch Operations
+      description: Rocket launch events and scheduling.
+      concepts:
+        - Launch
+        - NET
+        - Launch Window
+        - Launch Status
+        - Launch Pad
+        - Launch Service Provider
+
+    - name: Vehicles
+      description: Rocket vehicles and configurations.
+      concepts:
+        - Launcher Configuration
+        - Launcher Configuration Family
+        - First Stage
+        - Booster
+
+    - name: Crewed Spaceflight
+      description: Human spaceflight missions and activities.
+      concepts:
+        - Astronaut
+        - Spacecraft Flight
+        - Expedition
+        - EVA
+        - Spacewalk
+        - Docking Event
+
+    - name: Space Infrastructure
+      description: Orbital and surface space assets.
+      concepts:
+        - Space Station
+        - Spacecraft
+        - Launch Pad
+        - Location
+
+    - name: Mission Data
+      description: Payload and mission classification.
+      concepts:
+        - Mission
+        - Orbit
+        - Payload
+        - Mission Type
+        - Program

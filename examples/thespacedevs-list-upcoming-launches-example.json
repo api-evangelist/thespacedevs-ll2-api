@@ -1,0 +1,71 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://ll.thespacedevs.com/2.3.0/launches/upcoming/",
+    "params": {
+      "limit": 5,
+      "format": "json"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "count": 342,
+      "next": "https://ll.thespacedevs.com/2.3.0/launches/upcoming/?limit=5&offset=5",
+      "previous": null,
+      "results": [
+        {
+          "id": "a8c9e7d2-b12f-4e5a-8c0d-f1e2a3b4c5d6",
+          "name": "Falcon 9 Block 5 | Starlink Group 12-1",
+          "status": {
+            "id": 1,
+            "name": "Go for Launch",
+            "abbrev": "Go",
+            "description": "Current T-0 confirmed by official or reliable sources."
+          },
+          "net": "2026-05-05T02:30:00Z",
+          "window_start": "2026-05-05T02:30:00Z",
+          "window_end": "2026-05-05T06:30:00Z",
+          "probability": 85,
+          "rocket": {
+            "id": 12345,
+            "configuration": {
+              "id": 164,
+              "name": "Falcon 9 Block 5",
+              "family": "Falcon",
+              "full_name": "Falcon 9 Block 5"
+            }
+          },
+          "mission": {
+            "id": 6789,
+            "name": "Starlink Group 12-1",
+            "description": "A batch of Starlink broadband internet satellites to low Earth orbit.",
+            "type": "Communications",
+            "orbit": {
+              "id": 8,
+              "name": "Low Earth Orbit",
+              "abbrev": "LEO"
+            }
+          },
+          "pad": {
+            "id": 80,
+            "name": "Space Launch Complex 40",
+            "latitude": "28.56194122",
+            "longitude": "-80.57735736",
+            "location": {
+              "id": 12,
+              "name": "Cape Canaveral, FL, USA",
+              "country_code": "USA"
+            }
+          },
+          "launch_service_provider": {
+            "id": 121,
+            "name": "SpaceX",
+            "abbrev": "SpaceX",
+            "type": "Commercial"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "name": "TheSpaceDevs LL2 API Structure",
+  "description": "Structural documentation for TheSpaceDevs Launch Library 2 API key resource types.",
+  "entities": [
+    {
+      "name": "Launch",
+      "description": "A rocket launch event.",
+      "fields": [
+        { "name": "id", "type": "string (uuid)", "required": false, "description": "Unique launch identifier." },
+        { "name": "name", "type": "string", "required": false, "description": "Launch name." },
+        { "name": "status", "type": "object", "required": false, "description": "Launch status (Go, TBD, Hold, etc.)." },
+        { "name": "net", "type": "string (date-time)", "required": false, "description": "No Earlier Than launch time (UTC)." },
+        { "name": "window_start", "type": "string (date-time)", "required": false, "description": "Launch window start (UTC)." },
+        { "name": "window_end", "type": "string (date-time)", "required": false, "description": "Launch window end (UTC)." },
+        { "name": "rocket", "type": "object", "required": false, "description": "Rocket and launcher configuration." },
+        { "name": "mission", "type": "object", "required": false, "description": "Mission description and orbit." },
+        { "name": "pad", "type": "object", "required": false, "description": "Launch pad and location." },
+        { "name": "launch_service_provider", "type": "object", "required": false, "description": "Launch agency." },
+        { "name": "probability", "type": "integer (0-100)", "required": false, "description": "Launch probability percent." }
+      ]
+    },
+    {
+      "name": "Astronaut",
+      "description": "A person who has traveled to space.",
+      "fields": [
+        { "name": "id", "type": "integer", "required": false, "description": "Unique astronaut ID." },
+        { "name": "name", "type": "string", "required": false, "description": "Full name." },
+        { "name": "agency", "type": "object", "required": false, "description": "Home space agency." },
+        { "name": "status", "type": "object", "required": false, "description": "Current status (Active, Inactive, etc.)." },
+        { "name": "nationality", "type": "string", "required": false, "description": "Nationality." },
+        { "name": "flights_count", "type": "integer", "required": false, "description": "Number of spaceflights." },
+        { "name": "spacewalks_count", "type": "integer", "required": false, "description": "Number of spacewalks." }
+      ]
+    },
+    {
+      "name": "SpaceStation",
+      "description": "An orbital space station.",
+      "fields": [
+        { "name": "id", "type": "integer", "required": false, "description": "Unique station ID." },
+        { "name": "name", "type": "string", "required": false, "description": "Station name." },
+        { "name": "status", "type": "object", "required": false, "description": "Operational status." },
+        { "name": "orbit", "type": "string", "required": false, "description": "Orbital regime." },
+        { "name": "owners", "type": "array", "required": false, "description": "Owning agencies." }
+      ]
+    },
+    {
+      "name": "Agency",
+      "description": "A space agency or launch provider.",
+      "fields": [
+        { "name": "id", "type": "integer", "required": false, "description": "Unique agency ID." },
+        { "name": "name", "type": "string", "required": false, "description": "Agency name." },
+        { "name": "abbrev", "type": "string", "required": false, "description": "Abbreviation (e.g., NASA, ESA, SpaceX)." },
+        { "name": "type", "type": "object", "required": false, "description": "Agency type (Governmental, Commercial, etc.)." },
+        { "name": "country_code", "type": "string", "required": false, "description": "ISO 3166 country code." },
+        { "name": "total_launch_count", "type": "integer", "required": false, "description": "Total launches." },
+        { "name": "successful_launches", "type": "integer", "required": false, "description": "Successful launch count." }
+      ]
+    }
+  ]
+}

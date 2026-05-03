@@ -1,0 +1,39 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://ll.thespacedevs.com/2.3.0/astronauts/",
+    "params": {
+      "status": "Active",
+      "limit": 3,
+      "format": "json"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "count": 241,
+      "next": "https://ll.thespacedevs.com/2.3.0/astronauts/?limit=3&offset=3",
+      "previous": null,
+      "results": [
+        {
+          "id": 1234,
+          "name": "Sunita Williams",
+          "status": {
+            "id": 1,
+            "name": "Active"
+          },
+          "agency": {
+            "id": 44,
+            "name": "National Aeronautics and Space Administration",
+            "abbrev": "NASA"
+          },
+          "nationality": "American",
+          "flights_count": 3,
+          "spacewalks_count": 8,
+          "bio": "Sunita Williams is a NASA astronaut and U.S. Navy officer who has spent extensive time aboard the International Space Station.",
+          "profile_image": "https://spacelaunchnow-prod-east.nyc3.digitaloceanspaces.com/media/astronaut_images/sunita_williams.jpg"
+        }
+      ]
+    }
+  }
+}

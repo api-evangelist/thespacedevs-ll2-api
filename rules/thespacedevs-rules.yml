@@ -1,0 +1,87 @@
+rules:
+  thespacedevs-operation-summary-title-case:
+    description: All operation summaries must use Title Case.
+    message: "Operation summary '{{value}}' must use Title Case."
+    severity: warn
+    given: "$.paths[*][*].summary"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[A-Z][a-zA-Z0-9 ]*$"
+
+  thespacedevs-operation-ids-snake-case:
+    description: LL2 API uses snake_case operationIds in format resource_action.
+    message: "OperationId '{{value}}' should use snake_case (resource_action pattern)."
+    severity: info
+    given: "$.paths[*][*].operationId"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-z0-9_]*$"
+
+  thespacedevs-tags-required:
+    description: All operations must have at least one tag.
+    message: "Operation at '{{path}}' must have at least one tag."
+    severity: warn
+    given: "$.paths[*][get,post,put,patch,delete]"
+    then:
+      field: tags
+      function: truthy
+
+  thespacedevs-description-required:
+    description: All operations should have a description.
+    message: "Operation at '{{path}}' is missing a description."
+    severity: info
+    given: "$.paths[*][get,post,put,patch,delete]"
+    then:
+      field: description
+      function: truthy
+
+  thespacedevs-200-response-defined:
+    description: All GET operations must define a 200 response.
+    message: "GET operation at '{{path}}' must define a 200 response."
+    severity: error
+    given: "$.paths[*][get].responses"
+    then:
+      field: "200"
+      function: defined
+
+  thespacedevs-list-has-limit-param:
+    description: List operations should support a limit query parameter.
+    message: "List operation at '{{path}}' should support 'limit' parameter."
+    severity: info
+    given: "$.paths[*~][?(@.get)]"
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+
+  thespacedevs-path-version-prefix:
+    description: All paths should include the API version prefix /2.3.0/.
+    message: "Path '{{path}}' should start with the API version prefix /2.3.0/."
+    severity: warn
+    given: "$.paths[*]~"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^\\/2\\.3\\.0\\/"
+
+  thespacedevs-path-trailing-slash:
+    description: LL2 API paths use trailing slashes.
+    message: "Path '{{path}}' should end with a trailing slash per LL2 API convention."
+    severity: info
+    given: "$.paths[*]~"
+    then:
+      function: pattern
+      functionOptions:
+        match: "\\/$"
+
+  thespacedevs-servers-defined:
+    description: At least one server URL must be defined.
+    message: "No server URLs defined."
+    severity: error
+    given: "$"
+    then:
+      field: servers
+      function: truthy

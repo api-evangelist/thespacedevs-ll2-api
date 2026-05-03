@@ -1,0 +1,275 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "TheSpaceDevs Space Mission Tracking"
+  description: "Workflow capability for tracking space missions combining launch schedules, astronaut data, spacecraft telemetry, space station operations, and space event monitoring from the Launch Library 2 API."
+  tags:
+    - Space
+    - Launches
+    - Rockets
+    - Astronauts
+    - Spacecraft
+    - Space Stations
+    - Mission Tracking
+  created: "2026-05-03"
+  modified: "2026-05-03"
+
+binds:
+  - namespace: env
+    keys:
+      SPACEDEVS_TOKEN: SPACEDEVS_TOKEN
+
+capability:
+  consumes:
+    - import: ll2
+      location: ./shared/ll2-api.yaml
+
+  exposes:
+    - type: rest
+      port: 8080
+      namespace: spacedevs-tracking-api
+      description: "Unified REST API for space mission tracking using TheSpaceDevs Launch Library 2."
+      resources:
+        - path: /v1/launches/upcoming
+          name: upcoming-launches
+          description: "Upcoming rocket launches worldwide."
+          operations:
+            - method: GET
+              name: list-upcoming-launches
+              description: "List upcoming rocket launches."
+              call: "ll2.list-upcoming-launches"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/launches/previous
+          name: previous-launches
+          description: "Past rocket launches."
+          operations:
+            - method: GET
+              name: list-previous-launches
+              description: "List previously completed launches."
+              call: "ll2.list-previous-launches"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/launches/{id}
+          name: launch
+          description: "Individual launch data."
+          operations:
+            - method: GET
+              name: get-launch
+              description: "Get detailed data for a specific launch."
+              call: "ll2.get-launch"
+              with:
+                id: "rest.id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/events/upcoming
+          name: upcoming-events
+          description: "Upcoming space events."
+          operations:
+            - method: GET
+              name: list-upcoming-events
+              description: "List upcoming space events."
+              call: "ll2.list-upcoming-events"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/astronauts
+          name: astronauts
+          description: "Astronaut database."
+          operations:
+            - method: GET
+              name: list-astronauts
+              description: "List astronauts."
+              call: "ll2.list-astronauts"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/astronauts/{id}
+          name: astronaut
+          description: "Individual astronaut data."
+          operations:
+            - method: GET
+              name: get-astronaut
+              description: "Get data for a specific astronaut."
+              call: "ll2.get-astronaut"
+              with:
+                id: "rest.id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/space-stations
+          name: space-stations
+          description: "Space stations."
+          operations:
+            - method: GET
+              name: list-space-stations
+              description: "List orbital space stations."
+              call: "ll2.list-space-stations"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/agencies
+          name: agencies
+          description: "Space agencies."
+          operations:
+            - method: GET
+              name: list-agencies
+              description: "List space agencies and launch providers."
+              call: "ll2.list-agencies"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/spacecraft
+          name: spacecraft
+          description: "Spacecraft database."
+          operations:
+            - method: GET
+              name: list-spacecraft
+              description: "List spacecraft."
+              call: "ll2.list-spacecraft"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/spacewalks
+          name: spacewalks
+          description: "Spacewalk records."
+          operations:
+            - method: GET
+              name: list-spacewalks
+              description: "List EVAs and spacewalks."
+              call: "ll2.list-spacewalks"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9090
+      namespace: spacedevs-tracking-mcp
+      transport: http
+      description: "MCP server for AI-assisted space mission tracking and space news."
+      tools:
+        - name: list-upcoming-launches
+          description: "List upcoming rocket launches worldwide with date, vehicle, mission, and launch site details."
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "ll2.list-upcoming-launches"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: list-previous-launches
+          description: "List recently completed rocket launches with outcome and mission data."
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "ll2.list-previous-launches"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: get-launch
+          description: "Get comprehensive data for a specific rocket launch including rocket, mission, pad, and crew information."
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "ll2.get-launch"
+          with:
+            id: "tools.id"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: list-upcoming-events
+          description: "List upcoming space events including launches, landings, announcements, and milestones."
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "ll2.list-upcoming-events"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: list-astronauts
+          description: "List astronauts from the global space database with career, agency, and mission data."
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "ll2.list-astronauts"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: get-astronaut
+          description: "Get detailed career profile for a specific astronaut including flights and spacewalks."
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "ll2.get-astronaut"
+          with:
+            id: "tools.id"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: list-space-stations
+          description: "List orbital space stations with status, orbit, and ownership information."
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "ll2.list-space-stations"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: list-agencies
+          description: "List space agencies and launch providers with launch statistics."
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "ll2.list-agencies"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: list-spacecraft
+          description: "List spacecraft with configuration, status, and flight history."
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "ll2.list-spacecraft"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: list-spacewalks
+          description: "List extravehicular activities (EVAs/spacewalks) with crew, duration, and purpose."
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "ll2.list-spacewalks"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: list-celestial-bodies
+          description: "List celestial bodies (planets, moons, asteroids) in the database."
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "ll2.list-celestial-bodies"
+          outputParameters:
+            - type: object
+              mapping: "$."
