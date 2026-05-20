@@ -59,6 +59,8 @@ maintainers:
     email: kin@apievangelist.com
 specificationVersion: '0.19'
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/the-space-devs
   - name: TheSpaceDevs Website
     url: https://thespacedevs.com/
     type: Website
