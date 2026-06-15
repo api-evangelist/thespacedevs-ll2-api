@@ -1,6 +1,5 @@
 aid: thespacedevs-ll2-api
-url: >-
-  https://raw.githubusercontent.com/api-evangelist/thespacedevs-ll2-api/refs/heads/main/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/thespacedevs-ll2-api/refs/heads/main/apis.yml
 apis:
   - aid: thespacedevs-ll2-api:thespacedevs-ll2-api
     name: TheSpaceDevs Launch Library 2 API
@@ -27,15 +26,13 @@ apis:
         type: JSONStructure
       - url: rules/thespacedevs-rules.yml
         type: SpectralRules
-      - url: capabilities/launch-tracking.yaml
-        type: NaftikoCapabilities
       - url: vocabulary/thespacedevs-vocabulary.yml
         type: Vocabulary
     description: >-
-      The Launch Library 2 API is the official successor of the popular Launch Library API.
-      It provides comprehensive data on rocket launches, space events, crewed spaceflight,
-      astronauts, spacecraft, space stations, and celestial bodies. The API is maintained by
-      TheSpaceDevs community and delivers real-time and historical data on global space missions.
+      The Launch Library 2 API is the official successor of the popular Launch Library API. It provides comprehensive
+      data on rocket launches, space events, crewed spaceflight, astronauts, spacecraft, space stations, and celestial
+      bodies. The API is maintained by TheSpaceDevs community and delivers real-time and historical data on global space
+      missions.
 name: TheSpaceDevs LL2 API
 tags:
   - Space
@@ -50,10 +47,9 @@ created: '2024-11-07T00:00:00.000Z'
 modified: '2026-05-03'
 position: Consuming
 description: >-
-  TheSpaceDevs LL2 API is the Launch Library 2, a comprehensive space launch and events
-  database delivering data on rocket launches, space events, astronauts, spacecraft,
-  space stations, and crewed spaceflight missions worldwide. Provides real-time updates
-  on launch schedules, mission timelines, and spacecraft operations.
+  TheSpaceDevs LL2 API is the Launch Library 2, a comprehensive space launch and events database delivering data on
+  rocket launches, space events, astronauts, spacecraft, space stations, and crewed spaceflight missions worldwide.
+  Provides real-time updates on launch schedules, mission timelines, and spacecraft operations.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
