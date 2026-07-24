@@ -1,0 +1,440 @@
+openapi: 3.0.3
+info:
+  title: TheSpaceDevs LL2 Programs API
+  version: v2.3.0
+  description: Rocket launches, space events and crewed spaceflight. The Launch Library 2 API is the official successor of the popular Launch Library API. It keeps its core features whilst also including everything the broader Space Launch Now API had to offer. The result is a large database delivering a more complete experience for each rocket launch and ...
+  license:
+    name: Apache License 2.0
+servers:
+- url: https://ll.thespacedevs.com/
+  description: Production API (� rate-limited)
+- url: https://lldev.thespacedevs.com/
+  description: Development API (stale and limited data, for development testing only)
+tags:
+- name: Programs
+paths:
+  /2.3.0/programs/:
+    get:
+      operationId: programs_list
+      summary: List Programs
+      description: '#### Modes
+
+        Levels of detail in the response - `list`, `normal`
+
+
+        Example - [/programs/?mode=list](./?mode=list)
+
+
+        #### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/programs/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/programs/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - in: query
+        name: mode
+        schema:
+          type: string
+          enum:
+          - list
+          - normal
+        description: Level of detail in the response.
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - Programs
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedPolymorphicProgramEndpointList'
+          description: ''
+  /2.3.0/programs/{id}/:
+    get:
+      operationId: programs_retrieve
+      summary: Get Program
+      description: '#### Modes
+
+        Levels of detail in the response - `list`, `normal`
+
+
+        Example - [/programs/?mode=list](./?mode=list)
+
+
+        #### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/programs/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/programs/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Program.
+        required: true
+      tags:
+      - Programs
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProgramNormal'
+          description: ''
+components:
+  schemas:
+    AgencyType:
+      type: object
+      properties:
+        id:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+    PolymorphicProgramEndpoint:
+      oneOf:
+      - $ref: '#/components/schemas/ProgramMini'
+      - $ref: '#/components/schemas/ProgramNormal'
+      discriminator:
+        propertyName: response_mode
+        mapping:
+          list: '#/components/schemas/ProgramMini'
+          normal: '#/components/schemas/ProgramNormal'
+    ImageVariantType:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+    ProgramMini:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: list
+        id:
+          type: integer
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          nullable: true
+        info_url:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+        wiki_url:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+      required:
+      - id
+      - image
+      - name
+      - response_mode
+      - url
+    ProgramType:
+      type: object
+      properties:
+        id:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+    ImageVariant:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        type:
+          $ref: '#/components/schemas/ImageVariantType'
+        image_url:
+          type: string
+          format: uri
+      required:
+      - id
+      - image_url
+      - type
+    Image:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        image_url:
+          type: string
+          format: uri
+        thumbnail_url:
+          type: string
+          format: uri
+        credit:
+          type: string
+          nullable: true
+          maxLength: 255
+        license:
+          $ref: '#/components/schemas/ImageLicense'
+        single_use:
+          type: boolean
+        variants:
+          type: array
+          items:
+            $ref: '#/components/schemas/ImageVariant'
+      required:
+      - id
+      - image_url
+      - license
+      - name
+      - thumbnail_url
+      - variants
+    ProgramNormal:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: normal
+        id:
+          type: integer
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          nullable: true
+        info_url:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+        wiki_url:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+        description:
+          type: string
+          nullable: true
+          maxLength: 40000
+        agencies:
+          type: array
+          items:
+            $ref: '#/components/schemas/AgencyMini'
+        start_date:
+          type: string
+          format: date-time
+          nullable: true
+        end_date:
+          type: string
+          format: date-time
+          nullable: true
+        mission_patches:
+          type: array
+          items:
+            $ref: '#/components/schemas/MissionPatch'
+        type:
+          $ref: '#/components/schemas/ProgramType'
+      required:
+      - agencies
+      - id
+      - image
+      - mission_patches
+      - name
+      - response_mode
+      - type
+      - url
+    AgencyMini:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: list
+        id:
+          type: integer
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          type: string
+          maxLength: 200
+        abbrev:
+          type: string
+          maxLength: 255
+        type:
+          $ref: '#/components/schemas/AgencyType'
+      required:
+      - id
+      - name
+      - response_mode
+      - type
+      - url
+    MissionPatch:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 200
+        priority:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        image_url:
+          type: string
+          format: uri
+        agency:
+          allOf:
+          - $ref: '#/components/schemas/AgencyMini'
+          nullable: true
+        response_mode:
+          type: string
+          readOnly: true
+          default: normal
+      required:
+      - agency
+      - id
+      - image_url
+      - name
+      - response_mode
+    PaginatedPolymorphicProgramEndpointList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=400&limit=100
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=200&limit=100
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/PolymorphicProgramEndpoint'
+    ImageLicense:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        priority:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        link:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+      required:
+      - id
+  securitySchemes:
+    Token_Authentication:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: "Token authentication uses a header of Authorization and the value with a required prefix \"Token\" followed by a space and then the apiKey. \n\n Example: `Authorization: Token 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b`"
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid

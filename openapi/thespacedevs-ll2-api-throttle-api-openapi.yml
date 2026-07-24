@@ -1,0 +1,70 @@
+openapi: 3.0.3
+info:
+  title: TheSpaceDevs LL2 Throttle API
+  version: v2.3.0
+  description: Rocket launches, space events and crewed spaceflight. The Launch Library 2 API is the official successor of the popular Launch Library API. It keeps its core features whilst also including everything the broader Space Launch Now API had to offer. The result is a large database delivering a more complete experience for each rocket launch and ...
+  license:
+    name: Apache License 2.0
+servers:
+- url: https://ll.thespacedevs.com/
+  description: Production API (� rate-limited)
+- url: https://lldev.thespacedevs.com/
+  description: Development API (stale and limited data, for development testing only)
+tags:
+- name: Throttle
+paths:
+  /2.3.0/api-throttle/:
+    get:
+      operationId: api_throttle_list
+      summary: Get API Throttle Status
+      description: 'API endpoint that allows API Throttle information to be viewed.
+
+
+        GET:
+
+        Returns a range of information about your API access'
+      tags:
+      - Throttle
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/APIThrottle'
+          description: ''
+components:
+  schemas:
+    APIThrottle:
+      type: object
+      properties:
+        your_request_limit:
+          type: integer
+        limit_frequency_secs:
+          type: integer
+        current_use:
+          type: integer
+        next_use_secs:
+          type: integer
+        ident:
+          type: string
+      required:
+      - current_use
+      - ident
+      - limit_frequency_secs
+      - next_use_secs
+      - your_request_limit
+  securitySchemes:
+    Token_Authentication:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: "Token authentication uses a header of Authorization and the value with a required prefix \"Token\" followed by a space and then the apiKey. \n\n Example: `Authorization: Token 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b`"
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid

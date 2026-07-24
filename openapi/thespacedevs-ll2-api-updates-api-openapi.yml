@@ -1,0 +1,225 @@
+openapi: 3.0.3
+info:
+  title: TheSpaceDevs LL2 Updates API
+  version: v2.3.0
+  description: Rocket launches, space events and crewed spaceflight. The Launch Library 2 API is the official successor of the popular Launch Library API. It keeps its core features whilst also including everything the broader Space Launch Now API had to offer. The result is a large database delivering a more complete experience for each rocket launch and ...
+  license:
+    name: Apache License 2.0
+servers:
+- url: https://ll.thespacedevs.com/
+  description: Production API (� rate-limited)
+- url: https://lldev.thespacedevs.com/
+  description: Development API (stale and limited data, for development testing only)
+tags:
+- name: Updates
+paths:
+  /2.3.0/updates/:
+    get:
+      operationId: updates_list
+      summary: List Updates
+      description: '#### Filters
+
+        Parameters - `created_on`, `launch`, `launch__launch_service_provider`, `program`
+
+
+        Example - [/updates/?launch__launch_service_provider=121](./?launch__launch_service_provider=121)
+
+
+        #### Ordering
+
+        Fields - `created_on`
+
+
+        Example - [/updates/?ordering=-created_on](./?ordering=-created_on)
+
+
+        #### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/updates/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/updates/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - in: query
+        name: created_on
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: launch
+        schema:
+          type: string
+          format: uuid
+      - in: query
+        name: launch__launch_service_provider
+        schema:
+          type: integer
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - in: query
+        name: program
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - Updates
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedUpdateList'
+          description: ''
+  /2.3.0/updates/{id}/:
+    get:
+      operationId: updates_retrieve
+      summary: Get Update
+      description: '#### Filters
+
+        Parameters - `created_on`, `launch`, `launch__launch_service_provider`, `program`
+
+
+        Example - [/updates/?launch__launch_service_provider=121](./?launch__launch_service_provider=121)
+
+
+        #### Ordering
+
+        Fields - `created_on`
+
+
+        Example - [/updates/?ordering=-created_on](./?ordering=-created_on)
+
+
+        #### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/updates/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/updates/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Update.
+        required: true
+      tags:
+      - Updates
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Update'
+          description: ''
+components:
+  schemas:
+    PaginatedUpdateList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=400&limit=100
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=200&limit=100
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Update'
+    Update:
+      type: object
+      properties:
+        id:
+          type: integer
+        profile_image:
+          type: string
+          readOnly: true
+          nullable: true
+        comment:
+          type: string
+          nullable: true
+          maxLength: 40000
+        info_url:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+        created_by:
+          type: string
+          readOnly: true
+          nullable: true
+        created_on:
+          type: string
+          format: date-time
+      required:
+      - created_by
+      - id
+      - profile_image
+  securitySchemes:
+    Token_Authentication:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: "Token authentication uses a header of Authorization and the value with a required prefix \"Token\" followed by a space and then the apiKey. \n\n Example: `Authorization: Token 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b`"
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid

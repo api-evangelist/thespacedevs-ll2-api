@@ -1,0 +1,977 @@
+openapi: 3.0.3
+info:
+  title: TheSpaceDevs LL2 Payloads API
+  version: v2.3.0
+  description: Rocket launches, space events and crewed spaceflight. The Launch Library 2 API is the official successor of the popular Launch Library API. It keeps its core features whilst also including everything the broader Space Launch Now API had to offer. The result is a large database delivering a more complete experience for each rocket launch and ...
+  license:
+    name: Apache License 2.0
+servers:
+- url: https://ll.thespacedevs.com/
+  description: Production API (� rate-limited)
+- url: https://lldev.thespacedevs.com/
+  description: Development API (stale and limited data, for development testing only)
+tags:
+- name: Payloads
+paths:
+  /2.3.0/payloads/:
+    get:
+      operationId: payloads_list
+      summary: List Payloads
+      description: '#### Modes
+
+        Levels of detail in the response - `list`, `normal`, `detailed`
+
+
+        Example - [/payloads/?mode=list](./?mode=list)
+
+
+        #### Filters
+
+        Parameters - `manufacturer__id`, `manufacturer__name`, `name`, `operator`, `operator__id`, `operator__name`, `program__id`
+
+
+        Example - [/payloads/?program__id=18](./?program__id=18)
+
+
+        #### Search
+
+        Fields searched - `manufacturer__name`, `name`, `operator__name`, `payloadflight__destination`, `payloadflight__rocket__launch__name`
+
+
+        Example - [/payloads/?search=EarthCare](./?search=EarthCare)
+
+
+        #### Ordering
+
+        Fields - `id`, `name`, `payloadflight__rocket__launch__net`
+
+
+        Example - [/payloads/?ordering=-payloadflight__rocket__launch__net](./?ordering=-payloadflight__rocket__launch__net)
+
+
+        #### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/payloads/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/payloads/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - in: query
+        name: manufacturer__id
+        schema:
+          type: integer
+      - in: query
+        name: manufacturer__name
+        schema:
+          type: string
+      - in: query
+        name: mode
+        schema:
+          type: string
+          enum:
+          - detailed
+          - list
+          - normal
+        description: Level of detail in the response.
+      - in: query
+        name: name
+        schema:
+          type: string
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      - in: query
+        name: operator
+        schema:
+          type: integer
+      - in: query
+        name: operator__id
+        schema:
+          type: integer
+      - in: query
+        name: operator__name
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - in: query
+        name: program__id
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - Payloads
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedPolymorphicPayloadEndpointList'
+          description: ''
+  /2.3.0/payloads/{id}/:
+    get:
+      operationId: payloads_retrieve
+      summary: Get Payload
+      description: '#### Modes
+
+        Levels of detail in the response - `list`, `normal`, `detailed`
+
+
+        Example - [/payloads/?mode=list](./?mode=list)
+
+
+        #### Filters
+
+        Parameters - `manufacturer__id`, `manufacturer__name`, `name`, `operator`, `operator__id`, `operator__name`, `program__id`
+
+
+        Example - [/payloads/?program__id=18](./?program__id=18)
+
+
+        #### Search
+
+        Fields searched - `manufacturer__name`, `name`, `operator__name`, `payloadflight__destination`, `payloadflight__rocket__launch__name`
+
+
+        Example - [/payloads/?search=EarthCare](./?search=EarthCare)
+
+
+        #### Ordering
+
+        Fields - `id`, `name`, `payloadflight__rocket__launch__net`
+
+
+        Example - [/payloads/?ordering=-payloadflight__rocket__launch__net](./?ordering=-payloadflight__rocket__launch__net)
+
+
+        #### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/payloads/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/payloads/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this payload.
+        required: true
+      tags:
+      - Payloads
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PayloadDetailed'
+          description: ''
+components:
+  schemas:
+    PayloadType:
+      type: object
+      properties:
+        id:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+    SocialMedia:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        url:
+          type: string
+          format: uri
+          nullable: true
+        logo:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          nullable: true
+      required:
+      - id
+      - logo
+      - url
+    PaginatedPolymorphicPayloadEndpointList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=400&limit=100
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=200&limit=100
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/PolymorphicPayloadEndpoint'
+    ProgramNormal:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: normal
+        id:
+          type: integer
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          nullable: true
+        info_url:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+        wiki_url:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+        description:
+          type: string
+          nullable: true
+          maxLength: 40000
+        agencies:
+          type: array
+          items:
+            $ref: '#/components/schemas/AgencyMini'
+        start_date:
+          type: string
+          format: date-time
+          nullable: true
+        end_date:
+          type: string
+          format: date-time
+          nullable: true
+        mission_patches:
+          type: array
+          items:
+            $ref: '#/components/schemas/MissionPatch'
+        type:
+          $ref: '#/components/schemas/ProgramType'
+      required:
+      - agencies
+      - id
+      - image
+      - mission_patches
+      - name
+      - response_mode
+      - type
+      - url
+    PolymorphicPayloadEndpoint:
+      oneOf:
+      - $ref: '#/components/schemas/PayloadMini'
+      - $ref: '#/components/schemas/PayloadNormal'
+      - $ref: '#/components/schemas/PayloadDetailed'
+      discriminator:
+        propertyName: response_mode
+        mapping:
+          list: '#/components/schemas/PayloadMini'
+          normal: '#/components/schemas/PayloadNormal'
+          detailed: '#/components/schemas/PayloadDetailed'
+    ImageLicense:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        priority:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        link:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+      required:
+      - id
+    ProgramMini:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: list
+        id:
+          type: integer
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          nullable: true
+        info_url:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+        wiki_url:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+      required:
+      - id
+      - image
+      - name
+      - response_mode
+      - url
+    Country:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        alpha_2_code:
+          type: string
+          description: ISO 3166-1 alpha-2
+          maxLength: 2
+        alpha_3_code:
+          type: string
+          description: ISO 3166-1 alpha-3
+          maxLength: 3
+        nationality_name:
+          type: string
+          description: e.g. French
+          maxLength: 255
+        nationality_name_composed:
+          type: string
+          description: e.g. Franco
+          maxLength: 255
+      required:
+      - id
+    AgencyDetailed:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: normal
+        id:
+          type: integer
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          type: string
+          maxLength: 200
+        abbrev:
+          type: string
+          maxLength: 255
+        type:
+          $ref: '#/components/schemas/AgencyType'
+        featured:
+          type: boolean
+        country:
+          type: array
+          items:
+            $ref: '#/components/schemas/Country'
+        description:
+          type: string
+          nullable: true
+          maxLength: 2048
+        administrator:
+          type: string
+          nullable: true
+          maxLength: 200
+        founding_year:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        launchers:
+          type: string
+          maxLength: 500
+        spacecraft:
+          type: string
+          maxLength: 500
+        parent:
+          type: string
+          readOnly: true
+          nullable: true
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          nullable: true
+        logo:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          nullable: true
+        social_logo:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          nullable: true
+        total_launch_count:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        consecutive_successful_launches:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        successful_launches:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        failed_launches:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        pending_launches:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        consecutive_successful_landings:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        successful_landings:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        failed_landings:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        attempted_landings:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        successful_landings_spacecraft:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        failed_landings_spacecraft:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        attempted_landings_spacecraft:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        successful_landings_payload:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        failed_landings_payload:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        attempted_landings_payload:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        info_url:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+        wiki_url:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+        social_media_links:
+          type: array
+          items:
+            $ref: '#/components/schemas/SocialMediaLink'
+      required:
+      - country
+      - id
+      - image
+      - logo
+      - name
+      - parent
+      - response_mode
+      - social_logo
+      - social_media_links
+      - type
+      - url
+    AgencyMini:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: list
+        id:
+          type: integer
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          type: string
+          maxLength: 200
+        abbrev:
+          type: string
+          maxLength: 255
+        type:
+          $ref: '#/components/schemas/AgencyType'
+      required:
+      - id
+      - name
+      - response_mode
+      - type
+      - url
+    AgencyNormal:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: normal
+        id:
+          type: integer
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          type: string
+          maxLength: 200
+        abbrev:
+          type: string
+          maxLength: 255
+        type:
+          $ref: '#/components/schemas/AgencyType'
+        featured:
+          type: boolean
+        country:
+          type: array
+          items:
+            $ref: '#/components/schemas/Country'
+        description:
+          type: string
+          nullable: true
+          maxLength: 2048
+        administrator:
+          type: string
+          nullable: true
+          maxLength: 200
+        founding_year:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        launchers:
+          type: string
+          maxLength: 500
+        spacecraft:
+          type: string
+          maxLength: 500
+        parent:
+          type: string
+          readOnly: true
+          nullable: true
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          nullable: true
+        logo:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          nullable: true
+        social_logo:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          nullable: true
+      required:
+      - country
+      - id
+      - image
+      - logo
+      - name
+      - parent
+      - response_mode
+      - social_logo
+      - type
+      - url
+    ImageVariantType:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+    ProgramType:
+      type: object
+      properties:
+        id:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+    ImageVariant:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        type:
+          $ref: '#/components/schemas/ImageVariantType'
+        image_url:
+          type: string
+          format: uri
+      required:
+      - id
+      - image_url
+      - type
+    Image:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        image_url:
+          type: string
+          format: uri
+        thumbnail_url:
+          type: string
+          format: uri
+        credit:
+          type: string
+          nullable: true
+          maxLength: 255
+        license:
+          $ref: '#/components/schemas/ImageLicense'
+        single_use:
+          type: boolean
+        variants:
+          type: array
+          items:
+            $ref: '#/components/schemas/ImageVariant'
+      required:
+      - id
+      - image_url
+      - license
+      - name
+      - thumbnail_url
+      - variants
+    MissionPatch:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 200
+        priority:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        image_url:
+          type: string
+          format: uri
+        agency:
+          allOf:
+          - $ref: '#/components/schemas/AgencyMini'
+          nullable: true
+        response_mode:
+          type: string
+          readOnly: true
+          default: normal
+      required:
+      - agency
+      - id
+      - image_url
+      - name
+      - response_mode
+    AgencyType:
+      type: object
+      properties:
+        id:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+    PayloadNormal:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: normal
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 1048
+        type:
+          $ref: '#/components/schemas/PayloadType'
+        manufacturer:
+          $ref: '#/components/schemas/AgencyNormal'
+        operator:
+          $ref: '#/components/schemas/AgencyNormal'
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          nullable: true
+        wiki_link:
+          type: string
+          format: uri
+          maxLength: 200
+        info_link:
+          type: string
+          format: uri
+          maxLength: 200
+        program:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProgramMini'
+        cost:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+          title: Cost (USD)
+        mass:
+          type: number
+          format: double
+          nullable: true
+          title: Mass (kg)
+        description:
+          type: string
+          maxLength: 2048
+      required:
+      - id
+      - image
+      - manufacturer
+      - operator
+      - program
+      - response_mode
+      - type
+    PayloadDetailed:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: detailed
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 1048
+        type:
+          $ref: '#/components/schemas/PayloadType'
+        manufacturer:
+          $ref: '#/components/schemas/AgencyDetailed'
+        operator:
+          $ref: '#/components/schemas/AgencyDetailed'
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          nullable: true
+        wiki_link:
+          type: string
+          format: uri
+          maxLength: 200
+        info_link:
+          type: string
+          format: uri
+          maxLength: 200
+        program:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProgramNormal'
+        cost:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+          title: Cost (USD)
+        mass:
+          type: number
+          format: double
+          nullable: true
+          title: Mass (kg)
+        description:
+          type: string
+          maxLength: 2048
+      required:
+      - id
+      - image
+      - manufacturer
+      - operator
+      - program
+      - response_mode
+      - type
+    SocialMediaLink:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        social_media:
+          $ref: '#/components/schemas/SocialMedia'
+        url:
+          type: string
+          format: uri
+          nullable: true
+      required:
+      - id
+      - social_media
+      - url
+    PayloadMini:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: list
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 1048
+        type:
+          $ref: '#/components/schemas/PayloadType'
+        manufacturer:
+          $ref: '#/components/schemas/AgencyMini'
+        operator:
+          $ref: '#/components/schemas/AgencyMini'
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          nullable: true
+      required:
+      - id
+      - image
+      - manufacturer
+      - operator
+      - response_mode
+      - type
+  securitySchemes:
+    Token_Authentication:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: "Token authentication uses a header of Authorization and the value with a required prefix \"Token\" followed by a space and then the apiKey. \n\n Example: `Authorization: Token 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b`"
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid

@@ -1,0 +1,1018 @@
+openapi: 3.0.3
+info:
+  title: TheSpaceDevs LL2 Locations API
+  version: v2.3.0
+  description: Rocket launches, space events and crewed spaceflight. The Launch Library 2 API is the official successor of the popular Launch Library API. It keeps its core features whilst also including everything the broader Space Launch Now API had to offer. The result is a large database delivering a more complete experience for each rocket launch and ...
+  license:
+    name: Apache License 2.0
+servers:
+- url: https://ll.thespacedevs.com/
+  description: Production API (� rate-limited)
+- url: https://lldev.thespacedevs.com/
+  description: Development API (stale and limited data, for development testing only)
+tags:
+- name: Locations
+paths:
+  /2.3.0/config/landing_locations/:
+    get:
+      operationId: config_landing_locations_list
+      summary: List Landing Locations
+      description: '#### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/config/landing_locations/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/config/landing_locations/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - Locations
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedLandingLocationList'
+          description: ''
+  /2.3.0/config/landing_locations/{id}/:
+    get:
+      operationId: config_landing_locations_retrieve
+      summary: Get Landing Location
+      description: '#### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/config/landing_locations/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/config/landing_locations/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this landing location.
+        required: true
+      tags:
+      - Locations
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LandingLocation'
+          description: ''
+  /2.3.0/locations/:
+    get:
+      operationId: locations_list
+      summary: List Locations
+      description: '#### Modes
+
+        Levels of detail in the response - `normal`, `detailed`
+
+
+        Example - [/locations/?mode=detailed](./?mode=detailed)
+
+
+        #### Filters
+
+        Parameters - `country_code`, `id`, `name`, `name__contains`, `total_landing_count`, `total_landing_count__gt`, `total_landing_count__gte`, `total_landing_count__lt`, `total_landing_count__lte`, `total_launch_count`, `total_launch_count__gt`, `total_launch_count__gte`, `total_launch_count__lt`, `total_launch_count__lte`
+
+
+        Example - [/locations/?country_code=NZL](./?country_code=NZL)
+
+
+        #### Search
+
+        Fields searched - `country__alpha_3_code`, `name`
+
+
+        Example - [/locations/?search=Cape Canaveral](./?search=Cape Canaveral)
+
+
+        #### Ordering
+
+        Fields - `total_landing_count`, `total_launch_count`
+
+
+        Example - [/locations/?ordering=-total_launch_count](./?ordering=-total_launch_count)
+
+
+        #### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/locations/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/locations/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - in: query
+        name: country_code
+        schema:
+          type: string
+        description: Country Code
+      - in: query
+        name: id
+        schema:
+          type: integer
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - in: query
+        name: mode
+        schema:
+          type: string
+          enum:
+          - detailed
+          - normal
+        description: Level of detail in the response.
+      - in: query
+        name: name
+        schema:
+          type: string
+      - in: query
+        name: name__contains
+        schema:
+          type: string
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - in: query
+        name: total_landing_count
+        schema:
+          type: integer
+      - in: query
+        name: total_landing_count__gt
+        schema:
+          type: integer
+      - in: query
+        name: total_landing_count__gte
+        schema:
+          type: integer
+      - in: query
+        name: total_landing_count__lt
+        schema:
+          type: integer
+      - in: query
+        name: total_landing_count__lte
+        schema:
+          type: integer
+      - in: query
+        name: total_launch_count
+        schema:
+          type: integer
+      - in: query
+        name: total_launch_count__gt
+        schema:
+          type: integer
+      - in: query
+        name: total_launch_count__gte
+        schema:
+          type: integer
+      - in: query
+        name: total_launch_count__lt
+        schema:
+          type: integer
+      - in: query
+        name: total_launch_count__lte
+        schema:
+          type: integer
+      tags:
+      - Locations
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedPolymorphicLocationEndpointList'
+          description: ''
+  /2.3.0/locations/{id}/:
+    get:
+      operationId: locations_retrieve
+      summary: Get Location
+      description: '#### Modes
+
+        Levels of detail in the response - `normal`, `detailed`
+
+
+        Example - [/locations/?mode=detailed](./?mode=detailed)
+
+
+        #### Filters
+
+        Parameters - `country_code`, `id`, `name`, `name__contains`, `total_landing_count`, `total_landing_count__gt`, `total_landing_count__gte`, `total_landing_count__lt`, `total_landing_count__lte`, `total_launch_count`, `total_launch_count__gt`, `total_launch_count__gte`, `total_launch_count__lt`, `total_launch_count__lte`
+
+
+        Example - [/locations/?country_code=NZL](./?country_code=NZL)
+
+
+        #### Search
+
+        Fields searched - `country__alpha_3_code`, `name`
+
+
+        Example - [/locations/?search=Cape Canaveral](./?search=Cape Canaveral)
+
+
+        #### Ordering
+
+        Fields - `total_landing_count`, `total_launch_count`
+
+
+        Example - [/locations/?ordering=-total_launch_count](./?ordering=-total_launch_count)
+
+
+        #### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/locations/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/locations/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Location.
+        required: true
+      tags:
+      - Locations
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LocationSerializerWithPads'
+          description: ''
+components:
+  schemas:
+    LandingLocation:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        active:
+          type: boolean
+        abbrev:
+          type: string
+          maxLength: 255
+        description:
+          type: string
+          nullable: true
+          maxLength: 2048
+        location:
+          $ref: '#/components/schemas/LocationSerializerNoCelestialBody'
+        longitude:
+          type: number
+          format: double
+          nullable: true
+        latitude:
+          type: number
+          format: double
+          nullable: true
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          nullable: true
+        successful_landings:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        attempted_landings:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        failed_landings:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        celestial_body:
+          $ref: '#/components/schemas/CelestialBodyNormal'
+      required:
+      - celestial_body
+      - id
+      - image
+      - location
+    AgencyType:
+      type: object
+      properties:
+        id:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+    Location:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: normal
+        id:
+          type: integer
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        celestial_body:
+          $ref: '#/components/schemas/CelestialBodyDetailed'
+        active:
+          type: boolean
+        country:
+          allOf:
+          - $ref: '#/components/schemas/Country'
+          nullable: true
+        description:
+          type: string
+          nullable: true
+          maxLength: 2048
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          nullable: true
+        map_image:
+          type: string
+          format: uri
+          nullable: true
+        longitude:
+          type: number
+          format: double
+          nullable: true
+        latitude:
+          type: number
+          format: double
+          nullable: true
+        timezone_name:
+          type: string
+          maxLength: 255
+        total_launch_count:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        total_landing_count:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+      required:
+      - celestial_body
+      - country
+      - id
+      - image
+      - response_mode
+      - url
+    ImageVariantType:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+    PaginatedLandingLocationList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=400&limit=100
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=200&limit=100
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/LandingLocation'
+    CelestialBodyNormal:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: normal
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        type:
+          $ref: '#/components/schemas/CelestialBodyType'
+        diameter:
+          type: number
+          format: double
+          nullable: true
+          description: m
+        mass:
+          type: number
+          format: double
+          nullable: true
+          description: kg
+        gravity:
+          type: number
+          format: double
+          nullable: true
+          description: m/s^2
+        length_of_day:
+          type: string
+          nullable: true
+        atmosphere:
+          type: boolean
+        image:
+          $ref: '#/components/schemas/Image'
+        description:
+          type: string
+          nullable: true
+        wiki_url:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+      required:
+      - id
+      - image
+      - name
+      - response_mode
+      - type
+    Country:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        alpha_2_code:
+          type: string
+          description: ISO 3166-1 alpha-2
+          maxLength: 2
+        alpha_3_code:
+          type: string
+          description: ISO 3166-1 alpha-3
+          maxLength: 3
+        nationality_name:
+          type: string
+          description: e.g. French
+          maxLength: 255
+        nationality_name_composed:
+          type: string
+          description: e.g. Franco
+          maxLength: 255
+      required:
+      - id
+    LocationSerializerWithPads:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: detailed
+        id:
+          type: integer
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        celestial_body:
+          $ref: '#/components/schemas/CelestialBodyDetailed'
+        active:
+          type: boolean
+        country:
+          allOf:
+          - $ref: '#/components/schemas/Country'
+          nullable: true
+        description:
+          type: string
+          nullable: true
+          maxLength: 2048
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          nullable: true
+        map_image:
+          type: string
+          format: uri
+          nullable: true
+        longitude:
+          type: number
+          format: double
+          nullable: true
+        latitude:
+          type: number
+          format: double
+          nullable: true
+        timezone_name:
+          type: string
+          maxLength: 255
+        total_launch_count:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        total_landing_count:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        pads:
+          type: array
+          items:
+            $ref: '#/components/schemas/PadSerializerNoLocation'
+      required:
+      - celestial_body
+      - country
+      - id
+      - image
+      - pads
+      - response_mode
+      - url
+    PolymorphicLocationEndpoint:
+      oneOf:
+      - $ref: '#/components/schemas/Location'
+      - $ref: '#/components/schemas/LocationSerializerWithPads'
+      discriminator:
+        propertyName: response_mode
+        mapping:
+          normal: '#/components/schemas/Location'
+          detailed: '#/components/schemas/LocationSerializerWithPads'
+    PaginatedPolymorphicLocationEndpointList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=400&limit=100
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=200&limit=100
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/PolymorphicLocationEndpoint'
+    ImageVariant:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        type:
+          $ref: '#/components/schemas/ImageVariantType'
+        image_url:
+          type: string
+          format: uri
+      required:
+      - id
+      - image_url
+      - type
+    Image:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        image_url:
+          type: string
+          format: uri
+        thumbnail_url:
+          type: string
+          format: uri
+        credit:
+          type: string
+          nullable: true
+          maxLength: 255
+        license:
+          $ref: '#/components/schemas/ImageLicense'
+        single_use:
+          type: boolean
+        variants:
+          type: array
+          items:
+            $ref: '#/components/schemas/ImageVariant'
+      required:
+      - id
+      - image_url
+      - license
+      - name
+      - thumbnail_url
+      - variants
+    PadSerializerNoLocation:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        active:
+          type: boolean
+        agencies:
+          type: array
+          items:
+            $ref: '#/components/schemas/AgencyMini'
+        name:
+          type: string
+          maxLength: 255
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          nullable: true
+        description:
+          type: string
+          nullable: true
+          maxLength: 2048
+        info_url:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+        wiki_url:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+        map_url:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+        latitude:
+          type: number
+          format: double
+          nullable: true
+        longitude:
+          type: number
+          format: double
+          nullable: true
+        country:
+          allOf:
+          - $ref: '#/components/schemas/Country'
+          nullable: true
+        map_image:
+          type: string
+          format: uri
+          nullable: true
+        total_launch_count:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        orbital_launch_attempt_count:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        fastest_turnaround:
+          type: string
+          readOnly: true
+          nullable: true
+      required:
+      - agencies
+      - country
+      - fastest_turnaround
+      - id
+      - image
+      - url
+    AgencyMini:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: list
+        id:
+          type: integer
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          type: string
+          maxLength: 200
+        abbrev:
+          type: string
+          maxLength: 255
+        type:
+          $ref: '#/components/schemas/AgencyType'
+      required:
+      - id
+      - name
+      - response_mode
+      - type
+      - url
+    LocationSerializerNoCelestialBody:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: normal
+        id:
+          type: integer
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        active:
+          type: boolean
+        country:
+          allOf:
+          - $ref: '#/components/schemas/Country'
+          nullable: true
+        description:
+          type: string
+          nullable: true
+          maxLength: 2048
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          nullable: true
+        map_image:
+          type: string
+          format: uri
+          nullable: true
+        longitude:
+          type: number
+          format: double
+          nullable: true
+        latitude:
+          type: number
+          format: double
+          nullable: true
+        timezone_name:
+          type: string
+          maxLength: 255
+        total_launch_count:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        total_landing_count:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+      required:
+      - country
+      - id
+      - image
+      - response_mode
+      - url
+    CelestialBodyType:
+      type: object
+      properties:
+        id:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+    CelestialBodyDetailed:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: normal
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        type:
+          $ref: '#/components/schemas/CelestialBodyType'
+        diameter:
+          type: number
+          format: double
+          nullable: true
+          description: m
+        mass:
+          type: number
+          format: double
+          nullable: true
+          description: kg
+        gravity:
+          type: number
+          format: double
+          nullable: true
+          description: m/s^2
+        length_of_day:
+          type: string
+          nullable: true
+        atmosphere:
+          type: boolean
+        image:
+          $ref: '#/components/schemas/Image'
+        description:
+          type: string
+          nullable: true
+        wiki_url:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+        total_attempted_launches:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        successful_launches:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        failed_launches:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        total_attempted_landings:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        successful_landings:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        failed_landings:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+      required:
+      - id
+      - image
+      - name
+      - response_mode
+      - type
+    ImageLicense:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        priority:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        link:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+      required:
+      - id
+  securitySchemes:
+    Token_Authentication:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: "Token authentication uses a header of Authorization and the value with a required prefix \"Token\" followed by a space and then the apiKey. \n\n Example: `Authorization: Token 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b`"
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid

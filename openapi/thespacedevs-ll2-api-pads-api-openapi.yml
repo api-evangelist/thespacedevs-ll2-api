@@ -1,0 +1,740 @@
+openapi: 3.0.3
+info:
+  title: TheSpaceDevs LL2 Pads API
+  version: v2.3.0
+  description: Rocket launches, space events and crewed spaceflight. The Launch Library 2 API is the official successor of the popular Launch Library API. It keeps its core features whilst also including everything the broader Space Launch Now API had to offer. The result is a large database delivering a more complete experience for each rocket launch and ...
+  license:
+    name: Apache License 2.0
+servers:
+- url: https://ll.thespacedevs.com/
+  description: Production API (� rate-limited)
+- url: https://lldev.thespacedevs.com/
+  description: Development API (stale and limited data, for development testing only)
+tags:
+- name: Pads
+paths:
+  /2.3.0/pads/:
+    get:
+      operationId: pads_list
+      summary: List Launch Pads
+      description: '#### Filters
+
+        Parameters - `agencies_ids`, `id`, `id__contains`, `latitude__gt`, `latitude__gte`, `latitude__lt`, `latitude__lte`, `location__id`, `location__name`, `location__name__contains`, `longitude__gt`, `longitude__gte`, `longitude__lt`, `longitude__lte`, `name`, `name__contains`, `orbital_launch_attempt_count`, `orbital_launch_attempt_count__gt`, `orbital_launch_attempt_count__gte`, `orbital_launch_attempt_count__lt`, `orbital_launch_attempt_count__lte`, `total_launch_count`, `total_launch_count__gt`, `total_launch_count__gte`, `total_launch_count__lt`, `total_launch_count__lte`
+
+
+        Example - [/pads/?location__id=11](./?location__id=11)
+
+
+        #### Search
+
+        Fields searched - `location__name`, `name`, `orbital_launch_attempt_count`, `total_launch_count`
+
+
+        Example - [/pads/?search=39A](./?search=39A)
+
+
+        #### Ordering
+
+        Fields - `id`, `location__id`, `location__name`, `name`, `orbital_launch_attempt_count`, `total_launch_count`
+
+
+        Example - [/pads/?ordering=-orbital_launch_attempt_count](./?ordering=-orbital_launch_attempt_count)
+
+
+        #### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/pads/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/pads/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - in: query
+        name: agencies_ids
+        schema:
+          type: array
+          items:
+            type: integer
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: id
+        schema:
+          type: integer
+      - in: query
+        name: id__contains
+        schema:
+          type: integer
+      - in: query
+        name: latitude__gt
+        schema:
+          type: number
+          format: float
+      - in: query
+        name: latitude__gte
+        schema:
+          type: number
+          format: float
+      - in: query
+        name: latitude__lt
+        schema:
+          type: number
+          format: float
+      - in: query
+        name: latitude__lte
+        schema:
+          type: number
+          format: float
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - in: query
+        name: location__id
+        schema:
+          type: integer
+      - in: query
+        name: location__name
+        schema:
+          type: string
+      - in: query
+        name: location__name__contains
+        schema:
+          type: string
+      - in: query
+        name: longitude__gt
+        schema:
+          type: number
+          format: float
+      - in: query
+        name: longitude__gte
+        schema:
+          type: number
+          format: float
+      - in: query
+        name: longitude__lt
+        schema:
+          type: number
+          format: float
+      - in: query
+        name: longitude__lte
+        schema:
+          type: number
+          format: float
+      - in: query
+        name: name
+        schema:
+          type: string
+      - in: query
+        name: name__contains
+        schema:
+          type: string
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      - in: query
+        name: orbital_launch_attempt_count
+        schema:
+          type: integer
+      - in: query
+        name: orbital_launch_attempt_count__gt
+        schema:
+          type: integer
+      - in: query
+        name: orbital_launch_attempt_count__gte
+        schema:
+          type: integer
+      - in: query
+        name: orbital_launch_attempt_count__lt
+        schema:
+          type: integer
+      - in: query
+        name: orbital_launch_attempt_count__lte
+        schema:
+          type: integer
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - in: query
+        name: total_launch_count
+        schema:
+          type: integer
+      - in: query
+        name: total_launch_count__gt
+        schema:
+          type: integer
+      - in: query
+        name: total_launch_count__gte
+        schema:
+          type: integer
+      - in: query
+        name: total_launch_count__lt
+        schema:
+          type: integer
+      - in: query
+        name: total_launch_count__lte
+        schema:
+          type: integer
+      tags:
+      - Pads
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedPadList'
+          description: ''
+  /2.3.0/pads/{id}/:
+    get:
+      operationId: pads_retrieve
+      summary: Get Launch Pad
+      description: '#### Filters
+
+        Parameters - `agencies_ids`, `id`, `id__contains`, `latitude__gt`, `latitude__gte`, `latitude__lt`, `latitude__lte`, `location__id`, `location__name`, `location__name__contains`, `longitude__gt`, `longitude__gte`, `longitude__lt`, `longitude__lte`, `name`, `name__contains`, `orbital_launch_attempt_count`, `orbital_launch_attempt_count__gt`, `orbital_launch_attempt_count__gte`, `orbital_launch_attempt_count__lt`, `orbital_launch_attempt_count__lte`, `total_launch_count`, `total_launch_count__gt`, `total_launch_count__gte`, `total_launch_count__lt`, `total_launch_count__lte`
+
+
+        Example - [/pads/?location__id=11](./?location__id=11)
+
+
+        #### Search
+
+        Fields searched - `location__name`, `name`, `orbital_launch_attempt_count`, `total_launch_count`
+
+
+        Example - [/pads/?search=39A](./?search=39A)
+
+
+        #### Ordering
+
+        Fields - `id`, `location__id`, `location__name`, `name`, `orbital_launch_attempt_count`, `total_launch_count`
+
+
+        Example - [/pads/?ordering=-orbital_launch_attempt_count](./?ordering=-orbital_launch_attempt_count)
+
+
+        #### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/pads/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/pads/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Pad.
+        required: true
+      tags:
+      - Pads
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pad'
+          description: ''
+components:
+  schemas:
+    AgencyType:
+      type: object
+      properties:
+        id:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+    Location:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: normal
+        id:
+          type: integer
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        celestial_body:
+          $ref: '#/components/schemas/CelestialBodyDetailed'
+        active:
+          type: boolean
+        country:
+          allOf:
+          - $ref: '#/components/schemas/Country'
+          nullable: true
+        description:
+          type: string
+          nullable: true
+          maxLength: 2048
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          nullable: true
+        map_image:
+          type: string
+          format: uri
+          nullable: true
+        longitude:
+          type: number
+          format: double
+          nullable: true
+        latitude:
+          type: number
+          format: double
+          nullable: true
+        timezone_name:
+          type: string
+          maxLength: 255
+        total_launch_count:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        total_landing_count:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+      required:
+      - celestial_body
+      - country
+      - id
+      - image
+      - response_mode
+      - url
+    ImageVariantType:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+    Country:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        alpha_2_code:
+          type: string
+          description: ISO 3166-1 alpha-2
+          maxLength: 2
+        alpha_3_code:
+          type: string
+          description: ISO 3166-1 alpha-3
+          maxLength: 3
+        nationality_name:
+          type: string
+          description: e.g. French
+          maxLength: 255
+        nationality_name_composed:
+          type: string
+          description: e.g. Franco
+          maxLength: 255
+      required:
+      - id
+    ImageVariant:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        type:
+          $ref: '#/components/schemas/ImageVariantType'
+        image_url:
+          type: string
+          format: uri
+      required:
+      - id
+      - image_url
+      - type
+    Image:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        image_url:
+          type: string
+          format: uri
+        thumbnail_url:
+          type: string
+          format: uri
+        credit:
+          type: string
+          nullable: true
+          maxLength: 255
+        license:
+          $ref: '#/components/schemas/ImageLicense'
+        single_use:
+          type: boolean
+        variants:
+          type: array
+          items:
+            $ref: '#/components/schemas/ImageVariant'
+      required:
+      - id
+      - image_url
+      - license
+      - name
+      - thumbnail_url
+      - variants
+    Pad:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        active:
+          type: boolean
+        agencies:
+          type: array
+          items:
+            $ref: '#/components/schemas/AgencyNormal'
+        name:
+          type: string
+          maxLength: 255
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          nullable: true
+        description:
+          type: string
+          nullable: true
+          maxLength: 2048
+        info_url:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+        wiki_url:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+        map_url:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+        latitude:
+          type: number
+          format: double
+          nullable: true
+        longitude:
+          type: number
+          format: double
+          nullable: true
+        country:
+          allOf:
+          - $ref: '#/components/schemas/Country'
+          nullable: true
+        map_image:
+          type: string
+          format: uri
+          nullable: true
+        total_launch_count:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        orbital_launch_attempt_count:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        fastest_turnaround:
+          type: string
+          readOnly: true
+          nullable: true
+        location:
+          allOf:
+          - $ref: '#/components/schemas/Location'
+          nullable: true
+      required:
+      - agencies
+      - country
+      - fastest_turnaround
+      - id
+      - image
+      - location
+      - url
+    PaginatedPadList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=400&limit=100
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=200&limit=100
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Pad'
+    CelestialBodyType:
+      type: object
+      properties:
+        id:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+    CelestialBodyDetailed:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: normal
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        type:
+          $ref: '#/components/schemas/CelestialBodyType'
+        diameter:
+          type: number
+          format: double
+          nullable: true
+          description: m
+        mass:
+          type: number
+          format: double
+          nullable: true
+          description: kg
+        gravity:
+          type: number
+          format: double
+          nullable: true
+          description: m/s^2
+        length_of_day:
+          type: string
+          nullable: true
+        atmosphere:
+          type: boolean
+        image:
+          $ref: '#/components/schemas/Image'
+        description:
+          type: string
+          nullable: true
+        wiki_url:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+        total_attempted_launches:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        successful_launches:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        failed_launches:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        total_attempted_landings:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        successful_landings:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        failed_landings:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+      required:
+      - id
+      - image
+      - name
+      - response_mode
+      - type
+    ImageLicense:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        priority:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        link:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+      required:
+      - id
+    AgencyNormal:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: normal
+        id:
+          type: integer
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          type: string
+          maxLength: 200
+        abbrev:
+          type: string
+          maxLength: 255
+        type:
+          $ref: '#/components/schemas/AgencyType'
+        featured:
+          type: boolean
+        country:
+          type: array
+          items:
+            $ref: '#/components/schemas/Country'
+        description:
+          type: string
+          nullable: true
+          maxLength: 2048
+        administrator:
+          type: string
+          nullable: true
+          maxLength: 200
+        founding_year:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        launchers:
+          type: string
+          maxLength: 500
+        spacecraft:
+          type: string
+          maxLength: 500
+        parent:
+          type: string
+          readOnly: true
+          nullable: true
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          nullable: true
+        logo:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          nullable: true
+        social_logo:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          nullable: true
+      required:
+      - country
+      - id
+      - image
+      - logo
+      - name
+      - parent
+      - response_mode
+      - social_logo
+      - type
+      - url
+  securitySchemes:
+    Token_Authentication:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: "Token authentication uses a header of Authorization and the value with a required prefix \"Token\" followed by a space and then the apiKey. \n\n Example: `Authorization: Token 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b`"
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid

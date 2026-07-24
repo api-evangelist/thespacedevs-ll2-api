@@ -1,0 +1,2010 @@
+openapi: 3.0.3
+info:
+  title: TheSpaceDevs LL2 Types API
+  version: v2.3.0
+  description: Rocket launches, space events and crewed spaceflight. The Launch Library 2 API is the official successor of the popular Launch Library API. It keeps its core features whilst also including everything the broader Space Launch Now API had to offer. The result is a large database delivering a more complete experience for each rocket launch and ...
+  license:
+    name: Apache License 2.0
+servers:
+- url: https://ll.thespacedevs.com/
+  description: Production API (� rate-limited)
+- url: https://lldev.thespacedevs.com/
+  description: Development API (stale and limited data, for development testing only)
+tags:
+- name: Types
+paths:
+  /2.3.0/config/agency_types/:
+    get:
+      operationId: config_agency_types_list
+      summary: List Agency Types
+      description: '#### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/config/agency_types/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/config/agency_types/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - Types
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedAgencyTypeList'
+          description: ''
+  /2.3.0/config/agency_types/{id}/:
+    get:
+      operationId: config_agency_types_retrieve
+      summary: Get Agency Type
+      description: '#### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/config/agency_types/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/config/agency_types/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        description: A unique value identifying this agency type.
+        required: true
+      tags:
+      - Types
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AgencyType'
+          description: ''
+  /2.3.0/config/astronaut_types/:
+    get:
+      operationId: config_astronaut_types_list
+      summary: List Astronaut Types
+      description: '#### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/config/astronaut_types/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/config/astronaut_types/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - Types
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedAstronautTypeList'
+          description: ''
+  /2.3.0/config/astronaut_types/{id}/:
+    get:
+      operationId: config_astronaut_types_retrieve
+      summary: Get Astronaut Type
+      description: '#### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/config/astronaut_types/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/config/astronaut_types/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Astronaut Type.
+        required: true
+      tags:
+      - Types
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AstronautType'
+          description: ''
+  /2.3.0/config/celestial_body_types/:
+    get:
+      operationId: config_celestial_body_types_list
+      summary: List Celestial Body Types
+      description: '#### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/config/celestial_body_types/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/config/celestial_body_types/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - Types
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedCelestialBodyTypeList'
+          description: ''
+  /2.3.0/config/celestial_body_types/{id}/:
+    get:
+      operationId: config_celestial_body_types_retrieve
+      summary: Get Celestial Body Type
+      description: '#### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/config/celestial_body_types/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/config/celestial_body_types/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        description: A unique value identifying this celestial body type.
+        required: true
+      tags:
+      - Types
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CelestialBodyType'
+          description: ''
+  /2.3.0/config/event_types/:
+    get:
+      operationId: config_event_types_list
+      summary: List Event Types
+      description: '#### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/config/event_types/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/config/event_types/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - Types
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedEventTypeList'
+          description: ''
+  /2.3.0/config/event_types/{id}/:
+    get:
+      operationId: config_event_types_retrieve
+      summary: Get Event Type
+      description: '#### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/config/event_types/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/config/event_types/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        description: A unique value identifying this event type.
+        required: true
+      tags:
+      - Types
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventType'
+          description: ''
+  /2.3.0/config/first_stage_types/:
+    get:
+      operationId: config_first_stage_types_list
+      summary: List First Stage Types
+      description: '#### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/config/first_stage_types/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/config/first_stage_types/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - Types
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedFirstStageTypeList'
+          description: ''
+  /2.3.0/config/first_stage_types/{id}/:
+    get:
+      operationId: config_first_stage_types_retrieve
+      summary: Get First Stage Type
+      description: '#### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/config/first_stage_types/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/config/first_stage_types/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        description: A unique value identifying this first stage type.
+        required: true
+      tags:
+      - Types
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FirstStageType'
+          description: ''
+  /2.3.0/config/image_variant_types/:
+    get:
+      operationId: config_image_variant_types_list
+      summary: List Image Variant Types
+      description: '#### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/config/image_variant_types/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/config/image_variant_types/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - Types
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedImageVariantTypeList'
+          description: ''
+  /2.3.0/config/image_variant_types/{id}/:
+    get:
+      operationId: config_image_variant_types_retrieve
+      summary: Get Image Variant Type
+      description: '#### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/config/image_variant_types/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/config/image_variant_types/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this image variant type.
+        required: true
+      tags:
+      - Types
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageVariantType'
+          description: ''
+  /2.3.0/config/infourl_types/:
+    get:
+      operationId: config_infourl_types_list
+      summary: List Info URL Types
+      description: '#### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/config/infourl_types/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/config/infourl_types/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - Types
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedInfoURLTypeList'
+          description: ''
+  /2.3.0/config/infourl_types/{id}/:
+    get:
+      operationId: config_infourl_types_retrieve
+      summary: Get Info URL Type
+      description: '#### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/config/infourl_types/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/config/infourl_types/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Info URL Type.
+        required: true
+      tags:
+      - Types
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InfoURLType'
+          description: ''
+  /2.3.0/config/landing_types/:
+    get:
+      operationId: config_landing_types_list
+      summary: List Landing Types
+      description: '#### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/config/landing_types/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/config/landing_types/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - Types
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedLandingTypeList'
+          description: ''
+  /2.3.0/config/landing_types/{id}/:
+    get:
+      operationId: config_landing_types_retrieve
+      summary: Get Landing Type
+      description: '#### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/config/landing_types/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/config/landing_types/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this landing type.
+        required: true
+      tags:
+      - Types
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LandingType'
+          description: ''
+  /2.3.0/config/mission_types/:
+    get:
+      operationId: config_mission_types_list
+      summary: List Mission Types
+      description: '#### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/config/mission_types/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/config/mission_types/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - Types
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedMissionTypeList'
+          description: ''
+  /2.3.0/config/mission_types/{id}/:
+    get:
+      operationId: config_mission_types_retrieve
+      summary: Get Mission Type
+      description: '#### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/config/mission_types/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/config/mission_types/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        description: A unique value identifying this mission type.
+        required: true
+      tags:
+      - Types
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MissionType'
+          description: ''
+  /2.3.0/config/notice_types/:
+    get:
+      operationId: config_notice_types_list
+      summary: List Notice Types
+      description: '#### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/config/notice_types/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/config/notice_types/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - Types
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedNoticeTypeList'
+          description: ''
+  /2.3.0/config/notice_types/{id}/:
+    get:
+      operationId: config_notice_types_retrieve
+      summary: Get Notice Type
+      description: '#### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/config/notice_types/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/config/notice_types/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Notices Type.
+        required: true
+      tags:
+      - Types
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoticeType'
+          description: ''
+  /2.3.0/config/payload_types/:
+    get:
+      operationId: config_payload_types_list
+      summary: List Payload Types
+      description: '#### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/config/payload_types/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/config/payload_types/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - Types
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedPayloadTypeList'
+          description: ''
+  /2.3.0/config/payload_types/{id}/:
+    get:
+      operationId: config_payload_types_retrieve
+      summary: Get Payload Type
+      description: '#### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/config/payload_types/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/config/payload_types/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        description: A unique value identifying this payload type.
+        required: true
+      tags:
+      - Types
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PayloadType'
+          description: ''
+  /2.3.0/config/program_types/:
+    get:
+      operationId: config_program_types_list
+      summary: List Program Types
+      description: '#### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/config/program_types/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/config/program_types/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - Types
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedProgramTypeList'
+          description: ''
+  /2.3.0/config/program_types/{id}/:
+    get:
+      operationId: config_program_types_retrieve
+      summary: Get Program Type
+      description: '#### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/config/program_types/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/config/program_types/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        description: A unique value identifying this program type.
+        required: true
+      tags:
+      - Types
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProgramType'
+          description: ''
+  /2.3.0/config/spacecraft_configuration_types/:
+    get:
+      operationId: config_spacecraft_configuration_types_list
+      summary: List Spacecraft Configuration Types
+      description: '#### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/config/spacecraft_configuration_types/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/config/spacecraft_configuration_types/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - Types
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedSpacecraftConfigTypeList'
+          description: ''
+  /2.3.0/config/spacecraft_configuration_types/{id}/:
+    get:
+      operationId: config_spacecraft_configuration_types_retrieve
+      summary: Get Spacecraft Configuration Type
+      description: '#### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/config/spacecraft_configuration_types/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/config/spacecraft_configuration_types/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Spacecraft Configuration Type.
+        required: true
+      tags:
+      - Types
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpacecraftConfigType'
+          description: ''
+  /2.3.0/config/timeline_event_types/:
+    get:
+      operationId: config_timeline_event_types_list
+      description: '#### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/config/timeline_event_types/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/config/timeline_event_types/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - Types
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedTimelineEventTypeList'
+          description: ''
+  /2.3.0/config/timeline_event_types/{id}/:
+    get:
+      operationId: config_timeline_event_types_retrieve
+      description: '#### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/config/timeline_event_types/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/config/timeline_event_types/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Timeline Event Type.
+        required: true
+      tags:
+      - Types
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimelineEventType'
+          description: ''
+  /2.3.0/config/vidurl_types/:
+    get:
+      operationId: config_vidurl_types_list
+      description: '#### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/config/vidurl_types/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/config/vidurl_types/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - Types
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedVidURLTypeList'
+          description: ''
+  /2.3.0/config/vidurl_types/{id}/:
+    get:
+      operationId: config_vidurl_types_retrieve
+      description: '#### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/config/vidurl_types/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/config/vidurl_types/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Video URL Type.
+        required: true
+      tags:
+      - Types
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VidURLType'
+          description: ''
+components:
+  schemas:
+    PaginatedInfoURLTypeList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=400&limit=100
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=200&limit=100
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/InfoURLType'
+    PaginatedVidURLTypeList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=400&limit=100
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=200&limit=100
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/VidURLType'
+    PayloadType:
+      type: object
+      properties:
+        id:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+    SpacecraftConfigType:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+      - name
+    InfoURLType:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+      - name
+    LandingType:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        abbrev:
+          type: string
+          maxLength: 255
+        description:
+          type: string
+          nullable: true
+          maxLength: 2048
+      required:
+      - id
+    FirstStageType:
+      type: object
+      properties:
+        id:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        name:
+          type: string
+          maxLength: 50
+      required:
+      - id
+    PaginatedAstronautTypeList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=400&limit=100
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=200&limit=100
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/AstronautType'
+    PaginatedNoticeTypeList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=400&limit=100
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=200&limit=100
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/NoticeType'
+    MissionType:
+      type: object
+      properties:
+        id:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+    PaginatedCelestialBodyTypeList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=400&limit=100
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=200&limit=100
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/CelestialBodyType'
+    PaginatedProgramTypeList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=400&limit=100
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=200&limit=100
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProgramType'
+    VidURLType:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+      - name
+    TimelineEventType:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        abbrev:
+          type: string
+          maxLength: 255
+        description:
+          type: string
+          maxLength: 2048
+      required:
+      - abbrev
+      - id
+    PaginatedTimelineEventTypeList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=400&limit=100
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=200&limit=100
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/TimelineEventType'
+    CelestialBodyType:
+      type: object
+      properties:
+        id:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+    PaginatedFirstStageTypeList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=400&limit=100
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=200&limit=100
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/FirstStageType'
+    PaginatedImageVariantTypeList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=400&limit=100
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=200&limit=100
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ImageVariantType'
+    ImageVariantType:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+    AstronautType:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+      - name
+    ProgramType:
+      type: object
+      properties:
+        id:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+    PaginatedAgencyTypeList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=400&limit=100
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=200&limit=100
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/AgencyType'
+    PaginatedPayloadTypeList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=400&limit=100
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=200&limit=100
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/PayloadType'
+    PaginatedLandingTypeList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=400&limit=100
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=200&limit=100
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/LandingType'
+    PaginatedMissionTypeList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=400&limit=100
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=200&limit=100
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/MissionType'
+    EventType:
+      type: object
+      properties:
+        id:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+    NoticeType:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+      - name
+    AgencyType:
+      type: object
+      properties:
+        id:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+    PaginatedSpacecraftConfigTypeList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=400&limit=100
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=200&limit=100
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/SpacecraftConfigType'
+    PaginatedEventTypeList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=400&limit=100
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=200&limit=100
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventType'
+  securitySchemes:
+    Token_Authentication:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: "Token authentication uses a header of Authorization and the value with a required prefix \"Token\" followed by a space and then the apiKey. \n\n Example: `Authorization: Token 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b`"
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid

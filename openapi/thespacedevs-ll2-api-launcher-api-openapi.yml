@@ -1,0 +1,2008 @@
+openapi: 3.0.3
+info:
+  title: TheSpaceDevs LL2 Launcher API
+  version: v2.3.0
+  description: Rocket launches, space events and crewed spaceflight. The Launch Library 2 API is the official successor of the popular Launch Library API. It keeps its core features whilst also including everything the broader Space Launch Now API had to offer. The result is a large database delivering a more complete experience for each rocket launch and ...
+  license:
+    name: Apache License 2.0
+servers:
+- url: https://ll.thespacedevs.com/
+  description: Production API (� rate-limited)
+- url: https://lldev.thespacedevs.com/
+  description: Development API (stale and limited data, for development testing only)
+tags:
+- name: Launcher
+paths:
+  /2.3.0/config/launcher_statuses/:
+    get:
+      operationId: config_launcher_statuses_list
+      summary: List Launcher Statuses
+      description: '#### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/config/launcher_statuses/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/config/launcher_statuses/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - Launcher
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedLauncherStatusList'
+          description: ''
+  /2.3.0/config/launcher_statuses/{id}/:
+    get:
+      operationId: config_launcher_statuses_retrieve
+      summary: Get Launcher Status
+      description: '#### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/config/launcher_statuses/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/config/launcher_statuses/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Launcher Status.
+        required: true
+      tags:
+      - Launcher
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LauncherStatus'
+          description: ''
+  /2.3.0/launcher_configuration_families/:
+    get:
+      operationId: launcher_configuration_families_list
+      summary: List Launcher Configuration Families
+      description: '#### Modes
+
+        Levels of detail in the response - `list`, `normal`, `detailed`
+
+
+        Example - [/launcher_configuration_families/?mode=list](./?mode=list)
+
+
+        #### Filters
+
+        Parameters - `attempted_landings`, `attempted_landings__gt`, `attempted_landings__gte`, `attempted_landings__lt`, `attempted_landings__lte`, `consecutive_successful_landings`, `consecutive_successful_landings__gt`, `consecutive_successful_landings__gte`, `consecutive_successful_landings__lt`, `consecutive_successful_landings__lte`, `consecutive_successful_launches`, `consecutive_successful_launches__gt`, `consecutive_successful_launches__gte`, `consecutive_successful_launches__lt`, `consecutive_successful_launches__lte`, `failed_landings`, `failed_landings__gt`, `failed_landings__gte`, `failed_landings__lt`, `failed_landings__lte`, `failed_launches`, `failed_launches__gt`, `failed_launches__gte`, `failed_launches__lt`, `failed_launches__lte`, `maiden_flight`, `maiden_flight__gt`, `maiden_flight__gte`, `maiden_flight__lt`, `maiden_flight__lte`, `manufacturer__abbrev`, `manufacturer__abbrev__contains`, `manufacturer__country_code`, `manufacturer__id`, `manufacturer__id__contains`, `manufacturer__name`, `manufacturer__name__contains`, `name`, `name__contains`, `pending_launches`, `pending_launches__gt`, `pending_launches__gte`, `pending_launches__lt`, `pending_launches__lte`, `successful_landings`, `successful_landings__gt`, `successful_landings__gte`, `successful_landings__lt`, `successful_landings__lte`, `successful_launches`, `successful_launches__gt`, `successful_launches__gte`, `successful_launches__lt`, `successful_launches__lte`, `total_launch_count`, `total_launch_count__gt`, `total_launch_count__gte`, `total_launch_count__lt`, `total_launch_count__lte`
+
+
+        Example - [/launcher_configuration_families/?manufacturer__name=SpaceX](./?manufacturer__name=SpaceX)
+
+
+        #### Search
+
+        Fields searched - `manufacturer__abbrev`, `manufacturer__name`, `name`
+
+
+        Example - [/launcher_configuration_families/?search=Ariane](./?search=Ariane)
+
+
+        #### Ordering
+
+        Fields - `attempted_landings`, `consecutive_successful_landings`, `consecutive_successful_launches`, `failed_landings`, `failed_launches`, `name`, `pending_launches`, `successful_landings`, `successful_launches`, `total_launch_count`
+
+
+        Example - [/launcher_configuration_families/?ordering=-total_launch_count](./?ordering=-total_launch_count)
+
+
+        #### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/launcher_configuration_families/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/launcher_configuration_families/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - in: query
+        name: attempted_landings
+        schema:
+          type: integer
+      - in: query
+        name: attempted_landings__gt
+        schema:
+          type: integer
+      - in: query
+        name: attempted_landings__gte
+        schema:
+          type: integer
+      - in: query
+        name: attempted_landings__lt
+        schema:
+          type: integer
+      - in: query
+        name: attempted_landings__lte
+        schema:
+          type: integer
+      - in: query
+        name: consecutive_successful_landings
+        schema:
+          type: integer
+      - in: query
+        name: consecutive_successful_landings__gt
+        schema:
+          type: integer
+      - in: query
+        name: consecutive_successful_landings__gte
+        schema:
+          type: integer
+      - in: query
+        name: consecutive_successful_landings__lt
+        schema:
+          type: integer
+      - in: query
+        name: consecutive_successful_landings__lte
+        schema:
+          type: integer
+      - in: query
+        name: consecutive_successful_launches
+        schema:
+          type: integer
+      - in: query
+        name: consecutive_successful_launches__gt
+        schema:
+          type: integer
+      - in: query
+        name: consecutive_successful_launches__gte
+        schema:
+          type: integer
+      - in: query
+        name: consecutive_successful_launches__lt
+        schema:
+          type: integer
+      - in: query
+        name: consecutive_successful_launches__lte
+        schema:
+          type: integer
+      - in: query
+        name: failed_landings
+        schema:
+          type: integer
+      - in: query
+        name: failed_landings__gt
+        schema:
+          type: integer
+      - in: query
+        name: failed_landings__gte
+        schema:
+          type: integer
+      - in: query
+        name: failed_landings__lt
+        schema:
+          type: integer
+      - in: query
+        name: failed_landings__lte
+        schema:
+          type: integer
+      - in: query
+        name: failed_launches
+        schema:
+          type: integer
+      - in: query
+        name: failed_launches__gt
+        schema:
+          type: integer
+      - in: query
+        name: failed_launches__gte
+        schema:
+          type: integer
+      - in: query
+        name: failed_launches__lt
+        schema:
+          type: integer
+      - in: query
+        name: failed_launches__lte
+        schema:
+          type: integer
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - in: query
+        name: maiden_flight
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: maiden_flight__gt
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: maiden_flight__gte
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: maiden_flight__lt
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: maiden_flight__lte
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: manufacturer__abbrev
+        schema:
+          type: string
+      - in: query
+        name: manufacturer__abbrev__contains
+        schema:
+          type: string
+      - in: query
+        name: manufacturer__country_code
+        schema:
+          type: string
+      - in: query
+        name: manufacturer__id
+        schema:
+          type: integer
+      - in: query
+        name: manufacturer__id__contains
+        schema:
+          type: integer
+      - in: query
+        name: manufacturer__name
+        schema:
+          type: string
+      - in: query
+        name: manufacturer__name__contains
+        schema:
+          type: string
+      - in: query
+        name: mode
+        schema:
+          type: string
+          enum:
+          - detailed
+          - list
+          - normal
+        description: Level of detail in the response.
+      - in: query
+        name: name
+        schema:
+          type: string
+      - in: query
+        name: name__contains
+        schema:
+          type: string
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - in: query
+        name: pending_launches
+        schema:
+          type: integer
+      - in: query
+        name: pending_launches__gt
+        schema:
+          type: integer
+      - in: query
+        name: pending_launches__gte
+        schema:
+          type: integer
+      - in: query
+        name: pending_launches__lt
+        schema:
+          type: integer
+      - in: query
+        name: pending_launches__lte
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - in: query
+        name: successful_landings
+        schema:
+          type: integer
+      - in: query
+        name: successful_landings__gt
+        schema:
+          type: integer
+      - in: query
+        name: successful_landings__gte
+        schema:
+          type: integer
+      - in: query
+        name: successful_landings__lt
+        schema:
+          type: integer
+      - in: query
+        name: successful_landings__lte
+        schema:
+          type: integer
+      - in: query
+        name: successful_launches
+        schema:
+          type: integer
+      - in: query
+        name: successful_launches__gt
+        schema:
+          type: integer
+      - in: query
+        name: successful_launches__gte
+        schema:
+          type: integer
+      - in: query
+        name: successful_launches__lt
+        schema:
+          type: integer
+      - in: query
+        name: successful_launches__lte
+        schema:
+          type: integer
+      - in: query
+        name: total_launch_count
+        schema:
+          type: integer
+      - in: query
+        name: total_launch_count__gt
+        schema:
+          type: integer
+      - in: query
+        name: total_launch_count__gte
+        schema:
+          type: integer
+      - in: query
+        name: total_launch_count__lt
+        schema:
+          type: integer
+      - in: query
+        name: total_launch_count__lte
+        schema:
+          type: integer
+      tags:
+      - Launcher
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedPolymorphicLauncherConfigFamilyEndpointList'
+          description: ''
+  /2.3.0/launcher_configuration_families/{id}/:
+    get:
+      operationId: launcher_configuration_families_retrieve
+      summary: Get Launcher Configuration Family
+      description: '#### Modes
+
+        Levels of detail in the response - `list`, `normal`, `detailed`
+
+
+        Example - [/launcher_configuration_families/?mode=list](./?mode=list)
+
+
+        #### Filters
+
+        Parameters - `attempted_landings`, `attempted_landings__gt`, `attempted_landings__gte`, `attempted_landings__lt`, `attempted_landings__lte`, `consecutive_successful_landings`, `consecutive_successful_landings__gt`, `consecutive_successful_landings__gte`, `consecutive_successful_landings__lt`, `consecutive_successful_landings__lte`, `consecutive_successful_launches`, `consecutive_successful_launches__gt`, `consecutive_successful_launches__gte`, `consecutive_successful_launches__lt`, `consecutive_successful_launches__lte`, `failed_landings`, `failed_landings__gt`, `failed_landings__gte`, `failed_landings__lt`, `failed_landings__lte`, `failed_launches`, `failed_launches__gt`, `failed_launches__gte`, `failed_launches__lt`, `failed_launches__lte`, `maiden_flight`, `maiden_flight__gt`, `maiden_flight__gte`, `maiden_flight__lt`, `maiden_flight__lte`, `manufacturer__abbrev`, `manufacturer__abbrev__contains`, `manufacturer__country_code`, `manufacturer__id`, `manufacturer__id__contains`, `manufacturer__name`, `manufacturer__name__contains`, `name`, `name__contains`, `pending_launches`, `pending_launches__gt`, `pending_launches__gte`, `pending_launches__lt`, `pending_launches__lte`, `successful_landings`, `successful_landings__gt`, `successful_landings__gte`, `successful_landings__lt`, `successful_landings__lte`, `successful_launches`, `successful_launches__gt`, `successful_launches__gte`, `successful_launches__lt`, `successful_launches__lte`, `total_launch_count`, `total_launch_count__gt`, `total_launch_count__gte`, `total_launch_count__lt`, `total_launch_count__lte`
+
+
+        Example - [/launcher_configuration_families/?manufacturer__name=SpaceX](./?manufacturer__name=SpaceX)
+
+
+        #### Search
+
+        Fields searched - `manufacturer__abbrev`, `manufacturer__name`, `name`
+
+
+        Example - [/launcher_configuration_families/?search=Ariane](./?search=Ariane)
+
+
+        #### Ordering
+
+        Fields - `attempted_landings`, `consecutive_successful_landings`, `consecutive_successful_launches`, `failed_landings`, `failed_launches`, `name`, `pending_launches`, `successful_landings`, `successful_launches`, `total_launch_count`
+
+
+        Example - [/launcher_configuration_families/?ordering=-total_launch_count](./?ordering=-total_launch_count)
+
+
+        #### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/launcher_configuration_families/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/launcher_configuration_families/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Launcher Configuration Family.
+        required: true
+      tags:
+      - Launcher
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LauncherConfigFamilyDetailed'
+          description: ''
+  /2.3.0/launcher_configurations/:
+    get:
+      operationId: launcher_configurations_list
+      summary: List Launcher Configurations
+      description: '#### Modes
+
+        Levels of detail in the response - `list`, `normal`, `detailed`
+
+
+        Example - [/launcher_configurations/?mode=list](./?mode=list)
+
+
+        #### Filters
+
+        Parameters - `active`, `attempted_landings`, `attempted_landings__gt`, `attempted_landings__gte`, `attempted_landings__lt`, `attempted_landings__lte`, `consecutive_successful_landings`, `consecutive_successful_landings__gt`, `consecutive_successful_landings__gte`, `consecutive_successful_landings__lt`, `consecutive_successful_landings__lte`, `consecutive_successful_launches`, `consecutive_successful_launches__gt`, `consecutive_successful_launches__gte`, `consecutive_successful_launches__lt`, `consecutive_successful_launches__lte`, `failed_landings`, `failed_landings__gt`, `failed_landings__gte`, `failed_landings__lt`, `failed_landings__lte`, `failed_launches`, `failed_launches__gt`, `failed_launches__gte`, `failed_launches__lt`, `failed_launches__lte`, `families`, `families__contains`, `full_name`, `full_name__contains`, `is_placeholder`, `maiden_flight`, `maiden_flight__gt`, `maiden_flight__gte`, `maiden_flight__lt`, `maiden_flight__lte`, `manufacturer__name`, `manufacturer__name__contains`, `name`, `name__contains`, `pending_launches`, `pending_launches__gt`, `pending_launches__gte`, `pending_launches__lt`, `pending_launches__lte`, `program`, `program__contains`, `successful_landings`, `successful_landings__gt`, `successful_landings__gte`, `successful_landings__lt`, `successful_landings__lte`, `successful_launches`, `successful_launches__gt`, `successful_launches__gte`, `successful_launches__lt`, `successful_launches__lte`, `total_launch_count`, `total_launch_count__gt`, `total_launch_count__gte`, `total_launch_count__lt`, `total_launch_count__lte`
+
+
+        Example - [/launcher_configurations/?manufacturer__name=SpaceX](./?manufacturer__name=SpaceX)
+
+
+        #### Search
+
+        Fields searched - `full_name`, `manufacturer__abbrev`, `manufacturer__name`, `name`
+
+
+        Example - [/launcher_configurations/?search=Soyuz](./?search=Soyuz)
+
+
+        #### Ordering
+
+        Fields - `attempted_landings`, `consecutive_successful_landings`, `consecutive_successful_launches`, `failed_landings`, `failed_launches`, `gto_capacity`, `launch_cost`, `launch_mass`, `leo_capacity`, `maiden_flight`, `name`, `pending_launches`, `successful_landings`, `successful_launches`, `total_launch_count`
+
+
+        Example - [/launcher_configurations/?ordering=-total_launch_count](./?ordering=-total_launch_count)
+
+
+        #### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/launcher_configurations/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/launcher_configurations/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - in: query
+        name: active
+        schema:
+          type: boolean
+      - in: query
+        name: attempted_landings
+        schema:
+          type: integer
+      - in: query
+        name: attempted_landings__gt
+        schema:
+          type: integer
+      - in: query
+        name: attempted_landings__gte
+        schema:
+          type: integer
+      - in: query
+        name: attempted_landings__lt
+        schema:
+          type: integer
+      - in: query
+        name: attempted_landings__lte
+        schema:
+          type: integer
+      - in: query
+        name: consecutive_successful_landings
+        schema:
+          type: integer
+      - in: query
+        name: consecutive_successful_landings__gt
+        schema:
+          type: integer
+      - in: query
+        name: consecutive_successful_landings__gte
+        schema:
+          type: integer
+      - in: query
+        name: consecutive_successful_landings__lt
+        schema:
+          type: integer
+      - in: query
+        name: consecutive_successful_landings__lte
+        schema:
+          type: integer
+      - in: query
+        name: consecutive_successful_launches
+        schema:
+          type: integer
+      - in: query
+        name: consecutive_successful_launches__gt
+        schema:
+          type: integer
+      - in: query
+        name: consecutive_successful_launches__gte
+        schema:
+          type: integer
+      - in: query
+        name: consecutive_successful_launches__lt
+        schema:
+          type: integer
+      - in: query
+        name: consecutive_successful_launches__lte
+        schema:
+          type: integer
+      - in: query
+        name: failed_landings
+        schema:
+          type: integer
+      - in: query
+        name: failed_landings__gt
+        schema:
+          type: integer
+      - in: query
+        name: failed_landings__gte
+        schema:
+          type: integer
+      - in: query
+        name: failed_landings__lt
+        schema:
+          type: integer
+      - in: query
+        name: failed_landings__lte
+        schema:
+          type: integer
+      - in: query
+        name: failed_launches
+        schema:
+          type: integer
+      - in: query
+        name: failed_launches__gt
+        schema:
+          type: integer
+      - in: query
+        name: failed_launches__gte
+        schema:
+          type: integer
+      - in: query
+        name: failed_launches__lt
+        schema:
+          type: integer
+      - in: query
+        name: failed_launches__lte
+        schema:
+          type: integer
+      - in: query
+        name: families
+        schema:
+          type: array
+          items:
+            type: integer
+        explode: true
+        style: form
+      - in: query
+        name: families__contains
+        schema:
+          type: array
+          items:
+            type: integer
+        explode: true
+        style: form
+      - in: query
+        name: full_name
+        schema:
+          type: string
+      - in: query
+        name: full_name__contains
+        schema:
+          type: string
+      - in: query
+        name: is_placeholder
+        schema:
+          type: boolean
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - in: query
+        name: maiden_flight
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: maiden_flight__gt
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: maiden_flight__gte
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: maiden_flight__lt
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: maiden_flight__lte
+        schema:
+          type: string
+          format: date
+      - in: query
+        name: manufacturer__name
+        schema:
+          type: string
+      - in: query
+        name: manufacturer__name__contains
+        schema:
+          type: string
+      - in: query
+        name: mode
+        schema:
+          type: string
+          enum:
+          - detailed
+          - list
+          - normal
+        description: Level of detail in the response.
+      - in: query
+        name: name
+        schema:
+          type: string
+      - in: query
+        name: name__contains
+        schema:
+          type: string
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - in: query
+        name: pending_launches
+        schema:
+          type: integer
+      - in: query
+        name: pending_launches__gt
+        schema:
+          type: integer
+      - in: query
+        name: pending_launches__gte
+        schema:
+          type: integer
+      - in: query
+        name: pending_launches__lt
+        schema:
+          type: integer
+      - in: query
+        name: pending_launches__lte
+        schema:
+          type: integer
+      - in: query
+        name: program
+        schema:
+          type: array
+          items:
+            type: integer
+        explode: true
+        style: form
+      - in: query
+        name: program__contains
+        schema:
+          type: array
+          items:
+            type: integer
+        explode: true
+        style: form
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - in: query
+        name: successful_landings
+        schema:
+          type: integer
+      - in: query
+        name: successful_landings__gt
+        schema:
+          type: integer
+      - in: query
+        name: successful_landings__gte
+        schema:
+          type: integer
+      - in: query
+        name: successful_landings__lt
+        schema:
+          type: integer
+      - in: query
+        name: successful_landings__lte
+        schema:
+          type: integer
+      - in: query
+        name: successful_launches
+        schema:
+          type: integer
+      - in: query
+        name: successful_launches__gt
+        schema:
+          type: integer
+      - in: query
+        name: successful_launches__gte
+        schema:
+          type: integer
+      - in: query
+        name: successful_launches__lt
+        schema:
+          type: integer
+      - in: query
+        name: successful_launches__lte
+        schema:
+          type: integer
+      - in: query
+        name: total_launch_count
+        schema:
+          type: integer
+      - in: query
+        name: total_launch_count__gt
+        schema:
+          type: integer
+      - in: query
+        name: total_launch_count__gte
+        schema:
+          type: integer
+      - in: query
+        name: total_launch_count__lt
+        schema:
+          type: integer
+      - in: query
+        name: total_launch_count__lte
+        schema:
+          type: integer
+      tags:
+      - Launcher
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedPolymorphicLauncherConfigEndpointList'
+          description: ''
+  /2.3.0/launcher_configurations/{id}/:
+    get:
+      operationId: launcher_configurations_retrieve
+      summary: Get Launcher Configuration
+      description: '#### Modes
+
+        Levels of detail in the response - `list`, `normal`, `detailed`
+
+
+        Example - [/launcher_configurations/?mode=list](./?mode=list)
+
+
+        #### Filters
+
+        Parameters - `active`, `attempted_landings`, `attempted_landings__gt`, `attempted_landings__gte`, `attempted_landings__lt`, `attempted_landings__lte`, `consecutive_successful_landings`, `consecutive_successful_landings__gt`, `consecutive_successful_landings__gte`, `consecutive_successful_landings__lt`, `consecutive_successful_landings__lte`, `consecutive_successful_launches`, `consecutive_successful_launches__gt`, `consecutive_successful_launches__gte`, `consecutive_successful_launches__lt`, `consecutive_successful_launches__lte`, `failed_landings`, `failed_landings__gt`, `failed_landings__gte`, `failed_landings__lt`, `failed_landings__lte`, `failed_launches`, `failed_launches__gt`, `failed_launches__gte`, `failed_launches__lt`, `failed_launches__lte`, `families`, `families__contains`, `full_name`, `full_name__contains`, `is_placeholder`, `maiden_flight`, `maiden_flight__gt`, `maiden_flight__gte`, `maiden_flight__lt`, `maiden_flight__lte`, `manufacturer__name`, `manufacturer__name__contains`, `name`, `name__contains`, `pending_launches`, `pending_launches__gt`, `pending_launches__gte`, `pending_launches__lt`, `pending_launches__lte`, `program`, `program__contains`, `successful_landings`, `successful_landings__gt`, `successful_landings__gte`, `successful_landings__lt`, `successful_landings__lte`, `successful_launches`, `successful_launches__gt`, `successful_launches__gte`, `successful_launches__lt`, `successful_launches__lte`, `total_launch_count`, `total_launch_count__gt`, `total_launch_count__gte`, `total_launch_count__lt`, `total_launch_count__lte`
+
+
+        Example - [/launcher_configurations/?manufacturer__name=SpaceX](./?manufacturer__name=SpaceX)
+
+
+        #### Search
+
+        Fields searched - `full_name`, `manufacturer__abbrev`, `manufacturer__name`, `name`
+
+
+        Example - [/launcher_configurations/?search=Soyuz](./?search=Soyuz)
+
+
+        #### Ordering
+
+        Fields - `attempted_landings`, `consecutive_successful_landings`, `consecutive_successful_launches`, `failed_landings`, `failed_launches`, `gto_capacity`, `launch_cost`, `launch_mass`, `leo_capacity`, `maiden_flight`, `name`, `pending_launches`, `successful_landings`, `successful_launches`, `total_launch_count`
+
+
+        Example - [/launcher_configurations/?ordering=-total_launch_count](./?ordering=-total_launch_count)
+
+
+        #### Number of results
+
+        Use `limit` to control the number of objects in the response (max 100)
+
+
+        Example - [/launcher_configurations/?limit=2](./?limit=2)
+
+
+        #### Format
+
+        Switch to JSON output - [/launcher_configurations/?format=json](./?format=json)
+
+
+        #### Help
+
+        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Launcher Configuration.
+        required: true
+      tags:
+      - Launcher
+      security:
+      - cookieAuth: []
+      - Token_Authentication: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LauncherConfigDetailed'
+          description: ''
+components:
+  schemas:
+    SocialMedia:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        url:
+          type: string
+          format: uri
+          nullable: true
+        logo:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          nullable: true
+      required:
+      - id
+      - logo
+      - url
+    ProgramNormal:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: normal
+        id:
+          type: integer
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          nullable: true
+        info_url:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+        wiki_url:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+        description:
+          type: string
+          nullable: true
+          maxLength: 40000
+        agencies:
+          type: array
+          items:
+            $ref: '#/components/schemas/AgencyMini'
+        start_date:
+          type: string
+          format: date-time
+          nullable: true
+        end_date:
+          type: string
+          format: date-time
+          nullable: true
+        mission_patches:
+          type: array
+          items:
+            $ref: '#/components/schemas/MissionPatch'
+        type:
+          $ref: '#/components/schemas/ProgramType'
+      required:
+      - agencies
+      - id
+      - image
+      - mission_patches
+      - name
+      - response_mode
+      - type
+      - url
+    LauncherConfigFamilyMini:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: list
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 200
+      required:
+      - id
+      - name
+      - response_mode
+    PolymorphicLauncherConfigFamilyEndpoint:
+      oneOf:
+      - $ref: '#/components/schemas/LauncherConfigFamilyMini'
+      - $ref: '#/components/schemas/LauncherConfigFamilyNormal'
+      - $ref: '#/components/schemas/LauncherConfigFamilyDetailed'
+      discriminator:
+        propertyName: response_mode
+        mapping:
+          list: '#/components/schemas/LauncherConfigFamilyMini'
+          normal: '#/components/schemas/LauncherConfigFamilyNormal'
+          detailed: '#/components/schemas/LauncherConfigFamilyDetailed'
+    ImageLicense:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        priority:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        link:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+      required:
+      - id
+    LauncherConfigNormal:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: normal
+        id:
+          type: integer
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          type: string
+          maxLength: 200
+        families:
+          type: array
+          items:
+            $ref: '#/components/schemas/LauncherConfigFamilyNormal'
+          nullable: true
+        full_name:
+          type: string
+          maxLength: 200
+        variant:
+          type: string
+          maxLength: 200
+        active:
+          type: boolean
+        is_placeholder:
+          type: boolean
+        manufacturer:
+          allOf:
+          - $ref: '#/components/schemas/AgencyNormal'
+          nullable: true
+        program:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProgramNormal'
+        reusable:
+          type: boolean
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          nullable: true
+        info_url:
+          type: string
+          nullable: true
+          maxLength: 200
+        wiki_url:
+          type: string
+          nullable: true
+          maxLength: 200
+      required:
+      - families
+      - id
+      - image
+      - manufacturer
+      - name
+      - program
+      - response_mode
+      - url
+    Country:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        alpha_2_code:
+          type: string
+          description: ISO 3166-1 alpha-2
+          maxLength: 2
+        alpha_3_code:
+          type: string
+          description: ISO 3166-1 alpha-3
+          maxLength: 3
+        nationality_name:
+          type: string
+          description: e.g. French
+          maxLength: 255
+        nationality_name_composed:
+          type: string
+          description: e.g. Franco
+          maxLength: 255
+      required:
+      - id
+    PolymorphicLauncherConfigEndpoint:
+      oneOf:
+      - $ref: '#/components/schemas/LauncherConfigList'
+      - $ref: '#/components/schemas/LauncherConfigNormal'
+      - $ref: '#/components/schemas/LauncherConfigDetailed'
+      discriminator:
+        propertyName: response_mode
+        mapping:
+          list: '#/components/schemas/LauncherConfigList'
+          normal: '#/components/schemas/LauncherConfigNormal'
+          detailed: '#/components/schemas/LauncherConfigDetailed'
+    PaginatedPolymorphicLauncherConfigFamilyEndpointList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=400&limit=100
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=200&limit=100
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/PolymorphicLauncherConfigFamilyEndpoint'
+    LauncherConfigList:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: list
+        id:
+          type: integer
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          type: string
+          maxLength: 200
+        families:
+          type: array
+          items:
+            $ref: '#/components/schemas/LauncherConfigFamilyMini'
+          nullable: true
+        full_name:
+          type: string
+          maxLength: 200
+        variant:
+          type: string
+          maxLength: 200
+      required:
+      - families
+      - id
+      - name
+      - response_mode
+      - url
+    AgencyDetailed:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: normal
+        id:
+          type: integer
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          type: string
+          maxLength: 200
+        abbrev:
+          type: string
+          maxLength: 255
+        type:
+          $ref: '#/components/schemas/AgencyType'
+        featured:
+          type: boolean
+        country:
+          type: array
+          items:
+            $ref: '#/components/schemas/Country'
+        description:
+          type: string
+          nullable: true
+          maxLength: 2048
+        administrator:
+          type: string
+          nullable: true
+          maxLength: 200
+        founding_year:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        launchers:
+          type: string
+          maxLength: 500
+        spacecraft:
+          type: string
+          maxLength: 500
+        parent:
+          type: string
+          readOnly: true
+          nullable: true
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          nullable: true
+        logo:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          nullable: true
+        social_logo:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          nullable: true
+        total_launch_count:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        consecutive_successful_launches:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        successful_launches:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        failed_launches:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        pending_launches:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        consecutive_successful_landings:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        successful_landings:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        failed_landings:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        attempted_landings:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        successful_landings_spacecraft:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        failed_landings_spacecraft:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        attempted_landings_spacecraft:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        successful_landings_payload:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        failed_landings_payload:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        attempted_landings_payload:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        info_url:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+        wiki_url:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+        social_media_links:
+          type: array
+          items:
+            $ref: '#/components/schemas/SocialMediaLink'
+      required:
+      - country
+      - id
+      - image
+      - logo
+      - name
+      - parent
+      - response_mode
+      - social_logo
+      - social_media_links
+      - type
+      - url
+    AgencyMini:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: list
+        id:
+          type: integer
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          type: string
+          maxLength: 200
+        abbrev:
+          type: string
+          maxLength: 255
+        type:
+          $ref: '#/components/schemas/AgencyType'
+      required:
+      - id
+      - name
+      - response_mode
+      - type
+      - url
+    AgencyNormal:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: normal
+        id:
+          type: integer
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          type: string
+          maxLength: 200
+        abbrev:
+          type: string
+          maxLength: 255
+        type:
+          $ref: '#/components/schemas/AgencyType'
+        featured:
+          type: boolean
+        country:
+          type: array
+          items:
+            $ref: '#/components/schemas/Country'
+        description:
+          type: string
+          nullable: true
+          maxLength: 2048
+        administrator:
+          type: string
+          nullable: true
+          maxLength: 200
+        founding_year:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        launchers:
+          type: string
+          maxLength: 500
+        spacecraft:
+          type: string
+          maxLength: 500
+        parent:
+          type: string
+          readOnly: true
+          nullable: true
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          nullable: true
+        logo:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          nullable: true
+        social_logo:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          nullable: true
+      required:
+      - country
+      - id
+      - image
+      - logo
+      - name
+      - parent
+      - response_mode
+      - social_logo
+      - type
+      - url
+    LauncherConfigFamilyDetailed:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: detailed
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 200
+        manufacturer:
+          type: array
+          items:
+            $ref: '#/components/schemas/AgencyDetailed'
+          nullable: true
+        parent:
+          allOf:
+          - $ref: '#/components/schemas/LauncherConfigFamilyNormal'
+          nullable: true
+        description:
+          type: string
+          maxLength: 2048
+        active:
+          type: boolean
+        maiden_flight:
+          type: string
+          format: date
+          nullable: true
+          title: Maiden Flight Date
+        total_launch_count:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        consecutive_successful_launches:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        successful_launches:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        failed_launches:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        pending_launches:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        attempted_landings:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        successful_landings:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        failed_landings:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        consecutive_successful_landings:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+      required:
+      - id
+      - manufacturer
+      - name
+      - parent
+      - response_mode
+    ImageVariantType:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+    ProgramType:
+      type: object
+      properties:
+        id:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+    ImageVariant:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        type:
+          $ref: '#/components/schemas/ImageVariantType'
+        image_url:
+          type: string
+          format: uri
+      required:
+      - id
+      - image_url
+      - type
+    Image:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        image_url:
+          type: string
+          format: uri
+        thumbnail_url:
+          type: string
+          format: uri
+        credit:
+          type: string
+          nullable: true
+          maxLength: 255
+        license:
+          $ref: '#/components/schemas/ImageLicense'
+        single_use:
+          type: boolean
+        variants:
+          type: array
+          items:
+            $ref: '#/components/schemas/ImageVariant'
+      required:
+      - id
+      - image_url
+      - license
+      - name
+      - thumbnail_url
+      - variants
+    PaginatedLauncherStatusList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=400&limit=100
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=200&limit=100
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/LauncherStatus'
+    MissionPatch:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 200
+        priority:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        image_url:
+          type: string
+          format: uri
+        agency:
+          allOf:
+          - $ref: '#/components/schemas/AgencyMini'
+          nullable: true
+        response_mode:
+          type: string
+          readOnly: true
+          default: normal
+      required:
+      - agency
+      - id
+      - image_url
+      - name
+      - response_mode
+    LauncherConfigFamilyNormal:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: normal
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 200
+        manufacturer:
+          type: array
+          items:
+            $ref: '#/components/schemas/AgencyNormal'
+        parent:
+          allOf:
+          - $ref: '#/components/schemas/LauncherConfigFamilyMini'
+          nullable: true
+      required:
+      - id
+      - manufacturer
+      - name
+      - parent
+      - response_mode
+    AgencyType:
+      type: object
+      properties:
+        id:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+    PaginatedPolymorphicLauncherConfigEndpointList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=400&limit=100
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?offset=200&limit=100
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/PolymorphicLauncherConfigEndpoint'
+    LauncherConfigDetailed:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: detailed
+        id:
+          type: integer
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          type: string
+          maxLength: 200
+        families:
+          type: array
+          items:
+            $ref: '#/components/schemas/LauncherConfigFamilyDetailed'
+          nullable: true
+        full_name:
+          type: string
+          maxLength: 200
+        variant:
+          type: string
+          maxLength: 200
+        active:
+          type: boolean
+        is_placeholder:
+          type: boolean
+        manufacturer:
+          allOf:
+          - $ref: '#/components/schemas/AgencyDetailed'
+          nullable: true
+        program:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProgramNormal'
+        reusable:
+          type: boolean
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          nullable: true
+        info_url:
+          type: string
+          nullable: true
+          maxLength: 200
+        wiki_url:
+          type: string
+          nullable: true
+          maxLength: 200
+        description:
+          type: string
+          maxLength: 2048
+        alias:
+          type: string
+          maxLength: 200
+        min_stage:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        max_stage:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        length:
+          type: number
+          format: double
+          nullable: true
+          title: Length (m)
+        diameter:
+          type: number
+          format: double
+          nullable: true
+          title: Max Diameter (m)
+        maiden_flight:
+          type: string
+          format: date
+          nullable: true
+          title: Maiden Flight Date
+        launch_cost:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+          title: Launch Cost (USD)
+        launch_mass:
+          type: number
+          format: double
+          nullable: true
+          title: Mass at Launch (T)
+        leo_capacity:
+          type: number
+          format: double
+          nullable: true
+          title: LEO Capacity (kg)
+        gto_capacity:
+          type: number
+          format: double
+          nullable: true
+          title: GTO Capacity (kg)
+        geo_capacity:
+          type: number
+          format: double
+          nullable: true
+          title: GEO Capacity (kg)
+        sso_capacity:
+          type: number
+          format: double
+          nullable: true
+          title: SSO Capacity (kg)
+        to_thrust:
+          type: number
+          format: double
+          nullable: true
+          title: Thrust at Liftoff (kN)
+        apogee:
+          type: number
+          format: double
+          nullable: true
+          title: Apogee - Sub-Orbital Only (km)
+        total_launch_count:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        consecutive_successful_launches:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        successful_launches:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        failed_launches:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        pending_launches:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        attempted_landings:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        successful_landings:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        failed_landings:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        consecutive_successful_landings:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        fastest_turnaround:
+          type: string
+          readOnly: true
+          nullable: true
+      required:
+      - families
+      - fastest_turnaround
+      - id
+      - image
+      - manufacturer
+      - name
+      - program
+      - response_mode
+      - url
+    SocialMediaLink:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        social_media:
+          $ref: '#/components/schemas/SocialMedia'
+        url:
+          type: string
+          format: uri
+          nullable: true
+      required:
+      - id
+      - social_media
+      - url
+    LauncherStatus:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 50
+      required:
+      - id
+  securitySchemes:
+    Token_Authentication:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: "Token authentication uses a header of Authorization and the value with a required prefix \"Token\" followed by a space and then the apiKey. \n\n Example: `Authorization: Token 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b`"
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid
