@@ -1,38 +1,886 @@
 aid: thespacedevs-ll2-api
 url: https://raw.githubusercontent.com/api-evangelist/thespacedevs-ll2-api/refs/heads/main/apis.yml
 apis:
-  - aid: thespacedevs-ll2-api:thespacedevs-ll2-api
-    name: TheSpaceDevs Launch Library 2 API
-    tags:
-      - Space
-      - Launches
-      - Rockets
-      - Astronauts
-      - Satellites
-      - Spacecraft
-      - Space Stations
-    humanURL: https://thespacedevs.com/llapi
-    baseURL: https://ll.thespacedevs.com
-    properties:
-      - url: https://thespacedevs.com/llapi
-        type: Documentation
-      - url: openapi/thespacedevs-ll2-api-openapi.yml
-        type: OpenAPI
-      - url: json-schema/thespacedevs-launch-schema.json
-        type: JSONSchema
-      - url: json-ld/thespacedevs-context.jsonld
-        type: JSONLD
-      - url: json-structure/thespacedevs-structure.json
-        type: JSONStructure
-      - url: rules/thespacedevs-rules.yml
-        type: SpectralRules
-      - url: vocabulary/thespacedevs-vocabulary.yml
-        type: Vocabulary
-    description: >-
-      The Launch Library 2 API is the official successor of the popular Launch Library API. It provides comprehensive
-      data on rocket launches, space events, crewed spaceflight, astronauts, spacecraft, space stations, and celestial
-      bodies. The API is maintained by TheSpaceDevs community and delivers real-time and historical data on global space
-      missions.
+- aid: thespacedevs-ll2-api:thespacedevs-ll2-api-agencies-api
+  name: TheSpaceDevs LL2 API Agencies API
+  description: The Agencies API from TheSpaceDevs LL2 API — 2 operation(s) for agencies.
+  humanURL: https://thespacedevs.com/llapi
+  baseURL: https://ll.thespacedevs.com
+  tags:
+  - Agencies
+  properties:
+  - type: OpenAPI
+    url: openapi/thespacedevs-ll2-api-agencies-api-openapi.yml
+  - type: Documentation
+    url: https://thespacedevs.com/llapi
+  - type: JSONSchema
+    url: json-schema/thespacedevs-launch-schema.json
+  - type: JSONLD
+    url: json-ld/thespacedevs-context.jsonld
+  - type: JSONStructure
+    url: json-structure/thespacedevs-structure.json
+  - type: SpectralRules
+    url: rules/thespacedevs-rules.yml
+  - type: Vocabulary
+    url: vocabulary/thespacedevs-vocabulary.yml
+- aid: thespacedevs-ll2-api:thespacedevs-ll2-api-agency-api
+  name: TheSpaceDevs LL2 API Agency API
+  description: The Agency API from TheSpaceDevs LL2 API — 2 operation(s) for agency.
+  humanURL: https://thespacedevs.com/llapi
+  baseURL: https://ll.thespacedevs.com
+  tags:
+  - Agency
+  properties:
+  - type: OpenAPI
+    url: openapi/thespacedevs-ll2-api-agency-api-openapi.yml
+  - type: Documentation
+    url: https://thespacedevs.com/llapi
+  - type: JSONSchema
+    url: json-schema/thespacedevs-launch-schema.json
+  - type: JSONLD
+    url: json-ld/thespacedevs-context.jsonld
+  - type: JSONStructure
+    url: json-structure/thespacedevs-structure.json
+  - type: SpectralRules
+    url: rules/thespacedevs-rules.yml
+  - type: Vocabulary
+    url: vocabulary/thespacedevs-vocabulary.yml
+- aid: thespacedevs-ll2-api:thespacedevs-ll2-api-api-throttle-api
+  name: TheSpaceDevs LL2 API Api-throttle API
+  description: The Api-throttle API from TheSpaceDevs LL2 API — 1 operation(s) for api-throttle.
+  humanURL: https://thespacedevs.com/llapi
+  baseURL: https://ll.thespacedevs.com
+  tags:
+  - Api-throttle
+  properties:
+  - type: OpenAPI
+    url: openapi/thespacedevs-ll2-api-api-throttle-api-openapi.yml
+  - type: Documentation
+    url: https://thespacedevs.com/llapi
+  - type: JSONSchema
+    url: json-schema/thespacedevs-launch-schema.json
+  - type: JSONLD
+    url: json-ld/thespacedevs-context.jsonld
+  - type: JSONStructure
+    url: json-structure/thespacedevs-structure.json
+  - type: SpectralRules
+    url: rules/thespacedevs-rules.yml
+  - type: Vocabulary
+    url: vocabulary/thespacedevs-vocabulary.yml
+- aid: thespacedevs-ll2-api:thespacedevs-ll2-api-astronaut-api
+  name: TheSpaceDevs LL2 API Astronaut API
+  description: The Astronaut API from TheSpaceDevs LL2 API — 6 operation(s) for astronaut.
+  humanURL: https://thespacedevs.com/llapi
+  baseURL: https://ll.thespacedevs.com
+  tags:
+  - Astronaut
+  properties:
+  - type: OpenAPI
+    url: openapi/thespacedevs-ll2-api-astronaut-api-openapi.yml
+  - type: Documentation
+    url: https://thespacedevs.com/llapi
+  - type: JSONSchema
+    url: json-schema/thespacedevs-launch-schema.json
+  - type: JSONLD
+    url: json-ld/thespacedevs-context.jsonld
+  - type: JSONStructure
+    url: json-structure/thespacedevs-structure.json
+  - type: SpectralRules
+    url: rules/thespacedevs-rules.yml
+  - type: Vocabulary
+    url: vocabulary/thespacedevs-vocabulary.yml
+- aid: thespacedevs-ll2-api:thespacedevs-ll2-api-astronauts-api
+  name: TheSpaceDevs LL2 API Astronauts API
+  description: The Astronauts API from TheSpaceDevs LL2 API — 2 operation(s) for astronauts.
+  humanURL: https://thespacedevs.com/llapi
+  baseURL: https://ll.thespacedevs.com
+  tags:
+  - Astronauts
+  properties:
+  - type: OpenAPI
+    url: openapi/thespacedevs-ll2-api-astronauts-api-openapi.yml
+  - type: Documentation
+    url: https://thespacedevs.com/llapi
+  - type: JSONSchema
+    url: json-schema/thespacedevs-launch-schema.json
+  - type: JSONLD
+    url: json-ld/thespacedevs-context.jsonld
+  - type: JSONStructure
+    url: json-structure/thespacedevs-structure.json
+  - type: SpectralRules
+    url: rules/thespacedevs-rules.yml
+  - type: Vocabulary
+    url: vocabulary/thespacedevs-vocabulary.yml
+- aid: thespacedevs-ll2-api:thespacedevs-ll2-api-bodies-api
+  name: TheSpaceDevs LL2 API Bodies API
+  description: The Bodies API from TheSpaceDevs LL2 API — 2 operation(s) for bodies.
+  humanURL: https://thespacedevs.com/llapi
+  baseURL: https://ll.thespacedevs.com
+  tags:
+  - Bodies
+  properties:
+  - type: OpenAPI
+    url: openapi/thespacedevs-ll2-api-bodies-api-openapi.yml
+  - type: Documentation
+    url: https://thespacedevs.com/llapi
+  - type: JSONSchema
+    url: json-schema/thespacedevs-launch-schema.json
+  - type: JSONLD
+    url: json-ld/thespacedevs-context.jsonld
+  - type: JSONStructure
+    url: json-structure/thespacedevs-structure.json
+  - type: SpectralRules
+    url: rules/thespacedevs-rules.yml
+  - type: Vocabulary
+    url: vocabulary/thespacedevs-vocabulary.yml
+- aid: thespacedevs-ll2-api:thespacedevs-ll2-api-celestial-api
+  name: TheSpaceDevs LL2 API Celestial API
+  description: The Celestial API from TheSpaceDevs LL2 API — 4 operation(s) for celestial.
+  humanURL: https://thespacedevs.com/llapi
+  baseURL: https://ll.thespacedevs.com
+  tags:
+  - Celestial
+  properties:
+  - type: OpenAPI
+    url: openapi/thespacedevs-ll2-api-celestial-api-openapi.yml
+  - type: Documentation
+    url: https://thespacedevs.com/llapi
+  - type: JSONSchema
+    url: json-schema/thespacedevs-launch-schema.json
+  - type: JSONLD
+    url: json-ld/thespacedevs-context.jsonld
+  - type: JSONStructure
+    url: json-structure/thespacedevs-structure.json
+  - type: SpectralRules
+    url: rules/thespacedevs-rules.yml
+  - type: Vocabulary
+    url: vocabulary/thespacedevs-vocabulary.yml
+- aid: thespacedevs-ll2-api:thespacedevs-ll2-api-closure-api
+  name: TheSpaceDevs LL2 API Closure API
+  description: The Closure API from TheSpaceDevs LL2 API — 2 operation(s) for closure.
+  humanURL: https://thespacedevs.com/llapi
+  baseURL: https://ll.thespacedevs.com
+  tags:
+  - Closure
+  properties:
+  - type: OpenAPI
+    url: openapi/thespacedevs-ll2-api-closure-api-openapi.yml
+  - type: Documentation
+    url: https://thespacedevs.com/llapi
+  - type: JSONSchema
+    url: json-schema/thespacedevs-launch-schema.json
+  - type: JSONLD
+    url: json-ld/thespacedevs-context.jsonld
+  - type: JSONStructure
+    url: json-structure/thespacedevs-structure.json
+  - type: SpectralRules
+    url: rules/thespacedevs-rules.yml
+  - type: Vocabulary
+    url: vocabulary/thespacedevs-vocabulary.yml
+- aid: thespacedevs-ll2-api:thespacedevs-ll2-api-configurations-api
+  name: TheSpaceDevs LL2 API Configurations API
+  description: The Configurations API from TheSpaceDevs LL2 API — 62 operation(s) for configurations.
+  humanURL: https://thespacedevs.com/llapi
+  baseURL: https://ll.thespacedevs.com
+  tags:
+  - Configurations
+  properties:
+  - type: OpenAPI
+    url: openapi/thespacedevs-ll2-api-configurations-api-openapi.yml
+  - type: Documentation
+    url: https://thespacedevs.com/llapi
+  - type: JSONSchema
+    url: json-schema/thespacedevs-launch-schema.json
+  - type: JSONLD
+    url: json-ld/thespacedevs-context.jsonld
+  - type: JSONStructure
+    url: json-structure/thespacedevs-structure.json
+  - type: SpectralRules
+    url: rules/thespacedevs-rules.yml
+  - type: Vocabulary
+    url: vocabulary/thespacedevs-vocabulary.yml
+- aid: thespacedevs-ll2-api:thespacedevs-ll2-api-countries-api
+  name: TheSpaceDevs LL2 API Countries API
+  description: The Countries API from TheSpaceDevs LL2 API — 2 operation(s) for countries.
+  humanURL: https://thespacedevs.com/llapi
+  baseURL: https://ll.thespacedevs.com
+  tags:
+  - Countries
+  properties:
+  - type: OpenAPI
+    url: openapi/thespacedevs-ll2-api-countries-api-openapi.yml
+  - type: Documentation
+    url: https://thespacedevs.com/llapi
+  - type: JSONSchema
+    url: json-schema/thespacedevs-launch-schema.json
+  - type: JSONLD
+    url: json-ld/thespacedevs-context.jsonld
+  - type: JSONStructure
+    url: json-structure/thespacedevs-structure.json
+  - type: SpectralRules
+    url: rules/thespacedevs-rules.yml
+  - type: Vocabulary
+    url: vocabulary/thespacedevs-vocabulary.yml
+- aid: thespacedevs-ll2-api:thespacedevs-ll2-api-docking-api
+  name: TheSpaceDevs LL2 API Docking API
+  description: The Docking API from TheSpaceDevs LL2 API — 4 operation(s) for docking.
+  humanURL: https://thespacedevs.com/llapi
+  baseURL: https://ll.thespacedevs.com
+  tags:
+  - Docking
+  properties:
+  - type: OpenAPI
+    url: openapi/thespacedevs-ll2-api-docking-api-openapi.yml
+  - type: Documentation
+    url: https://thespacedevs.com/llapi
+  - type: JSONSchema
+    url: json-schema/thespacedevs-launch-schema.json
+  - type: JSONLD
+    url: json-ld/thespacedevs-context.jsonld
+  - type: JSONStructure
+    url: json-structure/thespacedevs-structure.json
+  - type: SpectralRules
+    url: rules/thespacedevs-rules.yml
+  - type: Vocabulary
+    url: vocabulary/thespacedevs-vocabulary.yml
+- aid: thespacedevs-ll2-api:thespacedevs-ll2-api-events-api
+  name: TheSpaceDevs LL2 API Events API
+  description: The Events API from TheSpaceDevs LL2 API — 10 operation(s) for events.
+  humanURL: https://thespacedevs.com/llapi
+  baseURL: https://ll.thespacedevs.com
+  tags:
+  - Events
+  properties:
+  - type: OpenAPI
+    url: openapi/thespacedevs-ll2-api-events-api-openapi.yml
+  - type: Documentation
+    url: https://thespacedevs.com/llapi
+  - type: JSONSchema
+    url: json-schema/thespacedevs-launch-schema.json
+  - type: JSONLD
+    url: json-ld/thespacedevs-context.jsonld
+  - type: JSONStructure
+    url: json-structure/thespacedevs-structure.json
+  - type: SpectralRules
+    url: rules/thespacedevs-rules.yml
+  - type: Vocabulary
+    url: vocabulary/thespacedevs-vocabulary.yml
+- aid: thespacedevs-ll2-api:thespacedevs-ll2-api-expeditions-api
+  name: TheSpaceDevs LL2 API Expeditions API
+  description: The Expeditions API from TheSpaceDevs LL2 API — 2 operation(s) for expeditions.
+  humanURL: https://thespacedevs.com/llapi
+  baseURL: https://ll.thespacedevs.com
+  tags:
+  - Expeditions
+  properties:
+  - type: OpenAPI
+    url: openapi/thespacedevs-ll2-api-expeditions-api-openapi.yml
+  - type: Documentation
+    url: https://thespacedevs.com/llapi
+  - type: JSONSchema
+    url: json-schema/thespacedevs-launch-schema.json
+  - type: JSONLD
+    url: json-ld/thespacedevs-context.jsonld
+  - type: JSONStructure
+    url: json-structure/thespacedevs-structure.json
+  - type: SpectralRules
+    url: rules/thespacedevs-rules.yml
+  - type: Vocabulary
+    url: vocabulary/thespacedevs-vocabulary.yml
+- aid: thespacedevs-ll2-api:thespacedevs-ll2-api-families-api
+  name: TheSpaceDevs LL2 API Families API
+  description: The Families API from TheSpaceDevs LL2 API — 4 operation(s) for families.
+  humanURL: https://thespacedevs.com/llapi
+  baseURL: https://ll.thespacedevs.com
+  tags:
+  - Families
+  properties:
+  - type: OpenAPI
+    url: openapi/thespacedevs-ll2-api-families-api-openapi.yml
+  - type: Documentation
+    url: https://thespacedevs.com/llapi
+  - type: JSONSchema
+    url: json-schema/thespacedevs-launch-schema.json
+  - type: JSONLD
+    url: json-ld/thespacedevs-context.jsonld
+  - type: JSONStructure
+    url: json-structure/thespacedevs-structure.json
+  - type: SpectralRules
+    url: rules/thespacedevs-rules.yml
+  - type: Vocabulary
+    url: vocabulary/thespacedevs-vocabulary.yml
+- aid: thespacedevs-ll2-api:thespacedevs-ll2-api-flights-api
+  name: TheSpaceDevs LL2 API Flights API
+  description: The Flights API from TheSpaceDevs LL2 API — 4 operation(s) for flights.
+  humanURL: https://thespacedevs.com/llapi
+  baseURL: https://ll.thespacedevs.com
+  tags:
+  - Flights
+  properties:
+  - type: OpenAPI
+    url: openapi/thespacedevs-ll2-api-flights-api-openapi.yml
+  - type: Documentation
+    url: https://thespacedevs.com/llapi
+  - type: JSONSchema
+    url: json-schema/thespacedevs-launch-schema.json
+  - type: JSONLD
+    url: json-ld/thespacedevs-context.jsonld
+  - type: JSONStructure
+    url: json-structure/thespacedevs-structure.json
+  - type: SpectralRules
+    url: rules/thespacedevs-rules.yml
+  - type: Vocabulary
+    url: vocabulary/thespacedevs-vocabulary.yml
+- aid: thespacedevs-ll2-api:thespacedevs-ll2-api-landings-api
+  name: TheSpaceDevs LL2 API Landings API
+  description: The Landings API from TheSpaceDevs LL2 API — 2 operation(s) for landings.
+  humanURL: https://thespacedevs.com/llapi
+  baseURL: https://ll.thespacedevs.com
+  tags:
+  - Landings
+  properties:
+  - type: OpenAPI
+    url: openapi/thespacedevs-ll2-api-landings-api-openapi.yml
+  - type: Documentation
+    url: https://thespacedevs.com/llapi
+  - type: JSONSchema
+    url: json-schema/thespacedevs-launch-schema.json
+  - type: JSONLD
+    url: json-ld/thespacedevs-context.jsonld
+  - type: JSONStructure
+    url: json-structure/thespacedevs-structure.json
+  - type: SpectralRules
+    url: rules/thespacedevs-rules.yml
+  - type: Vocabulary
+    url: vocabulary/thespacedevs-vocabulary.yml
+- aid: thespacedevs-ll2-api:thespacedevs-ll2-api-languages-api
+  name: TheSpaceDevs LL2 API Languages API
+  description: The Languages API from TheSpaceDevs LL2 API — 2 operation(s) for languages.
+  humanURL: https://thespacedevs.com/llapi
+  baseURL: https://ll.thespacedevs.com
+  tags:
+  - Languages
+  properties:
+  - type: OpenAPI
+    url: openapi/thespacedevs-ll2-api-languages-api-openapi.yml
+  - type: Documentation
+    url: https://thespacedevs.com/llapi
+  - type: JSONSchema
+    url: json-schema/thespacedevs-launch-schema.json
+  - type: JSONLD
+    url: json-ld/thespacedevs-context.jsonld
+  - type: JSONStructure
+    url: json-structure/thespacedevs-structure.json
+  - type: SpectralRules
+    url: rules/thespacedevs-rules.yml
+  - type: Vocabulary
+    url: vocabulary/thespacedevs-vocabulary.yml
+- aid: thespacedevs-ll2-api:thespacedevs-ll2-api-launch-api
+  name: TheSpaceDevs LL2 API Launch API
+  description: The Launch API from TheSpaceDevs LL2 API — 2 operation(s) for launch.
+  humanURL: https://thespacedevs.com/llapi
+  baseURL: https://ll.thespacedevs.com
+  tags:
+  - Launch
+  properties:
+  - type: OpenAPI
+    url: openapi/thespacedevs-ll2-api-launch-api-openapi.yml
+  - type: Documentation
+    url: https://thespacedevs.com/llapi
+  - type: JSONSchema
+    url: json-schema/thespacedevs-launch-schema.json
+  - type: JSONLD
+    url: json-ld/thespacedevs-context.jsonld
+  - type: JSONStructure
+    url: json-structure/thespacedevs-structure.json
+  - type: SpectralRules
+    url: rules/thespacedevs-rules.yml
+  - type: Vocabulary
+    url: vocabulary/thespacedevs-vocabulary.yml
+- aid: thespacedevs-ll2-api:thespacedevs-ll2-api-launcher-api
+  name: TheSpaceDevs LL2 API Launcher API
+  description: The Launcher API from TheSpaceDevs LL2 API — 6 operation(s) for launcher.
+  humanURL: https://thespacedevs.com/llapi
+  baseURL: https://ll.thespacedevs.com
+  tags:
+  - Launcher
+  properties:
+  - type: OpenAPI
+    url: openapi/thespacedevs-ll2-api-launcher-api-openapi.yml
+  - type: Documentation
+    url: https://thespacedevs.com/llapi
+  - type: JSONSchema
+    url: json-schema/thespacedevs-launch-schema.json
+  - type: JSONLD
+    url: json-ld/thespacedevs-context.jsonld
+  - type: JSONStructure
+    url: json-structure/thespacedevs-structure.json
+  - type: SpectralRules
+    url: rules/thespacedevs-rules.yml
+  - type: Vocabulary
+    url: vocabulary/thespacedevs-vocabulary.yml
+- aid: thespacedevs-ll2-api:thespacedevs-ll2-api-launchers-api
+  name: TheSpaceDevs LL2 API Launchers API
+  description: The Launchers API from TheSpaceDevs LL2 API — 2 operation(s) for launchers.
+  humanURL: https://thespacedevs.com/llapi
+  baseURL: https://ll.thespacedevs.com
+  tags:
+  - Launchers
+  properties:
+  - type: OpenAPI
+    url: openapi/thespacedevs-ll2-api-launchers-api-openapi.yml
+  - type: Documentation
+    url: https://thespacedevs.com/llapi
+  - type: JSONSchema
+    url: json-schema/thespacedevs-launch-schema.json
+  - type: JSONLD
+    url: json-ld/thespacedevs-context.jsonld
+  - type: JSONStructure
+    url: json-structure/thespacedevs-structure.json
+  - type: SpectralRules
+    url: rules/thespacedevs-rules.yml
+  - type: Vocabulary
+    url: vocabulary/thespacedevs-vocabulary.yml
+- aid: thespacedevs-ll2-api:thespacedevs-ll2-api-launches-api
+  name: TheSpaceDevs LL2 API Launches API
+  description: The Launches API from TheSpaceDevs LL2 API — 6 operation(s) for launches.
+  humanURL: https://thespacedevs.com/llapi
+  baseURL: https://ll.thespacedevs.com
+  tags:
+  - Launches
+  properties:
+  - type: OpenAPI
+    url: openapi/thespacedevs-ll2-api-launches-api-openapi.yml
+  - type: Documentation
+    url: https://thespacedevs.com/llapi
+  - type: JSONSchema
+    url: json-schema/thespacedevs-launch-schema.json
+  - type: JSONLD
+    url: json-ld/thespacedevs-context.jsonld
+  - type: JSONStructure
+    url: json-structure/thespacedevs-structure.json
+  - type: SpectralRules
+    url: rules/thespacedevs-rules.yml
+  - type: Vocabulary
+    url: vocabulary/thespacedevs-vocabulary.yml
+- aid: thespacedevs-ll2-api:thespacedevs-ll2-api-licenses-api
+  name: TheSpaceDevs LL2 API Licenses API
+  description: The Licenses API from TheSpaceDevs LL2 API — 2 operation(s) for licenses.
+  humanURL: https://thespacedevs.com/llapi
+  baseURL: https://ll.thespacedevs.com
+  tags:
+  - Licenses
+  properties:
+  - type: OpenAPI
+    url: openapi/thespacedevs-ll2-api-licenses-api-openapi.yml
+  - type: Documentation
+    url: https://thespacedevs.com/llapi
+  - type: JSONSchema
+    url: json-schema/thespacedevs-launch-schema.json
+  - type: JSONLD
+    url: json-ld/thespacedevs-context.jsonld
+  - type: JSONStructure
+    url: json-structure/thespacedevs-structure.json
+  - type: SpectralRules
+    url: rules/thespacedevs-rules.yml
+  - type: Vocabulary
+    url: vocabulary/thespacedevs-vocabulary.yml
+- aid: thespacedevs-ll2-api:thespacedevs-ll2-api-locations-api
+  name: TheSpaceDevs LL2 API Locations API
+  description: The Locations API from TheSpaceDevs LL2 API — 4 operation(s) for locations.
+  humanURL: https://thespacedevs.com/llapi
+  baseURL: https://ll.thespacedevs.com
+  tags:
+  - Locations
+  properties:
+  - type: OpenAPI
+    url: openapi/thespacedevs-ll2-api-locations-api-openapi.yml
+  - type: Documentation
+    url: https://thespacedevs.com/llapi
+  - type: JSONSchema
+    url: json-schema/thespacedevs-launch-schema.json
+  - type: JSONLD
+    url: json-ld/thespacedevs-context.jsonld
+  - type: JSONStructure
+    url: json-structure/thespacedevs-structure.json
+  - type: SpectralRules
+    url: rules/thespacedevs-rules.yml
+  - type: Vocabulary
+    url: vocabulary/thespacedevs-vocabulary.yml
+- aid: thespacedevs-ll2-api:thespacedevs-ll2-api-pads-api
+  name: TheSpaceDevs LL2 API Pads API
+  description: The Pads API from TheSpaceDevs LL2 API — 2 operation(s) for pads.
+  humanURL: https://thespacedevs.com/llapi
+  baseURL: https://ll.thespacedevs.com
+  tags:
+  - Pads
+  properties:
+  - type: OpenAPI
+    url: openapi/thespacedevs-ll2-api-pads-api-openapi.yml
+  - type: Documentation
+    url: https://thespacedevs.com/llapi
+  - type: JSONSchema
+    url: json-schema/thespacedevs-launch-schema.json
+  - type: JSONLD
+    url: json-ld/thespacedevs-context.jsonld
+  - type: JSONStructure
+    url: json-structure/thespacedevs-structure.json
+  - type: SpectralRules
+    url: rules/thespacedevs-rules.yml
+  - type: Vocabulary
+    url: vocabulary/thespacedevs-vocabulary.yml
+- aid: thespacedevs-ll2-api:thespacedevs-ll2-api-patches-api
+  name: TheSpaceDevs LL2 API Patches API
+  description: The Patches API from TheSpaceDevs LL2 API — 2 operation(s) for patches.
+  humanURL: https://thespacedevs.com/llapi
+  baseURL: https://ll.thespacedevs.com
+  tags:
+  - Patches
+  properties:
+  - type: OpenAPI
+    url: openapi/thespacedevs-ll2-api-patches-api-openapi.yml
+  - type: Documentation
+    url: https://thespacedevs.com/llapi
+  - type: JSONSchema
+    url: json-schema/thespacedevs-launch-schema.json
+  - type: JSONLD
+    url: json-ld/thespacedevs-context.jsonld
+  - type: JSONStructure
+    url: json-structure/thespacedevs-structure.json
+  - type: SpectralRules
+    url: rules/thespacedevs-rules.yml
+  - type: Vocabulary
+    url: vocabulary/thespacedevs-vocabulary.yml
+- aid: thespacedevs-ll2-api:thespacedevs-ll2-api-payloads-api
+  name: TheSpaceDevs LL2 API Payloads API
+  description: The Payloads API from TheSpaceDevs LL2 API — 2 operation(s) for payloads.
+  humanURL: https://thespacedevs.com/llapi
+  baseURL: https://ll.thespacedevs.com
+  tags:
+  - Payloads
+  properties:
+  - type: OpenAPI
+    url: openapi/thespacedevs-ll2-api-payloads-api-openapi.yml
+  - type: Documentation
+    url: https://thespacedevs.com/llapi
+  - type: JSONSchema
+    url: json-schema/thespacedevs-launch-schema.json
+  - type: JSONLD
+    url: json-ld/thespacedevs-context.jsonld
+  - type: JSONStructure
+    url: json-structure/thespacedevs-structure.json
+  - type: SpectralRules
+    url: rules/thespacedevs-rules.yml
+  - type: Vocabulary
+    url: vocabulary/thespacedevs-vocabulary.yml
+- aid: thespacedevs-ll2-api:thespacedevs-ll2-api-precisions-api
+  name: TheSpaceDevs LL2 API Precisions API
+  description: The Precisions API from TheSpaceDevs LL2 API — 2 operation(s) for precisions.
+  humanURL: https://thespacedevs.com/llapi
+  baseURL: https://ll.thespacedevs.com
+  tags:
+  - Precisions
+  properties:
+  - type: OpenAPI
+    url: openapi/thespacedevs-ll2-api-precisions-api-openapi.yml
+  - type: Documentation
+    url: https://thespacedevs.com/llapi
+  - type: JSONSchema
+    url: json-schema/thespacedevs-launch-schema.json
+  - type: JSONLD
+    url: json-ld/thespacedevs-context.jsonld
+  - type: JSONStructure
+    url: json-structure/thespacedevs-structure.json
+  - type: SpectralRules
+    url: rules/thespacedevs-rules.yml
+  - type: Vocabulary
+    url: vocabulary/thespacedevs-vocabulary.yml
+- aid: thespacedevs-ll2-api:thespacedevs-ll2-api-previous-api
+  name: TheSpaceDevs LL2 API Previous API
+  description: The Previous API from TheSpaceDevs LL2 API — 4 operation(s) for previous.
+  humanURL: https://thespacedevs.com/llapi
+  baseURL: https://ll.thespacedevs.com
+  tags:
+  - Previous
+  properties:
+  - type: OpenAPI
+    url: openapi/thespacedevs-ll2-api-previous-api-openapi.yml
+  - type: Documentation
+    url: https://thespacedevs.com/llapi
+  - type: JSONSchema
+    url: json-schema/thespacedevs-launch-schema.json
+  - type: JSONLD
+    url: json-ld/thespacedevs-context.jsonld
+  - type: JSONStructure
+    url: json-structure/thespacedevs-structure.json
+  - type: SpectralRules
+    url: rules/thespacedevs-rules.yml
+  - type: Vocabulary
+    url: vocabulary/thespacedevs-vocabulary.yml
+- aid: thespacedevs-ll2-api:thespacedevs-ll2-api-programs-api
+  name: TheSpaceDevs LL2 API Programs API
+  description: The Programs API from TheSpaceDevs LL2 API — 2 operation(s) for programs.
+  humanURL: https://thespacedevs.com/llapi
+  baseURL: https://ll.thespacedevs.com
+  tags:
+  - Programs
+  properties:
+  - type: OpenAPI
+    url: openapi/thespacedevs-ll2-api-programs-api-openapi.yml
+  - type: Documentation
+    url: https://thespacedevs.com/llapi
+  - type: JSONSchema
+    url: json-schema/thespacedevs-launch-schema.json
+  - type: JSONLD
+    url: json-ld/thespacedevs-context.jsonld
+  - type: JSONStructure
+    url: json-structure/thespacedevs-structure.json
+  - type: SpectralRules
+    url: rules/thespacedevs-rules.yml
+  - type: Vocabulary
+    url: vocabulary/thespacedevs-vocabulary.yml
+- aid: thespacedevs-ll2-api:thespacedevs-ll2-api-spacecraft-api
+  name: TheSpaceDevs LL2 API Spacecraft API
+  description: The Spacecraft API from TheSpaceDevs LL2 API — 12 operation(s) for spacecraft.
+  humanURL: https://thespacedevs.com/llapi
+  baseURL: https://ll.thespacedevs.com
+  tags:
+  - Spacecraft
+  properties:
+  - type: OpenAPI
+    url: openapi/thespacedevs-ll2-api-spacecraft-api-openapi.yml
+  - type: Documentation
+    url: https://thespacedevs.com/llapi
+  - type: JSONSchema
+    url: json-schema/thespacedevs-launch-schema.json
+  - type: JSONLD
+    url: json-ld/thespacedevs-context.jsonld
+  - type: JSONStructure
+    url: json-structure/thespacedevs-structure.json
+  - type: SpectralRules
+    url: rules/thespacedevs-rules.yml
+  - type: Vocabulary
+    url: vocabulary/thespacedevs-vocabulary.yml
+- aid: thespacedevs-ll2-api:thespacedevs-ll2-api-spacewalks-api
+  name: TheSpaceDevs LL2 API Spacewalks API
+  description: The Spacewalks API from TheSpaceDevs LL2 API — 2 operation(s) for spacewalks.
+  humanURL: https://thespacedevs.com/llapi
+  baseURL: https://ll.thespacedevs.com
+  tags:
+  - Spacewalks
+  properties:
+  - type: OpenAPI
+    url: openapi/thespacedevs-ll2-api-spacewalks-api-openapi.yml
+  - type: Documentation
+    url: https://thespacedevs.com/llapi
+  - type: JSONSchema
+    url: json-schema/thespacedevs-launch-schema.json
+  - type: JSONLD
+    url: json-ld/thespacedevs-context.jsonld
+  - type: JSONStructure
+    url: json-structure/thespacedevs-structure.json
+  - type: SpectralRules
+    url: rules/thespacedevs-rules.yml
+  - type: Vocabulary
+    url: vocabulary/thespacedevs-vocabulary.yml
+- aid: thespacedevs-ll2-api:thespacedevs-ll2-api-stages-api
+  name: TheSpaceDevs LL2 API Stages API
+  description: The Stages API from TheSpaceDevs LL2 API — 2 operation(s) for stages.
+  humanURL: https://thespacedevs.com/llapi
+  baseURL: https://ll.thespacedevs.com
+  tags:
+  - Stages
+  properties:
+  - type: OpenAPI
+    url: openapi/thespacedevs-ll2-api-stages-api-openapi.yml
+  - type: Documentation
+    url: https://thespacedevs.com/llapi
+  - type: JSONSchema
+    url: json-schema/thespacedevs-launch-schema.json
+  - type: JSONLD
+    url: json-ld/thespacedevs-context.jsonld
+  - type: JSONStructure
+    url: json-structure/thespacedevs-structure.json
+  - type: SpectralRules
+    url: rules/thespacedevs-rules.yml
+  - type: Vocabulary
+    url: vocabulary/thespacedevs-vocabulary.yml
+- aid: thespacedevs-ll2-api:thespacedevs-ll2-api-starship-api
+  name: TheSpaceDevs LL2 API Starship API
+  description: The Starship API from TheSpaceDevs LL2 API — 1 operation(s) for starship.
+  humanURL: https://thespacedevs.com/llapi
+  baseURL: https://ll.thespacedevs.com
+  tags:
+  - Starship
+  properties:
+  - type: OpenAPI
+    url: openapi/thespacedevs-ll2-api-starship-api-openapi.yml
+  - type: Documentation
+    url: https://thespacedevs.com/llapi
+  - type: JSONSchema
+    url: json-schema/thespacedevs-launch-schema.json
+  - type: JSONLD
+    url: json-ld/thespacedevs-context.jsonld
+  - type: JSONStructure
+    url: json-structure/thespacedevs-structure.json
+  - type: SpectralRules
+    url: rules/thespacedevs-rules.yml
+  - type: Vocabulary
+    url: vocabulary/thespacedevs-vocabulary.yml
+- aid: thespacedevs-ll2-api:thespacedevs-ll2-api-station-api
+  name: TheSpaceDevs LL2 API Station API
+  description: The Station API from TheSpaceDevs LL2 API — 2 operation(s) for station.
+  humanURL: https://thespacedevs.com/llapi
+  baseURL: https://ll.thespacedevs.com
+  tags:
+  - Station
+  properties:
+  - type: OpenAPI
+    url: openapi/thespacedevs-ll2-api-station-api-openapi.yml
+  - type: Documentation
+    url: https://thespacedevs.com/llapi
+  - type: JSONSchema
+    url: json-schema/thespacedevs-launch-schema.json
+  - type: JSONLD
+    url: json-ld/thespacedevs-context.jsonld
+  - type: JSONStructure
+    url: json-structure/thespacedevs-structure.json
+  - type: SpectralRules
+    url: rules/thespacedevs-rules.yml
+  - type: Vocabulary
+    url: vocabulary/thespacedevs-vocabulary.yml
+- aid: thespacedevs-ll2-api:thespacedevs-ll2-api-stations-api
+  name: TheSpaceDevs LL2 API Stations API
+  description: The Stations API from TheSpaceDevs LL2 API — 2 operation(s) for stations.
+  humanURL: https://thespacedevs.com/llapi
+  baseURL: https://ll.thespacedevs.com
+  tags:
+  - Stations
+  properties:
+  - type: OpenAPI
+    url: openapi/thespacedevs-ll2-api-stations-api-openapi.yml
+  - type: Documentation
+    url: https://thespacedevs.com/llapi
+  - type: JSONSchema
+    url: json-schema/thespacedevs-launch-schema.json
+  - type: JSONLD
+    url: json-ld/thespacedevs-context.jsonld
+  - type: JSONStructure
+    url: json-structure/thespacedevs-structure.json
+  - type: SpectralRules
+    url: rules/thespacedevs-rules.yml
+  - type: Vocabulary
+    url: vocabulary/thespacedevs-vocabulary.yml
+- aid: thespacedevs-ll2-api:thespacedevs-ll2-api-throttle-api
+  name: TheSpaceDevs LL2 API Throttle API
+  description: The Throttle API from TheSpaceDevs LL2 API — 1 operation(s) for throttle.
+  humanURL: https://thespacedevs.com/llapi
+  baseURL: https://ll.thespacedevs.com
+  tags:
+  - Throttle
+  properties:
+  - type: OpenAPI
+    url: openapi/thespacedevs-ll2-api-throttle-api-openapi.yml
+  - type: Documentation
+    url: https://thespacedevs.com/llapi
+  - type: JSONSchema
+    url: json-schema/thespacedevs-launch-schema.json
+  - type: JSONLD
+    url: json-ld/thespacedevs-context.jsonld
+  - type: JSONStructure
+    url: json-structure/thespacedevs-structure.json
+  - type: SpectralRules
+    url: rules/thespacedevs-rules.yml
+  - type: Vocabulary
+    url: vocabulary/thespacedevs-vocabulary.yml
+- aid: thespacedevs-ll2-api:thespacedevs-ll2-api-timeline-api
+  name: TheSpaceDevs LL2 API Timeline API
+  description: The Timeline API from TheSpaceDevs LL2 API — 2 operation(s) for timeline.
+  humanURL: https://thespacedevs.com/llapi
+  baseURL: https://ll.thespacedevs.com
+  tags:
+  - Timeline
+  properties:
+  - type: OpenAPI
+    url: openapi/thespacedevs-ll2-api-timeline-api-openapi.yml
+  - type: Documentation
+    url: https://thespacedevs.com/llapi
+  - type: JSONSchema
+    url: json-schema/thespacedevs-launch-schema.json
+  - type: JSONLD
+    url: json-ld/thespacedevs-context.jsonld
+  - type: JSONStructure
+    url: json-structure/thespacedevs-structure.json
+  - type: SpectralRules
+    url: rules/thespacedevs-rules.yml
+  - type: Vocabulary
+    url: vocabulary/thespacedevs-vocabulary.yml
+- aid: thespacedevs-ll2-api:thespacedevs-ll2-api-types-api
+  name: TheSpaceDevs LL2 API Types API
+  description: The Types API from TheSpaceDevs LL2 API — 30 operation(s) for types.
+  humanURL: https://thespacedevs.com/llapi
+  baseURL: https://ll.thespacedevs.com
+  tags:
+  - Types
+  properties:
+  - type: OpenAPI
+    url: openapi/thespacedevs-ll2-api-types-api-openapi.yml
+  - type: Documentation
+    url: https://thespacedevs.com/llapi
+  - type: JSONSchema
+    url: json-schema/thespacedevs-launch-schema.json
+  - type: JSONLD
+    url: json-ld/thespacedevs-context.jsonld
+  - type: JSONStructure
+    url: json-structure/thespacedevs-structure.json
+  - type: SpectralRules
+    url: rules/thespacedevs-rules.yml
+  - type: Vocabulary
+    url: vocabulary/thespacedevs-vocabulary.yml
+- aid: thespacedevs-ll2-api:thespacedevs-ll2-api-updates-api
+  name: TheSpaceDevs LL2 API Updates API
+  description: The Updates API from TheSpaceDevs LL2 API — 2 operation(s) for updates.
+  humanURL: https://thespacedevs.com/llapi
+  baseURL: https://ll.thespacedevs.com
+  tags:
+  - Updates
+  properties:
+  - type: OpenAPI
+    url: openapi/thespacedevs-ll2-api-updates-api-openapi.yml
+  - type: Documentation
+    url: https://thespacedevs.com/llapi
+  - type: JSONSchema
+    url: json-schema/thespacedevs-launch-schema.json
+  - type: JSONLD
+    url: json-ld/thespacedevs-context.jsonld
+  - type: JSONStructure
+    url: json-structure/thespacedevs-structure.json
+  - type: SpectralRules
+    url: rules/thespacedevs-rules.yml
+  - type: Vocabulary
+    url: vocabulary/thespacedevs-vocabulary.yml
+- aid: thespacedevs-ll2-api:thespacedevs-ll2-api-variants-api
+  name: TheSpaceDevs LL2 API Variants API
+  description: The Variants API from TheSpaceDevs LL2 API — 2 operation(s) for variants.
+  humanURL: https://thespacedevs.com/llapi
+  baseURL: https://ll.thespacedevs.com
+  tags:
+  - Variants
+  properties:
+  - type: OpenAPI
+    url: openapi/thespacedevs-ll2-api-variants-api-openapi.yml
+  - type: Documentation
+    url: https://thespacedevs.com/llapi
+  - type: JSONSchema
+    url: json-schema/thespacedevs-launch-schema.json
+  - type: JSONLD
+    url: json-ld/thespacedevs-context.jsonld
+  - type: JSONStructure
+    url: json-structure/thespacedevs-structure.json
+  - type: SpectralRules
+    url: rules/thespacedevs-rules.yml
+  - type: Vocabulary
+    url: vocabulary/thespacedevs-vocabulary.yml
 name: TheSpaceDevs LL2 API
 tags:
   - Space
@@ -41,7 +889,19 @@ tags:
   - Rockets
   - Astronauts
 kind: contract
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/thespacedevs-ll2-api.png
 access: 3rd-Party
 created: '2024-11-07T00:00:00.000Z'
 modified: '2026-05-03'
