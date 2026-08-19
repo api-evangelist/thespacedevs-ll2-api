@@ -1,0 +1,738 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TheSpaceDevs LL2 Previous API",
+    "version": "v2.3.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Previous",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Previous Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/events/previous/",
+            "params": [
+              {
+                "name": "agency__ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated agency IDs."
+              },
+              {
+                "name": "date__gt",
+                "value": "",
+                "type": "query",
+                "description": "Date is greater than"
+              },
+              {
+                "name": "date__gt__lt",
+                "value": "",
+                "type": "query",
+                "description": "Date is less than"
+              },
+              {
+                "name": "date__gte",
+                "value": "",
+                "type": "query",
+                "description": "Date is greater than or equal to"
+              },
+              {
+                "name": "date__lte",
+                "value": "",
+                "type": "query",
+                "description": "Date is less than or equal to"
+              },
+              {
+                "name": "day",
+                "value": "",
+                "type": "query",
+                "description": "Multiple values may be separated by commas."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "Multiple values may be separated by commas."
+              },
+              {
+                "name": "last_updated__gte",
+                "value": "",
+                "type": "query",
+                "description": "Last Update is greater than or equal to"
+              },
+              {
+                "name": "last_updated__lte",
+                "value": "",
+                "type": "query",
+                "description": "Last Update is less than or equal to"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail in the response."
+              },
+              {
+                "name": "month",
+                "value": "",
+                "type": "query",
+                "description": "Multiple values may be separated by commas."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "program",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              },
+              {
+                "name": "slug",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type__ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated event type IDs."
+              },
+              {
+                "name": "video_url",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated video URLs."
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "query",
+                "description": "Multiple values may be separated by commas."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Modes\nLevels of detail in the response - `list`, `normal`, `detailed`\n\nExample - [/events/previous/?mode=list](./?mode=list)\n\n#### Filters\nParameters - `agency__ids`, `date__gt`, `date__gt__lt`, `date__gte`, `date__lte`, `day`, `id`, `last_updated__gte`, `last_updated__lte`, `month`, `program`, `slug`, `type`, `type__ids`, `video_url`, `year`\n\nExample - [/events/previous/?type__ids=2,8](./?type__ids=2,8)\n\n#### Search\nFields searched - `name`\n\nExample - [/events/previous/?search=Flyby](./?se"
+        },
+        {
+          "info": {
+            "name": "Get Previous Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/events/previous/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this Event."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Modes\nLevels of detail in the response - `list`, `normal`, `detailed`\n\nExample - [/events/previous/?mode=list](./?mode=list)\n\n#### Filters\nParameters - `agency__ids`, `date__gt`, `date__gt__lt`, `date__gte`, `date__lte`, `day`, `id`, `last_updated__gte`, `last_updated__lte`, `month`, `program`, `slug`, `type`, `type__ids`, `video_url`, `year`\n\nExample - [/events/previous/?type__ids=2,8](./?type__ids=2,8)\n\n#### Search\nFields searched - `name`\n\nExample - [/events/previous/?search=Flyby](./?se"
+        },
+        {
+          "info": {
+            "name": "List Previous Launches",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/launches/previous/",
+            "params": [
+              {
+                "name": "agency_launch_attempt_count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "agency_launch_attempt_count__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "agency_launch_attempt_count__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "agency_launch_attempt_count__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "agency_launch_attempt_count__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "agency_launch_attempt_count_year",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "agency_launch_attempt_count_year__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "agency_launch_attempt_count_year__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "agency_launch_attempt_count_year__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "agency_launch_attempt_count_year__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "day",
+                "value": "",
+                "type": "query",
+                "description": "Multiple values may be separated by commas."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "Multiple values may be separated by commas."
+              },
+              {
+                "name": "include_suborbital",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "is_crewed",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "last_updated__gte",
+                "value": "",
+                "type": "query",
+                "description": "Last Update is greater than or equal to"
+              },
+              {
+                "name": "last_updated__lte",
+                "value": "",
+                "type": "query",
+                "description": "Last Update is less than or equal to"
+              },
+              {
+                "name": "launch_designator",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated (COSPAR) international launch designators."
+              },
+              {
+                "name": "launcher_config__id",
+                "value": "",
+                "type": "query",
+                "description": "Multiple values may be separated by commas."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "location__ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated location IDs."
+              },
+              {
+                "name": "location_launch_attempt_count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "location_launch_attempt_count__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "location_launch_attempt_count__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "location_launch_attempt_count__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "location_launch_attempt_count__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "location_launch_attempt_count_year",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "location_launch_attempt_count_year__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "location_launch_attempt_count_year__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "location_launch_attempt_count_year__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "location_launch_attempt_count_year__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "lsp__id",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated launch service provider (agency) IDs."
+              },
+              {
+                "name": "lsp__name",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated launch service provider names."
+              },
+              {
+                "name": "mission__orbit__celestial_body__id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mission__orbit__name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mission__orbit__name__icontains",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail in the response."
+              },
+              {
+                "name": "month",
+                "value": "",
+                "type": "query",
+                "description": "Multiple values may be separated by commas."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "net__gt",
+                "value": "",
+                "type": "query",
+                "description": "NET is greater than"
+              },
+              {
+                "name": "net__gte",
+                "value": "",
+                "type": "query",
+                "description": "NET is greater than or equal to"
+              },
+              {
+                "name": "net__lt",
+                "value": "",
+                "type": "query",
+                "description": "NET is less than"
+              },
+              {
+                "name": "net__lte",
+                "value": "",
+                "type": "query",
+                "description": "NET is less than or equal to"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "orbital_launch_attempt_count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "orbital_launch_attempt_count__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "orbital_launch_attempt_count__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "orbital_launch_attempt_count__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "orbital_launch_attempt_count__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "orbital_launch_attempt_count_year",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "orbital_launch_attempt_count_year__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "orbital_launch_attempt_count_year__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "orbital_launch_attempt_count_year__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "orbital_launch_attempt_count_year__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "pad",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pad__location",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pad__location__celestial_body__id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pad_launch_attempt_count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pad_launch_attempt_count__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pad_launch_attempt_count__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pad_launch_attempt_count__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pad_launch_attempt_count__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pad_launch_attempt_count_year",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pad_launch_attempt_count_year__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pad_launch_attempt_count_year__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pad_launch_attempt_count_year__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pad_launch_attempt_count_year__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "program",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "related_lsp__id",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated agency IDs related to the launch service provider."
+              },
+              {
+                "name": "related_lsp__name",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated agency names related to the launch service provider."
+              },
+              {
+                "name": "rocket__configuration__full_name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rocket__configuration__full_name__icontains",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rocket__configuration__id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rocket__configuration__manufacturer__name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rocket__configuration__manufacturer__name__icontains",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rocket__configuration__name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rocket__spacecraftflight__spacecraft__id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rocket__spacecraftflight__spacecraft__name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rocket__spacecraftflight__spacecraft__name__icontains",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              },
+              {
+                "name": "serial_number",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated first stage booster serial numbers."
+              },
+              {
+                "name": "slug",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "spacecraft_config__ids",
+                "value": "",
+                "type": "query",
+                "description": "Multiple values may be separated by commas."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status__ids",
+                "value": "",
+                "type": "query",
+                "description": "Multiple values may be separated by commas."
+              },
+              {
+                "name": "video_url",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated video URLs."
+              },
+              {
+                "name": "window_end__gt",
+                "value": "",
+                "type": "query",
+                "description": "Window End is greater than"
+              },
+              {
+                "name": "window_end__gte",
+                "value": "",
+                "type": "query",
+                "description": "Window End is greater than or equal to"
+              },
+              {
+                "name": "window_end__lt",
+                "value": "",
+                "type": "query",
+                "description": "Window End is less than"
+              },
+              {
+                "name": "window_end__lte",
+                "value": "",
+                "type": "query",
+                "description": "Window End is less than or equal to"
+              },
+              {
+                "name": "window_start__gt",
+                "value": "",
+                "type": "query",
+                "description": "Window Start is greater than"
+              },
+              {
+                "name": "window_start__gte",
+                "value": "",
+                "type": "query",
+                "description": "Window Start is greater than or equal to"
+              },
+              {
+                "name": "window_start__lt",
+                "value": "",
+                "type": "query",
+                "description": "Window Start is less than"
+              },
+              {
+                "name": "window_start__lte",
+                "value": "",
+                "type": "query",
+                "description": "Window Start is less than or equal to"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "query",
+                "description": "Multiple values may be separated by commas."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Modes\nLevels of detail in the response - `list`, `normal`, `detailed`\n\nExample - [/launches/previous/?mode=list](./?mode=list)\n\n#### Filters\nParameters - `agency_launch_attempt_count`, `agency_launch_attempt_count__gt`, `agency_launch_attempt_count__gte`, `agency_launch_attempt_count__lt`, `agency_launch_attempt_count__lte`, `agency_launch_attempt_count_year`, `agency_launch_attempt_count_year__gt`, `agency_launch_attempt_count_year__gte`, `agency_launch_attempt_count_year__lt`, `agency_lau"
+        },
+        {
+          "info": {
+            "name": "Get Previous Launch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/launches/previous/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A UUID string identifying this Launch."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Modes\nLevels of detail in the response - `list`, `normal`, `detailed`\n\nExample - [/launches/previous/?mode=list](./?mode=list)\n\n#### Filters\nParameters - `agency_launch_attempt_count`, `agency_launch_attempt_count__gt`, `agency_launch_attempt_count__gte`, `agency_launch_attempt_count__lt`, `agency_launch_attempt_count__lte`, `agency_launch_attempt_count_year`, `agency_launch_attempt_count_year__gt`, `agency_launch_attempt_count_year__gte`, `agency_launch_attempt_count_year__lt`, `agency_lau"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

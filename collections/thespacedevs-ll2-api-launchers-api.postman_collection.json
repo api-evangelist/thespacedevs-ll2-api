@@ -1,0 +1,540 @@
+{
+  "item": [
+    {
+      "id": "68c3cad8-f55c-4134-83f8-e9dfc1861176",
+      "name": "Launchers",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d8e90d15-7888-4e41-ade1-33e1d97d24d3",
+          "name": "List Launchers",
+          "request": {
+            "name": "List Launchers",
+            "description": {
+              "content": "#### Modes\nLevels of detail in the response - `list`, `normal`, `detailed`\n\nExample - [/launchers/?mode=list](./?mode=list)\n\n#### Filters\nParameters - `attempted_landings`, `attempted_landings__gt`, `attempted_landings__gte`, `attempted_landings__lt`, `attempted_landings__lte`, `first_launch_date`, `flight_proven`, `flights`, `flights__gt`, `flights__gte`, `flights__lt`, `flights__lte`, `id`, `id__contains`, `is_placeholder`, `last_launch_date`, `launcher_config__ids`, `launcher_config__manufacturer__name`, `launcher_config__manufacturer__name__contains`, `serial_number`, `serial_number__contains`, `status`, `successful_landings`, `successful_landings__gt`, `successful_landings__gte`, `successful_landings__lt`, `successful_landings__lte`\n\nExample - [/launchers/?is_placeholder=True](./?is_placeholder=True)\n\n#### Search\nFields searched - `serial_number`, `status__name`\n\nExample - [/launchers/?search=B1048](./?search=B1048)\n\n#### Ordering\nFields - `attempted_landings`, `flight_proven`, `flights`, `id`, `successful_landings`\n\nExample - [/launchers/?ordering=-flights](./?ordering=-flights)\n\n#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/launchers/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/launchers/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2.3.0",
+                "launchers",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "attempted_landings",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "attempted_landings__gt",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "attempted_landings__gte",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "attempted_landings__lt",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "attempted_landings__lte",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "first_launch_date",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "flight_proven",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "flights",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "flights__gt",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "flights__gte",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "flights__lt",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "flights__lte",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "id__contains",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "is_placeholder",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "last_launch_date",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "launcher_config__ids",
+                  "value": "<integer>,<integer>",
+                  "description": "Comma-separated launcher config IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "launcher_config__manufacturer__name",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "launcher_config__manufacturer__name__contains",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "mode",
+                  "value": "<string>",
+                  "description": "Level of detail in the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The initial index from which to return the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "ordering",
+                  "value": "<string>",
+                  "description": "Which field to use when ordering the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "A search term."
+                },
+                {
+                  "disabled": false,
+                  "key": "serial_number",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "serial_number__contains",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "successful_landings",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "successful_landings__gt",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "successful_landings__gte",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "successful_landings__lt",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "successful_landings__lte",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "sessionid"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ead8ec3f-71cb-465c-9b43-292408ded4d3",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2.3.0",
+                    "launchers",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "attempted_landings",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "attempted_landings__gt",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "attempted_landings__gte",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "attempted_landings__lt",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "attempted_landings__lte",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "first_launch_date",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "flight_proven",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "flights",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "flights__gt",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "flights__gte",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "flights__lt",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "flights__lte",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "id__contains",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "is_placeholder",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "last_launch_date",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "launcher_config__ids",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "launcher_config__manufacturer__name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "launcher_config__manufacturer__name__contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "mode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "ordering",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "serial_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "serial_number__contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "successful_landings",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "successful_landings__gt",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "successful_landings__gte",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "successful_landings__lt",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "successful_landings__lte",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionid",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 123,\n  \"results\": [\n    {\n      \"id\": 5500,\n      \"image\": {\n        \"id\": 7961,\n        \"image_url\": \"http://gKsLXhTcscgkLuzNDOLUJFiPKZVeA.vhvJcQ3lCs7ZxLBkw.Jpq+fsDKBMVf,8LHBr348Pebii9TVCJempBVqR9aM4nh\",\n        \"license\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"name\": \"string\",\n        \"thumbnail_url\": \"http://EyRQipTTnojmgrfO.arhBCCz1k+jGMegAAGEncwSdOcVaclrfgaUzoG1WjxETLT4TU-hixGNguIA\",\n        \"variants\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"credit\": \"string\",\n        \"single_use\": false\n      },\n      \"response_mode\": \"list\",\n      \"status\": {\n        \"id\": 2208,\n        \"name\": \"string\"\n      },\n      \"url\": \"https://TmyOFeGUmEQz.uomLuX+,,.jr17HYvJnw0\",\n      \"flight_proven\": false,\n      \"serial_number\": \"string\",\n      \"is_placeholder\": true\n    },\n    {\n      \"id\": 5245,\n      \"image\": {\n        \"id\": 2890,\n        \"image_url\": \"https://UjmpvTzvMsfCaCNzlyJFuTQYqvFnRDtRj.laKNPjg3jNab\",\n        \"license\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"name\": \"string\",\n        \"thumbnail_url\": \"http://beJN.deuzq+kBAlJ0MHf1QNCmrQAm766T.mv7TlWVNXaObDRsOreB3+Da4UOH3-UP+Dq4Hepoph4uml\",\n        \"variants\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"credit\": \"string\",\n        \"single_use\": true\n      },\n      \"response_mode\": \"list\",\n      \"status\": {\n        \"id\": 9763,\n        \"name\": \"string\"\n      },\n      \"url\": \"https://KgMcf.gtub7JJtk6MelBPyMR5AMrRgnDyCjdSwDtbN7kM3Erx6bSVn.NsAvx2xIVnVjDk-1pj1mg+Zk4PQfAUX\",\n      \"flight_proven\": false,\n      \"serial_number\": \"string\",\n      \"is_placeholder\": false\n    }\n  ],\n  \"next\": \"http://api.example.org/accounts/?offset=400&limit=100\",\n  \"previous\": \"http://api.example.org/accounts/?offset=200&limit=100\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c816d02a-1a53-49eb-9ab8-b74438a376f5",
+          "name": "Get Launcher",
+          "request": {
+            "name": "Get Launcher",
+            "description": {
+              "content": "#### Modes\nLevels of detail in the response - `list`, `normal`, `detailed`\n\nExample - [/launchers/?mode=list](./?mode=list)\n\n#### Filters\nParameters - `attempted_landings`, `attempted_landings__gt`, `attempted_landings__gte`, `attempted_landings__lt`, `attempted_landings__lte`, `first_launch_date`, `flight_proven`, `flights`, `flights__gt`, `flights__gte`, `flights__lt`, `flights__lte`, `id`, `id__contains`, `is_placeholder`, `last_launch_date`, `launcher_config__ids`, `launcher_config__manufacturer__name`, `launcher_config__manufacturer__name__contains`, `serial_number`, `serial_number__contains`, `status`, `successful_landings`, `successful_landings__gt`, `successful_landings__gte`, `successful_landings__lt`, `successful_landings__lte`\n\nExample - [/launchers/?is_placeholder=True](./?is_placeholder=True)\n\n#### Search\nFields searched - `serial_number`, `status__name`\n\nExample - [/launchers/?search=B1048](./?search=B1048)\n\n#### Ordering\nFields - `attempted_landings`, `flight_proven`, `flights`, `id`, `successful_landings`\n\nExample - [/launchers/?ordering=-flights](./?ordering=-flights)\n\n#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/launchers/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/launchers/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2.3.0",
+                "launchers",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this Launch Vehicle."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "sessionid"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d6183046-072e-48ed-8812-705de4819ed0",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2.3.0",
+                    "launchers",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this Launch Vehicle."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionid",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"fastest_turnaround\": \"string\",\n  \"id\": 784,\n  \"image\": {\n    \"id\": 4998,\n    \"image_url\": \"http://As.fklujl6anTzSOruycEsh+aC\",\n    \"license\": {\n      \"id\": 8087,\n      \"name\": \"string\",\n      \"priority\": 1431224248,\n      \"link\": \"http://zWPZRYtDuClBWgBNnXONdrtxGXS.hvyLpbmZKaHIaJ+myWPnDsIinJZoh2zPhSor87rsN,UGn,LaSN40FrgcX3NCO\"\n    },\n    \"name\": \"string\",\n    \"thumbnail_url\": \"https://lLAKToFbHrQoF.ezC5occGgkGgp7VHQShANH+D4WgHG\",\n    \"variants\": [\n      {\n        \"id\": 4739,\n        \"image_url\": \"http://deRzVywKQgNOomjNnydMZ.octdwz8SCYVOy8sNbWeRe7Xzdni-wYcVv9mW+16\",\n        \"type\": {\n          \"id\": 4836,\n          \"name\": \"string\"\n        }\n      },\n      {\n        \"id\": 2785,\n        \"image_url\": \"http://WpAQtElBQAyXusVUghiGyUxwkPB.jkEIxP7FgANCQo1lf3LycngNzjjsd6k,Cyogx01W\",\n        \"type\": {\n          \"id\": 3475,\n          \"name\": \"string\"\n        }\n      }\n    ],\n    \"credit\": \"string\",\n    \"single_use\": false\n  },\n  \"launcher_config\": {\n    \"families\": [\n      {\n        \"id\": 4730,\n        \"name\": \"string\",\n        \"response_mode\": \"list\"\n      },\n      {\n        \"id\": 8659,\n        \"name\": \"string\",\n        \"response_mode\": \"list\"\n      }\n    ],\n    \"id\": 6116,\n    \"name\": \"string\",\n    \"response_mode\": \"list\",\n    \"url\": \"http://r.fuuMEiuuUD9caH\",\n    \"full_name\": \"string\",\n    \"variant\": \"string\"\n  },\n  \"response_mode\": \"detailed\",\n  \"status\": {\n    \"id\": 7032,\n    \"name\": \"string\"\n  },\n  \"url\": \"https://JfCkRDYsWNETCVZskkdcO.ekD9YWKi9z0OdiRhAlct.mZPC5wQTL\",\n  \"flight_proven\": false,\n  \"serial_number\": \"string\",\n  \"is_placeholder\": true,\n  \"details\": \"string\",\n  \"successful_landings\": -14395811,\n  \"attempted_landings\": 1865765496,\n  \"flights\": 1324842494,\n  \"last_launch_date\": \"1978-04-03T03:48:35.445Z\",\n  \"first_launch_date\": \"1982-04-23T04:17:24.759Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://ll.thespacedevs.com/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "dd334d5e-f03d-47ec-9806-0bfadf368560",
+    "name": "TheSpaceDevs LL2 Launchers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Rocket launches, space events and crewed spaceflight. The Launch Library 2 API is the official successor of the popular Launch Library API. It keeps its core features whilst also including everything the broader Space Launch Now API had to offer. The result is a large database delivering a more complete experience for each rocket launch and ...",
+      "type": "text/plain"
+    }
+  }
+}

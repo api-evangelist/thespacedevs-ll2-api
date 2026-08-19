@@ -1,0 +1,128 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TheSpaceDevs LL2 Patches API",
+    "version": "v2.3.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Patches",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Mission Patches",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/mission_patches/",
+            "params": [
+              {
+                "name": "agency__id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "agency__name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "agency__name__contains",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated mission patch IDs."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail in the response."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "name__contains",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Modes\nLevels of detail in the response - `normal`, `detailed`\n\nExample - [/mission_patches/?mode=detailed](./?mode=detailed)\n\n#### Filters\nParameters - `agency__id`, `agency__name`, `agency__name__contains`, `id`, `ids`, `name`, `name__contains`\n\nExample - [/mission_patches/?agency__id=147](./?agency__id=147)\n\n#### Search\nFields searched - `agency__name`, `name`\n\nExample - [/mission_patches/?search=Ariane](./?search=Ariane)\n\n#### Ordering\nFields - `agency__name`, `id`, `name`, `priority`\n\nE"
+        },
+        {
+          "info": {
+            "name": "Get Mission Patch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/mission_patches/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this Mission Patch."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Modes\nLevels of detail in the response - `normal`, `detailed`\n\nExample - [/mission_patches/?mode=detailed](./?mode=detailed)\n\n#### Filters\nParameters - `agency__id`, `agency__name`, `agency__name__contains`, `id`, `ids`, `name`, `name__contains`\n\nExample - [/mission_patches/?agency__id=147](./?agency__id=147)\n\n#### Search\nFields searched - `agency__name`, `name`\n\nExample - [/mission_patches/?search=Ariane](./?search=Ariane)\n\n#### Ordering\nFields - `agency__name`, `id`, `name`, `priority`\n\nE"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

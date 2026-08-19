@@ -1,0 +1,296 @@
+{
+  "item": [
+    {
+      "id": "1a0ceee3-e067-46b1-93b2-4103cae09162",
+      "name": "Bodies",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "86a28ff5-0661-4331-905e-422513c05326",
+          "name": "List Celestial Bodies",
+          "request": {
+            "name": "List Celestial Bodies",
+            "description": {
+              "content": "#### Modes\nLevels of detail in the response - `list`, `normal`, `detailed`\n\nExample - [/celestial_bodies/?mode=list](./?mode=list)\n\n#### Search\nFields searched - `name`, `type__name`\n\nExample - [/celestial_bodies/?search=Mars](./?search=Mars)\n\n#### Ordering\nFields - `id`, `name`\n\nExample - [/celestial_bodies/?ordering=-name](./?ordering=-name)\n\n#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/celestial_bodies/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/celestial_bodies/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2.3.0",
+                "celestial_bodies",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "mode",
+                  "value": "<string>",
+                  "description": "Level of detail in the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The initial index from which to return the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "ordering",
+                  "value": "<string>",
+                  "description": "Which field to use when ordering the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "A search term."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "sessionid"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "352ab4ab-23db-4892-8174-0608eb965a85",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2.3.0",
+                    "celestial_bodies",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "mode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "ordering",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionid",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 123,\n  \"results\": [\n    {\n      \"id\": 2414,\n      \"name\": \"string\",\n      \"response_mode\": \"list\"\n    },\n    {\n      \"id\": 990,\n      \"name\": \"string\",\n      \"response_mode\": \"list\"\n    }\n  ],\n  \"next\": \"http://api.example.org/accounts/?offset=400&limit=100\",\n  \"previous\": \"http://api.example.org/accounts/?offset=200&limit=100\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8e5146c2-034f-4ee9-a860-2a0041f4d90d",
+          "name": "Get Celestial Body",
+          "request": {
+            "name": "Get Celestial Body",
+            "description": {
+              "content": "#### Modes\nLevels of detail in the response - `list`, `normal`, `detailed`\n\nExample - [/celestial_bodies/?mode=list](./?mode=list)\n\n#### Search\nFields searched - `name`, `type__name`\n\nExample - [/celestial_bodies/?search=Mars](./?search=Mars)\n\n#### Ordering\nFields - `id`, `name`\n\nExample - [/celestial_bodies/?ordering=-name](./?ordering=-name)\n\n#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/celestial_bodies/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/celestial_bodies/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2.3.0",
+                "celestial_bodies",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this Celestial Body."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "sessionid"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3e8a9180-ad0f-453d-ae40-02689cd0c605",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2.3.0",
+                    "celestial_bodies",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this Celestial Body."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionid",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 6459,\n  \"image\": {\n    \"id\": 698,\n    \"image_url\": \"https://XJjMtMcLK.gnopvvXYEIxMpcRjDrBwbmDKLXbpawKRzxeK12lrNp1MC\",\n    \"license\": {\n      \"id\": 5061,\n      \"name\": \"string\",\n      \"priority\": -1122421841,\n      \"link\": \"https://je.wbL1irvm1hMwGInwML.NLERtVb1ey1uvGXu\"\n    },\n    \"name\": \"string\",\n    \"thumbnail_url\": \"http://PjspbzMQdBsMcStPNYWppimZjAYx.ursufuyz3.aoVLBF,.L6EeYc4ag+je1sNXHpqEC3PljA4uX0s81a+vQSoGzFkBJfwc-Zwz-I+Q\",\n    \"variants\": [\n      {\n        \"id\": 1786,\n        \"image_url\": \"https://DGPgIUwlPbMznWcFVOfcEQnJcATDElK.pbezpkWec5Rm0fNn.V7GRV-4je4hYAhR6TFwLyQfVlYLNNcx-7\",\n        \"type\": {\n          \"id\": 533,\n          \"name\": \"string\"\n        }\n      },\n      {\n        \"id\": 5446,\n        \"image_url\": \"http://bdw.bbtqHdu1CKTjVRpdp3jgt8,1WoW7vlaUwP8m7yrAF.BjEyDZ7BohKyA,.T.++L5mgCjUu8,\",\n        \"type\": {\n          \"id\": 7010,\n          \"name\": \"string\"\n        }\n      }\n    ],\n    \"credit\": \"string\",\n    \"single_use\": true\n  },\n  \"locations\": [\n    {\n      \"country\": {\n        \"id\": 2779,\n        \"name\": \"string\",\n        \"alpha_2_code\": \"st\",\n        \"alpha_3_code\": \"str\",\n        \"nationality_name\": \"string\",\n        \"nationality_name_composed\": \"string\"\n      },\n      \"id\": 7996,\n      \"image\": {\n        \"id\": 42,\n        \"image_url\": \"http://MPffaCrswMggLpjky.hwkA,+Mf5rBvkoqN4UsbvCTcdFAG4kpQnhruMRfihI0wuZ\",\n        \"license\": {\n          \"id\": 4344,\n          \"name\": \"string\",\n          \"priority\": -335311975,\n          \"link\": \"https://MSIpFXIDNNGFcCctrCRtSDp.ghz,l5z8iWP1PK9CPvK8Z0mtcUWqasYkvhI6G5PHu\"\n        },\n        \"name\": \"string\",\n        \"thumbnail_url\": \"http://BWHPCfWVrPLnbjBcUgPKTXJXFLIh.thytOGi16bYiy4mcMJUYT8pzz-MbYiPPlQaTiEmjdnfu,5BYw+nzLZJaaK5fcF+gW9WSf-FIBQL6n.\",\n        \"variants\": [\n          {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"image_url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"image_url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"credit\": \"string\",\n        \"single_use\": true\n      },\n      \"response_mode\": \"normal\",\n      \"url\": \"https://joFcDVsvVdZKqXDKNYpxAq.ogpEPebD05qG4EZv74sLGtlKrQG6AFJ+dWhfJJLNb5k1fxDN.OkBIAagrpRrdL\",\n      \"name\": \"string\",\n      \"active\": false,\n      \"description\": \"string\",\n      \"map_image\": \"http://dtlbQnHIGyBpIiodKSKlWO.dooxS1aR.j3D803YrEJeMG\",\n      \"longitude\": 9758.06053730084,\n      \"latitude\": 7852.364664345576,\n      \"timezone_name\": \"string\",\n      \"total_launch_count\": 551985989,\n      \"total_landing_count\": -2112251251\n    },\n    {\n      \"country\": {\n        \"id\": 1713,\n        \"name\": \"string\",\n        \"alpha_2_code\": \"st\",\n        \"alpha_3_code\": \"str\",\n        \"nationality_name\": \"string\",\n        \"nationality_name_composed\": \"string\"\n      },\n      \"id\": 7379,\n      \"image\": {\n        \"id\": 4489,\n        \"image_url\": \"http://sNjR.adhXacS9MNPREkvRkQfj10ReioFyPTWtP3p6G6AEhP\",\n        \"license\": {\n          \"id\": 6645,\n          \"name\": \"string\",\n          \"priority\": 850654785,\n          \"link\": \"https://bGCPOCl.tutsQbvoP9G.FSE4,ixbConyXuRk3KRP,fYV\"\n        },\n        \"name\": \"string\",\n        \"thumbnail_url\": \"http://CmVMFkcuWRJspvRjXeteTesiTI.kspNvDiHHQjGATkQh+snRKBJfTuXEjFTGFfcH83Q5PJnQnHX-PCSXADX1\",\n        \"variants\": [\n          {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"image_url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"image_url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"credit\": \"string\",\n        \"single_use\": false\n      },\n      \"response_mode\": \"normal\",\n      \"url\": \"https://Tdu.xzaWwr-BXo33Q5LkjusdrJkCLQSkoz5zzsVj9XLpkhM9fT\",\n      \"name\": \"string\",\n      \"active\": false,\n      \"description\": \"string\",\n      \"map_image\": \"https://ydAzzYGSbPjvtfMlCmZMtXivCbMTyg.xfnbl67G3kto5RwCS9bIea1NRgENncWSegN05-S7p2D\",\n      \"longitude\": 5963.213140033792,\n      \"latitude\": 9996.203573401408,\n      \"timezone_name\": \"string\",\n      \"total_launch_count\": -1357307666,\n      \"total_landing_count\": 1712092373\n    }\n  ],\n  \"name\": \"string\",\n  \"response_mode\": \"detailed\",\n  \"type\": {\n    \"id\": 2147165807,\n    \"name\": \"string\"\n  },\n  \"diameter\": 6712.074903163153,\n  \"mass\": 3394.7623871055375,\n  \"gravity\": 7436.878284442993,\n  \"length_of_day\": \"string\",\n  \"atmosphere\": true,\n  \"description\": \"string\",\n  \"wiki_url\": \"https://LucclBvYOEuCPBxHmr.wvcrMe+1g6yZrPzc+N2Aqt\",\n  \"total_attempted_launches\": -927350119,\n  \"successful_launches\": 1242643257,\n  \"failed_launches\": 299073314,\n  \"total_attempted_landings\": 741160087,\n  \"successful_landings\": -1874062917,\n  \"failed_landings\": -277779829\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://ll.thespacedevs.com/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "516fc32d-ba75-4f97-8e49-f245bd7fab81",
+    "name": "TheSpaceDevs LL2 Bodies API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Rocket launches, space events and crewed spaceflight. The Launch Library 2 API is the official successor of the popular Launch Library API. It keeps its core features whilst also including everything the broader Space Launch Now API had to offer. The result is a large database delivering a more complete experience for each rocket launch and ...",
+      "type": "text/plain"
+    }
+  }
+}

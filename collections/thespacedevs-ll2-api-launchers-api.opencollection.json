@@ -1,0 +1,228 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TheSpaceDevs LL2 Launchers API",
+    "version": "v2.3.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Launchers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Launchers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/launchers/",
+            "params": [
+              {
+                "name": "attempted_landings",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "attempted_landings__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "attempted_landings__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "attempted_landings__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "attempted_landings__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "first_launch_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "flight_proven",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "flights",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "flights__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "flights__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "flights__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "flights__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "id__contains",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "is_placeholder",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "last_launch_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "launcher_config__ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated launcher config IDs."
+              },
+              {
+                "name": "launcher_config__manufacturer__name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "launcher_config__manufacturer__name__contains",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail in the response."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              },
+              {
+                "name": "serial_number",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "serial_number__contains",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "successful_landings",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "successful_landings__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "successful_landings__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "successful_landings__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "successful_landings__lte",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Modes\nLevels of detail in the response - `list`, `normal`, `detailed`\n\nExample - [/launchers/?mode=list](./?mode=list)\n\n#### Filters\nParameters - `attempted_landings`, `attempted_landings__gt`, `attempted_landings__gte`, `attempted_landings__lt`, `attempted_landings__lte`, `first_launch_date`, `flight_proven`, `flights`, `flights__gt`, `flights__gte`, `flights__lt`, `flights__lte`, `id`, `id__contains`, `is_placeholder`, `last_launch_date`, `launcher_config__ids`, `launcher_config__manufact"
+        },
+        {
+          "info": {
+            "name": "Get Launcher",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/launchers/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this Launch Vehicle."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Modes\nLevels of detail in the response - `list`, `normal`, `detailed`\n\nExample - [/launchers/?mode=list](./?mode=list)\n\n#### Filters\nParameters - `attempted_landings`, `attempted_landings__gt`, `attempted_landings__gte`, `attempted_landings__lt`, `attempted_landings__lte`, `first_launch_date`, `flight_proven`, `flights`, `flights__gt`, `flights__gte`, `flights__lt`, `flights__lte`, `id`, `id__contains`, `is_placeholder`, `last_launch_date`, `launcher_config__ids`, `launcher_config__manufact"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

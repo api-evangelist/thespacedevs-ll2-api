@@ -1,0 +1,129 @@
+{
+  "item": [
+    {
+      "id": "056dd942-0f87-4667-996d-af7a4e0fcb7c",
+      "name": "Api-throttle",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f31f0470-11b3-4ec1-9cac-637f0cc892f1",
+          "name": "Get API Throttle Status",
+          "request": {
+            "name": "Get API Throttle Status",
+            "description": {
+              "content": "API endpoint that allows API Throttle information to be viewed.\n\nGET:\nReturns a range of information about your API access",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2.3.0",
+                "api-throttle",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "sessionid"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0e4f6d22-d404-455d-9c15-80e947bda60f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2.3.0",
+                    "api-throttle",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionid",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"current_use\": 6787,\n    \"ident\": \"string\",\n    \"limit_frequency_secs\": 7967,\n    \"next_use_secs\": 494,\n    \"your_request_limit\": 2119\n  },\n  {\n    \"current_use\": 7345,\n    \"ident\": \"string\",\n    \"limit_frequency_secs\": 2862,\n    \"next_use_secs\": 5175,\n    \"your_request_limit\": 3208\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://ll.thespacedevs.com/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ba480f5d-22ca-43c8-afde-9667ece4b50a",
+    "name": "TheSpaceDevs LL2 Api-throttle API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Rocket launches, space events and crewed spaceflight. The Launch Library 2 API is the official successor of the popular Launch Library API. It keeps its core features whilst also including everything the broader Space Launch Now API had to offer. The result is a large database delivering a more complete experience for each rocket launch and ...",
+      "type": "text/plain"
+    }
+  }
+}

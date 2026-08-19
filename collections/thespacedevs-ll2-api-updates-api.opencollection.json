@@ -1,0 +1,106 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TheSpaceDevs LL2 Updates API",
+    "version": "v2.3.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Updates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Updates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/updates/",
+            "params": [
+              {
+                "name": "created_on",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "launch",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "launch__launch_service_provider",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "program",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Filters\nParameters - `created_on`, `launch`, `launch__launch_service_provider`, `program`\n\nExample - [/updates/?launch__launch_service_provider=121](./?launch__launch_service_provider=121)\n\n#### Ordering\nFields - `created_on`\n\nExample - [/updates/?ordering=-created_on](./?ordering=-created_on)\n\n#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/updates/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/updates/?format=json](."
+        },
+        {
+          "info": {
+            "name": "Get Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/updates/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this Update."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Filters\nParameters - `created_on`, `launch`, `launch__launch_service_provider`, `program`\n\nExample - [/updates/?launch__launch_service_provider=121](./?launch__launch_service_provider=121)\n\n#### Ordering\nFields - `created_on`\n\nExample - [/updates/?ordering=-created_on](./?ordering=-created_on)\n\n#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/updates/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/updates/?format=json](."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

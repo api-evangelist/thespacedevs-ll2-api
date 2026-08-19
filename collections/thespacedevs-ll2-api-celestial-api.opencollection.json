@@ -1,0 +1,160 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TheSpaceDevs LL2 Celestial API",
+    "version": "v2.3.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Celestial",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Celestial Bodies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/celestial_bodies/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail in the response."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Modes\nLevels of detail in the response - `list`, `normal`, `detailed`\n\nExample - [/celestial_bodies/?mode=list](./?mode=list)\n\n#### Search\nFields searched - `name`, `type__name`\n\nExample - [/celestial_bodies/?search=Mars](./?search=Mars)\n\n#### Ordering\nFields - `id`, `name`\n\nExample - [/celestial_bodies/?ordering=-name](./?ordering=-name)\n\n#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/celestial_bodies/?limit=2](./?limit=2)\n\n#### F"
+        },
+        {
+          "info": {
+            "name": "Get Celestial Body",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/celestial_bodies/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this Celestial Body."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Modes\nLevels of detail in the response - `list`, `normal`, `detailed`\n\nExample - [/celestial_bodies/?mode=list](./?mode=list)\n\n#### Search\nFields searched - `name`, `type__name`\n\nExample - [/celestial_bodies/?search=Mars](./?search=Mars)\n\n#### Ordering\nFields - `id`, `name`\n\nExample - [/celestial_bodies/?ordering=-name](./?ordering=-name)\n\n#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/celestial_bodies/?limit=2](./?limit=2)\n\n#### F"
+        },
+        {
+          "info": {
+            "name": "List Celestial Body Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/celestial_body_types/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/celestial_body_types/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/celestial_body_types/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "Get Celestial Body Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/celestial_body_types/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique value identifying this celestial body type."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/celestial_body_types/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/celestial_body_types/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

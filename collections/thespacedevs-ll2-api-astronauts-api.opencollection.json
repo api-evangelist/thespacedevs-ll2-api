@@ -1,0 +1,305 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TheSpaceDevs LL2 Astronauts API",
+    "version": "v2.3.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Astronauts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Astronauts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/astronauts/",
+            "params": [
+              {
+                "name": "age",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "age__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "age__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "age__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "age__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "agency_ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated agency IDs."
+              },
+              {
+                "name": "date_of_birth",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "date_of_birth__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "date_of_birth__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "date_of_birth__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "date_of_birth__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "date_of_death",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "date_of_death__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "date_of_death__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "date_of_death__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "date_of_death__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "first_flight",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "first_flight__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "first_flight__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "first_flight__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "first_flight__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "flights_count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "flights_count__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "flights_count__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "flights_count__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "flights_count__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "has_flown",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "in_space",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "is_human",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "landings_count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "landings_count__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "landings_count__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "landings_count__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "landings_count__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "last_flight",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "last_flight__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "last_flight__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "last_flight__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "last_flight__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail in the response."
+              },
+              {
+                "name": "nationality",
+                "value": "",
+                "type": "query",
+                "description": "Nationality"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              },
+              {
+                "name": "status_ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated astronaut status IDs."
+              },
+              {
+                "name": "type__id",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Modes\nLevels of detail in the response - `list`, `normal`, `detailed`\n\nExample - [/astronauts/?mode=list](./?mode=list)\n\n#### Filters\nParameters - `age`, `age__gt`, `age__gte`, `age__lt`, `age__lte`, `agency_ids`, `date_of_birth`, `date_of_birth__gt`, `date_of_birth__gte`, `date_of_birth__lt`, `date_of_birth__lte`, `date_of_death`, `date_of_death__gt`, `date_of_death__gte`, `date_of_death__lt`, `date_of_death__lte`, `first_flight`, `first_flight__gt`, `first_flight__gte`, `first_flight__lt`"
+        },
+        {
+          "info": {
+            "name": "Get Astronaut",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/astronauts/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this Astronaut."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Modes\nLevels of detail in the response - `list`, `normal`, `detailed`\n\nExample - [/astronauts/?mode=list](./?mode=list)\n\n#### Filters\nParameters - `age`, `age__gt`, `age__gte`, `age__lt`, `age__lte`, `agency_ids`, `date_of_birth`, `date_of_birth__gt`, `date_of_birth__gte`, `date_of_birth__lt`, `date_of_birth__lte`, `date_of_death`, `date_of_death__gt`, `date_of_death__gte`, `date_of_death__lt`, `date_of_death__lte`, `first_flight`, `first_flight__gt`, `first_flight__gte`, `first_flight__lt`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

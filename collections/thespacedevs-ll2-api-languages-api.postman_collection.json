@@ -1,0 +1,290 @@
+{
+  "item": [
+    {
+      "id": "18576ee0-7ed5-4eab-87d4-ea56161cc83f",
+      "name": "Languages",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6d3ba06e-7329-4b07-abdf-babfb285b561",
+          "name": "List Languages",
+          "request": {
+            "name": "List Languages",
+            "description": {
+              "content": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/languages/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/languages/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2.3.0",
+                "config",
+                "languages",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The initial index from which to return the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "ordering",
+                  "value": "<string>",
+                  "description": "Which field to use when ordering the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "A search term."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "sessionid"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7ffc4941-ddd2-49e3-b644-5c23b94ea3e9",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2.3.0",
+                    "config",
+                    "languages",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "ordering",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionid",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 123,\n  \"results\": [\n    {\n      \"code\": \"string\",\n      \"id\": 915,\n      \"name\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"id\": 6996,\n      \"name\": \"string\"\n    }\n  ],\n  \"next\": \"http://api.example.org/accounts/?offset=400&limit=100\",\n  \"previous\": \"http://api.example.org/accounts/?offset=200&limit=100\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "68949f97-33e4-42e8-8e68-4e4cc1b487ec",
+          "name": "Get Language",
+          "request": {
+            "name": "Get Language",
+            "description": {
+              "content": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/languages/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/languages/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2.3.0",
+                "config",
+                "languages",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this Language."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "sessionid"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8cb312ef-ba3a-40c7-9be3-54357a0a7046",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2.3.0",
+                    "config",
+                    "languages",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this Language."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionid",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"id\": 8193,\n  \"name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://ll.thespacedevs.com/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ce10c8d3-6fcc-4d12-b25b-6bbda3d5d8c9",
+    "name": "TheSpaceDevs LL2 Languages API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Rocket launches, space events and crewed spaceflight. The Launch Library 2 API is the official successor of the popular Launch Library API. It keeps its core features whilst also including everything the broader Space Launch Now API had to offer. The result is a large database delivering a more complete experience for each rocket launch and ...",
+      "type": "text/plain"
+    }
+  }
+}

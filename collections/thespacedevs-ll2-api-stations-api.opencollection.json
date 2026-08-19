@@ -1,0 +1,189 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TheSpaceDevs LL2 Stations API",
+    "version": "v2.3.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Stations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Space Stations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/space_stations/",
+            "params": [
+              {
+                "name": "docked_vehicles",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "docked_vehicles__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "docked_vehicles__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "docked_vehicles__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "docked_vehicles__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail in the response."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "name__contains",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "onboard_crew",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "onboard_crew__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "onboard_crew__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "onboard_crew__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "onboard_crew__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "orbit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "owner__ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated agency IDs."
+              },
+              {
+                "name": "owners",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status__ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated spacestation status IDs."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Modes\nLevels of detail in the response - `normal`, `detailed`\n\nExample - [/space_stations/?mode=detailed](./?mode=detailed)\n\n#### Filters\nParameters - `docked_vehicles`, `docked_vehicles__gt`, `docked_vehicles__gte`, `docked_vehicles__lt`, `docked_vehicles__lte`, `id`, `name`, `name__contains`, `onboard_crew`, `onboard_crew__gt`, `onboard_crew__gte`, `onboard_crew__lt`, `onboard_crew__lte`, `orbit`, `owner__ids`, `owners`, `status`, `status__ids`, `type`\n\nExample - [/space_stations/?onboard"
+        },
+        {
+          "info": {
+            "name": "Get Space Station",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/space_stations/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this Space Station."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Modes\nLevels of detail in the response - `normal`, `detailed`\n\nExample - [/space_stations/?mode=detailed](./?mode=detailed)\n\n#### Filters\nParameters - `docked_vehicles`, `docked_vehicles__gt`, `docked_vehicles__gte`, `docked_vehicles__lt`, `docked_vehicles__lte`, `id`, `name`, `name__contains`, `onboard_crew`, `onboard_crew__gt`, `onboard_crew__gte`, `onboard_crew__lt`, `onboard_crew__lte`, `orbit`, `owner__ids`, `owners`, `status`, `status__ids`, `type`\n\nExample - [/space_stations/?onboard"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

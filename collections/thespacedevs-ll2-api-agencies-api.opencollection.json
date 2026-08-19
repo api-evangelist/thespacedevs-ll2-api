@@ -1,0 +1,403 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TheSpaceDevs LL2 Agencies API",
+    "version": "v2.3.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Agencies",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Agencies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/agencies/",
+            "params": [
+              {
+                "name": "abbrev",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "abbrev__contains",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "attempted_landings",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "attempted_landings__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "attempted_landings__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "attempted_landings__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "attempted_landings__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "consecutive_successful_landings",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "consecutive_successful_landings__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "consecutive_successful_landings__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "consecutive_successful_landings__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "consecutive_successful_landings__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "consecutive_successful_launches",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "consecutive_successful_launches__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "consecutive_successful_launches__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "consecutive_successful_launches__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "consecutive_successful_launches__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "country_code",
+                "value": "",
+                "type": "query",
+                "description": "Multiple values may be separated by commas."
+              },
+              {
+                "name": "description",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "description__contains",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "failed_landings",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "failed_landings__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "failed_landings__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "failed_landings__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "failed_landings__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "failed_launches",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "failed_launches__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "failed_launches__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "failed_launches__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "failed_launches__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "featured",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "founding_year",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "founding_year__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "founding_year__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "founding_year__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "founding_year__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail in the response."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "name__contains",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "parent__id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pending_launches",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pending_launches__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pending_launches__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pending_launches__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pending_launches__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              },
+              {
+                "name": "spacecraft",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "successful_landings",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "successful_landings__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "successful_landings__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "successful_landings__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "successful_landings__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "successful_launches",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "successful_launches__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "successful_launches__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "successful_launches__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "successful_launches__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "total_launch_count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "total_launch_count__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "total_launch_count__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "total_launch_count__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "total_launch_count__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type__id",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Modes\nLevels of detail in the response - `list`, `normal`, `detailed`\n\nExample - [/agencies/?mode=list](./?mode=list)\n\n#### Filters\nParameters - `abbrev`, `abbrev__contains`, `attempted_landings`, `attempted_landings__gt`, `attempted_landings__gte`, `attempted_landings__lt`, `attempted_landings__lte`, `consecutive_successful_landings`, `consecutive_successful_landings__gt`, `consecutive_successful_landings__gte`, `consecutive_successful_landings__lt`, `consecutive_successful_landings__lte`,"
+        },
+        {
+          "info": {
+            "name": "Get Agency",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/agencies/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this Agency."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Modes\nLevels of detail in the response - `list`, `normal`, `detailed`\n\nExample - [/agencies/?mode=list](./?mode=list)\n\n#### Filters\nParameters - `abbrev`, `abbrev__contains`, `attempted_landings`, `attempted_landings__gt`, `attempted_landings__gte`, `attempted_landings__lt`, `attempted_landings__lte`, `consecutive_successful_landings`, `consecutive_successful_landings__gt`, `consecutive_successful_landings__gte`, `consecutive_successful_landings__lt`, `consecutive_successful_landings__lte`,"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

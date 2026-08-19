@@ -1,0 +1,806 @@
+{
+  "item": [
+    {
+      "id": "1241afd7-760b-41e1-8593-d0df1af4ab10",
+      "name": "Astronaut",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f57507a6-71d2-4685-af87-67a86787d2e2",
+          "name": "List Astronaut Roles",
+          "request": {
+            "name": "List Astronaut Roles",
+            "description": {
+              "content": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/astronaut_roles/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/astronaut_roles/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2.3.0",
+                "config",
+                "astronaut_roles",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The initial index from which to return the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "ordering",
+                  "value": "<string>",
+                  "description": "Which field to use when ordering the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "A search term."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "sessionid"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "55d9f051-9c2c-4aa7-8dc2-a8fa30db5b2b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2.3.0",
+                    "config",
+                    "astronaut_roles",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "ordering",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionid",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 123,\n  \"results\": [\n    {\n      \"id\": 177,\n      \"role\": \"string\",\n      \"priority\": -1301841414\n    },\n    {\n      \"id\": 3123,\n      \"role\": \"string\",\n      \"priority\": 858106784\n    }\n  ],\n  \"next\": \"http://api.example.org/accounts/?offset=400&limit=100\",\n  \"previous\": \"http://api.example.org/accounts/?offset=200&limit=100\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "41a85872-b1e5-4315-b26b-cc1ec95676e0",
+          "name": "Get Astronaut Role",
+          "request": {
+            "name": "Get Astronaut Role",
+            "description": {
+              "content": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/astronaut_roles/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/astronaut_roles/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2.3.0",
+                "config",
+                "astronaut_roles",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this Astronaut Role."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "sessionid"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a87a62dc-1980-4aa7-b1d2-6093706d63d8",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2.3.0",
+                    "config",
+                    "astronaut_roles",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this Astronaut Role."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionid",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 9101,\n  \"role\": \"string\",\n  \"priority\": 2064861737\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3ae57f7f-243f-4710-a77c-50c68667faaf",
+          "name": "List Astronaut Statuses",
+          "request": {
+            "name": "List Astronaut Statuses",
+            "description": {
+              "content": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/astronaut_statuses/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/astronaut_statuses/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2.3.0",
+                "config",
+                "astronaut_statuses",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The initial index from which to return the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "ordering",
+                  "value": "<string>",
+                  "description": "Which field to use when ordering the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "A search term."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "sessionid"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "27347e43-ff4b-4853-bb2a-5fee02739246",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2.3.0",
+                    "config",
+                    "astronaut_statuses",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "ordering",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionid",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 123,\n  \"results\": [\n    {\n      \"id\": 7725,\n      \"name\": \"string\"\n    },\n    {\n      \"id\": 8940,\n      \"name\": \"string\"\n    }\n  ],\n  \"next\": \"http://api.example.org/accounts/?offset=400&limit=100\",\n  \"previous\": \"http://api.example.org/accounts/?offset=200&limit=100\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a931f4ec-98d7-4f92-9adf-bee6393175ce",
+          "name": "Get Astronaut Status",
+          "request": {
+            "name": "Get Astronaut Status",
+            "description": {
+              "content": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/astronaut_statuses/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/astronaut_statuses/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2.3.0",
+                "config",
+                "astronaut_statuses",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this Astronaut Status."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "sessionid"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "966c72b9-cd99-4888-9521-6c23f8429958",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2.3.0",
+                    "config",
+                    "astronaut_statuses",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this Astronaut Status."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionid",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8918,\n  \"name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d2966c34-ca25-4ec3-a5fd-d059c9e0c5bd",
+          "name": "List Astronaut Types",
+          "request": {
+            "name": "List Astronaut Types",
+            "description": {
+              "content": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/astronaut_types/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/astronaut_types/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2.3.0",
+                "config",
+                "astronaut_types",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The initial index from which to return the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "ordering",
+                  "value": "<string>",
+                  "description": "Which field to use when ordering the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "A search term."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "sessionid"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4be7828b-d14f-4abf-a6c2-bdb46697ede5",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2.3.0",
+                    "config",
+                    "astronaut_types",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "ordering",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionid",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 123,\n  \"results\": [\n    {\n      \"id\": 7725,\n      \"name\": \"string\"\n    },\n    {\n      \"id\": 8940,\n      \"name\": \"string\"\n    }\n  ],\n  \"next\": \"http://api.example.org/accounts/?offset=400&limit=100\",\n  \"previous\": \"http://api.example.org/accounts/?offset=200&limit=100\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fde410a0-6cc8-45f5-b870-e5d705329256",
+          "name": "Get Astronaut Type",
+          "request": {
+            "name": "Get Astronaut Type",
+            "description": {
+              "content": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/astronaut_types/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/astronaut_types/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2.3.0",
+                "config",
+                "astronaut_types",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this Astronaut Type."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "sessionid"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3304a398-f97d-49fb-b93f-9ceacb2ee1ff",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2.3.0",
+                    "config",
+                    "astronaut_types",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this Astronaut Type."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionid",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8918,\n  \"name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://ll.thespacedevs.com/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "696a5210-21b0-40a1-a4aa-56efd053610d",
+    "name": "TheSpaceDevs LL2 Astronaut API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Rocket launches, space events and crewed spaceflight. The Launch Library 2 API is the official successor of the popular Launch Library API. It keeps its core features whilst also including everything the broader Space Launch Now API had to offer. The result is a large database delivering a more complete experience for each rocket launch and ...",
+      "type": "text/plain"
+    }
+  }
+}

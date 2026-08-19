@@ -1,0 +1,2468 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TheSpaceDevs LL2 Configurations API",
+    "version": "v2.3.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Configurations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Agency Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/agency_types/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/agency_types/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/agency_types/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "Get Agency Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/agency_types/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique value identifying this agency type."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/agency_types/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/agency_types/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "List Astronaut Roles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/astronaut_roles/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/astronaut_roles/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/astronaut_roles/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "Get Astronaut Role",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/astronaut_roles/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this Astronaut Role."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/astronaut_roles/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/astronaut_roles/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "List Astronaut Statuses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/astronaut_statuses/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/astronaut_statuses/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/astronaut_statuses/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "Get Astronaut Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/astronaut_statuses/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this Astronaut Status."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/astronaut_statuses/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/astronaut_statuses/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "List Astronaut Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/astronaut_types/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/astronaut_types/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/astronaut_types/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "Get Astronaut Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/astronaut_types/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this Astronaut Type."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/astronaut_types/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/astronaut_types/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "List Celestial Body Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/celestial_body_types/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/celestial_body_types/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/celestial_body_types/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "Get Celestial Body Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/celestial_body_types/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique value identifying this celestial body type."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/celestial_body_types/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/celestial_body_types/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "List Countries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/countries/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/countries/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/countries/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "Get Country",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/countries/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this Country."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/countries/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/countries/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "List Docking Locations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/docking_locations/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/docking_locations/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/docking_locations/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "Get Docking Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/docking_locations/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this Docking Location."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/docking_locations/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/docking_locations/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "List Event Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/event_types/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/event_types/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/event_types/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "Get Event Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/event_types/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique value identifying this event type."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/event_types/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/event_types/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "List First Stage Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/first_stage_types/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/first_stage_types/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/first_stage_types/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "Get First Stage Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/first_stage_types/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique value identifying this first stage type."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/first_stage_types/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/first_stage_types/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "List Image Licenses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/image_licenses/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/image_licenses/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/image_licenses/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "Get Image License",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/image_licenses/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this image license."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/image_licenses/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/image_licenses/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "List Image Variant Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/image_variant_types/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/image_variant_types/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/image_variant_types/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "Get Image Variant Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/image_variant_types/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this image variant type."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/image_variant_types/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/image_variant_types/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "List Info URL Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/infourl_types/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/infourl_types/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/infourl_types/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "Get Info URL Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/infourl_types/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this Info URL Type."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/infourl_types/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/infourl_types/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "List Landing Locations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/landing_locations/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/landing_locations/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/landing_locations/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "Get Landing Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/landing_locations/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this landing location."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/landing_locations/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/landing_locations/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "List Landing Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/landing_types/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/landing_types/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/landing_types/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "Get Landing Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/landing_types/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this landing type."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/landing_types/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/landing_types/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "List Languages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/languages/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/languages/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/languages/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "Get Language",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/languages/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this Language."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/languages/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/languages/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "List Launch Statuses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/launch_statuses/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/launch_statuses/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/launch_statuses/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "Get Launch Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/launch_statuses/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique value identifying this Launch Status."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/launch_statuses/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/launch_statuses/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "List Launcher Statuses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/launcher_statuses/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/launcher_statuses/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/launcher_statuses/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "Get Launcher Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/launcher_statuses/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this Launcher Status."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/launcher_statuses/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/launcher_statuses/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "List Mission Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/mission_types/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/mission_types/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/mission_types/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "Get Mission Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/mission_types/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique value identifying this mission type."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/mission_types/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/mission_types/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "List Net Precisions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/net_precisions/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/net_precisions/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/net_precisions/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "Get Net Precision",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/net_precisions/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique value identifying this Net Precision."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/net_precisions/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/net_precisions/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "List Notice Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/notice_types/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/notice_types/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/notice_types/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "Get Notice Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/notice_types/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this Notices Type."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/notice_types/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/notice_types/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "List Orbits",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/orbits/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/orbits/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/orbits/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "Get Orbit",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/orbits/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this Orbit."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/orbits/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/orbits/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "List Payload Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/payload_types/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/payload_types/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/payload_types/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "Get Payload Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/payload_types/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique value identifying this payload type."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/payload_types/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/payload_types/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "List Program Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/program_types/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/program_types/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/program_types/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "Get Program Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/program_types/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique value identifying this program type."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/program_types/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/program_types/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "List Road Closure Statuses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/road_closure_statuses/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/road_closure_statuses/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/road_closure_statuses/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "Get Road Closure Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/road_closure_statuses/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this Road Closure Type."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/road_closure_statuses/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/road_closure_statuses/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "List Space Station Statuses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/space_station_statuses/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/space_station_statuses/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/space_station_statuses/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "Get Space Station Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/space_station_statuses/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this Space Station Status."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/space_station_statuses/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/space_station_statuses/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "List Spacecraft Configuration Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/spacecraft_configuration_types/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/spacecraft_configuration_types/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/spacecraft_configuration_types/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "Get Spacecraft Configuration Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/spacecraft_configuration_types/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this Spacecraft Configuration Type."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/spacecraft_configuration_types/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/spacecraft_configuration_types/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "List Spacecraft Statuses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/spacecraft_statuses/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/spacecraft_statuses/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/spacecraft_statuses/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "Get Spacecraft Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/spacecraft_statuses/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this Spacecraft Status."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/spacecraft_statuses/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/spacecraft_statuses/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "config_timeline_event_types_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/timeline_event_types/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/timeline_event_types/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/timeline_event_types/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "config_timeline_event_types_retrieve",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/timeline_event_types/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this Timeline Event Type."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/timeline_event_types/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/timeline_event_types/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "config_vidurl_types_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/vidurl_types/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/vidurl_types/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/vidurl_types/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "config_vidurl_types_retrieve",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/vidurl_types/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this Video URL Type."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/vidurl_types/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/vidurl_types/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "List Launcher Configurations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/launcher_configurations/",
+            "params": [
+              {
+                "name": "active",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "attempted_landings",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "attempted_landings__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "attempted_landings__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "attempted_landings__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "attempted_landings__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "consecutive_successful_landings",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "consecutive_successful_landings__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "consecutive_successful_landings__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "consecutive_successful_landings__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "consecutive_successful_landings__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "consecutive_successful_launches",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "consecutive_successful_launches__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "consecutive_successful_launches__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "consecutive_successful_launches__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "consecutive_successful_launches__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "failed_landings",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "failed_landings__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "failed_landings__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "failed_landings__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "failed_landings__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "failed_launches",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "failed_launches__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "failed_launches__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "failed_launches__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "failed_launches__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "families",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "families__contains",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "full_name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "full_name__contains",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "is_placeholder",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "maiden_flight",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "maiden_flight__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "maiden_flight__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "maiden_flight__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "maiden_flight__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "manufacturer__name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "manufacturer__name__contains",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail in the response."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "name__contains",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "pending_launches",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pending_launches__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pending_launches__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pending_launches__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pending_launches__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "program",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "program__contains",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              },
+              {
+                "name": "successful_landings",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "successful_landings__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "successful_landings__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "successful_landings__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "successful_landings__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "successful_launches",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "successful_launches__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "successful_launches__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "successful_launches__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "successful_launches__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "total_launch_count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "total_launch_count__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "total_launch_count__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "total_launch_count__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "total_launch_count__lte",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Modes\nLevels of detail in the response - `list`, `normal`, `detailed`\n\nExample - [/launcher_configurations/?mode=list](./?mode=list)\n\n#### Filters\nParameters - `active`, `attempted_landings`, `attempted_landings__gt`, `attempted_landings__gte`, `attempted_landings__lt`, `attempted_landings__lte`, `consecutive_successful_landings`, `consecutive_successful_landings__gt`, `consecutive_successful_landings__gte`, `consecutive_successful_landings__lt`, `consecutive_successful_landings__lte`, `con"
+        },
+        {
+          "info": {
+            "name": "Get Launcher Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/launcher_configurations/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this Launcher Configuration."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Modes\nLevels of detail in the response - `list`, `normal`, `detailed`\n\nExample - [/launcher_configurations/?mode=list](./?mode=list)\n\n#### Filters\nParameters - `active`, `attempted_landings`, `attempted_landings__gt`, `attempted_landings__gte`, `attempted_landings__lt`, `attempted_landings__lte`, `consecutive_successful_landings`, `consecutive_successful_landings__gt`, `consecutive_successful_landings__gte`, `consecutive_successful_landings__lt`, `consecutive_successful_landings__lte`, `con"
+        },
+        {
+          "info": {
+            "name": "List Spacecraft Configurations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/spacecraft_configurations/",
+            "params": [
+              {
+                "name": "agency",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "human_rated",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "in_use",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail in the response."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Modes\nLevels of detail in the response - `normal`, `detailed`\n\nExample - [/spacecraft_configurations/?mode=detailed](./?mode=detailed)\n\n#### Filters\nParameters - `agency`, `human_rated`, `in_use`, `name`\n\nExample - [/spacecraft_configurations/?human_rated=True](./?human_rated=True)\n\n#### Search\nFields searched - `agency__abbrev`, `agency__name`, `name`\n\nExample - [/spacecraft_configurations/?search=Dragon](./?search=Dragon)\n\n#### Ordering\nFields - `name`\n\nExample - [/spacecraft_configuratio"
+        },
+        {
+          "info": {
+            "name": "Get Spacecraft Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/spacecraft_configurations/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this Spacecraft Configuration."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Modes\nLevels of detail in the response - `normal`, `detailed`\n\nExample - [/spacecraft_configurations/?mode=detailed](./?mode=detailed)\n\n#### Filters\nParameters - `agency`, `human_rated`, `in_use`, `name`\n\nExample - [/spacecraft_configurations/?human_rated=True](./?human_rated=True)\n\n#### Search\nFields searched - `agency__abbrev`, `agency__name`, `name`\n\nExample - [/spacecraft_configurations/?search=Dragon](./?search=Dragon)\n\n#### Ordering\nFields - `name`\n\nExample - [/spacecraft_configuratio"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

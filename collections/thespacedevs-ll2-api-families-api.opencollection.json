@@ -1,0 +1,471 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TheSpaceDevs LL2 Families API",
+    "version": "v2.3.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Families",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Launcher Configuration Families",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/launcher_configuration_families/",
+            "params": [
+              {
+                "name": "attempted_landings",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "attempted_landings__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "attempted_landings__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "attempted_landings__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "attempted_landings__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "consecutive_successful_landings",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "consecutive_successful_landings__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "consecutive_successful_landings__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "consecutive_successful_landings__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "consecutive_successful_landings__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "consecutive_successful_launches",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "consecutive_successful_launches__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "consecutive_successful_launches__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "consecutive_successful_launches__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "consecutive_successful_launches__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "failed_landings",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "failed_landings__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "failed_landings__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "failed_landings__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "failed_landings__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "failed_launches",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "failed_launches__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "failed_launches__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "failed_launches__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "failed_launches__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "maiden_flight",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "maiden_flight__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "maiden_flight__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "maiden_flight__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "maiden_flight__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "manufacturer__abbrev",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "manufacturer__abbrev__contains",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "manufacturer__country_code",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "manufacturer__id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "manufacturer__id__contains",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "manufacturer__name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "manufacturer__name__contains",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail in the response."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "name__contains",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "pending_launches",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pending_launches__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pending_launches__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pending_launches__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pending_launches__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              },
+              {
+                "name": "successful_landings",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "successful_landings__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "successful_landings__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "successful_landings__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "successful_landings__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "successful_launches",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "successful_launches__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "successful_launches__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "successful_launches__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "successful_launches__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "total_launch_count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "total_launch_count__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "total_launch_count__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "total_launch_count__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "total_launch_count__lte",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Modes\nLevels of detail in the response - `list`, `normal`, `detailed`\n\nExample - [/launcher_configuration_families/?mode=list](./?mode=list)\n\n#### Filters\nParameters - `attempted_landings`, `attempted_landings__gt`, `attempted_landings__gte`, `attempted_landings__lt`, `attempted_landings__lte`, `consecutive_successful_landings`, `consecutive_successful_landings__gt`, `consecutive_successful_landings__gte`, `consecutive_successful_landings__lt`, `consecutive_successful_landings__lte`, `conse"
+        },
+        {
+          "info": {
+            "name": "Get Launcher Configuration Family",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/launcher_configuration_families/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this Launcher Configuration Family."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Modes\nLevels of detail in the response - `list`, `normal`, `detailed`\n\nExample - [/launcher_configuration_families/?mode=list](./?mode=list)\n\n#### Filters\nParameters - `attempted_landings`, `attempted_landings__gt`, `attempted_landings__gte`, `attempted_landings__lt`, `attempted_landings__lte`, `consecutive_successful_landings`, `consecutive_successful_landings__gt`, `consecutive_successful_landings__gte`, `consecutive_successful_landings__lt`, `consecutive_successful_landings__lte`, `conse"
+        },
+        {
+          "info": {
+            "name": "List Spacecraft Configuration Families",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/spacecraft_configuration_families/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "manufacturer",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail in the response."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Modes\nLevels of detail in the response - `list`, `normal`, `detailed`\n\nExample - [/spacecraft_configuration_families/?mode=list](./?mode=list)\n\n#### Filters\nParameters - `manufacturer`, `name`\n\nExample - [/spacecraft_configuration_families/?manufacturer=121](./?manufacturer=121)\n\n#### Search\nFields searched - `manufacturer__abbrev`, `manufacturer__name`, `name`\n\nExample - [/spacecraft_configuration_families/?search=Northrop](./?search=Northrop)\n\n#### Ordering\nFields - `name`\n\nExample - [/sp"
+        },
+        {
+          "info": {
+            "name": "Get Spacecraft Configuration Family",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/spacecraft_configuration_families/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this Spacecraft Configuration Family."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Modes\nLevels of detail in the response - `list`, `normal`, `detailed`\n\nExample - [/spacecraft_configuration_families/?mode=list](./?mode=list)\n\n#### Filters\nParameters - `manufacturer`, `name`\n\nExample - [/spacecraft_configuration_families/?manufacturer=121](./?manufacturer=121)\n\n#### Search\nFields searched - `manufacturer__abbrev`, `manufacturer__name`, `name`\n\nExample - [/spacecraft_configuration_families/?search=Northrop](./?search=Northrop)\n\n#### Ordering\nFields - `name`\n\nExample - [/sp"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

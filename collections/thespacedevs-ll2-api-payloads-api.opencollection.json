@@ -1,0 +1,127 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TheSpaceDevs LL2 Payloads API",
+    "version": "v2.3.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Payloads",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Payloads",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/payloads/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "manufacturer__id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "manufacturer__name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail in the response."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "operator",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "operator__id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "operator__name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "program__id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Modes\nLevels of detail in the response - `list`, `normal`, `detailed`\n\nExample - [/payloads/?mode=list](./?mode=list)\n\n#### Filters\nParameters - `manufacturer__id`, `manufacturer__name`, `name`, `operator`, `operator__id`, `operator__name`, `program__id`\n\nExample - [/payloads/?program__id=18](./?program__id=18)\n\n#### Search\nFields searched - `manufacturer__name`, `name`, `operator__name`, `payloadflight__destination`, `payloadflight__rocket__launch__name`\n\nExample - [/payloads/?search=Earth"
+        },
+        {
+          "info": {
+            "name": "Get Payload",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/payloads/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this payload."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Modes\nLevels of detail in the response - `list`, `normal`, `detailed`\n\nExample - [/payloads/?mode=list](./?mode=list)\n\n#### Filters\nParameters - `manufacturer__id`, `manufacturer__name`, `name`, `operator`, `operator__id`, `operator__name`, `program__id`\n\nExample - [/payloads/?program__id=18](./?program__id=18)\n\n#### Search\nFields searched - `manufacturer__name`, `name`, `operator__name`, `payloadflight__destination`, `payloadflight__rocket__launch__name`\n\nExample - [/payloads/?search=Earth"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

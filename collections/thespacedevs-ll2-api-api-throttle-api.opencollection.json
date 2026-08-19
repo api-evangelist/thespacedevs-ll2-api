@@ -1,0 +1,35 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TheSpaceDevs LL2 Api-throttle API",
+    "version": "v2.3.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Api-throttle",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get API Throttle Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/api-throttle/",
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "API endpoint that allows API Throttle information to be viewed.\n\nGET:\nReturns a range of information about your API access"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,522 @@
+{
+  "item": [
+    {
+      "id": "d9424bc1-d81d-4982-8f6e-59f7d8706ee0",
+      "name": "Spacewalks",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e4d634e5-501f-40c0-b6ab-eee8de923b50",
+          "name": "List Spacewalks",
+          "request": {
+            "name": "List Spacewalks",
+            "description": {
+              "content": "#### Modes\nLevels of detail in the response - `list`, `normal`, `detailed`\n\nExample - [/spacewalks/?mode=list](./?mode=list)\n\n#### Filters\nParameters - `astronaut__ids`, `day`, `end`, `end__gt`, `end__gte`, `end__lt`, `end__lte`, `event__ids`, `id`, `ids`, `launch__ids`, `month`, `name`, `name__contains`, `owner__ids`, `program__ids`, `program__name`, `program__name__contains`, `spacestation__ids`, `start__gt`, `start__gte`, `start__lt`, `start__lte`, `year`\n\nExample - [/spacewalks/?program__name=Apollo](./?program__name=Apollo)\n\n#### Search\nFields searched - `crew__astronaut__name`, `location`, `name`, `program__name`\n\nExample - [/spacewalks/?search=Hubble](./?search=Hubble)\n\n#### Ordering\nFields - `duration`, `end`, `id`, `name`, `start`\n\nExample - [/spacewalks/?ordering=-duration](./?ordering=-duration)\n\n#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/spacewalks/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/spacewalks/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2.3.0",
+                "spacewalks",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "astronaut__ids",
+                  "value": "<integer>,<integer>",
+                  "description": "Multiple values may be separated by commas."
+                },
+                {
+                  "disabled": false,
+                  "key": "day",
+                  "value": "<number>,<number>",
+                  "description": "Multiple values may be separated by commas."
+                },
+                {
+                  "disabled": false,
+                  "key": "end",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end__gt",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end__gte",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end__lt",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end__lte",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "event__ids",
+                  "value": "<integer>,<integer>",
+                  "description": "Multiple values may be separated by commas."
+                },
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<integer>,<integer>",
+                  "description": "Multiple values may be separated by commas."
+                },
+                {
+                  "disabled": false,
+                  "key": "launch__ids",
+                  "value": "<uuid>,<uuid>",
+                  "description": "Multiple values may be separated by commas."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "mode",
+                  "value": "<string>",
+                  "description": "Level of detail in the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "month",
+                  "value": "<number>,<number>",
+                  "description": "Multiple values may be separated by commas."
+                },
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "name__contains",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The initial index from which to return the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "ordering",
+                  "value": "<string>",
+                  "description": "Which field to use when ordering the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "owner__ids",
+                  "value": "<number>,<number>",
+                  "description": "Multiple values may be separated by commas."
+                },
+                {
+                  "disabled": false,
+                  "key": "program__ids",
+                  "value": "<integer>,<integer>",
+                  "description": "Multiple values may be separated by commas."
+                },
+                {
+                  "disabled": false,
+                  "key": "program__name",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "program__name__contains",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "A search term."
+                },
+                {
+                  "disabled": false,
+                  "key": "spacestation__ids",
+                  "value": "<integer>,<integer>",
+                  "description": "Multiple values may be separated by commas."
+                },
+                {
+                  "disabled": false,
+                  "key": "start__gt",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "start__gte",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "start__lt",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "start__lte",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "year",
+                  "value": "<number>,<number>",
+                  "description": "Multiple values may be separated by commas."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "sessionid"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d16aea2b-3772-4eeb-90c3-2bf47082d21a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2.3.0",
+                    "spacewalks",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "astronaut__ids",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "day",
+                      "value": "<number>,<number>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end__gt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end__gte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end__lt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end__lte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "event__ids",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "launch__ids",
+                      "value": "<uuid>,<uuid>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "mode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "month",
+                      "value": "<number>,<number>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name__contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "ordering",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "owner__ids",
+                      "value": "<number>,<number>"
+                    },
+                    {
+                      "key": "program__ids",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "program__name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "program__name__contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "spacestation__ids",
+                      "value": "<integer>,<integer>"
+                    },
+                    {
+                      "key": "start__gt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start__gte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start__lt",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start__lte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "year",
+                      "value": "<number>,<number>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionid",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 123,\n  \"results\": [\n    {\n      \"duration\": \"string\",\n      \"id\": 9348,\n      \"name\": \"string\",\n      \"response_mode\": \"list\",\n      \"url\": \"https://LiWhEJxmVc.xcgdOsMVFyMfpTrhxOkk5lSCLJSI.ef1xXtMWIdHTtDEYTyuhYMdbDtzpIFmL\",\n      \"start\": \"1973-10-21T16:50:58.365Z\",\n      \"end\": \"1969-06-03T10:02:08.694Z\",\n      \"location\": \"string\"\n    },\n    {\n      \"duration\": \"string\",\n      \"id\": 1746,\n      \"name\": \"string\",\n      \"response_mode\": \"list\",\n      \"url\": \"http://oKmxCFctSxIqUrvB.hrwN8n+ZR3TVTB5\",\n      \"start\": \"2020-05-08T07:50:17.327Z\",\n      \"end\": \"1970-11-06T21:00:11.258Z\",\n      \"location\": \"string\"\n    }\n  ],\n  \"next\": \"http://api.example.org/accounts/?offset=400&limit=100\",\n  \"previous\": \"http://api.example.org/accounts/?offset=200&limit=100\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "89a54d08-aefa-49db-98e0-e40ddc801787",
+          "name": "Get Spacewalk",
+          "request": {
+            "name": "Get Spacewalk",
+            "description": {
+              "content": "#### Modes\nLevels of detail in the response - `list`, `normal`, `detailed`\n\nExample - [/spacewalks/?mode=list](./?mode=list)\n\n#### Filters\nParameters - `astronaut__ids`, `day`, `end`, `end__gt`, `end__gte`, `end__lt`, `end__lte`, `event__ids`, `id`, `ids`, `launch__ids`, `month`, `name`, `name__contains`, `owner__ids`, `program__ids`, `program__name`, `program__name__contains`, `spacestation__ids`, `start__gt`, `start__gte`, `start__lt`, `start__lte`, `year`\n\nExample - [/spacewalks/?program__name=Apollo](./?program__name=Apollo)\n\n#### Search\nFields searched - `crew__astronaut__name`, `location`, `name`, `program__name`\n\nExample - [/spacewalks/?search=Hubble](./?search=Hubble)\n\n#### Ordering\nFields - `duration`, `end`, `id`, `name`, `start`\n\nExample - [/spacewalks/?ordering=-duration](./?ordering=-duration)\n\n#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/spacewalks/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/spacewalks/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2.3.0",
+                "spacewalks",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this Spacewalk."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "sessionid"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0d0101ce-7069-460b-a6ca-74863ec242b3",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2.3.0",
+                    "spacewalks",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this Spacewalk."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionid",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"crew\": [\n    {\n      \"astronaut\": {\n        \"agency\": {\n          \"id\": 7017,\n          \"name\": \"string\",\n          \"response_mode\": \"list\",\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"url\": \"https://agczTCsbAGw.dgzAGh4OCtQQTRfC\",\n          \"abbrev\": \"string\"\n        },\n        \"bio\": \"string\",\n        \"eva_time\": \"string\",\n        \"id\": 2077,\n        \"image\": {\n          \"id\": 8381,\n          \"image_url\": \"https://JcUsapdcaySQGkHYnMQrhuGUePte.sxmNrUACTApS4oZ8dD+PrBdOLLhSa5NEixtCFKIvM\",\n          \"license\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": \"string\",\n          \"thumbnail_url\": \"http://pWvMHNGsQDClWLRlQWaVSbdCKWqDrR.nzDOwZaWy2QW7lzHZ11hOqwBwam84qF5R,CnNoRz.V\",\n          \"variants\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"credit\": \"string\",\n          \"single_use\": false\n        },\n        \"name\": \"string\",\n        \"nationality\": [\n          {\n            \"id\": 9929,\n            \"name\": \"string\",\n            \"alpha_2_code\": \"st\",\n            \"alpha_3_code\": \"str\",\n            \"nationality_name\": \"string\",\n            \"nationality_name_composed\": \"string\"\n          },\n          {\n            \"id\": 9129,\n            \"name\": \"string\",\n            \"alpha_2_code\": \"st\",\n            \"alpha_3_code\": \"str\",\n            \"nationality_name\": \"string\",\n            \"nationality_name_composed\": \"string\"\n          }\n        ],\n        \"response_mode\": \"list\",\n        \"social_media_links\": [\n          {\n            \"id\": 7831,\n            \"social_media\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"url\": \"https://lavkFQJluabAfuOTQuyUH.ntluNFY0GI0OKmJOZkLdFh,mLCdF8,vj.fXj.-UBIogB,dYElOKzuXO,rscZIleBJciG-Ho\"\n          },\n          {\n            \"id\": 3809,\n            \"social_media\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"url\": \"https://QSoWWYFUpAweZhgIz.ksfG0c,uwjVwRRjSGrBV,5rO6AnESEa1oAdw1IN,PHDZ1CuWMjjaX44nNUEF9gXPIguEFh5qV6uRKBhDGXzk\"\n          }\n        ],\n        \"status\": {\n          \"id\": 6086,\n          \"name\": \"string\"\n        },\n        \"time_in_space\": \"string\",\n        \"type\": {\n          \"id\": 2064,\n          \"name\": \"string\"\n        },\n        \"url\": \"http://faQ.xdlniObGMQe2zPiuYghozNYcuxmYdRVY8SWGavF\",\n        \"in_space\": true,\n        \"age\": -1239419533,\n        \"date_of_birth\": \"1999-04-09\",\n        \"date_of_death\": \"2015-06-16\",\n        \"wiki\": \"string\",\n        \"last_flight\": \"1978-02-19T19:35:19.370Z\",\n        \"first_flight\": \"2016-03-30T00:37:54.659Z\"\n      },\n      \"id\": 8763,\n      \"role\": {\n        \"id\": 8105,\n        \"role\": \"string\",\n        \"priority\": 1963697558\n      }\n    },\n    {\n      \"astronaut\": {\n        \"agency\": {\n          \"id\": 9760,\n          \"name\": \"string\",\n          \"response_mode\": \"list\",\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"url\": \"http://vXeouhfePIJUPvbha.wdrSLg6tcnnpaMfVg5uJ,Qsp3KUAoo.S1mxS-SoQCznh63dC0zPCRgc\",\n          \"abbrev\": \"string\"\n        },\n        \"bio\": \"string\",\n        \"eva_time\": \"string\",\n        \"id\": 9089,\n        \"image\": {\n          \"id\": 9227,\n          \"image_url\": \"https://RuhpAyHZGHdekv.jomyxcR0DmArJVses\",\n          \"license\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": \"string\",\n          \"thumbnail_url\": \"http://TlKbZesqSfszmWRwxq.cpaPTJ4wusPMTyKCr5F2n1bEFJ3w36gnEb6udMGw\",\n          \"variants\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"credit\": \"string\",\n          \"single_use\": false\n        },\n        \"name\": \"string\",\n        \"nationality\": [\n          {\n            \"id\": 2148,\n            \"name\": \"string\",\n            \"alpha_2_code\": \"st\",\n            \"alpha_3_code\": \"str\",\n            \"nationality_name\": \"string\",\n            \"nationality_name_composed\": \"string\"\n          },\n          {\n            \"id\": 1087,\n            \"name\": \"string\",\n            \"alpha_2_code\": \"st\",\n            \"alpha_3_code\": \"str\",\n            \"nationality_name\": \"string\",\n            \"nationality_name_composed\": \"string\"\n          }\n        ],\n        \"response_mode\": \"list\",\n        \"social_media_links\": [\n          {\n            \"id\": 2827,\n            \"social_media\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"url\": \"https://TbOpgzbIizsQIAHzJnHCnbXEGPJmnQTok.htWhsrjcczOK8ufElIfOkD1ud7-vjBHXdtX\"\n          },\n          {\n            \"id\": 8239,\n            \"social_media\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"url\": \"http://tAGBoYCIjRZlcTcLXTigDBCnQPQsnfA.oqatZrD4Z.2lG547rzwxakVvsZdyR7z8tssp+rQFEPK8yM.AuXXd\"\n          }\n        ],\n        \"status\": {\n          \"id\": 8897,\n          \"name\": \"string\"\n        },\n        \"time_in_space\": \"string\",\n        \"type\": {\n          \"id\": 4353,\n          \"name\": \"string\"\n        },\n        \"url\": \"http://HRmOTIsvbljJeIADBaFMFwSVVU.aaXzLD4EC-OOIq3QJeq\",\n        \"in_space\": true,\n        \"age\": -309705579,\n        \"date_of_birth\": \"2008-02-22\",\n        \"date_of_death\": \"1991-10-02\",\n        \"wiki\": \"string\",\n        \"last_flight\": \"2017-04-27T12:48:03.157Z\",\n        \"first_flight\": \"2009-06-14T12:45:07.684Z\"\n      },\n      \"id\": 8161,\n      \"role\": {\n        \"id\": 1280,\n        \"role\": \"string\",\n        \"priority\": -607358272\n      }\n    }\n  ],\n  \"duration\": \"string\",\n  \"event\": {\n    \"date_precision\": {\n      \"id\": 476304052,\n      \"name\": \"string\",\n      \"abbrev\": \"string\",\n      \"description\": \"string\"\n    },\n    \"id\": 4201,\n    \"image\": {\n      \"id\": 7769,\n      \"image_url\": \"http://MtJkLoEbGWsPcPqcrvqBOMATbxSl.qqmfL,95CjaAjBrf4gcRwGAOu4ivfnUbqrtfoAm.Rhuv9\",\n      \"license\": {\n        \"id\": 3502,\n        \"name\": \"string\",\n        \"priority\": -193719133,\n        \"link\": \"https://rXAAbdl.tczAtZOKErFuu6tWy-RbGL.fHY71Nic8OIf\"\n      },\n      \"name\": \"string\",\n      \"thumbnail_url\": \"https://oEAcJhVTULMofYwCGUUYmhUtNQh.eghBr0hv9RNjsA2ueazSiabX3ZDcfZEzRgpVGB\",\n      \"variants\": [\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"image_url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"image_url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"credit\": \"string\",\n      \"single_use\": false\n    },\n    \"info_urls\": [\n      {\n        \"language\": {\n          \"code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"type\": {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"url\": \"http://NOAbALrQOeTiLwtNAkACXYmHFFJV.gho2A4J6Dzh1cZe0O2qTAk8qqLLf,N2IxHEZKjK9Rx-YWuXaDQTCOe5uM,e\",\n        \"priority\": 387631574,\n        \"source\": \"string\",\n        \"title\": \"string\",\n        \"description\": \"string\",\n        \"feature_image\": \"http://ldvjMpdGcHH.xzNe31N3zDmZQcLrX1bSFGIIRFjZseAPFlr7MtL7I0qNK33aRCGTFhDjERu5FPOa0evqkL36sf8.Dt\"\n      },\n      {\n        \"language\": {\n          \"code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"type\": {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"url\": \"http://zcD.judvHgzNLOGTAfMT-bVUx5tzQQaCLAKZis0Rr\",\n        \"priority\": 65271368,\n        \"source\": \"string\",\n        \"title\": \"string\",\n        \"description\": \"string\",\n        \"feature_image\": \"http://CdqnNrzwpImYASDwcAUaYIpev.glgqTvZmlzr0GZ.KyCFw03AOVARLRFyN8zpKDmr\"\n      }\n    ],\n    \"name\": \"string\",\n    \"slug\": \"tXFSDzuiYv\",\n    \"type\": {\n      \"id\": -346092154,\n      \"name\": \"string\"\n    },\n    \"url\": \"https://tNGdFdzJdmYQOU.yosyFisU,.q+BJ2DiQulfwXpB.BJre9FylaKPF-\",\n    \"vid_urls\": [\n      {\n        \"language\": {\n          \"code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"type\": {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"url\": \"https://iMOpPPgJRFA.brvbtqTg1N,l7CYI+N5XMkszC2W.gMyQch-0NGzgJTcmIC295MTOdd+YVptoET\",\n        \"priority\": -1726560031,\n        \"source\": \"string\",\n        \"publisher\": \"string\",\n        \"title\": \"string\",\n        \"description\": \"string\",\n        \"feature_image\": \"https://ydwjQjWquryAOeMKhgEtGDdBBCZQJlW.syUFTirYePk7Iyo88pPLVgjXlzBbwBOZO1Ryjtf.RU\",\n        \"start_time\": \"2025-10-06T04:14:46.696Z\",\n        \"end_time\": \"1970-08-21T20:33:10.966Z\",\n        \"live\": true\n      },\n      {\n        \"language\": {\n          \"code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"type\": {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"url\": \"https://FkQfJwUTBQCYkxIUOawwEBRlLprbStgd.gvrrcrk0vbDW4SAW8htIT9ov\",\n        \"priority\": -186954429,\n        \"source\": \"string\",\n        \"publisher\": \"string\",\n        \"title\": \"string\",\n        \"description\": \"string\",\n        \"feature_image\": \"http://EBmqzJShyC.roqcbzaEbC4zy.F4\",\n        \"start_time\": \"1975-10-02T18:45:39.670Z\",\n        \"end_time\": \"1964-03-21T09:42:12.054Z\",\n        \"live\": false\n      }\n    ],\n    \"date\": \"2022-02-05T04:01:22.416Z\",\n    \"description\": \"string\",\n    \"webcast_live\": true,\n    \"location\": \"string\"\n  },\n  \"expedition\": {\n    \"id\": 5312,\n    \"mission_patches\": [\n      {\n        \"agency\": {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"response_mode\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"abbrev\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"id\": 806,\n        \"image_url\": \"http://rAzScVeKRaKRZaUxDGlTmDkRrwLUXZHB.iyFI,iSAFnvzX-tWZ6U239CZ-cXdBs09R5r,lsl5AHW06wXUQqn\",\n        \"name\": \"string\",\n        \"response_mode\": \"normal\",\n        \"priority\": -676013783\n      },\n      {\n        \"agency\": {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"response_mode\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"abbrev\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"id\": 2932,\n        \"image_url\": \"http://jIlooGHlqIzoiwVlUxJyCqThbhxmnPvsJ.xlhu1FStpC,Inles367aQGGQtrw3p\",\n        \"name\": \"string\",\n        \"response_mode\": \"normal\",\n        \"priority\": 2073093923\n      }\n    ],\n    \"name\": \"string\",\n    \"spacestation\": {\n      \"description\": \"string\",\n      \"founded\": \"1995-07-12\",\n      \"id\": 7615,\n      \"image\": {\n        \"id\": 9046,\n        \"image_url\": \"http://zadVhpxQAGAHrIKQPp.vufZfrE0TL6TtunhL,FEYmhUwKx4H2N-s-VgkpEYAnOBfB8,jbDaatWrdGCy4yF0eSvR\",\n        \"license\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"name\": \"string\",\n        \"thumbnail_url\": \"http://OayXPeo.fuoJcDR6vK7AyNAVpLGmxT.Jx7DQMMGZvwb6DqoxzI\",\n        \"variants\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"credit\": \"string\",\n        \"single_use\": true\n      },\n      \"name\": \"string\",\n      \"orbit\": \"string\",\n      \"status\": {\n        \"id\": 9896,\n        \"name\": \"string\"\n      },\n      \"type\": {\n        \"id\": 9501,\n        \"name\": \"string\"\n      },\n      \"url\": \"https://LwmRNRCMbCWjGYrpQ.phJiKIg-iLnjtCSjLRlgxHmE86etkUEdvsW4n.LnqvSGu\",\n      \"deorbited\": \"1957-12-03\"\n    },\n    \"start\": \"1984-04-08T10:31:11.086Z\",\n    \"url\": \"http://AZClHVQnFbyKiTvulNEjGg.jcexF-Lm7Dj5V5Ypo9OKb.XDMUfF4h7GY9,C0wcy3qIn45-3uph1BDFAODOXsh2OtvEEdqZlPqH\",\n    \"end\": \"1974-06-09T18:53:00.780Z\"\n  },\n  \"id\": 9276,\n  \"name\": \"string\",\n  \"program\": [\n    {\n      \"agencies\": [\n        {\n          \"id\": 4800,\n          \"name\": \"string\",\n          \"response_mode\": \"list\",\n          \"type\": {\n            \"id\": 1885727279,\n            \"name\": \"string\"\n          },\n          \"url\": \"http://TmtMZXcxtYfXTZePDMD.qsdVgxjDM1gUs4o\",\n          \"abbrev\": \"string\"\n        },\n        {\n          \"id\": 4924,\n          \"name\": \"string\",\n          \"response_mode\": \"list\",\n          \"type\": {\n            \"id\": 2047045512,\n            \"name\": \"string\"\n          },\n          \"url\": \"https://FbhlmaGzrzgVphonygGnyhLPiTquLpFk.uoBsVh2lyvtDPdbELegXIcw.wqdQwAf6yS3zniUfBcLpPhqILfRLFcleYo98+3oV\",\n          \"abbrev\": \"string\"\n        }\n      ],\n      \"id\": 4343,\n      \"image\": {\n        \"id\": 9958,\n        \"image_url\": \"https://UawcMkTYeZeEdYHFqjaD.fsyjqoqd3NGnAVnMnx0vJUNPbfldR7nFHxaOQsbh8Hmcrh2fN0q4WfgQ6pRybzgv\",\n        \"license\": {\n          \"id\": 3573,\n          \"name\": \"string\",\n          \"priority\": 1217964372,\n          \"link\": \"https://ffDHklxGkEvJjaJLuBxbkheIsWagmOIk.obFj.MzA,U2lx-HyN0WWTxKMkXVuwf0+i1ZU+Adea,jNMW3CyZNuwxO9X5SAx3ZF4o++tWT+\"\n        },\n        \"name\": \"string\",\n        \"thumbnail_url\": \"http://BsnUrXuFlTgmTNwGXjDSgFnVkDFPR.qqil0O4WEFgZMH6yXXQQ2kDTC4vieBltekIlROUJCo\",\n        \"variants\": [\n          {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"image_url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"image_url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"credit\": \"string\",\n        \"single_use\": true\n      },\n      \"mission_patches\": [\n        {\n          \"agency\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"response_mode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"abbrev\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"id\": 1858,\n          \"image_url\": \"http://aUSo.xquIYxEFxvpANXgYVyMBw\",\n          \"name\": \"string\",\n          \"response_mode\": \"normal\",\n          \"priority\": -855233322\n        },\n        {\n          \"agency\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"response_mode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"abbrev\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"id\": 7004,\n          \"image_url\": \"http://gLYgxABI.sdxuiKPhGPL.o0tc0I.eZyKRItcfNS9mkQvO0lguXz+9QY\",\n          \"name\": \"string\",\n          \"response_mode\": \"normal\",\n          \"priority\": -143308372\n        }\n      ],\n      \"name\": \"string\",\n      \"response_mode\": \"normal\",\n      \"type\": {\n        \"id\": 1182603732,\n        \"name\": \"string\"\n      },\n      \"url\": \"http://TAyOkuclSIibNHFCVwCgjZWnO.kddsGHXJWi2rvY\",\n      \"info_url\": \"http://AFgjIjKSkpE.hzrXdtHjvCOgHxQRjxSTTfy4K-cU6NUE2tjIHzoPUq\",\n      \"wiki_url\": \"https://PAySSwSsrEaIypCGkQGpNRAN.xbgLxtAyPuGitOljoEvHzJfCt0kQUzYjYtn\",\n      \"description\": \"string\",\n      \"start_date\": \"2016-10-14T08:50:13.402Z\",\n      \"end_date\": \"1953-06-25T01:39:49.862Z\"\n    },\n    {\n      \"agencies\": [\n        {\n          \"id\": 1043,\n          \"name\": \"string\",\n          \"response_mode\": \"list\",\n          \"type\": {\n            \"id\": -1592710907,\n            \"name\": \"string\"\n          },\n          \"url\": \"https://Fc.nreM\",\n          \"abbrev\": \"string\"\n        },\n        {\n          \"id\": 4972,\n          \"name\": \"string\",\n          \"response_mode\": \"list\",\n          \"type\": {\n            \"id\": 1634684629,\n            \"name\": \"string\"\n          },\n          \"url\": \"http://zjOzstWVwCwyafdQxwqJYDdeS.dteatiXKzcr2rpHiKuNNI1OkTqIXg+NKnU47VNa+Xb,yAc-9KancBmc\",\n          \"abbrev\": \"string\"\n        }\n      ],\n      \"id\": 6682,\n      \"image\": {\n        \"id\": 1837,\n        \"image_url\": \"https://oRBotjIOcfybxmOuicCWsXfQBZ.uyfMpeI-WcYh,ndo\",\n        \"license\": {\n          \"id\": 4761,\n          \"name\": \"string\",\n          \"priority\": -1340114284,\n          \"link\": \"http://kfWCITCdhIrFJGADHHWxeyIGNsYt.bgexoNJNtP5l+2OLtMLnQGe0Yvz9MSubxI,nNAvVylCWybxn9O.O8Mg2XRaOKyyez\"\n        },\n        \"name\": \"string\",\n        \"thumbnail_url\": \"https://TyvIZ.poklOO7EPMHooOUUQ7kjEkQjeHTXS7qeme+KxFsmok-gyVyLFmut0E--gKtC7PQgI\",\n        \"variants\": [\n          {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"image_url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"image_url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"credit\": \"string\",\n        \"single_use\": true\n      },\n      \"mission_patches\": [\n        {\n          \"agency\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"response_mode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"abbrev\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"id\": 7075,\n          \"image_url\": \"https://zNhCfUlxdLUbjxYbpGNgFI.dcVMQmYRBgn5x4cHE1\",\n          \"name\": \"string\",\n          \"response_mode\": \"normal\",\n          \"priority\": 1473981094\n        },\n        {\n          \"agency\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"response_mode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"abbrev\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"id\": 9343,\n          \"image_url\": \"http://JIHcaYorEuUGHM.hxngoFk4a5WWmB5Jub-2uJnK.87p7hsyuQ6w-OZ6oFqjXtIqT5UBJN1Ot\",\n          \"name\": \"string\",\n          \"response_mode\": \"normal\",\n          \"priority\": 2123627141\n        }\n      ],\n      \"name\": \"string\",\n      \"response_mode\": \"normal\",\n      \"type\": {\n        \"id\": -1508956739,\n        \"name\": \"string\"\n      },\n      \"url\": \"https://hwGdThYoMn.jxyFgUqDb,UxvymHzqcglbKRjITmCMADRB,HNMn9nPeG\",\n      \"info_url\": \"http://fcZqMegOJRmXuSPvRhcLxcqkgZnKX.uvjIfKmbJsvTzvMLwsCcMkx6HbXxH6AdIA8cr67sXPUHZ7wiRY\",\n      \"wiki_url\": \"http://DChR.nnddtyEBdrCEV2p\",\n      \"description\": \"string\",\n      \"start_date\": \"2007-05-01T02:24:32.862Z\",\n      \"end_date\": \"1977-06-24T00:37:58.516Z\"\n    }\n  ],\n  \"response_mode\": \"detailed\",\n  \"spacecraft_flight\": {\n    \"docking_events\": [\n      {\n        \"docking\": \"1997-10-03T06:56:07.638Z\",\n        \"docking_location\": {\n          \"id\": 18,\n          \"name\": \"string\",\n          \"payload\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"spacecraft\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"spacestation\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"flight_vehicle_target\": {\n          \"duration\": \"string\",\n          \"id\": 5511,\n          \"landing\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"launch\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"response_mode\": \"normal\",\n          \"spacecraft\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"turn_around_time\": \"string\",\n          \"url\": \"https://oVUmnnfiwTNU.wyxSwcbzqbP7lFLgROTqiNdQQWQTFM,FXWxMcb+KX-SoPGzaQagmr9gZanpgFtzjv63Bxf\",\n          \"destination\": \"string\",\n          \"mission_end\": \"1976-06-11T04:51:50.889Z\"\n        },\n        \"id\": 3731,\n        \"payload_flight_target\": {\n          \"id\": 4360,\n          \"landing\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"launch\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"payload\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"response_mode\": \"normal\",\n          \"url\": \"https://jSUDdyexyBCuaEFbhSEhcglKUMDgovCKZ.jeaKGm4wvdnPdavRkUuK6Ta26K2lhmyOuubqwCzHIFlNiCkuBOGJVz6D\",\n          \"destination\": \"string\",\n          \"amount\": 2039510389\n        },\n        \"space_station_target\": {\n          \"description\": \"string\",\n          \"founded\": \"1953-07-01\",\n          \"id\": 7447,\n          \"image\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": \"string\",\n          \"orbit\": \"string\",\n          \"status\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"url\": \"https://wwUd.qvcTjLbRXlNeDs6mYCnBM4osUborniYf5iUkJQTPxrDVU5hto2C64XvTyHFRcO9tJ\",\n          \"deorbited\": \"2020-01-16\"\n        },\n        \"url\": \"http://aqLnCrNiGuVOZXMfzYgIzHnRGIgMH.usMl8jTr8DA1qxsbRNorpn\",\n        \"departure\": \"1973-01-18T18:25:50.462Z\"\n      },\n      {\n        \"docking\": \"2014-12-06T02:09:26.624Z\",\n        \"docking_location\": {\n          \"id\": 3299,\n          \"name\": \"string\",\n          \"payload\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"spacecraft\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"spacestation\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"flight_vehicle_target\": {\n          \"duration\": \"string\",\n          \"id\": 3334,\n          \"landing\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"launch\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"response_mode\": \"normal\",\n          \"spacecraft\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"turn_around_time\": \"string\",\n          \"url\": \"https://dkfzDYfZkYBFCZxdjFcHXCceYRauAs.ctcEWU8QpWYZ3CuuMLhq.OaMgb9gBBagYSzl.D2fW7NUOESJTQ+APUgI6gGzhShDYlhO\",\n          \"destination\": \"string\",\n          \"mission_end\": \"1950-04-06T19:12:55.949Z\"\n        },\n        \"id\": 3047,\n        \"payload_flight_target\": {\n          \"id\": 6661,\n          \"landing\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"launch\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"payload\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"response_mode\": \"normal\",\n          \"url\": \"https://FYFKlyCExmTXdvSnjd.hcojGD3anbf-OQn,QmzHn+nt9IPoxK1h0PIb3BwUWyavbx4aFII2T,o1UMULwrp\",\n          \"destination\": \"string\",\n          \"amount\": 1765002375\n        },\n        \"space_station_target\": {\n          \"description\": \"string\",\n          \"founded\": \"1961-12-09\",\n          \"id\": 5612,\n          \"image\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": \"string\",\n          \"orbit\": \"string\",\n          \"status\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"url\": \"http://GaJWyZIHqNPwARIsNgaHQroAWpGMyYeW.ghBs,\",\n          \"deorbited\": \"1967-12-29\"\n        },\n        \"url\": \"https://gclhCYfiEADhphzo.mxknKF2-S,7-IeH7WeBghpHC9m1X6.j7YNiCGAXZCwtvJKXRmxg0TTkUIZ+1aXLLZLFtrqY\",\n        \"departure\": \"1987-06-03T17:03:54.464Z\"\n      }\n    ],\n    \"duration\": \"string\",\n    \"id\": 1462,\n    \"landing\": {\n      \"id\": 1797,\n      \"landing_location\": {\n        \"celestial_body\": {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"image\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"response_mode\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"diameter\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"mass\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"gravity\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"length_of_day\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"atmosphere\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"description\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"wiki_url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"id\": 8985,\n        \"image\": {\n          \"nullable\": true,\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"location\": {\n          \"country\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"image\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"response_mode\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"active\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"description\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"map_image\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"longitude\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"latitude\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"timezone_name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"total_launch_count\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"total_landing_count\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"name\": \"string\",\n        \"active\": false,\n        \"abbrev\": \"string\",\n        \"description\": \"string\",\n        \"longitude\": 933.3520611078883,\n        \"latitude\": 6841.787253336778,\n        \"successful_landings\": 1729569816,\n        \"attempted_landings\": -161308652,\n        \"failed_landings\": -692771114\n      },\n      \"type\": {\n        \"id\": 2814,\n        \"name\": \"string\",\n        \"abbrev\": \"string\",\n        \"description\": \"string\"\n      },\n      \"url\": \"http://gjhGrCn.kiyBvM1tOKq85ytz+LuJdw9zpkhJ\",\n      \"attempt\": true,\n      \"success\": true,\n      \"description\": \"string\",\n      \"downrange_distance\": 1793.6958891532506\n    },\n    \"landing_crew\": [\n      {\n        \"astronaut\": {\n          \"agency\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"bio\": \"string\",\n          \"eva_time\": \"string\",\n          \"id\": 8524,\n          \"image\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": \"string\",\n          \"nationality\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"response_mode\": \"list\",\n          \"social_media_links\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"status\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"time_in_space\": \"string\",\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"url\": \"http://L.hfakv7-sJnvQoiHNn+eZZMZmdf6kEtyk1BAy3EDFIT197iSYGeDFy0ft1XwBO9dl1aUvpPZ-Lh-d\",\n          \"in_space\": false,\n          \"age\": -1578788652,\n          \"date_of_birth\": \"1962-06-11\",\n          \"date_of_death\": \"2015-09-23\",\n          \"wiki\": \"string\",\n          \"last_flight\": \"1965-05-31T13:45:14.317Z\",\n          \"first_flight\": \"1968-06-15T13:17:59.452Z\"\n        },\n        \"id\": 1218,\n        \"role\": {\n          \"id\": 9751,\n          \"role\": \"string\",\n          \"priority\": -1125516968\n        }\n      },\n      {\n        \"astronaut\": {\n          \"agency\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"bio\": \"string\",\n          \"eva_time\": \"string\",\n          \"id\": 7801,\n          \"image\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": \"string\",\n          \"nationality\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"response_mode\": \"list\",\n          \"social_media_links\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"status\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"time_in_space\": \"string\",\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"url\": \"http://XZSCXvYRkHMKKUkxZ.efpwT37cTmnHPGMU.oSj4GmO.j6IkLKGzwVlxHmmR9pUunRQ3DRY6MKxWt\",\n          \"in_space\": false,\n          \"age\": -2125739446,\n          \"date_of_birth\": \"1978-09-19\",\n          \"date_of_death\": \"2010-04-12\",\n          \"wiki\": \"string\",\n          \"last_flight\": \"2026-03-25T13:54:08.116Z\",\n          \"first_flight\": \"1950-09-10T22:08:04.693Z\"\n        },\n        \"id\": 1635,\n        \"role\": {\n          \"id\": 8170,\n          \"role\": \"string\",\n          \"priority\": -2086696466\n        }\n      }\n    ],\n    \"launch\": {\n      \"id\": \"3f502b87-05cc-58a9-858a-6e92961c50be\",\n      \"image\": {\n        \"id\": 527,\n        \"image_url\": \"http://AmNHyhMRTtRlWIrEZqVhK.hdxqE0,.jGtkXLOfF0xlAWp+ClhXnExbA1nQcPnPvm,HG.\",\n        \"license\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"name\": \"string\",\n        \"thumbnail_url\": \"https://ZygArxugRAaWpbdOjRxNFH.belpuwl72GMmZ\",\n        \"variants\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"credit\": \"string\",\n        \"single_use\": false\n      },\n      \"infographic\": \"string\",\n      \"launch_service_provider\": {\n        \"id\": 3161,\n        \"name\": \"string\",\n        \"response_mode\": \"list\",\n        \"type\": {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"url\": \"https://ZiafgtDUxfjDIVmbUtOKPK.mzjLeS2N6A\",\n        \"abbrev\": \"string\"\n      },\n      \"mission\": {\n        \"agencies\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"id\": 1302,\n        \"image\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"info_urls\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"name\": \"string\",\n        \"orbit\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"string\",\n        \"vid_urls\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"description\": \"string\"\n      },\n      \"net_precision\": {\n        \"id\": -105389292,\n        \"name\": \"string\",\n        \"abbrev\": \"string\",\n        \"description\": \"string\"\n      },\n      \"pad\": {\n        \"agencies\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"country\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"fastest_turnaround\": \"string\",\n        \"id\": 469,\n        \"image\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"location\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"url\": \"http://CHasUIjvotxCgE.vpzfDk6kEI,91hdisP0,WSrV.o,G+fxBXS.fkVk1BnZ\",\n        \"active\": false,\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"info_url\": \"http://UioGqzVLuQCMkdkYd.wujjkF-wVnQmjxsrZMayMJNGPU-YT0AnuVl0isnwK5T4bU,L,MhIncS\",\n        \"wiki_url\": \"http://FSSnBVdV.niulv.Naxj1pwfvLMX0Eq8ivByvV9Ge,goLl7A7,uhW7h\",\n        \"map_url\": \"https://jvhgbPmMPXemt.elRC03SZIQcD7CNiFF\",\n        \"latitude\": 1434.6452420593437,\n        \"longitude\": 4532.240142119547,\n        \"map_image\": \"https://MCFyXTclRIckVu.hbfmpmnNzpMcA.MvN\",\n        \"total_launch_count\": 466398201,\n        \"orbital_launch_attempt_count\": -1404963572\n      },\n      \"program\": [\n        {\n          \"agencies\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"id\": 7419,\n          \"image\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"mission_patches\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"name\": \"string\",\n          \"response_mode\": \"normal\",\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"url\": \"http://EBSajMOlEde.wrvfT9pzL1wXocGDdsYo6QLBis69EjyzSF-TyyAIrgX,l\",\n          \"info_url\": \"http://zoqVrZjCo.fwefYLaDT9F8fexy0TbvIANgt95PvsAc8Mmn1w6\",\n          \"wiki_url\": \"https://HFOplzvZJsHPpbcNSIMfXHwnESW.ymxdIUitDr17EwiLmcGH2BrSL-OyPcneB4\",\n          \"description\": \"string\",\n          \"start_date\": \"1960-03-27T13:08:59.136Z\",\n          \"end_date\": \"2001-01-04T09:38:34.266Z\"\n        },\n        {\n          \"agencies\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"id\": 929,\n          \"image\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"mission_patches\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"name\": \"string\",\n          \"response_mode\": \"normal\",\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"url\": \"http://wDuwBbKEnfzCmsA.bxTevtn5YzvU20jt2h1o6JIMWU\",\n          \"info_url\": \"http://e.eiciRl7jyK\",\n          \"wiki_url\": \"http://ga.uvfUPbPEYEXknp9s3WmBlQ8sxvbvtSlH4yoHpv4-kY58x,jJ9YR3dm\",\n          \"description\": \"string\",\n          \"start_date\": \"1950-02-16T19:48:19.036Z\",\n          \"end_date\": \"1963-05-20T01:40:10.388Z\"\n        }\n      ],\n      \"response_mode\": \"normal\",\n      \"rocket\": {\n        \"configuration\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"id\": 6307\n      },\n      \"slug\": \"J-\",\n      \"status\": {\n        \"id\": -1491206477,\n        \"name\": \"string\",\n        \"abbrev\": \"string\",\n        \"description\": \"string\"\n      },\n      \"url\": \"http://JsJQwtjWjEkGNtufQkVQxHHWG.biYyMUso0fMSHXVCp1ZJTeKhtfQJPHH-PzvbdErKnwhhSPaTzO7T-4oGdbyellUu\",\n      \"name\": \"string\",\n      \"launch_designator\": \"string\",\n      \"last_updated\": \"1990-10-23T23:27:36.724Z\",\n      \"net\": \"1977-11-09T04:56:57.957Z\",\n      \"window_end\": \"1997-09-09T10:02:03.675Z\",\n      \"window_start\": \"2023-08-18T01:41:11.962Z\",\n      \"probability\": 320106676,\n      \"weather_concerns\": \"string\",\n      \"failreason\": \"string\",\n      \"hashtag\": \"string\",\n      \"webcast_live\": false,\n      \"orbital_launch_attempt_count\": 311617972,\n      \"location_launch_attempt_count\": 1318853657,\n      \"pad_launch_attempt_count\": 1719522929,\n      \"agency_launch_attempt_count\": -1805789107,\n      \"orbital_launch_attempt_count_year\": -1567433698,\n      \"location_launch_attempt_count_year\": 1166584898,\n      \"pad_launch_attempt_count_year\": 1511184860,\n      \"agency_launch_attempt_count_year\": 1902413752\n    },\n    \"launch_crew\": [\n      {\n        \"astronaut\": {\n          \"agency\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"bio\": \"string\",\n          \"eva_time\": \"string\",\n          \"id\": 6226,\n          \"image\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": \"string\",\n          \"nationality\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"response_mode\": \"list\",\n          \"social_media_links\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"status\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"time_in_space\": \"string\",\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"url\": \"http://I.opHxjqVfMZLLz2D+F.RdRrnQSSt-qg3EWZxy62+tEyJzQdGADa\",\n          \"in_space\": true,\n          \"age\": -1438486056,\n          \"date_of_birth\": \"1948-07-25\",\n          \"date_of_death\": \"1981-12-19\",\n          \"wiki\": \"string\",\n          \"last_flight\": \"1954-06-27T16:38:53.558Z\",\n          \"first_flight\": \"2020-07-26T03:54:56.124Z\"\n        },\n        \"id\": 986,\n        \"role\": {\n          \"id\": 3095,\n          \"role\": \"string\",\n          \"priority\": 1140390095\n        }\n      },\n      {\n        \"astronaut\": {\n          \"agency\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"bio\": \"string\",\n          \"eva_time\": \"string\",\n          \"id\": 3597,\n          \"image\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": \"string\",\n          \"nationality\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"response_mode\": \"list\",\n          \"social_media_links\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"status\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"time_in_space\": \"string\",\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"url\": \"https://NlDwolOdSOuGckTd.rjvqtlF021c1uZyugLsZbDD5LBKngYDFxf\",\n          \"in_space\": true,\n          \"age\": -267152823,\n          \"date_of_birth\": \"2002-09-04\",\n          \"date_of_death\": \"2015-01-03\",\n          \"wiki\": \"string\",\n          \"last_flight\": \"1953-06-15T07:46:42.660Z\",\n          \"first_flight\": \"1996-07-17T08:48:14.322Z\"\n        },\n        \"id\": 5184,\n        \"role\": {\n          \"id\": 2872,\n          \"role\": \"string\",\n          \"priority\": 1055943425\n        }\n      }\n    ],\n    \"onboard_crew\": [\n      {\n        \"astronaut\": {\n          \"agency\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"bio\": \"string\",\n          \"eva_time\": \"string\",\n          \"id\": 8502,\n          \"image\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": \"string\",\n          \"nationality\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"response_mode\": \"list\",\n          \"social_media_links\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"status\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"time_in_space\": \"string\",\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"url\": \"https://pRmGM.msikyRTJM6sHQXFStdB0mQTTnnZBcLbbq7,JPqRz5Ld5g04LV96BygWzgO2kgKi.\",\n          \"in_space\": true,\n          \"age\": 1786638644,\n          \"date_of_birth\": \"1950-12-29\",\n          \"date_of_death\": \"1967-01-30\",\n          \"wiki\": \"string\",\n          \"last_flight\": \"2001-08-22T16:22:23.046Z\",\n          \"first_flight\": \"1969-06-05T08:31:25.178Z\"\n        },\n        \"id\": 4671,\n        \"role\": {\n          \"id\": 7030,\n          \"role\": \"string\",\n          \"priority\": 1686270001\n        }\n      },\n      {\n        \"astronaut\": {\n          \"agency\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"bio\": \"string\",\n          \"eva_time\": \"string\",\n          \"id\": 6461,\n          \"image\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": \"string\",\n          \"nationality\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"response_mode\": \"list\",\n          \"social_media_links\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"status\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"time_in_space\": \"string\",\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"url\": \"http://epwKduytni.iyg7pR8XbGamCS4OkygowH.CV1NM\",\n          \"in_space\": false,\n          \"age\": 1519169313,\n          \"date_of_birth\": \"1993-04-08\",\n          \"date_of_death\": \"1969-02-03\",\n          \"wiki\": \"string\",\n          \"last_flight\": \"2003-07-11T06:52:28.671Z\",\n          \"first_flight\": \"2009-09-27T12:38:37.996Z\"\n        },\n        \"id\": 8896,\n        \"role\": {\n          \"id\": 1720,\n          \"role\": \"string\",\n          \"priority\": -1137231183\n        }\n      }\n    ],\n    \"response_mode\": \"detailed\",\n    \"spacecraft\": {\n      \"description\": \"string\",\n      \"fastest_turnaround\": \"string\",\n      \"flights_count\": 4403,\n      \"id\": 5717,\n      \"image\": {\n        \"id\": 6503,\n        \"image_url\": \"http://IB.feSemANmZOW5uDmiiM2phoHOQBHvA\",\n        \"license\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"name\": \"string\",\n        \"thumbnail_url\": \"https://XFOwLqFNCtpOZVqzbdadWVRMWaF.ooomLpEYHVWBa-H-G0TfDTJYmbwtnd32QS7WHun50GK92n+YgzsJvyR53FA.9\",\n        \"variants\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"credit\": \"string\",\n        \"single_use\": false\n      },\n      \"name\": \"string\",\n      \"response_mode\": \"normal\",\n      \"spacecraft_config\": {\n        \"agency\": {\n          \"country\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"image\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"logo\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"parent\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"response_mode\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"social_logo\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"abbrev\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"featured\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"description\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"administrator\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"founding_year\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"launchers\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"spacecraft\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"family\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"fastest_turnaround\": \"string\",\n        \"id\": 7019,\n        \"image\": {\n          \"nullable\": true,\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"name\": \"string\",\n        \"response_mode\": \"detailed\",\n        \"type\": {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"url\": \"https://iJYm.qkiyYMjMp.2pq4mnE64feGMk\",\n        \"in_use\": false,\n        \"capability\": \"string\",\n        \"history\": \"string\",\n        \"details\": \"string\",\n        \"maiden_flight\": \"2021-12-12\",\n        \"height\": 9133.575115042064,\n        \"diameter\": 3473.5293889472364,\n        \"human_rated\": false,\n        \"crew_capacity\": -1206105189,\n        \"payload_capacity\": -45011232,\n        \"payload_return_capacity\": 1070439058,\n        \"flight_life\": \"string\",\n        \"wiki_link\": \"https://FWcGOSffSXewXhmegHOJnyWvxcMV.vbrpP19k-TZXKynmX0Q\",\n        \"info_link\": \"http://fvdVvHBEXaOGRvJPmcya.sqvhhc9kAK+SV9lhKxOUbYeLDah3sZCqawe,J9o0yNjFTTcvQPiyis9X20\",\n        \"spacecraft_flown\": 1026964397,\n        \"total_launch_count\": -2074538187,\n        \"successful_launches\": -54901317,\n        \"failed_launches\": 895943379,\n        \"attempted_landings\": 635074731,\n        \"successful_landings\": -1280525272,\n        \"failed_landings\": -850218923\n      },\n      \"status\": {\n        \"id\": 5275,\n        \"name\": \"string\"\n      },\n      \"time_docked\": \"string\",\n      \"time_in_space\": \"string\",\n      \"url\": \"https://gIrht.egkalRZNK9Ld+hc6MDFDknBqOpfClHTjEhfPEjAq-qMJ7-ActT3HDFz8rPlHeCmTk.UQVJMSy5\",\n      \"serial_number\": \"string\",\n      \"is_placeholder\": true,\n      \"in_space\": false,\n      \"mission_ends_count\": -69753502\n    },\n    \"turn_around_time\": \"string\",\n    \"url\": \"https://qQbXwKvgZzdQgxtXkgGcHhZkQvhosROV.mkdlPICPWS0OTRhXGXCp2Z1m\",\n    \"destination\": \"string\",\n    \"mission_end\": \"1962-12-13T15:58:34.886Z\"\n  },\n  \"spacestation\": {\n    \"description\": \"string\",\n    \"founded\": \"2024-10-28\",\n    \"id\": 8775,\n    \"image\": {\n      \"id\": 8384,\n      \"image_url\": \"https://aOtxpMowCifKZHCJCUWMLq.sonvvhqJ,+ugETQuy0juH.eIY3f+,I+1LwY1vS.fSWCaKKPRM5QmcZ9Gq,sEwscPQz.h7GKwZq5gykQGqNlWu+LAD11\",\n      \"license\": {\n        \"id\": 2370,\n        \"name\": \"string\",\n        \"priority\": 243420756,\n        \"link\": \"https://dRCHLRHUrZBmYobAiZ.mhnwitX,AzjtKkl1.t6cHRWV8AfE2xQvEOfeaaZMu\"\n      },\n      \"name\": \"string\",\n      \"thumbnail_url\": \"http://asfw.xwifFPs1,+DPohrcrRtsxZpyrR6meTlqLW7B5o2UodPIU2XpV\",\n      \"variants\": [\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"image_url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"image_url\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"credit\": \"string\",\n      \"single_use\": true\n    },\n    \"name\": \"string\",\n    \"orbit\": \"string\",\n    \"status\": {\n      \"id\": 4710,\n      \"name\": \"string\"\n    },\n    \"type\": {\n      \"id\": 302,\n      \"name\": \"string\"\n    },\n    \"url\": \"http://CcfIqUAfO.bgpwSA-WCq\",\n    \"deorbited\": \"1966-09-09\"\n  },\n  \"url\": \"https://ScqIcSJVcmIIjM.myHeP9kFFaSr5aMkLmuP\",\n  \"start\": \"2023-06-02T22:07:57.489Z\",\n  \"end\": \"2008-08-24T02:41:38.702Z\",\n  \"location\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://ll.thespacedevs.com/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "80b58d30-8c4a-47a2-9282-7b4357a6e95d",
+    "name": "TheSpaceDevs LL2 Spacewalks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Rocket launches, space events and crewed spaceflight. The Launch Library 2 API is the official successor of the popular Launch Library API. It keeps its core features whilst also including everything the broader Space Launch Now API had to offer. The result is a large database delivering a more complete experience for each rocket launch and ...",
+      "type": "text/plain"
+    }
+  }
+}

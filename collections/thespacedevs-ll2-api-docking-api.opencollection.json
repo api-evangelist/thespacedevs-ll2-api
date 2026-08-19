@@ -1,0 +1,199 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TheSpaceDevs LL2 Docking API",
+    "version": "v2.3.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Docking",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Docking Locations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/docking_locations/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/docking_locations/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/docking_locations/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "Get Docking Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/docking_locations/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this Docking Location."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/docking_locations/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/docking_locations/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "List Docking Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/docking_events/",
+            "params": [
+              {
+                "name": "docking__gt",
+                "value": "",
+                "type": "query",
+                "description": "Docking is greater than"
+              },
+              {
+                "name": "docking__gte",
+                "value": "",
+                "type": "query",
+                "description": "Docking is greater than or equal to"
+              },
+              {
+                "name": "docking__lt",
+                "value": "",
+                "type": "query",
+                "description": "Docking is less than"
+              },
+              {
+                "name": "docking__lte",
+                "value": "",
+                "type": "query",
+                "description": "Docking is less than or equal to"
+              },
+              {
+                "name": "docking_location__id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "flight_vehicle_chaser__id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail in the response."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              },
+              {
+                "name": "space_station_target__id",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Modes\nLevels of detail in the response - `normal`, `detailed`\n\nExample - [/docking_events/?mode=detailed](./?mode=detailed)\n\n#### Filters\nParameters - `docking__gt`, `docking__gte`, `docking__lt`, `docking__lte`, `docking_location__id`, `flight_vehicle_chaser__id`, `space_station_target__id`\n\nExample - [/docking_events/?space_station_target__id=6](./?space_station_target__id=6)\n\n#### Search\nFields searched - `docking_location__name`, `flight_vehicle_chaser__spacecraft__name`, `flight_vehicl"
+        },
+        {
+          "info": {
+            "name": "Get Docking Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/docking_events/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this docking event."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Modes\nLevels of detail in the response - `normal`, `detailed`\n\nExample - [/docking_events/?mode=detailed](./?mode=detailed)\n\n#### Filters\nParameters - `docking__gt`, `docking__gte`, `docking__lt`, `docking__lte`, `docking_location__id`, `flight_vehicle_chaser__id`, `space_station_target__id`\n\nExample - [/docking_events/?space_station_target__id=6](./?space_station_target__id=6)\n\n#### Search\nFields searched - `docking_location__name`, `flight_vehicle_chaser__spacecraft__name`, `flight_vehicl"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

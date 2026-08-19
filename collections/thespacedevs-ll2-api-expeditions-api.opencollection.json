@@ -1,0 +1,160 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TheSpaceDevs LL2 Expeditions API",
+    "version": "v2.3.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Expeditions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Expeditions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/expeditions/",
+            "params": [
+              {
+                "name": "crew__astronaut",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "crew__astronaut__agency",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end__gt",
+                "value": "",
+                "type": "query",
+                "description": "End is greater than"
+              },
+              {
+                "name": "end__gte",
+                "value": "",
+                "type": "query",
+                "description": "End is greater than or equal to"
+              },
+              {
+                "name": "end__lt",
+                "value": "",
+                "type": "query",
+                "description": "End is less than"
+              },
+              {
+                "name": "end__lte",
+                "value": "",
+                "type": "query",
+                "description": "End is greater than or equal to"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail in the response."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              },
+              {
+                "name": "space_station",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start__gt",
+                "value": "",
+                "type": "query",
+                "description": "Start is greater than"
+              },
+              {
+                "name": "start__gte",
+                "value": "",
+                "type": "query",
+                "description": "Start is greater than or equal to"
+              },
+              {
+                "name": "start__lt",
+                "value": "",
+                "type": "query",
+                "description": "Start is less than"
+              },
+              {
+                "name": "start__lte",
+                "value": "",
+                "type": "query",
+                "description": "Start is greater than or equal to"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Modes\nLevels of detail in the response - `normal`, `detailed`\n\nExample - [/expeditions/?mode=detailed](./?mode=detailed)\n\n#### Filters\nParameters - `crew__astronaut`, `crew__astronaut__agency`, `end__gt`, `end__gte`, `end__lt`, `end__lte`, `name`, `space_station`, `start__gt`, `start__gte`, `start__lt`, `start__lte`\n\nExample - [/expeditions/?space_station=18](./?space_station=18)\n\n#### Search\nFields searched - `crew__astronaut__agency__abbrev`, `crew__astronaut__agency__name`, `crew__astron"
+        },
+        {
+          "info": {
+            "name": "Get Expedition",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/expeditions/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this expedition."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Modes\nLevels of detail in the response - `normal`, `detailed`\n\nExample - [/expeditions/?mode=detailed](./?mode=detailed)\n\n#### Filters\nParameters - `crew__astronaut`, `crew__astronaut__agency`, `end__gt`, `end__gte`, `end__lt`, `end__lte`, `name`, `space_station`, `start__gt`, `start__gte`, `start__lt`, `start__lte`\n\nExample - [/expeditions/?space_station=18](./?space_station=18)\n\n#### Search\nFields searched - `crew__astronaut__agency__abbrev`, `crew__astronaut__agency__name`, `crew__astron"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

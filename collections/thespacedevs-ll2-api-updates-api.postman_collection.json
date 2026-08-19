@@ -1,0 +1,322 @@
+{
+  "item": [
+    {
+      "id": "ca57ff90-2650-44fd-8aea-fc0f9232e752",
+      "name": "Updates",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "14b58b4e-48c8-4710-8e0b-267c38a59fc7",
+          "name": "List Updates",
+          "request": {
+            "name": "List Updates",
+            "description": {
+              "content": "#### Filters\nParameters - `created_on`, `launch`, `launch__launch_service_provider`, `program`\n\nExample - [/updates/?launch__launch_service_provider=121](./?launch__launch_service_provider=121)\n\n#### Ordering\nFields - `created_on`\n\nExample - [/updates/?ordering=-created_on](./?ordering=-created_on)\n\n#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/updates/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/updates/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2.3.0",
+                "updates",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "created_on",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "launch",
+                  "value": "<uuid>"
+                },
+                {
+                  "disabled": false,
+                  "key": "launch__launch_service_provider",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The initial index from which to return the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "ordering",
+                  "value": "<string>",
+                  "description": "Which field to use when ordering the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "program",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "A search term."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "sessionid"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a5dd4a10-e6cf-4302-90ae-70b9167630dd",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2.3.0",
+                    "updates",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "created_on",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "launch",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "launch__launch_service_provider",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "ordering",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "program",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionid",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 123,\n  \"results\": [\n    {\n      \"created_by\": \"string\",\n      \"id\": 8460,\n      \"profile_image\": \"string\",\n      \"comment\": \"string\",\n      \"info_url\": \"https://hsvJZaDIQQCeakjWWBsmfc.kmcecGeenmvhhY0f-lA0JjpGDsbEl1u6WyIEqV3LWwjOdTWc9q-YhKrGY1jIBjih17,pDXqK5RzMrIyj\",\n      \"created_on\": \"2019-12-31T09:23:15.461Z\"\n    },\n    {\n      \"created_by\": \"string\",\n      \"id\": 6749,\n      \"profile_image\": \"string\",\n      \"comment\": \"string\",\n      \"info_url\": \"http://gKFEx.leltePu,zJvF\",\n      \"created_on\": \"1975-04-30T07:18:34.270Z\"\n    }\n  ],\n  \"next\": \"http://api.example.org/accounts/?offset=400&limit=100\",\n  \"previous\": \"http://api.example.org/accounts/?offset=200&limit=100\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5dad7d0c-b141-441c-bbb4-9c052aefddad",
+          "name": "Get Update",
+          "request": {
+            "name": "Get Update",
+            "description": {
+              "content": "#### Filters\nParameters - `created_on`, `launch`, `launch__launch_service_provider`, `program`\n\nExample - [/updates/?launch__launch_service_provider=121](./?launch__launch_service_provider=121)\n\n#### Ordering\nFields - `created_on`\n\nExample - [/updates/?ordering=-created_on](./?ordering=-created_on)\n\n#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/updates/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/updates/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "2.3.0",
+                "updates",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this Update."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "sessionid"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "204e0c26-41bd-4aa9-b4b7-6095e1b13403",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "2.3.0",
+                    "updates",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this Update."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "sessionid",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_by\": \"string\",\n  \"id\": 45,\n  \"profile_image\": \"string\",\n  \"comment\": \"string\",\n  \"info_url\": \"https://LaiiJtjermOfILJzmijUVsyA.yvzhlMVIIe0VnbSa6zHf8od1HmxBYivgABucZ67nMdN-ZiPxF,rMDepAUNgo+xp.eaO6eaM\",\n  \"created_on\": \"2010-08-07T16:38:29.357Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://ll.thespacedevs.com/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "0a06245b-876d-4400-be24-7a03be4c6985",
+    "name": "TheSpaceDevs LL2 Updates API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Rocket launches, space events and crewed spaceflight. The Launch Library 2 API is the official successor of the popular Launch Library API. It keeps its core features whilst also including everything the broader Space Launch Now API had to offer. The result is a large database delivering a more complete experience for each rocket launch and ...",
+      "type": "text/plain"
+    }
+  }
+}

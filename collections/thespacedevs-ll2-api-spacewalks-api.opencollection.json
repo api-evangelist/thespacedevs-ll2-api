@@ -1,0 +1,222 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TheSpaceDevs LL2 Spacewalks API",
+    "version": "v2.3.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Spacewalks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Spacewalks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/spacewalks/",
+            "params": [
+              {
+                "name": "astronaut__ids",
+                "value": "",
+                "type": "query",
+                "description": "Multiple values may be separated by commas."
+              },
+              {
+                "name": "day",
+                "value": "",
+                "type": "query",
+                "description": "Multiple values may be separated by commas."
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "event__ids",
+                "value": "",
+                "type": "query",
+                "description": "Multiple values may be separated by commas."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Multiple values may be separated by commas."
+              },
+              {
+                "name": "launch__ids",
+                "value": "",
+                "type": "query",
+                "description": "Multiple values may be separated by commas."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail in the response."
+              },
+              {
+                "name": "month",
+                "value": "",
+                "type": "query",
+                "description": "Multiple values may be separated by commas."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "name__contains",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "owner__ids",
+                "value": "",
+                "type": "query",
+                "description": "Multiple values may be separated by commas."
+              },
+              {
+                "name": "program__ids",
+                "value": "",
+                "type": "query",
+                "description": "Multiple values may be separated by commas."
+              },
+              {
+                "name": "program__name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "program__name__contains",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              },
+              {
+                "name": "spacestation__ids",
+                "value": "",
+                "type": "query",
+                "description": "Multiple values may be separated by commas."
+              },
+              {
+                "name": "start__gt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start__gte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start__lt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start__lte",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "query",
+                "description": "Multiple values may be separated by commas."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Modes\nLevels of detail in the response - `list`, `normal`, `detailed`\n\nExample - [/spacewalks/?mode=list](./?mode=list)\n\n#### Filters\nParameters - `astronaut__ids`, `day`, `end`, `end__gt`, `end__gte`, `end__lt`, `end__lte`, `event__ids`, `id`, `ids`, `launch__ids`, `month`, `name`, `name__contains`, `owner__ids`, `program__ids`, `program__name`, `program__name__contains`, `spacestation__ids`, `start__gt`, `start__gte`, `start__lt`, `start__lte`, `year`\n\nExample - [/spacewalks/?program__nam"
+        },
+        {
+          "info": {
+            "name": "Get Spacewalk",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/spacewalks/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this Spacewalk."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Modes\nLevels of detail in the response - `list`, `normal`, `detailed`\n\nExample - [/spacewalks/?mode=list](./?mode=list)\n\n#### Filters\nParameters - `astronaut__ids`, `day`, `end`, `end__gt`, `end__gte`, `end__lt`, `end__lte`, `event__ids`, `id`, `ids`, `launch__ids`, `month`, `name`, `name__contains`, `owner__ids`, `program__ids`, `program__name`, `program__name__contains`, `spacestation__ids`, `start__gt`, `start__gte`, `start__lt`, `start__lte`, `year`\n\nExample - [/spacewalks/?program__nam"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

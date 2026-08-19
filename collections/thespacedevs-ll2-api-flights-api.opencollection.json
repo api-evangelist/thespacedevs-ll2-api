@@ -1,0 +1,176 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TheSpaceDevs LL2 Flights API",
+    "version": "v2.3.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Flights",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Payload Flights",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/payload_flights/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail in the response."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "payload",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Modes\nLevels of detail in the response - `list`, `normal`, `detailed`\n\nExample - [/payload_flights/?mode=list](./?mode=list)\n\n#### Filters\nParameters - `payload`\n\nExample - [/payload_flights/?payload=2](./?payload=2)\n\n#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/payload_flights/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/payload_flights/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links "
+        },
+        {
+          "info": {
+            "name": "Get Payload Flight",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/payload_flights/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this Payload Flight."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Modes\nLevels of detail in the response - `list`, `normal`, `detailed`\n\nExample - [/payload_flights/?mode=list](./?mode=list)\n\n#### Filters\nParameters - `payload`\n\nExample - [/payload_flights/?payload=2](./?payload=2)\n\n#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/payload_flights/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/payload_flights/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links "
+        },
+        {
+          "info": {
+            "name": "List Spacecraft Flights",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/spacecraft_flights/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail in the response."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              },
+              {
+                "name": "spacecraft",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Modes\nLevels of detail in the response - `normal`, `detailed`\n\nExample - [/spacecraft_flights/?mode=detailed](./?mode=detailed)\n\n#### Filters\nParameters - `spacecraft`\n\nExample - [/spacecraft_flights/?spacecraft=289](./?spacecraft=289)\n\n#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/spacecraft_flights/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/spacecraft_flights/?format=json](./?format=json)\n\n#### Help\nFind all th"
+        },
+        {
+          "info": {
+            "name": "Get Spacecraft Flight",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/spacecraft_flights/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this Spacecraft Flight."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Modes\nLevels of detail in the response - `normal`, `detailed`\n\nExample - [/spacecraft_flights/?mode=detailed](./?mode=detailed)\n\n#### Filters\nParameters - `spacecraft`\n\nExample - [/spacecraft_flights/?spacecraft=289](./?spacecraft=289)\n\n#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/spacecraft_flights/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/spacecraft_flights/?format=json](./?format=json)\n\n#### Help\nFind all th"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

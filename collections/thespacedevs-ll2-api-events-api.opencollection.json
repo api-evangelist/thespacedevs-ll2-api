@@ -1,0 +1,706 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TheSpaceDevs LL2 Events API",
+    "version": "v2.3.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "config_timeline_event_types_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/timeline_event_types/",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/timeline_event_types/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/timeline_event_types/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "config_timeline_event_types_retrieve",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/config/timeline_event_types/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this Timeline Event Type."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Number of results\nUse `limit` to control the number of objects in the response (max 100)\n\nExample - [/config/timeline_event_types/?limit=2](./?limit=2)\n\n#### Format\nSwitch to JSON output - [/config/timeline_event_types/?format=json](./?format=json)\n\n#### Help\nFind all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)"
+        },
+        {
+          "info": {
+            "name": "List Docking Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/docking_events/",
+            "params": [
+              {
+                "name": "docking__gt",
+                "value": "",
+                "type": "query",
+                "description": "Docking is greater than"
+              },
+              {
+                "name": "docking__gte",
+                "value": "",
+                "type": "query",
+                "description": "Docking is greater than or equal to"
+              },
+              {
+                "name": "docking__lt",
+                "value": "",
+                "type": "query",
+                "description": "Docking is less than"
+              },
+              {
+                "name": "docking__lte",
+                "value": "",
+                "type": "query",
+                "description": "Docking is less than or equal to"
+              },
+              {
+                "name": "docking_location__id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "flight_vehicle_chaser__id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail in the response."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              },
+              {
+                "name": "space_station_target__id",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Modes\nLevels of detail in the response - `normal`, `detailed`\n\nExample - [/docking_events/?mode=detailed](./?mode=detailed)\n\n#### Filters\nParameters - `docking__gt`, `docking__gte`, `docking__lt`, `docking__lte`, `docking_location__id`, `flight_vehicle_chaser__id`, `space_station_target__id`\n\nExample - [/docking_events/?space_station_target__id=6](./?space_station_target__id=6)\n\n#### Search\nFields searched - `docking_location__name`, `flight_vehicle_chaser__spacecraft__name`, `flight_vehicl"
+        },
+        {
+          "info": {
+            "name": "Get Docking Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/docking_events/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this docking event."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Modes\nLevels of detail in the response - `normal`, `detailed`\n\nExample - [/docking_events/?mode=detailed](./?mode=detailed)\n\n#### Filters\nParameters - `docking__gt`, `docking__gte`, `docking__lt`, `docking__lte`, `docking_location__id`, `flight_vehicle_chaser__id`, `space_station_target__id`\n\nExample - [/docking_events/?space_station_target__id=6](./?space_station_target__id=6)\n\n#### Search\nFields searched - `docking_location__name`, `flight_vehicle_chaser__spacecraft__name`, `flight_vehicl"
+        },
+        {
+          "info": {
+            "name": "List Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/events/",
+            "params": [
+              {
+                "name": "agency__ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated agency IDs."
+              },
+              {
+                "name": "date__gt",
+                "value": "",
+                "type": "query",
+                "description": "Date is greater than"
+              },
+              {
+                "name": "date__gt__lt",
+                "value": "",
+                "type": "query",
+                "description": "Date is less than"
+              },
+              {
+                "name": "date__gte",
+                "value": "",
+                "type": "query",
+                "description": "Date is greater than or equal to"
+              },
+              {
+                "name": "date__lte",
+                "value": "",
+                "type": "query",
+                "description": "Date is less than or equal to"
+              },
+              {
+                "name": "day",
+                "value": "",
+                "type": "query",
+                "description": "Multiple values may be separated by commas."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "Multiple values may be separated by commas."
+              },
+              {
+                "name": "last_updated__gte",
+                "value": "",
+                "type": "query",
+                "description": "Last Update is greater than or equal to"
+              },
+              {
+                "name": "last_updated__lte",
+                "value": "",
+                "type": "query",
+                "description": "Last Update is less than or equal to"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail in the response."
+              },
+              {
+                "name": "month",
+                "value": "",
+                "type": "query",
+                "description": "Multiple values may be separated by commas."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "program",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              },
+              {
+                "name": "slug",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type__ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated event type IDs."
+              },
+              {
+                "name": "video_url",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated video URLs."
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "query",
+                "description": "Multiple values may be separated by commas."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Modes\nLevels of detail in the response - `list`, `normal`, `detailed`\n\nExample - [/events/?mode=list](./?mode=list)\n\n#### Filters\nParameters - `agency__ids`, `date__gt`, `date__gt__lt`, `date__gte`, `date__lte`, `day`, `id`, `last_updated__gte`, `last_updated__lte`, `month`, `program`, `slug`, `type`, `type__ids`, `video_url`, `year`\n\nExample - [/events/?type__ids=2,8](./?type__ids=2,8)\n\n#### Search\nFields searched - `name`\n\nExample - [/events/?search=Flyby](./?search=Flyby)\n\n#### Ordering\n"
+        },
+        {
+          "info": {
+            "name": "Get Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/events/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this Event."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Modes\nLevels of detail in the response - `list`, `normal`, `detailed`\n\nExample - [/events/?mode=list](./?mode=list)\n\n#### Filters\nParameters - `agency__ids`, `date__gt`, `date__gt__lt`, `date__gte`, `date__lte`, `day`, `id`, `last_updated__gte`, `last_updated__lte`, `month`, `program`, `slug`, `type`, `type__ids`, `video_url`, `year`\n\nExample - [/events/?type__ids=2,8](./?type__ids=2,8)\n\n#### Search\nFields searched - `name`\n\nExample - [/events/?search=Flyby](./?search=Flyby)\n\n#### Ordering\n"
+        },
+        {
+          "info": {
+            "name": "List Previous Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/events/previous/",
+            "params": [
+              {
+                "name": "agency__ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated agency IDs."
+              },
+              {
+                "name": "date__gt",
+                "value": "",
+                "type": "query",
+                "description": "Date is greater than"
+              },
+              {
+                "name": "date__gt__lt",
+                "value": "",
+                "type": "query",
+                "description": "Date is less than"
+              },
+              {
+                "name": "date__gte",
+                "value": "",
+                "type": "query",
+                "description": "Date is greater than or equal to"
+              },
+              {
+                "name": "date__lte",
+                "value": "",
+                "type": "query",
+                "description": "Date is less than or equal to"
+              },
+              {
+                "name": "day",
+                "value": "",
+                "type": "query",
+                "description": "Multiple values may be separated by commas."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "Multiple values may be separated by commas."
+              },
+              {
+                "name": "last_updated__gte",
+                "value": "",
+                "type": "query",
+                "description": "Last Update is greater than or equal to"
+              },
+              {
+                "name": "last_updated__lte",
+                "value": "",
+                "type": "query",
+                "description": "Last Update is less than or equal to"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail in the response."
+              },
+              {
+                "name": "month",
+                "value": "",
+                "type": "query",
+                "description": "Multiple values may be separated by commas."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "program",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              },
+              {
+                "name": "slug",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type__ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated event type IDs."
+              },
+              {
+                "name": "video_url",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated video URLs."
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "query",
+                "description": "Multiple values may be separated by commas."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Modes\nLevels of detail in the response - `list`, `normal`, `detailed`\n\nExample - [/events/previous/?mode=list](./?mode=list)\n\n#### Filters\nParameters - `agency__ids`, `date__gt`, `date__gt__lt`, `date__gte`, `date__lte`, `day`, `id`, `last_updated__gte`, `last_updated__lte`, `month`, `program`, `slug`, `type`, `type__ids`, `video_url`, `year`\n\nExample - [/events/previous/?type__ids=2,8](./?type__ids=2,8)\n\n#### Search\nFields searched - `name`\n\nExample - [/events/previous/?search=Flyby](./?se"
+        },
+        {
+          "info": {
+            "name": "Get Previous Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/events/previous/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this Event."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Modes\nLevels of detail in the response - `list`, `normal`, `detailed`\n\nExample - [/events/previous/?mode=list](./?mode=list)\n\n#### Filters\nParameters - `agency__ids`, `date__gt`, `date__gt__lt`, `date__gte`, `date__lte`, `day`, `id`, `last_updated__gte`, `last_updated__lte`, `month`, `program`, `slug`, `type`, `type__ids`, `video_url`, `year`\n\nExample - [/events/previous/?type__ids=2,8](./?type__ids=2,8)\n\n#### Search\nFields searched - `name`\n\nExample - [/events/previous/?search=Flyby](./?se"
+        },
+        {
+          "info": {
+            "name": "List Upcoming Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/events/upcoming/",
+            "params": [
+              {
+                "name": "agency__ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated agency IDs."
+              },
+              {
+                "name": "date__gt",
+                "value": "",
+                "type": "query",
+                "description": "Date is greater than"
+              },
+              {
+                "name": "date__gt__lt",
+                "value": "",
+                "type": "query",
+                "description": "Date is less than"
+              },
+              {
+                "name": "date__gte",
+                "value": "",
+                "type": "query",
+                "description": "Date is greater than or equal to"
+              },
+              {
+                "name": "date__lte",
+                "value": "",
+                "type": "query",
+                "description": "Date is less than or equal to"
+              },
+              {
+                "name": "day",
+                "value": "",
+                "type": "query",
+                "description": "Multiple values may be separated by commas."
+              },
+              {
+                "name": "hide_recent_previous",
+                "value": "",
+                "type": "query",
+                "description": "Hide events from the past 24 hours, which are included by default for convenience."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "Multiple values may be separated by commas."
+              },
+              {
+                "name": "last_updated__gte",
+                "value": "",
+                "type": "query",
+                "description": "Last Update is greater than or equal to"
+              },
+              {
+                "name": "last_updated__lte",
+                "value": "",
+                "type": "query",
+                "description": "Last Update is less than or equal to"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail in the response."
+              },
+              {
+                "name": "month",
+                "value": "",
+                "type": "query",
+                "description": "Multiple values may be separated by commas."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The initial index from which to return the results."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "program",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              },
+              {
+                "name": "slug",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type__ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated event type IDs."
+              },
+              {
+                "name": "video_url",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated video URLs."
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "query",
+                "description": "Multiple values may be separated by commas."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Modes\nLevels of detail in the response - `list`, `normal`, `detailed`\n\nExample - [/events/upcoming/?mode=list](./?mode=list)\n\n#### Filters\nParameters - `agency__ids`, `date__gt`, `date__gt__lt`, `date__gte`, `date__lte`, `day`, `hide_recent_previous`, `id`, `last_updated__gte`, `last_updated__lte`, `month`, `program`, `slug`, `type`, `type__ids`, `video_url`, `year`\n\nExample - [/events/upcoming/?type__ids=2,8](./?type__ids=2,8)\n\n#### Search\nFields searched - `name`\n\nExample - [/events/upcom"
+        },
+        {
+          "info": {
+            "name": "Get Upcoming Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ll.thespacedevs.com/2.3.0/events/upcoming/:id/",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this Event."
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "sessionid",
+              "value": "{{sessionid}}",
+              "placement": "query"
+            }
+          },
+          "docs": "#### Modes\nLevels of detail in the response - `list`, `normal`, `detailed`\n\nExample - [/events/upcoming/?mode=list](./?mode=list)\n\n#### Filters\nParameters - `agency__ids`, `date__gt`, `date__gt__lt`, `date__gte`, `date__lte`, `day`, `hide_recent_previous`, `id`, `last_updated__gte`, `last_updated__lte`, `month`, `program`, `slug`, `type`, `type__ids`, `video_url`, `year`\n\nExample - [/events/upcoming/?type__ids=2,8](./?type__ids=2,8)\n\n#### Search\nFields searched - `name`\n\nExample - [/events/upcom"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
