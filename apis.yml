@@ -249,6 +249,8 @@ apis:
   humanURL: https://thespacedevs.com/llapi
   baseURL: https://ll.thespacedevs.com
   tags:
+  - Event
+  tags_raw:
   - Events
   properties:
   - type: OpenAPI
@@ -359,6 +361,8 @@ apis:
   humanURL: https://thespacedevs.com/llapi
   baseURL: https://ll.thespacedevs.com
   tags:
+  - Language
+  tags_raw:
   - Languages
   properties:
   - type: OpenAPI
@@ -799,6 +803,8 @@ apis:
   humanURL: https://thespacedevs.com/llapi
   baseURL: https://ll.thespacedevs.com
   tags:
+  - Timelines
+  tags_raw:
   - Timeline
   properties:
   - type: OpenAPI
