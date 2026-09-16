@@ -45,28 +45,6 @@ apis:
     url: rules/thespacedevs-rules.yml
   - type: Vocabulary
     url: vocabulary/thespacedevs-vocabulary.yml
-- aid: thespacedevs-ll2-api:thespacedevs-ll2-api-api-throttle-api
-  name: TheSpaceDevs LL2 API-throttle API
-  description: The Api-throttle API from TheSpaceDevs LL2 API — 1 operation(s) for api-throttle.
-  humanURL: https://thespacedevs.com/llapi
-  baseURL: https://ll.thespacedevs.com
-  tags:
-  - Api-throttle
-  properties:
-  - type: OpenAPI
-    url: openapi/thespacedevs-ll2-api-api-throttle-api-openapi.yml
-  - type: Documentation
-    url: https://thespacedevs.com/llapi
-  - type: JSONSchema
-    url: json-schema/thespacedevs-launch-schema.json
-  - type: JSONLD
-    url: json-ld/thespacedevs-context.jsonld
-  - type: JSONStructure
-    url: json-structure/thespacedevs-structure.json
-  - type: SpectralRules
-    url: rules/thespacedevs-rules.yml
-  - type: Vocabulary
-    url: vocabulary/thespacedevs-vocabulary.yml
 - aid: thespacedevs-ll2-api:thespacedevs-ll2-api-astronaut-api
   name: TheSpaceDevs LL2 API Astronaut API
   description: The Astronaut API from TheSpaceDevs LL2 API — 6 operation(s) for astronaut.
@@ -99,28 +77,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/thespacedevs-ll2-api-astronauts-api-openapi.yml
-  - type: Documentation
-    url: https://thespacedevs.com/llapi
-  - type: JSONSchema
-    url: json-schema/thespacedevs-launch-schema.json
-  - type: JSONLD
-    url: json-ld/thespacedevs-context.jsonld
-  - type: JSONStructure
-    url: json-structure/thespacedevs-structure.json
-  - type: SpectralRules
-    url: rules/thespacedevs-rules.yml
-  - type: Vocabulary
-    url: vocabulary/thespacedevs-vocabulary.yml
-- aid: thespacedevs-ll2-api:thespacedevs-ll2-api-bodies-api
-  name: TheSpaceDevs LL2 API Bodies API
-  description: The Bodies API from TheSpaceDevs LL2 API — 2 operation(s) for bodies.
-  humanURL: https://thespacedevs.com/llapi
-  baseURL: https://ll.thespacedevs.com
-  tags:
-  - Bodies
-  properties:
-  - type: OpenAPI
-    url: openapi/thespacedevs-ll2-api-bodies-api-openapi.yml
   - type: Documentation
     url: https://thespacedevs.com/llapi
   - type: JSONSchema
@@ -277,28 +233,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/thespacedevs-ll2-api-expeditions-api-openapi.yml
-  - type: Documentation
-    url: https://thespacedevs.com/llapi
-  - type: JSONSchema
-    url: json-schema/thespacedevs-launch-schema.json
-  - type: JSONLD
-    url: json-ld/thespacedevs-context.jsonld
-  - type: JSONStructure
-    url: json-structure/thespacedevs-structure.json
-  - type: SpectralRules
-    url: rules/thespacedevs-rules.yml
-  - type: Vocabulary
-    url: vocabulary/thespacedevs-vocabulary.yml
-- aid: thespacedevs-ll2-api:thespacedevs-ll2-api-families-api
-  name: TheSpaceDevs LL2 API Families API
-  description: The Families API from TheSpaceDevs LL2 API — 4 operation(s) for families.
-  humanURL: https://thespacedevs.com/llapi
-  baseURL: https://ll.thespacedevs.com
-  tags:
-  - Families
-  properties:
-  - type: OpenAPI
-    url: openapi/thespacedevs-ll2-api-families-api-openapi.yml
   - type: Documentation
     url: https://thespacedevs.com/llapi
   - type: JSONSchema
@@ -587,28 +521,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/thespacedevs-ll2-api-precisions-api-openapi.yml
-  - type: Documentation
-    url: https://thespacedevs.com/llapi
-  - type: JSONSchema
-    url: json-schema/thespacedevs-launch-schema.json
-  - type: JSONLD
-    url: json-ld/thespacedevs-context.jsonld
-  - type: JSONStructure
-    url: json-structure/thespacedevs-structure.json
-  - type: SpectralRules
-    url: rules/thespacedevs-rules.yml
-  - type: Vocabulary
-    url: vocabulary/thespacedevs-vocabulary.yml
-- aid: thespacedevs-ll2-api:thespacedevs-ll2-api-previous-api
-  name: TheSpaceDevs LL2 API Previous API
-  description: The Previous API from TheSpaceDevs LL2 API — 4 operation(s) for previous.
-  humanURL: https://thespacedevs.com/llapi
-  baseURL: https://ll.thespacedevs.com
-  tags:
-  - Previous
-  properties:
-  - type: OpenAPI
-    url: openapi/thespacedevs-ll2-api-previous-api-openapi.yml
   - type: Documentation
     url: https://thespacedevs.com/llapi
   - type: JSONSchema
