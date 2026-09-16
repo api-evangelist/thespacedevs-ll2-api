@@ -46,7 +46,7 @@ apis:
   - type: Vocabulary
     url: vocabulary/thespacedevs-vocabulary.yml
 - aid: thespacedevs-ll2-api:thespacedevs-ll2-api-api-throttle-api
-  name: TheSpaceDevs LL2 API Api-throttle API
+  name: TheSpaceDevs LL2 API-throttle API
   description: The Api-throttle API from TheSpaceDevs LL2 API — 1 operation(s) for api-throttle.
   humanURL: https://thespacedevs.com/llapi
   baseURL: https://ll.thespacedevs.com
@@ -889,11 +889,11 @@ apis:
     url: vocabulary/thespacedevs-vocabulary.yml
 name: TheSpaceDevs LL2 API
 tags:
-  - Space
-  - Satellites
-  - Launches
-  - Rockets
-  - Astronauts
+- Space
+- Satellites
+- Launches
+- Rockets
+- Astronauts
 kind: contract
 deliveryModel:
   model: unknown
@@ -921,33 +921,33 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/thespacedevs-ll2-api.png
 access: 3rd-Party
 created: '2024-11-07T00:00:00.000Z'
-modified: '2026-05-03'
+modified: '2026-09-16'
 position: Consuming
-description: >-
-  TheSpaceDevs LL2 API is the Launch Library 2, a comprehensive space launch and events database delivering data on
-  rocket launches, space events, astronauts, spacecraft, space stations, and crewed spaceflight missions worldwide.
-  Provides real-time updates on launch schedules, mission timelines, and spacecraft operations.
+description: TheSpaceDevs LL2 API is the Launch Library 2, a comprehensive space launch and events database
+  delivering data on rocket launches, space events, astronauts, spacecraft, space stations, and crewed
+  spaceflight missions worldwide. Provides real-time updates on launch schedules, mission timelines, and
+  spacecraft operations.
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
 specificationVersion: '0.23'
 common:
-  - type: DomainSecurity
-    url: security/thespacedevs-ll2-api-domain-security.yml
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/the-space-devs
-  - name: TheSpaceDevs Website
-    url: https://thespacedevs.com/
-    type: Website
-  - name: API Documentation
-    url: https://ll.thespacedevs.com/docs/
-    type: Documentation
-  - name: GitHub Organization
-    url: https://github.com/TheSpaceDevs
-    type: GitHubOrganization
-  - name: Discord Community
-    url: https://discord.gg/p7ntkNA
-    type: Community
-  - name: Patreon
-    url: https://www.patreon.com/TheSpaceDevs
-    type: Support
+- type: DomainSecurity
+  url: security/thespacedevs-ll2-api-domain-security.yml
+- type: LinkedIn
+  url: https://www.linkedin.com/company/the-space-devs
+- name: TheSpaceDevs Website
+  url: https://thespacedevs.com/
+  type: Website
+- name: API Documentation
+  url: https://ll.thespacedevs.com/docs/
+  type: Documentation
+- name: GitHub Organization
+  url: https://github.com/TheSpaceDevs
+  type: GitHubOrganization
+- name: Discord Community
+  url: https://discord.gg/p7ntkNA
+  type: Community
+- name: Patreon
+  url: https://www.patreon.com/TheSpaceDevs
+  type: Support
