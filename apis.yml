@@ -319,6 +319,8 @@ apis:
   humanURL: https://thespacedevs.com/llapi
   baseURL: https://ll.thespacedevs.com
   tags:
+  - Launches
+  tags_raw:
   - Launch
   properties:
   - type: OpenAPI
@@ -429,6 +431,8 @@ apis:
   humanURL: https://thespacedevs.com/llapi
   baseURL: https://ll.thespacedevs.com
   tags:
+  - Location
+  tags_raw:
   - Locations
   properties:
   - type: OpenAPI
@@ -801,6 +805,12 @@ apis:
     url: vocabulary/thespacedevs-vocabulary.yml
 name: TheSpaceDevs LL2 API
 tags:
+- Space
+- Satellite
+- Launches
+- Rockets
+- Astronauts
+tags_raw:
 - Space
 - Satellites
 - Launches
