@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: TheSpaceDevs LL2 Celestial API
   version: v2.3.0
@@ -22,7 +22,7 @@ paths:
         Levels of detail in the response - `list`, `normal`, `detailed`
 
 
-        Example - [/celestial_bodies/?mode=list](./?mode=list)
+        Example - /celestial_bodies/?mode=list
 
 
         #### Search
@@ -30,7 +30,7 @@ paths:
         Fields searched - `name`, `type__name`
 
 
-        Example - [/celestial_bodies/?search=Mars](./?search=Mars)
+        Example - /celestial_bodies/?search=Mars
 
 
         #### Ordering
@@ -38,7 +38,7 @@ paths:
         Fields - `id`, `name`
 
 
-        Example - [/celestial_bodies/?ordering=-name](./?ordering=-name)
+        Example - /celestial_bodies/?ordering=-name
 
 
         #### Number of results
@@ -46,17 +46,17 @@ paths:
         Use `limit` to control the number of objects in the response (max 100)
 
 
-        Example - [/celestial_bodies/?limit=2](./?limit=2)
+        Example - /celestial_bodies/?limit=2
 
 
         #### Format
 
-        Switch to JSON output - [/celestial_bodies/?format=json](./?format=json)
+        Switch to JSON output - /celestial_bodies/?format=json
 
 
         #### Help
 
-        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+        Find all the FAQs and support links on the documentation homepage - ll.thespacedevs.com/docs'
       parameters:
       - name: limit
         required: false
@@ -112,7 +112,7 @@ paths:
         Levels of detail in the response - `list`, `normal`, `detailed`
 
 
-        Example - [/celestial_bodies/?mode=list](./?mode=list)
+        Example - /celestial_bodies/?mode=list
 
 
         #### Search
@@ -120,7 +120,7 @@ paths:
         Fields searched - `name`, `type__name`
 
 
-        Example - [/celestial_bodies/?search=Mars](./?search=Mars)
+        Example - /celestial_bodies/?search=Mars
 
 
         #### Ordering
@@ -128,7 +128,7 @@ paths:
         Fields - `id`, `name`
 
 
-        Example - [/celestial_bodies/?ordering=-name](./?ordering=-name)
+        Example - /celestial_bodies/?ordering=-name
 
 
         #### Number of results
@@ -136,17 +136,17 @@ paths:
         Use `limit` to control the number of objects in the response (max 100)
 
 
-        Example - [/celestial_bodies/?limit=2](./?limit=2)
+        Example - /celestial_bodies/?limit=2
 
 
         #### Format
 
-        Switch to JSON output - [/celestial_bodies/?format=json](./?format=json)
+        Switch to JSON output - /celestial_bodies/?format=json
 
 
         #### Help
 
-        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+        Find all the FAQs and support links on the documentation homepage - ll.thespacedevs.com/docs'
       parameters:
       - in: path
         name: id
@@ -175,17 +175,17 @@ paths:
         Use `limit` to control the number of objects in the response (max 100)
 
 
-        Example - [/config/celestial_body_types/?limit=2](./?limit=2)
+        Example - /config/celestial_body_types/?limit=2
 
 
         #### Format
 
-        Switch to JSON output - [/config/celestial_body_types/?format=json](./?format=json)
+        Switch to JSON output - /config/celestial_body_types/?format=json
 
 
         #### Help
 
-        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+        Find all the FAQs and support links on the documentation homepage - ll.thespacedevs.com/docs'
       parameters:
       - name: limit
         required: false
@@ -232,17 +232,17 @@ paths:
         Use `limit` to control the number of objects in the response (max 100)
 
 
-        Example - [/config/celestial_body_types/?limit=2](./?limit=2)
+        Example - /config/celestial_body_types/?limit=2
 
 
         #### Format
 
-        Switch to JSON output - [/config/celestial_body_types/?format=json](./?format=json)
+        Switch to JSON output - /config/celestial_body_types/?format=json
 
 
         #### Help
 
-        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+        Find all the FAQs and support links on the documentation homepage - ll.thespacedevs.com/docs'
       parameters:
       - in: path
         name: id
@@ -266,17 +266,18 @@ paths:
           description: ''
 components:
   schemas:
-    PolymorphicCelestialBodyEndpoint:
-      oneOf:
-      - $ref: '#/components/schemas/CelestialBodyMini'
-      - $ref: '#/components/schemas/CelestialBodyNormal'
-      - $ref: '#/components/schemas/CelestialBodyEndpointDetailed'
-      discriminator:
-        propertyName: response_mode
-        mapping:
-          list: '#/components/schemas/CelestialBodyMini'
-          normal: '#/components/schemas/CelestialBodyNormal'
-          detailed: '#/components/schemas/CelestialBodyEndpointDetailed'
+    CelestialBodyType:
+      type: object
+      properties:
+        id:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
     CelestialBodyNormal:
       type: object
       properties:
@@ -293,34 +294,40 @@ components:
         type:
           $ref: '#/components/schemas/CelestialBodyType'
         diameter:
-          type: number
+          type:
+          - number
+          - 'null'
           format: double
-          nullable: true
           description: m
         mass:
-          type: number
+          type:
+          - number
+          - 'null'
           format: double
-          nullable: true
           description: kg
         gravity:
-          type: number
+          type:
+          - number
+          - 'null'
           format: double
-          nullable: true
           description: m/s^2
         length_of_day:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         atmosphere:
           type: boolean
         image:
           $ref: '#/components/schemas/Image'
         description:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         wiki_url:
-          type: string
+          type:
+          - string
+          - 'null'
           format: uri
-          nullable: true
           maxLength: 200
       required:
       - id
@@ -328,6 +335,62 @@ components:
       - name
       - response_mode
       - type
+    ImageLicense:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        priority:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        link:
+          type:
+          - string
+          - 'null'
+          format: uri
+          maxLength: 200
+      required:
+      - id
+    Image:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        image_url:
+          type: string
+          format: uri
+        thumbnail_url:
+          type: string
+          format: uri
+        credit:
+          type:
+          - string
+          - 'null'
+          maxLength: 255
+        license:
+          $ref: '#/components/schemas/ImageLicense'
+        single_use:
+          type: boolean
+        variants:
+          type: array
+          items:
+            $ref: '#/components/schemas/ImageVariant'
+      required:
+      - id
+      - image_url
+      - license
+      - name
+      - thumbnail_url
+      - variants
     ImageVariantType:
       type: object
       properties:
@@ -339,6 +402,56 @@ components:
           maxLength: 255
       required:
       - id
+    PaginatedCelestialBodyTypeList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+          example: http://api.example.org/accounts/?offset=400&limit=100
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+          example: http://api.example.org/accounts/?offset=200&limit=100
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/CelestialBodyType'
+    PaginatedPolymorphicCelestialBodyEndpointList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+          example: http://api.example.org/accounts/?offset=400&limit=100
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+          example: http://api.example.org/accounts/?offset=200&limit=100
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/PolymorphicCelestialBodyEndpoint'
     Country:
       type: object
       properties:
@@ -366,55 +479,23 @@ components:
           maxLength: 255
       required:
       - id
-    ImageVariant:
+    CelestialBodyMini:
       type: object
       properties:
-        id:
-          type: integer
-          readOnly: true
-        type:
-          $ref: '#/components/schemas/ImageVariantType'
-        image_url:
+        response_mode:
           type: string
-          format: uri
-      required:
-      - id
-      - image_url
-      - type
-    Image:
-      type: object
-      properties:
+          readOnly: true
+          default: list
         id:
           type: integer
           readOnly: true
         name:
           type: string
           maxLength: 255
-        image_url:
-          type: string
-          format: uri
-        thumbnail_url:
-          type: string
-          format: uri
-        credit:
-          type: string
-          nullable: true
-          maxLength: 255
-        license:
-          $ref: '#/components/schemas/ImageLicense'
-        single_use:
-          type: boolean
-        variants:
-          type: array
-          items:
-            $ref: '#/components/schemas/ImageVariant'
       required:
       - id
-      - image_url
-      - license
       - name
-      - thumbnail_url
-      - variants
+      - response_mode
     CelestialBodyEndpointDetailed:
       type: object
       properties:
@@ -431,34 +512,40 @@ components:
         type:
           $ref: '#/components/schemas/CelestialBodyType'
         diameter:
-          type: number
+          type:
+          - number
+          - 'null'
           format: double
-          nullable: true
           description: m
         mass:
-          type: number
+          type:
+          - number
+          - 'null'
           format: double
-          nullable: true
           description: kg
         gravity:
-          type: number
+          type:
+          - number
+          - 'null'
           format: double
-          nullable: true
           description: m/s^2
         length_of_day:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         atmosphere:
           type: boolean
         image:
           $ref: '#/components/schemas/Image'
         description:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         wiki_url:
-          type: string
+          type:
+          - string
+          - 'null'
           format: uri
-          nullable: true
           maxLength: 200
         total_attempted_launches:
           type: integer
@@ -495,52 +582,32 @@ components:
       - name
       - response_mode
       - type
-    PaginatedCelestialBodyTypeList:
+    ImageVariant:
       type: object
-      required:
-      - count
-      - results
       properties:
-        count:
+        id:
           type: integer
-          example: 123
-        next:
+          readOnly: true
+        type:
+          $ref: '#/components/schemas/ImageVariantType'
+        image_url:
           type: string
-          nullable: true
           format: uri
-          example: http://api.example.org/accounts/?offset=400&limit=100
-        previous:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?offset=200&limit=100
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/CelestialBodyType'
-    PaginatedPolymorphicCelestialBodyEndpointList:
-      type: object
       required:
-      - count
-      - results
-      properties:
-        count:
-          type: integer
-          example: 123
-        next:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?offset=400&limit=100
-        previous:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?offset=200&limit=100
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/PolymorphicCelestialBodyEndpoint'
+      - id
+      - image_url
+      - type
+    PolymorphicCelestialBodyEndpoint:
+      oneOf:
+      - $ref: '#/components/schemas/CelestialBodyMini'
+      - $ref: '#/components/schemas/CelestialBodyNormal'
+      - $ref: '#/components/schemas/CelestialBodyEndpointDetailed'
+      discriminator:
+        propertyName: response_mode
+        mapping:
+          list: '#/components/schemas/CelestialBodyMini'
+          normal: '#/components/schemas/CelestialBodyNormal'
+          detailed: '#/components/schemas/CelestialBodyEndpointDetailed'
     LocationSerializerNoCelestialBody:
       type: object
       properties:
@@ -563,95 +630,50 @@ components:
         country:
           allOf:
           - $ref: '#/components/schemas/Country'
-          nullable: true
         description:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           maxLength: 2048
         image:
           allOf:
           - $ref: '#/components/schemas/Image'
-          nullable: true
         map_image:
-          type: string
+          type:
+          - string
+          - 'null'
           format: uri
-          nullable: true
         longitude:
-          type: number
+          type:
+          - number
+          - 'null'
           format: double
-          nullable: true
         latitude:
-          type: number
+          type:
+          - number
+          - 'null'
           format: double
-          nullable: true
         timezone_name:
           type: string
           maxLength: 255
         total_launch_count:
-          type: integer
+          type:
+          - integer
+          - 'null'
           maximum: 2147483647
           minimum: -2147483648
-          nullable: true
         total_landing_count:
-          type: integer
+          type:
+          - integer
+          - 'null'
           maximum: 2147483647
           minimum: -2147483648
-          nullable: true
       required:
       - country
       - id
       - image
       - response_mode
       - url
-    CelestialBodyType:
-      type: object
-      properties:
-        id:
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        name:
-          type: string
-          maxLength: 255
-      required:
-      - id
-    ImageLicense:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        name:
-          type: string
-          maxLength: 255
-        priority:
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        link:
-          type: string
-          format: uri
-          nullable: true
-          maxLength: 200
-      required:
-      - id
-    CelestialBodyMini:
-      type: object
-      properties:
-        response_mode:
-          type: string
-          readOnly: true
-          default: list
-        id:
-          type: integer
-          readOnly: true
-        name:
-          type: string
-          maxLength: 255
-      required:
-      - id
-      - name
-      - response_mode
   securitySchemes:
     Token_Authentication:
       type: apiKey

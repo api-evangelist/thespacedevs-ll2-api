@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: TheSpaceDevs LL2 Precisions API
   version: v2.3.0
@@ -22,17 +22,17 @@ paths:
         Use `limit` to control the number of objects in the response (max 100)
 
 
-        Example - [/config/net_precisions/?limit=2](./?limit=2)
+        Example - /config/net_precisions/?limit=2
 
 
         #### Format
 
-        Switch to JSON output - [/config/net_precisions/?format=json](./?format=json)
+        Switch to JSON output - /config/net_precisions/?format=json
 
 
         #### Help
 
-        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+        Find all the FAQs and support links on the documentation homepage - ll.thespacedevs.com/docs'
       parameters:
       - name: limit
         required: false
@@ -79,17 +79,17 @@ paths:
         Use `limit` to control the number of objects in the response (max 100)
 
 
-        Example - [/config/net_precisions/?limit=2](./?limit=2)
+        Example - /config/net_precisions/?limit=2
 
 
         #### Format
 
-        Switch to JSON output - [/config/net_precisions/?format=json](./?format=json)
+        Switch to JSON output - /config/net_precisions/?format=json
 
 
         #### Help
 
-        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+        Find all the FAQs and support links on the documentation homepage - ll.thespacedevs.com/docs'
       parameters:
       - in: path
         name: id
@@ -113,29 +113,6 @@ paths:
           description: ''
 components:
   schemas:
-    PaginatedNetPrecisionList:
-      type: object
-      required:
-      - count
-      - results
-      properties:
-        count:
-          type: integer
-          example: 123
-        next:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?offset=400&limit=100
-        previous:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?offset=200&limit=100
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/NetPrecision'
     NetPrecision:
       type: object
       properties:
@@ -154,6 +131,31 @@ components:
           maxLength: 2048
       required:
       - id
+    PaginatedNetPrecisionList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+          example: http://api.example.org/accounts/?offset=400&limit=100
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+          example: http://api.example.org/accounts/?offset=200&limit=100
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/NetPrecision'
   securitySchemes:
     Token_Authentication:
       type: apiKey

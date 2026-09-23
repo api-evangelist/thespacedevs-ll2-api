@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: TheSpaceDevs LL2 Updates API
   version: v2.3.0
@@ -22,7 +22,7 @@ paths:
         Parameters - `created_on`, `launch`, `launch__launch_service_provider`, `program`
 
 
-        Example - [/updates/?launch__launch_service_provider=121](./?launch__launch_service_provider=121)
+        Example - /updates/?launch__launch_service_provider=121
 
 
         #### Ordering
@@ -30,7 +30,7 @@ paths:
         Fields - `created_on`
 
 
-        Example - [/updates/?ordering=-created_on](./?ordering=-created_on)
+        Example - /updates/?ordering=-created_on
 
 
         #### Number of results
@@ -38,17 +38,17 @@ paths:
         Use `limit` to control the number of objects in the response (max 100)
 
 
-        Example - [/updates/?limit=2](./?limit=2)
+        Example - /updates/?limit=2
 
 
         #### Format
 
-        Switch to JSON output - [/updates/?format=json](./?format=json)
+        Switch to JSON output - /updates/?format=json
 
 
         #### Help
 
-        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+        Find all the FAQs and support links on the documentation homepage - ll.thespacedevs.com/docs'
       parameters:
       - in: query
         name: created_on
@@ -113,7 +113,7 @@ paths:
         Parameters - `created_on`, `launch`, `launch__launch_service_provider`, `program`
 
 
-        Example - [/updates/?launch__launch_service_provider=121](./?launch__launch_service_provider=121)
+        Example - /updates/?launch__launch_service_provider=121
 
 
         #### Ordering
@@ -121,7 +121,7 @@ paths:
         Fields - `created_on`
 
 
-        Example - [/updates/?ordering=-created_on](./?ordering=-created_on)
+        Example - /updates/?ordering=-created_on
 
 
         #### Number of results
@@ -129,17 +129,17 @@ paths:
         Use `limit` to control the number of objects in the response (max 100)
 
 
-        Example - [/updates/?limit=2](./?limit=2)
+        Example - /updates/?limit=2
 
 
         #### Format
 
-        Switch to JSON output - [/updates/?format=json](./?format=json)
+        Switch to JSON output - /updates/?format=json
 
 
         #### Help
 
-        Find all the FAQs and support links on the documentation homepage - [ll.thespacedevs.com/docs](https://ll.thespacedevs.com/docs/)'
+        Find all the FAQs and support links on the documentation homepage - ll.thespacedevs.com/docs'
       parameters:
       - in: path
         name: id
@@ -161,6 +161,39 @@ paths:
           description: ''
 components:
   schemas:
+    Update:
+      type: object
+      properties:
+        id:
+          type: integer
+        profile_image:
+          type:
+          - string
+          - 'null'
+          readOnly: true
+        comment:
+          type:
+          - string
+          - 'null'
+          maxLength: 40000
+        info_url:
+          type:
+          - string
+          - 'null'
+          format: uri
+          maxLength: 200
+        created_by:
+          type:
+          - string
+          - 'null'
+          readOnly: true
+        created_on:
+          type: string
+          format: date-time
+      required:
+      - created_by
+      - id
+      - profile_image
     PaginatedUpdateList:
       type: object
       required:
@@ -171,48 +204,21 @@ components:
           type: integer
           example: 123
         next:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           format: uri
           example: http://api.example.org/accounts/?offset=400&limit=100
         previous:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           format: uri
           example: http://api.example.org/accounts/?offset=200&limit=100
         results:
           type: array
           items:
             $ref: '#/components/schemas/Update'
-    Update:
-      type: object
-      properties:
-        id:
-          type: integer
-        profile_image:
-          type: string
-          readOnly: true
-          nullable: true
-        comment:
-          type: string
-          nullable: true
-          maxLength: 40000
-        info_url:
-          type: string
-          format: uri
-          nullable: true
-          maxLength: 200
-        created_by:
-          type: string
-          readOnly: true
-          nullable: true
-        created_on:
-          type: string
-          format: date-time
-      required:
-      - created_by
-      - id
-      - profile_image
   securitySchemes:
     Token_Authentication:
       type: apiKey

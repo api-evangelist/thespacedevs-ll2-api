@@ -1,15 +1,13 @@
 {
   "provider": "thespacedevs-ll2-api",
   "sources": [
-    "thespacedevs-ll2-api-openapi.yml"
+    "_original/thespacedevs-ll2-api-openapi.yml"
   ],
   "outputs": [
     "thespacedevs-ll2-api-agencies-api-openapi.yml",
     "thespacedevs-ll2-api-agency-api-openapi.yml",
-    "thespacedevs-ll2-api-api-throttle-api-openapi.yml",
     "thespacedevs-ll2-api-astronaut-api-openapi.yml",
     "thespacedevs-ll2-api-astronauts-api-openapi.yml",
-    "thespacedevs-ll2-api-bodies-api-openapi.yml",
     "thespacedevs-ll2-api-celestial-api-openapi.yml",
     "thespacedevs-ll2-api-closure-api-openapi.yml",
     "thespacedevs-ll2-api-configurations-api-openapi.yml",
@@ -17,7 +15,6 @@
     "thespacedevs-ll2-api-docking-api-openapi.yml",
     "thespacedevs-ll2-api-events-api-openapi.yml",
     "thespacedevs-ll2-api-expeditions-api-openapi.yml",
-    "thespacedevs-ll2-api-families-api-openapi.yml",
     "thespacedevs-ll2-api-flights-api-openapi.yml",
     "thespacedevs-ll2-api-landings-api-openapi.yml",
     "thespacedevs-ll2-api-languages-api-openapi.yml",
@@ -31,7 +28,6 @@
     "thespacedevs-ll2-api-patches-api-openapi.yml",
     "thespacedevs-ll2-api-payloads-api-openapi.yml",
     "thespacedevs-ll2-api-precisions-api-openapi.yml",
-    "thespacedevs-ll2-api-previous-api-openapi.yml",
     "thespacedevs-ll2-api-programs-api-openapi.yml",
     "thespacedevs-ll2-api-spacecraft-api-openapi.yml",
     "thespacedevs-ll2-api-spacewalks-api-openapi.yml",
@@ -45,16 +41,16 @@
     "thespacedevs-ll2-api-updates-api-openapi.yml",
     "thespacedevs-ll2-api-variants-api-openapi.yml"
   ],
-  "archived": [
-    "archived openapi/thespacedevs-ll2-api-openapi.yml"
-  ],
+  "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
-    "thespacedevs-ll2-api-openapi.yml: tagged GET /2.3.0/locations/ -> Locations",
-    "thespacedevs-ll2-api-openapi.yml: tagged GET /2.3.0/locations/{id}/ -> Locations",
-    "thespacedevs-ll2-api-openapi.yml: tagged GET /2.3.0/updates/ -> Updates",
-    "thespacedevs-ll2-api-openapi.yml: tagged GET /2.3.0/updates/{id}/ -> Updates",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "thespacedevs-ll2-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "thespacedevs-ll2-api-openapi.yml: tagged paths GET /2.3.0/locations/ -> Locations",
+    "thespacedevs-ll2-api-openapi.yml: tagged paths GET /2.3.0/locations/{id}/ -> Locations",
+    "thespacedevs-ll2-api-openapi.yml: tagged paths GET /2.3.0/updates/ -> Updates",
+    "thespacedevs-ll2-api-openapi.yml: tagged paths GET /2.3.0/updates/{id}/ -> Updates",
     "thespacedevs-ll2-api-openapi.yml: declared missing tag: Agencies",
     "thespacedevs-ll2-api-openapi.yml: declared missing tag: Agency",
     "thespacedevs-ll2-api-openapi.yml: declared missing tag: Api-throttle",
@@ -94,7 +90,46 @@
     "thespacedevs-ll2-api-openapi.yml: declared missing tag: Timeline",
     "thespacedevs-ll2-api-openapi.yml: declared missing tag: Types",
     "thespacedevs-ll2-api-openapi.yml: declared missing tag: Updates",
-    "thespacedevs-ll2-api-openapi.yml: declared missing tag: Variants"
+    "thespacedevs-ll2-api-openapi.yml: declared missing tag: Variants",
+    "thespacedevs-ll2-api-openapi.yml: multi-axis tagging (40 tags, 36 first tags, 1.78x duplication over 116 operations) \u2014 split on first tag, 75 operations narrowed",
+    "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "thespacedevs-ll2-api-agencies-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "thespacedevs-ll2-api-agency-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "thespacedevs-ll2-api-astronaut-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "thespacedevs-ll2-api-astronauts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "thespacedevs-ll2-api-celestial-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "thespacedevs-ll2-api-closure-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "thespacedevs-ll2-api-configurations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "thespacedevs-ll2-api-countries-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "thespacedevs-ll2-api-docking-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "thespacedevs-ll2-api-events-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "thespacedevs-ll2-api-expeditions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "thespacedevs-ll2-api-flights-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "thespacedevs-ll2-api-landings-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "thespacedevs-ll2-api-languages-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "thespacedevs-ll2-api-launch-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "thespacedevs-ll2-api-launcher-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "thespacedevs-ll2-api-launchers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "thespacedevs-ll2-api-launches-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "thespacedevs-ll2-api-licenses-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "thespacedevs-ll2-api-locations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "thespacedevs-ll2-api-pads-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "thespacedevs-ll2-api-patches-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "thespacedevs-ll2-api-payloads-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "thespacedevs-ll2-api-precisions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "thespacedevs-ll2-api-programs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "thespacedevs-ll2-api-spacecraft-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "thespacedevs-ll2-api-spacewalks-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "thespacedevs-ll2-api-stages-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "thespacedevs-ll2-api-starship-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "thespacedevs-ll2-api-station-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "thespacedevs-ll2-api-stations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "thespacedevs-ll2-api-throttle-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "thespacedevs-ll2-api-timeline-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "thespacedevs-ll2-api-types-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "thespacedevs-ll2-api-updates-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "thespacedevs-ll2-api-variants-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
