@@ -212,28 +212,7 @@ paths:
           description: ''
 components:
   schemas:
-    ImageLicense:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        name:
-          type: string
-          maxLength: 255
-        priority:
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        link:
-          type:
-          - string
-          - 'null'
-          format: uri
-          maxLength: 200
-      required:
-      - id
-    ProgramMini:
+    PayloadMini:
       type: object
       properties:
         response_mode:
@@ -243,112 +222,57 @@ components:
         id:
           type: integer
           readOnly: true
-        url:
-          type: string
-          format: uri
-          readOnly: true
         name:
           type: string
-          maxLength: 255
+          maxLength: 1048
+        type:
+          $ref: '#/components/schemas/PayloadType'
+        manufacturer:
+          $ref: '#/components/schemas/AgencyMini'
+        operator:
+          $ref: '#/components/schemas/AgencyMini'
         image:
           allOf:
           - $ref: '#/components/schemas/Image'
-        info_url:
-          type:
-          - string
-          - 'null'
-          format: uri
-          maxLength: 200
-        wiki_url:
-          type:
-          - string
-          - 'null'
-          format: uri
-          maxLength: 200
       required:
       - id
       - image
-      - name
-      - response_mode
-      - url
-    PolymorphicPayloadEndpoint:
-      oneOf:
-      - $ref: '#/components/schemas/PayloadMini'
-      - $ref: '#/components/schemas/PayloadNormal'
-      - $ref: '#/components/schemas/PayloadDetailed'
-      discriminator:
-        propertyName: response_mode
-        mapping:
-          list: '#/components/schemas/PayloadMini'
-          normal: '#/components/schemas/PayloadNormal'
-          detailed: '#/components/schemas/PayloadDetailed'
-    AgencyMini:
-      type: object
-      properties:
-        response_mode:
-          type: string
-          readOnly: true
-          default: list
-        id:
-          type: integer
-          readOnly: true
-        url:
-          type: string
-          format: uri
-          readOnly: true
-        name:
-          type: string
-          maxLength: 200
-        abbrev:
-          type: string
-          maxLength: 255
-        type:
-          $ref: '#/components/schemas/AgencyType'
-      required:
-      - id
-      - name
+      - manufacturer
+      - operator
       - response_mode
       - type
-      - url
-    Country:
+    ImageVariant:
       type: object
       properties:
         id:
           type: integer
           readOnly: true
-        name:
+        type:
+          $ref: '#/components/schemas/ImageVariantType'
+        image_url:
           type: string
-          maxLength: 255
-        alpha_2_code:
-          type: string
-          description: ISO 3166-1 alpha-2
-          maxLength: 2
-        alpha_3_code:
-          type: string
-          description: ISO 3166-1 alpha-3
-          maxLength: 3
-        nationality_name:
-          type: string
-          description: e.g. French
-          maxLength: 255
-        nationality_name_composed:
-          type: string
-          description: e.g. Franco
-          maxLength: 255
+          format: uri
       required:
       - id
-    ProgramType:
+      - image_url
+      - type
+    SocialMediaLink:
       type: object
       properties:
         id:
           type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        name:
-          type: string
-          maxLength: 255
+          readOnly: true
+        social_media:
+          $ref: '#/components/schemas/SocialMedia'
+        url:
+          type:
+          - string
+          - 'null'
+          format: uri
       required:
       - id
+      - social_media
+      - url
     PayloadDetailed:
       type: object
       properties:
@@ -407,31 +331,214 @@ components:
       - program
       - response_mode
       - type
-    PaginatedPolymorphicPayloadEndpointList:
+    PayloadType:
       type: object
-      required:
-      - count
-      - results
       properties:
-        count:
+        id:
           type: integer
-          example: 123
-        next:
+          maximum: 2147483647
+          minimum: -2147483648
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+    AgencyMini:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: list
+        id:
+          type: integer
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          type: string
+          maxLength: 200
+        abbrev:
+          type: string
+          maxLength: 255
+        type:
+          $ref: '#/components/schemas/AgencyType'
+      required:
+      - id
+      - name
+      - response_mode
+      - type
+      - url
+    ImageVariantType:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+    Image:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        image_url:
+          type: string
+          format: uri
+        thumbnail_url:
+          type: string
+          format: uri
+        credit:
           type:
           - string
           - 'null'
-          format: uri
-          example: http://api.example.org/accounts/?offset=400&limit=100
-        previous:
-          type:
-          - string
-          - 'null'
-          format: uri
-          example: http://api.example.org/accounts/?offset=200&limit=100
-        results:
+          maxLength: 255
+        license:
+          $ref: '#/components/schemas/ImageLicense'
+        single_use:
+          type: boolean
+        variants:
           type: array
           items:
-            $ref: '#/components/schemas/PolymorphicPayloadEndpoint'
+            $ref: '#/components/schemas/ImageVariant'
+      required:
+      - id
+      - image_url
+      - license
+      - name
+      - thumbnail_url
+      - variants
+    ProgramType:
+      type: object
+      properties:
+        id:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+    PolymorphicPayloadEndpoint:
+      oneOf:
+      - $ref: '#/components/schemas/PayloadMini'
+      - $ref: '#/components/schemas/PayloadNormal'
+      - $ref: '#/components/schemas/PayloadDetailed'
+      discriminator:
+        propertyName: response_mode
+        mapping:
+          list: '#/components/schemas/PayloadMini'
+          normal: '#/components/schemas/PayloadNormal'
+          detailed: '#/components/schemas/PayloadDetailed'
+    MissionPatch:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 200
+        priority:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        image_url:
+          type: string
+          format: uri
+        agency:
+          allOf:
+          - $ref: '#/components/schemas/AgencyMini'
+        response_mode:
+          type: string
+          readOnly: true
+          default: normal
+      required:
+      - agency
+      - id
+      - image_url
+      - name
+      - response_mode
+    AgencyType:
+      type: object
+      properties:
+        id:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+    PayloadNormal:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: normal
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 1048
+        type:
+          $ref: '#/components/schemas/PayloadType'
+        manufacturer:
+          $ref: '#/components/schemas/AgencyNormal'
+        operator:
+          $ref: '#/components/schemas/AgencyNormal'
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+        wiki_link:
+          type: string
+          format: uri
+          maxLength: 200
+        info_link:
+          type: string
+          format: uri
+          maxLength: 200
+        program:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProgramMini'
+        cost:
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+          title: Cost (USD)
+        mass:
+          type:
+          - number
+          - 'null'
+          format: double
+          title: Mass (kg)
+        description:
+          type: string
+          maxLength: 2048
+      required:
+      - id
+      - image
+      - manufacturer
+      - operator
+      - program
+      - response_mode
+      - type
     AgencyNormal:
       type: object
       properties:
@@ -507,33 +614,6 @@ components:
       - social_logo
       - type
       - url
-    AgencyType:
-      type: object
-      properties:
-        id:
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        name:
-          type: string
-          maxLength: 255
-      required:
-      - id
-    ImageVariant:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        type:
-          $ref: '#/components/schemas/ImageVariantType'
-        image_url:
-          type: string
-          format: uri
-      required:
-      - id
-      - image_url
-      - type
     SocialMedia:
       type: object
       properties:
@@ -555,7 +635,7 @@ components:
       - id
       - logo
       - url
-    PayloadMini:
+    ProgramMini:
       type: object
       properties:
         response_mode:
@@ -565,100 +645,34 @@ components:
         id:
           type: integer
           readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
         name:
           type: string
-          maxLength: 1048
-        type:
-          $ref: '#/components/schemas/PayloadType'
-        manufacturer:
-          $ref: '#/components/schemas/AgencyMini'
-        operator:
-          $ref: '#/components/schemas/AgencyMini'
+          maxLength: 255
         image:
           allOf:
           - $ref: '#/components/schemas/Image'
+        info_url:
+          type:
+          - string
+          - 'null'
+          format: uri
+          maxLength: 200
+        wiki_url:
+          type:
+          - string
+          - 'null'
+          format: uri
+          maxLength: 200
       required:
       - id
       - image
-      - manufacturer
-      - operator
-      - response_mode
-      - type
-    Image:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        name:
-          type: string
-          maxLength: 255
-        image_url:
-          type: string
-          format: uri
-        thumbnail_url:
-          type: string
-          format: uri
-        credit:
-          type:
-          - string
-          - 'null'
-          maxLength: 255
-        license:
-          $ref: '#/components/schemas/ImageLicense'
-        single_use:
-          type: boolean
-        variants:
-          type: array
-          items:
-            $ref: '#/components/schemas/ImageVariant'
-      required:
-      - id
-      - image_url
-      - license
       - name
-      - thumbnail_url
-      - variants
-    ImageVariantType:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        name:
-          type: string
-          maxLength: 255
-      required:
-      - id
-    SocialMediaLink:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        social_media:
-          $ref: '#/components/schemas/SocialMedia'
-        url:
-          type:
-          - string
-          - 'null'
-          format: uri
-      required:
-      - id
-      - social_media
+      - response_mode
       - url
-    PayloadType:
-      type: object
-      properties:
-        id:
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        name:
-          type: string
-          maxLength: 255
-      required:
-      - id
     AgencyDetailed:
       type: object
       properties:
@@ -841,65 +855,7 @@ components:
       - social_media_links
       - type
       - url
-    PayloadNormal:
-      type: object
-      properties:
-        response_mode:
-          type: string
-          readOnly: true
-          default: normal
-        id:
-          type: integer
-          readOnly: true
-        name:
-          type: string
-          maxLength: 1048
-        type:
-          $ref: '#/components/schemas/PayloadType'
-        manufacturer:
-          $ref: '#/components/schemas/AgencyNormal'
-        operator:
-          $ref: '#/components/schemas/AgencyNormal'
-        image:
-          allOf:
-          - $ref: '#/components/schemas/Image'
-        wiki_link:
-          type: string
-          format: uri
-          maxLength: 200
-        info_link:
-          type: string
-          format: uri
-          maxLength: 200
-        program:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProgramMini'
-        cost:
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-          title: Cost (USD)
-        mass:
-          type:
-          - number
-          - 'null'
-          format: double
-          title: Mass (kg)
-        description:
-          type: string
-          maxLength: 2048
-      required:
-      - id
-      - image
-      - manufacturer
-      - operator
-      - program
-      - response_mode
-      - type
-    MissionPatch:
+    Country:
       type: object
       properties:
         id:
@@ -907,27 +863,25 @@ components:
           readOnly: true
         name:
           type: string
-          maxLength: 200
-        priority:
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        image_url:
+          maxLength: 255
+        alpha_2_code:
           type: string
-          format: uri
-        agency:
-          allOf:
-          - $ref: '#/components/schemas/AgencyMini'
-        response_mode:
+          description: ISO 3166-1 alpha-2
+          maxLength: 2
+        alpha_3_code:
           type: string
-          readOnly: true
-          default: normal
+          description: ISO 3166-1 alpha-3
+          maxLength: 3
+        nationality_name:
+          type: string
+          description: e.g. French
+          maxLength: 255
+        nationality_name_composed:
+          type: string
+          description: e.g. Franco
+          maxLength: 255
       required:
-      - agency
       - id
-      - image_url
-      - name
-      - response_mode
     ProgramNormal:
       type: object
       properties:
@@ -994,6 +948,52 @@ components:
       - response_mode
       - type
       - url
+    PaginatedPolymorphicPayloadEndpointList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+          example: http://api.example.org/accounts/?offset=400&limit=100
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+          example: http://api.example.org/accounts/?offset=200&limit=100
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/PolymorphicPayloadEndpoint'
+    ImageLicense:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        priority:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        link:
+          type:
+          - string
+          - 'null'
+          format: uri
+          maxLength: 200
+      required:
+      - id
   securitySchemes:
     Token_Authentication:
       type: apiKey

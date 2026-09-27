@@ -878,7 +878,66 @@ paths:
           description: ''
 components:
   schemas:
-    AstronautNormal:
+    InfoURL:
+      type: object
+      properties:
+        priority:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        source:
+          type:
+          - string
+          - 'null'
+          maxLength: 200
+        title:
+          type:
+          - string
+          - 'null'
+          maxLength: 200
+        description:
+          type:
+          - string
+          - 'null'
+          maxLength: 350
+        feature_image:
+          type:
+          - string
+          - 'null'
+          format: uri
+          maxLength: 200
+        url:
+          type: string
+          format: uri
+        type:
+          allOf:
+          - $ref: '#/components/schemas/InfoURLType'
+        language:
+          allOf:
+          - $ref: '#/components/schemas/Language'
+      required:
+      - language
+      - type
+      - url
+    NetPrecision:
+      type: object
+      properties:
+        id:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        name:
+          type: string
+          maxLength: 255
+        abbrev:
+          type: string
+          maxLength: 255
+        description:
+          type: string
+          maxLength: 2048
+      required:
+      - id
+    EventEndpointNormal:
       type: object
       properties:
         id:
@@ -890,22 +949,97 @@ components:
           readOnly: true
         name:
           type: string
-          maxLength: 255
-        status:
-          $ref: '#/components/schemas/AstronautStatus'
-        agency:
-          allOf:
-          - $ref: '#/components/schemas/AgencyMini'
+          maxLength: 200
+        info_urls:
+          type: array
+          items:
+            $ref: '#/components/schemas/InfoURL'
+        vid_urls:
+          type: array
+          items:
+            $ref: '#/components/schemas/VidURL'
         image:
           allOf:
           - $ref: '#/components/schemas/Image'
+        date:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        slug:
+          type: string
+          pattern: ^[-a-zA-Z0-9_]+$
+        type:
+          $ref: '#/components/schemas/EventType'
+        description:
+          type: string
+          maxLength: 2048
+        webcast_live:
+          type: boolean
+        location:
+          type:
+          - string
+          - 'null'
+          maxLength: 100
+        date_precision:
+          allOf:
+          - $ref: '#/components/schemas/NetPrecision'
+        response_mode:
+          type: string
+          readOnly: true
+          default: normal
+        duration:
+          type:
+          - string
+          - 'null'
+          readOnly: true
+        updates:
+          type: array
+          items:
+            $ref: '#/components/schemas/Update'
+        last_updated:
+          type: string
+          format: date-time
       required:
-      - agency
+      - date_precision
+      - duration
       - id
       - image
+      - info_urls
       - name
-      - status
+      - response_mode
+      - slug
+      - type
+      - updates
       - url
+      - vid_urls
+    ImageVariant:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        type:
+          $ref: '#/components/schemas/ImageVariantType'
+        image_url:
+          type: string
+          format: uri
+      required:
+      - id
+      - image_url
+      - type
+    EventType:
+      type: object
+      properties:
+        id:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
     ExpeditionNormal:
       type: object
       properties:
@@ -950,34 +1084,9 @@ components:
       - spacewalks
       - start
       - url
-    ImageLicense:
+    SpaceStationNormal:
       type: object
       properties:
-        id:
-          type: integer
-          readOnly: true
-        name:
-          type: string
-          maxLength: 255
-        priority:
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        link:
-          type:
-          - string
-          - 'null'
-          format: uri
-          maxLength: 200
-      required:
-      - id
-    SpacewalkList:
-      type: object
-      properties:
-        response_mode:
-          type: string
-          readOnly: true
-          default: list
         id:
           type: integer
           readOnly: true
@@ -988,90 +1097,64 @@ components:
         name:
           type: string
           maxLength: 255
-        start:
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+        status:
+          $ref: '#/components/schemas/SpaceStationStatus'
+        founded:
+          type: string
+          format: date
+        deorbited:
           type:
           - string
           - 'null'
-          format: date-time
-        end:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        duration:
-          type:
-          - string
-          - 'null'
-          readOnly: true
-        location:
-          type:
-          - string
-          - 'null'
-          maxLength: 255
-      required:
-      - duration
-      - id
-      - name
-      - response_mode
-      - url
-    AgencyMini:
-      type: object
-      properties:
-        response_mode:
-          type: string
-          readOnly: true
-          default: list
-        id:
-          type: integer
-          readOnly: true
-        url:
-          type: string
-          format: uri
-          readOnly: true
-        name:
-          type: string
-          maxLength: 200
-        abbrev:
-          type: string
-          maxLength: 255
-        type:
-          $ref: '#/components/schemas/AgencyType'
-      required:
-      - id
-      - name
-      - response_mode
-      - type
-      - url
-    NetPrecision:
-      type: object
-      properties:
-        id:
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        name:
-          type: string
-          maxLength: 255
-        abbrev:
-          type: string
-          maxLength: 255
+          format: date
         description:
           type: string
           maxLength: 2048
+        orbit:
+          type:
+          - string
+          - 'null'
+          readOnly: true
+        type:
+          $ref: '#/components/schemas/SpaceStationType'
       required:
+      - description
+      - founded
       - id
-    ProgramType:
+      - image
+      - name
+      - orbit
+      - status
+      - type
+      - url
+    PaginatedPolymorphicEventsEndpointList:
       type: object
-      properties:
-        id:
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        name:
-          type: string
-          maxLength: 255
       required:
-      - id
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+          example: http://api.example.org/accounts/?offset=400&limit=100
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+          example: http://api.example.org/accounts/?offset=200&limit=100
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/PolymorphicEventsEndpoint'
     VidURL:
       type: object
       properties:
@@ -1130,7 +1213,35 @@ components:
       - language
       - type
       - url
-    VidURLType:
+    AgencyMini:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: list
+        id:
+          type: integer
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          type: string
+          maxLength: 200
+        abbrev:
+          type: string
+          maxLength: 255
+        type:
+          $ref: '#/components/schemas/AgencyType'
+      required:
+      - id
+      - name
+      - response_mode
+      - type
+      - url
+    SpaceStationType:
       type: object
       properties:
         id:
@@ -1142,45 +1253,64 @@ components:
       required:
       - id
       - name
-    EventType:
-      type: object
-      properties:
-        id:
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        name:
-          type: string
-          maxLength: 255
-      required:
-      - id
-    AgencyType:
-      type: object
-      properties:
-        id:
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        name:
-          type: string
-          maxLength: 255
-      required:
-      - id
-    ImageVariant:
+    ImageVariantType:
       type: object
       properties:
         id:
           type: integer
           readOnly: true
-        type:
-          $ref: '#/components/schemas/ImageVariantType'
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+    Image:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
         image_url:
           type: string
           format: uri
+        thumbnail_url:
+          type: string
+          format: uri
+        credit:
+          type:
+          - string
+          - 'null'
+          maxLength: 255
+        license:
+          $ref: '#/components/schemas/ImageLicense'
+        single_use:
+          type: boolean
+        variants:
+          type: array
+          items:
+            $ref: '#/components/schemas/ImageVariant'
       required:
       - id
       - image_url
-      - type
+      - license
+      - name
+      - thumbnail_url
+      - variants
+    ProgramType:
+      type: object
+      properties:
+        id:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
     PolymorphicEventsEndpoint:
       oneOf:
       - $ref: '#/components/schemas/EventEndpointList'
@@ -1192,6 +1322,18 @@ components:
           list: '#/components/schemas/EventEndpointList'
           normal: '#/components/schemas/EventEndpointNormal'
           detailed: '#/components/schemas/EventEndpointDetailed'
+    AstronautStatus:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+      - name
     LaunchBasic:
       type: object
       properties:
@@ -1254,7 +1396,26 @@ components:
       - slug
       - status
       - url
-    Image:
+    LaunchStatus:
+      type: object
+      properties:
+        id:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        name:
+          type: string
+          readOnly: true
+        abbrev:
+          type: string
+          maxLength: 255
+        description:
+          type: string
+          maxLength: 2048
+      required:
+      - id
+      - name
+    MissionPatch:
       type: object
       properties:
         id:
@@ -1262,64 +1423,34 @@ components:
           readOnly: true
         name:
           type: string
-          maxLength: 255
+          maxLength: 200
+        priority:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
         image_url:
           type: string
           format: uri
-        thumbnail_url:
+        agency:
+          allOf:
+          - $ref: '#/components/schemas/AgencyMini'
+        response_mode:
           type: string
-          format: uri
-        credit:
-          type:
-          - string
-          - 'null'
-          maxLength: 255
-        license:
-          $ref: '#/components/schemas/ImageLicense'
-        single_use:
-          type: boolean
-        variants:
-          type: array
-          items:
-            $ref: '#/components/schemas/ImageVariant'
+          readOnly: true
+          default: normal
       required:
+      - agency
       - id
       - image_url
-      - license
       - name
-      - thumbnail_url
-      - variants
-    PaginatedPolymorphicEventsEndpointList:
-      type: object
-      required:
-      - count
-      - results
-      properties:
-        count:
-          type: integer
-          example: 123
-        next:
-          type:
-          - string
-          - 'null'
-          format: uri
-          example: http://api.example.org/accounts/?offset=400&limit=100
-        previous:
-          type:
-          - string
-          - 'null'
-          format: uri
-          example: http://api.example.org/accounts/?offset=200&limit=100
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/PolymorphicEventsEndpoint'
-    ImageVariantType:
+      - response_mode
+    AgencyType:
       type: object
       properties:
         id:
           type: integer
-          readOnly: true
+          maximum: 2147483647
+          minimum: -2147483648
         name:
           type: string
           maxLength: 255
@@ -1435,159 +1566,6 @@ components:
       - updates
       - url
       - vid_urls
-    EventEndpointNormal:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        url:
-          type: string
-          format: uri
-          readOnly: true
-        name:
-          type: string
-          maxLength: 200
-        info_urls:
-          type: array
-          items:
-            $ref: '#/components/schemas/InfoURL'
-        vid_urls:
-          type: array
-          items:
-            $ref: '#/components/schemas/VidURL'
-        image:
-          allOf:
-          - $ref: '#/components/schemas/Image'
-        date:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        slug:
-          type: string
-          pattern: ^[-a-zA-Z0-9_]+$
-        type:
-          $ref: '#/components/schemas/EventType'
-        description:
-          type: string
-          maxLength: 2048
-        webcast_live:
-          type: boolean
-        location:
-          type:
-          - string
-          - 'null'
-          maxLength: 100
-        date_precision:
-          allOf:
-          - $ref: '#/components/schemas/NetPrecision'
-        response_mode:
-          type: string
-          readOnly: true
-          default: normal
-        duration:
-          type:
-          - string
-          - 'null'
-          readOnly: true
-        updates:
-          type: array
-          items:
-            $ref: '#/components/schemas/Update'
-        last_updated:
-          type: string
-          format: date-time
-      required:
-      - date_precision
-      - duration
-      - id
-      - image
-      - info_urls
-      - name
-      - response_mode
-      - slug
-      - type
-      - updates
-      - url
-      - vid_urls
-    SpaceStationNormal:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        url:
-          type: string
-          format: uri
-          readOnly: true
-        name:
-          type: string
-          maxLength: 255
-        image:
-          allOf:
-          - $ref: '#/components/schemas/Image'
-        status:
-          $ref: '#/components/schemas/SpaceStationStatus'
-        founded:
-          type: string
-          format: date
-        deorbited:
-          type:
-          - string
-          - 'null'
-          format: date
-        description:
-          type: string
-          maxLength: 2048
-        orbit:
-          type:
-          - string
-          - 'null'
-          readOnly: true
-        type:
-          $ref: '#/components/schemas/SpaceStationType'
-      required:
-      - description
-      - founded
-      - id
-      - image
-      - name
-      - orbit
-      - status
-      - type
-      - url
-    AstronautStatus:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        name:
-          type: string
-          maxLength: 255
-      required:
-      - id
-      - name
-    LaunchStatus:
-      type: object
-      properties:
-        id:
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        name:
-          type: string
-          readOnly: true
-        abbrev:
-          type: string
-          maxLength: 255
-        description:
-          type: string
-          maxLength: 2048
-      required:
-      - id
-      - name
     EventEndpointList:
       type: object
       properties:
@@ -1656,100 +1634,34 @@ components:
       - type
       - url
       - vid_urls
-    InfoURLType:
+    AstronautNormal:
       type: object
       properties:
         id:
           type: integer
           readOnly: true
-        name:
-          type: string
-          maxLength: 255
-      required:
-      - id
-      - name
-    SpaceStationType:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        name:
-          type: string
-          maxLength: 255
-      required:
-      - id
-      - name
-    InfoURL:
-      type: object
-      properties:
-        priority:
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        source:
-          type:
-          - string
-          - 'null'
-          maxLength: 200
-        title:
-          type:
-          - string
-          - 'null'
-          maxLength: 200
-        description:
-          type:
-          - string
-          - 'null'
-          maxLength: 350
-        feature_image:
-          type:
-          - string
-          - 'null'
-          format: uri
-          maxLength: 200
         url:
           type: string
           format: uri
-        type:
-          allOf:
-          - $ref: '#/components/schemas/InfoURLType'
-        language:
-          allOf:
-          - $ref: '#/components/schemas/Language'
-      required:
-      - language
-      - type
-      - url
-    MissionPatch:
-      type: object
-      properties:
-        id:
-          type: integer
           readOnly: true
         name:
           type: string
-          maxLength: 200
-        priority:
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        image_url:
-          type: string
-          format: uri
+          maxLength: 255
+        status:
+          $ref: '#/components/schemas/AstronautStatus'
         agency:
           allOf:
           - $ref: '#/components/schemas/AgencyMini'
-        response_mode:
-          type: string
-          readOnly: true
-          default: normal
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
       required:
       - agency
       - id
-      - image_url
+      - image
       - name
-      - response_mode
+      - status
+      - url
     Language:
       type: object
       properties:
@@ -1767,6 +1679,82 @@ components:
       - code
       - id
       - name
+    Update:
+      type: object
+      properties:
+        id:
+          type: integer
+        profile_image:
+          type:
+          - string
+          - 'null'
+          readOnly: true
+        comment:
+          type:
+          - string
+          - 'null'
+          maxLength: 40000
+        info_url:
+          type:
+          - string
+          - 'null'
+          format: uri
+          maxLength: 200
+        created_by:
+          type:
+          - string
+          - 'null'
+          readOnly: true
+        created_on:
+          type: string
+          format: date-time
+      required:
+      - created_by
+      - id
+      - profile_image
+    SpacewalkList:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: list
+        id:
+          type: integer
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        start:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        end:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        duration:
+          type:
+          - string
+          - 'null'
+          readOnly: true
+        location:
+          type:
+          - string
+          - 'null'
+          maxLength: 255
+      required:
+      - duration
+      - id
+      - name
+      - response_mode
+      - url
     ProgramNormal:
       type: object
       properties:
@@ -1833,39 +1821,6 @@ components:
       - response_mode
       - type
       - url
-    Update:
-      type: object
-      properties:
-        id:
-          type: integer
-        profile_image:
-          type:
-          - string
-          - 'null'
-          readOnly: true
-        comment:
-          type:
-          - string
-          - 'null'
-          maxLength: 40000
-        info_url:
-          type:
-          - string
-          - 'null'
-          format: uri
-          maxLength: 200
-        created_by:
-          type:
-          - string
-          - 'null'
-          readOnly: true
-        created_on:
-          type: string
-          format: date-time
-      required:
-      - created_by
-      - id
-      - profile_image
     SpaceStationStatus:
       type: object
       properties:
@@ -1878,6 +1833,51 @@ components:
       required:
       - id
       - name
+    InfoURLType:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+      - name
+    VidURLType:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+      - name
+    ImageLicense:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        priority:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        link:
+          type:
+          - string
+          - 'null'
+          format: uri
+          maxLength: 200
+      required:
+      - id
   securitySchemes:
     Token_Authentication:
       type: apiKey

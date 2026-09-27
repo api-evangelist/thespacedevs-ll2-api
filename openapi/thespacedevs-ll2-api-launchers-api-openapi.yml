@@ -299,126 +299,6 @@ paths:
           description: ''
 components:
   schemas:
-    LauncherMini:
-      type: object
-      properties:
-        response_mode:
-          type: string
-          readOnly: true
-          default: list
-        id:
-          type: integer
-          readOnly: true
-        url:
-          type: string
-          format: uri
-          readOnly: true
-        flight_proven:
-          type: boolean
-        serial_number:
-          type:
-          - string
-          - 'null'
-          maxLength: 10
-        is_placeholder:
-          type: boolean
-        status:
-          allOf:
-          - $ref: '#/components/schemas/LauncherStatus'
-        image:
-          allOf:
-          - $ref: '#/components/schemas/Image'
-          readOnly: true
-      required:
-      - id
-      - image
-      - response_mode
-      - status
-      - url
-    ImageLicense:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        name:
-          type: string
-          maxLength: 255
-        priority:
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        link:
-          type:
-          - string
-          - 'null'
-          format: uri
-          maxLength: 200
-      required:
-      - id
-    LauncherConfigFamilyMini:
-      type: object
-      properties:
-        response_mode:
-          type: string
-          readOnly: true
-          default: list
-        id:
-          type: integer
-          readOnly: true
-        name:
-          type: string
-          maxLength: 200
-      required:
-      - id
-      - name
-      - response_mode
-    Image:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        name:
-          type: string
-          maxLength: 255
-        image_url:
-          type: string
-          format: uri
-        thumbnail_url:
-          type: string
-          format: uri
-        credit:
-          type:
-          - string
-          - 'null'
-          maxLength: 255
-        license:
-          $ref: '#/components/schemas/ImageLicense'
-        single_use:
-          type: boolean
-        variants:
-          type: array
-          items:
-            $ref: '#/components/schemas/ImageVariant'
-      required:
-      - id
-      - image_url
-      - license
-      - name
-      - thumbnail_url
-      - variants
-    ImageVariantType:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        name:
-          type: string
-          maxLength: 255
-      required:
-      - id
     LauncherNormal:
       type: object
       properties:
@@ -492,6 +372,74 @@ components:
       - response_mode
       - status
       - url
+    ImageVariantType:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+    ImageVariant:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        type:
+          $ref: '#/components/schemas/ImageVariantType'
+        image_url:
+          type: string
+          format: uri
+      required:
+      - id
+      - image_url
+      - type
+    PaginatedPolymorphicLauncherEndpointList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+          example: http://api.example.org/accounts/?offset=400&limit=100
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+          example: http://api.example.org/accounts/?offset=200&limit=100
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/PolymorphicLauncherEndpoint'
+    LauncherConfigFamilyMini:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: list
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 200
+      required:
+      - id
+      - name
+      - response_mode
     PolymorphicLauncherEndpoint:
       oneOf:
       - $ref: '#/components/schemas/LauncherMini'
@@ -580,47 +528,7 @@ components:
       - response_mode
       - status
       - url
-    ImageVariant:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        type:
-          $ref: '#/components/schemas/ImageVariantType'
-        image_url:
-          type: string
-          format: uri
-      required:
-      - id
-      - image_url
-      - type
-    PaginatedPolymorphicLauncherEndpointList:
-      type: object
-      required:
-      - count
-      - results
-      properties:
-        count:
-          type: integer
-          example: 123
-        next:
-          type:
-          - string
-          - 'null'
-          format: uri
-          example: http://api.example.org/accounts/?offset=400&limit=100
-        previous:
-          type:
-          - string
-          - 'null'
-          format: uri
-          example: http://api.example.org/accounts/?offset=200&limit=100
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/PolymorphicLauncherEndpoint'
-    LauncherStatus:
+    Image:
       type: object
       properties:
         id:
@@ -628,9 +536,69 @@ components:
           readOnly: true
         name:
           type: string
-          maxLength: 50
+          maxLength: 255
+        image_url:
+          type: string
+          format: uri
+        thumbnail_url:
+          type: string
+          format: uri
+        credit:
+          type:
+          - string
+          - 'null'
+          maxLength: 255
+        license:
+          $ref: '#/components/schemas/ImageLicense'
+        single_use:
+          type: boolean
+        variants:
+          type: array
+          items:
+            $ref: '#/components/schemas/ImageVariant'
       required:
       - id
+      - image_url
+      - license
+      - name
+      - thumbnail_url
+      - variants
+    LauncherMini:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: list
+        id:
+          type: integer
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        flight_proven:
+          type: boolean
+        serial_number:
+          type:
+          - string
+          - 'null'
+          maxLength: 10
+        is_placeholder:
+          type: boolean
+        status:
+          allOf:
+          - $ref: '#/components/schemas/LauncherStatus'
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+          readOnly: true
+      required:
+      - id
+      - image
+      - response_mode
+      - status
+      - url
     LauncherConfigList:
       type: object
       properties:
@@ -666,6 +634,38 @@ components:
       - name
       - response_mode
       - url
+    ImageLicense:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        priority:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        link:
+          type:
+          - string
+          - 'null'
+          format: uri
+          maxLength: 200
+      required:
+      - id
+    LauncherStatus:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 50
+      required:
+      - id
   securitySchemes:
     Token_Authentication:
       type: apiKey

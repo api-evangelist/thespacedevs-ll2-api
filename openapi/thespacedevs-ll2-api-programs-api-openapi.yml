@@ -135,27 +135,68 @@ paths:
           description: ''
 components:
   schemas:
-    ImageLicense:
+    AgencyMini:
       type: object
       properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: list
         id:
           type: integer
           readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
         name:
           type: string
+          maxLength: 200
+        abbrev:
+          type: string
           maxLength: 255
-        priority:
+        type:
+          $ref: '#/components/schemas/AgencyType'
+      required:
+      - id
+      - name
+      - response_mode
+      - type
+      - url
+    PolymorphicProgramEndpoint:
+      oneOf:
+      - $ref: '#/components/schemas/ProgramMini'
+      - $ref: '#/components/schemas/ProgramNormal'
+      discriminator:
+        propertyName: response_mode
+        mapping:
+          list: '#/components/schemas/ProgramMini'
+          normal: '#/components/schemas/ProgramNormal'
+    PaginatedPolymorphicProgramEndpointList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
           type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        link:
+          example: 123
+        next:
           type:
           - string
           - 'null'
           format: uri
-          maxLength: 200
-      required:
-      - id
+          example: http://api.example.org/accounts/?offset=400&limit=100
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+          example: http://api.example.org/accounts/?offset=200&limit=100
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/PolymorphicProgramEndpoint'
     ProgramMini:
       type: object
       properties:
@@ -194,80 +235,6 @@ components:
       - name
       - response_mode
       - url
-    Image:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        name:
-          type: string
-          maxLength: 255
-        image_url:
-          type: string
-          format: uri
-        thumbnail_url:
-          type: string
-          format: uri
-        credit:
-          type:
-          - string
-          - 'null'
-          maxLength: 255
-        license:
-          $ref: '#/components/schemas/ImageLicense'
-        single_use:
-          type: boolean
-        variants:
-          type: array
-          items:
-            $ref: '#/components/schemas/ImageVariant'
-      required:
-      - id
-      - image_url
-      - license
-      - name
-      - thumbnail_url
-      - variants
-    ImageVariantType:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        name:
-          type: string
-          maxLength: 255
-      required:
-      - id
-    AgencyMini:
-      type: object
-      properties:
-        response_mode:
-          type: string
-          readOnly: true
-          default: list
-        id:
-          type: integer
-          readOnly: true
-        url:
-          type: string
-          format: uri
-          readOnly: true
-        name:
-          type: string
-          maxLength: 200
-        abbrev:
-          type: string
-          maxLength: 255
-        type:
-          $ref: '#/components/schemas/AgencyType'
-      required:
-      - id
-      - name
-      - response_mode
-      - type
-      - url
     MissionPatch:
       type: object
       properties:
@@ -297,6 +264,44 @@ components:
       - image_url
       - name
       - response_mode
+    ImageVariantType:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+    ImageVariant:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        type:
+          $ref: '#/components/schemas/ImageVariantType'
+        image_url:
+          type: string
+          format: uri
+      required:
+      - id
+      - image_url
+      - type
+    AgencyType:
+      type: object
+      properties:
+        id:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
     ProgramNormal:
       type: object
       properties:
@@ -363,18 +368,41 @@ components:
       - response_mode
       - type
       - url
-    AgencyType:
+    Image:
       type: object
       properties:
         id:
           type: integer
-          maximum: 2147483647
-          minimum: -2147483648
+          readOnly: true
         name:
           type: string
           maxLength: 255
+        image_url:
+          type: string
+          format: uri
+        thumbnail_url:
+          type: string
+          format: uri
+        credit:
+          type:
+          - string
+          - 'null'
+          maxLength: 255
+        license:
+          $ref: '#/components/schemas/ImageLicense'
+        single_use:
+          type: boolean
+        variants:
+          type: array
+          items:
+            $ref: '#/components/schemas/ImageVariant'
       required:
       - id
+      - image_url
+      - license
+      - name
+      - thumbnail_url
+      - variants
     ProgramType:
       type: object
       properties:
@@ -387,55 +415,27 @@ components:
           maxLength: 255
       required:
       - id
-    ImageVariant:
+    ImageLicense:
       type: object
       properties:
         id:
           type: integer
           readOnly: true
-        type:
-          $ref: '#/components/schemas/ImageVariantType'
-        image_url:
+        name:
           type: string
+          maxLength: 255
+        priority:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        link:
+          type:
+          - string
+          - 'null'
           format: uri
+          maxLength: 200
       required:
       - id
-      - image_url
-      - type
-    PolymorphicProgramEndpoint:
-      oneOf:
-      - $ref: '#/components/schemas/ProgramMini'
-      - $ref: '#/components/schemas/ProgramNormal'
-      discriminator:
-        propertyName: response_mode
-        mapping:
-          list: '#/components/schemas/ProgramMini'
-          normal: '#/components/schemas/ProgramNormal'
-    PaginatedPolymorphicProgramEndpointList:
-      type: object
-      required:
-      - count
-      - results
-      properties:
-        count:
-          type: integer
-          example: 123
-        next:
-          type:
-          - string
-          - 'null'
-          format: uri
-          example: http://api.example.org/accounts/?offset=400&limit=100
-        previous:
-          type:
-          - string
-          - 'null'
-          format: uri
-          example: http://api.example.org/accounts/?offset=200&limit=100
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/PolymorphicProgramEndpoint'
   securitySchemes:
     Token_Authentication:
       type: apiKey

@@ -959,27 +959,6 @@ paths:
           description: ''
 components:
   schemas:
-    ImageLicense:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        name:
-          type: string
-          maxLength: 255
-        priority:
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        link:
-          type:
-          - string
-          - 'null'
-          format: uri
-          maxLength: 200
-      required:
-      - id
     LauncherConfigFamilyMini:
       type: object
       properties:
@@ -997,6 +976,862 @@ components:
       - id
       - name
       - response_mode
+    ImageVariant:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        type:
+          $ref: '#/components/schemas/ImageVariantType'
+        image_url:
+          type: string
+          format: uri
+      required:
+      - id
+      - image_url
+      - type
+    PaginatedPolymorphicLauncherConfigFamilyEndpointList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+          example: http://api.example.org/accounts/?offset=400&limit=100
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+          example: http://api.example.org/accounts/?offset=200&limit=100
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/PolymorphicLauncherConfigFamilyEndpoint'
+    SocialMediaLink:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        social_media:
+          $ref: '#/components/schemas/SocialMedia'
+        url:
+          type:
+          - string
+          - 'null'
+          format: uri
+      required:
+      - id
+      - social_media
+      - url
+    PaginatedPolymorphicLauncherConfigEndpointList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+          example: http://api.example.org/accounts/?offset=400&limit=100
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+          example: http://api.example.org/accounts/?offset=200&limit=100
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/PolymorphicLauncherConfigEndpoint'
+    LauncherConfigNormal:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: normal
+        id:
+          type: integer
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          type: string
+          maxLength: 200
+        families:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/LauncherConfigFamilyNormal'
+        full_name:
+          type: string
+          maxLength: 200
+        variant:
+          type: string
+          maxLength: 200
+        active:
+          type: boolean
+        is_placeholder:
+          type: boolean
+        manufacturer:
+          allOf:
+          - $ref: '#/components/schemas/AgencyNormal'
+        program:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProgramNormal'
+        reusable:
+          type: boolean
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+        info_url:
+          type:
+          - string
+          - 'null'
+          maxLength: 200
+        wiki_url:
+          type:
+          - string
+          - 'null'
+          maxLength: 200
+      required:
+      - families
+      - id
+      - image
+      - manufacturer
+      - name
+      - program
+      - response_mode
+      - url
+    AgencyMini:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: list
+        id:
+          type: integer
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          type: string
+          maxLength: 200
+        abbrev:
+          type: string
+          maxLength: 255
+        type:
+          $ref: '#/components/schemas/AgencyType'
+      required:
+      - id
+      - name
+      - response_mode
+      - type
+      - url
+    ImageVariantType:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+    Image:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        image_url:
+          type: string
+          format: uri
+        thumbnail_url:
+          type: string
+          format: uri
+        credit:
+          type:
+          - string
+          - 'null'
+          maxLength: 255
+        license:
+          $ref: '#/components/schemas/ImageLicense'
+        single_use:
+          type: boolean
+        variants:
+          type: array
+          items:
+            $ref: '#/components/schemas/ImageVariant'
+      required:
+      - id
+      - image_url
+      - license
+      - name
+      - thumbnail_url
+      - variants
+    ProgramType:
+      type: object
+      properties:
+        id:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+    LauncherStatus:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 50
+      required:
+      - id
+    MissionPatch:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 200
+        priority:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        image_url:
+          type: string
+          format: uri
+        agency:
+          allOf:
+          - $ref: '#/components/schemas/AgencyMini'
+        response_mode:
+          type: string
+          readOnly: true
+          default: normal
+      required:
+      - agency
+      - id
+      - image_url
+      - name
+      - response_mode
+    AgencyType:
+      type: object
+      properties:
+        id:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+    LauncherConfigFamilyNormal:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: normal
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 200
+        manufacturer:
+          type: array
+          items:
+            $ref: '#/components/schemas/AgencyNormal'
+        parent:
+          allOf:
+          - $ref: '#/components/schemas/LauncherConfigFamilyMini'
+      required:
+      - id
+      - manufacturer
+      - name
+      - parent
+      - response_mode
+    LauncherConfigList:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: list
+        id:
+          type: integer
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          type: string
+          maxLength: 200
+        families:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/LauncherConfigFamilyMini'
+        full_name:
+          type: string
+          maxLength: 200
+        variant:
+          type: string
+          maxLength: 200
+      required:
+      - families
+      - id
+      - name
+      - response_mode
+      - url
+    AgencyNormal:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: normal
+        id:
+          type: integer
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          type: string
+          maxLength: 200
+        abbrev:
+          type: string
+          maxLength: 255
+        type:
+          $ref: '#/components/schemas/AgencyType'
+        featured:
+          type: boolean
+        country:
+          type: array
+          items:
+            $ref: '#/components/schemas/Country'
+        description:
+          type:
+          - string
+          - 'null'
+          maxLength: 2048
+        administrator:
+          type:
+          - string
+          - 'null'
+          maxLength: 200
+        founding_year:
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        launchers:
+          type: string
+          maxLength: 500
+        spacecraft:
+          type: string
+          maxLength: 500
+        parent:
+          type:
+          - string
+          - 'null'
+          readOnly: true
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+        logo:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+        social_logo:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+      required:
+      - country
+      - id
+      - image
+      - logo
+      - name
+      - parent
+      - response_mode
+      - social_logo
+      - type
+      - url
+    PolymorphicLauncherConfigEndpoint:
+      oneOf:
+      - $ref: '#/components/schemas/LauncherConfigList'
+      - $ref: '#/components/schemas/LauncherConfigNormal'
+      - $ref: '#/components/schemas/LauncherConfigDetailed'
+      discriminator:
+        propertyName: response_mode
+        mapping:
+          list: '#/components/schemas/LauncherConfigList'
+          normal: '#/components/schemas/LauncherConfigNormal'
+          detailed: '#/components/schemas/LauncherConfigDetailed'
+    SocialMedia:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        url:
+          type:
+          - string
+          - 'null'
+          format: uri
+        logo:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+      required:
+      - id
+      - logo
+      - url
+    LauncherConfigFamilyDetailed:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: detailed
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 200
+        manufacturer:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/AgencyDetailed'
+        parent:
+          allOf:
+          - $ref: '#/components/schemas/LauncherConfigFamilyNormal'
+        description:
+          type: string
+          maxLength: 2048
+        active:
+          type: boolean
+        maiden_flight:
+          type:
+          - string
+          - 'null'
+          format: date
+          title: Maiden Flight Date
+        total_launch_count:
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        consecutive_successful_launches:
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        successful_launches:
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        failed_launches:
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        pending_launches:
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        attempted_landings:
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        successful_landings:
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        failed_landings:
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        consecutive_successful_landings:
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+      required:
+      - id
+      - manufacturer
+      - name
+      - parent
+      - response_mode
+    AgencyDetailed:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: normal
+        id:
+          type: integer
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          type: string
+          maxLength: 200
+        abbrev:
+          type: string
+          maxLength: 255
+        type:
+          $ref: '#/components/schemas/AgencyType'
+        featured:
+          type: boolean
+        country:
+          type: array
+          items:
+            $ref: '#/components/schemas/Country'
+        description:
+          type:
+          - string
+          - 'null'
+          maxLength: 2048
+        administrator:
+          type:
+          - string
+          - 'null'
+          maxLength: 200
+        founding_year:
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        launchers:
+          type: string
+          maxLength: 500
+        spacecraft:
+          type: string
+          maxLength: 500
+        parent:
+          type:
+          - string
+          - 'null'
+          readOnly: true
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+        logo:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+        social_logo:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+        total_launch_count:
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        consecutive_successful_launches:
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        successful_launches:
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        failed_launches:
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        pending_launches:
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        consecutive_successful_landings:
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        successful_landings:
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        failed_landings:
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        attempted_landings:
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        successful_landings_spacecraft:
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        failed_landings_spacecraft:
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        attempted_landings_spacecraft:
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        successful_landings_payload:
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        failed_landings_payload:
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        attempted_landings_payload:
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        info_url:
+          type:
+          - string
+          - 'null'
+          format: uri
+          maxLength: 200
+        wiki_url:
+          type:
+          - string
+          - 'null'
+          format: uri
+          maxLength: 200
+        social_media_links:
+          type: array
+          items:
+            $ref: '#/components/schemas/SocialMediaLink'
+      required:
+      - country
+      - id
+      - image
+      - logo
+      - name
+      - parent
+      - response_mode
+      - social_logo
+      - social_media_links
+      - type
+      - url
+    Country:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        alpha_2_code:
+          type: string
+          description: ISO 3166-1 alpha-2
+          maxLength: 2
+        alpha_3_code:
+          type: string
+          description: ISO 3166-1 alpha-3
+          maxLength: 3
+        nationality_name:
+          type: string
+          description: e.g. French
+          maxLength: 255
+        nationality_name_composed:
+          type: string
+          description: e.g. Franco
+          maxLength: 255
+      required:
+      - id
+    ProgramNormal:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: normal
+        id:
+          type: integer
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+        info_url:
+          type:
+          - string
+          - 'null'
+          format: uri
+          maxLength: 200
+        wiki_url:
+          type:
+          - string
+          - 'null'
+          format: uri
+          maxLength: 200
+        description:
+          type:
+          - string
+          - 'null'
+          maxLength: 40000
+        agencies:
+          type: array
+          items:
+            $ref: '#/components/schemas/AgencyMini'
+        start_date:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        end_date:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        mission_patches:
+          type: array
+          items:
+            $ref: '#/components/schemas/MissionPatch'
+        type:
+          $ref: '#/components/schemas/ProgramType'
+      required:
+      - agencies
+      - id
+      - image
+      - mission_patches
+      - name
+      - response_mode
+      - type
+      - url
+    PolymorphicLauncherConfigFamilyEndpoint:
+      oneOf:
+      - $ref: '#/components/schemas/LauncherConfigFamilyMini'
+      - $ref: '#/components/schemas/LauncherConfigFamilyNormal'
+      - $ref: '#/components/schemas/LauncherConfigFamilyDetailed'
+      discriminator:
+        propertyName: response_mode
+        mapping:
+          list: '#/components/schemas/LauncherConfigFamilyMini'
+          normal: '#/components/schemas/LauncherConfigFamilyNormal'
+          detailed: '#/components/schemas/LauncherConfigFamilyDetailed'
+    PaginatedLauncherStatusList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+          example: http://api.example.org/accounts/?offset=400&limit=100
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+          example: http://api.example.org/accounts/?offset=200&limit=100
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/LauncherStatus'
     LauncherConfigDetailed:
       type: object
       properties:
@@ -1206,35 +2041,7 @@ components:
       - program
       - response_mode
       - url
-    AgencyMini:
-      type: object
-      properties:
-        response_mode:
-          type: string
-          readOnly: true
-          default: list
-        id:
-          type: integer
-          readOnly: true
-        url:
-          type: string
-          format: uri
-          readOnly: true
-        name:
-          type: string
-          maxLength: 200
-        abbrev:
-          type: string
-          maxLength: 255
-        type:
-          $ref: '#/components/schemas/AgencyType'
-      required:
-      - id
-      - name
-      - response_mode
-      - type
-      - url
-    Country:
+    ImageLicense:
       type: object
       properties:
         id:
@@ -1243,825 +2050,18 @@ components:
         name:
           type: string
           maxLength: 255
-        alpha_2_code:
-          type: string
-          description: ISO 3166-1 alpha-2
-          maxLength: 2
-        alpha_3_code:
-          type: string
-          description: ISO 3166-1 alpha-3
-          maxLength: 3
-        nationality_name:
-          type: string
-          description: e.g. French
-          maxLength: 255
-        nationality_name_composed:
-          type: string
-          description: e.g. Franco
-          maxLength: 255
-      required:
-      - id
-    LauncherConfigFamilyNormal:
-      type: object
-      properties:
-        response_mode:
-          type: string
-          readOnly: true
-          default: normal
-        id:
-          type: integer
-          readOnly: true
-        name:
-          type: string
-          maxLength: 200
-        manufacturer:
-          type: array
-          items:
-            $ref: '#/components/schemas/AgencyNormal'
-        parent:
-          allOf:
-          - $ref: '#/components/schemas/LauncherConfigFamilyMini'
-      required:
-      - id
-      - manufacturer
-      - name
-      - parent
-      - response_mode
-    ProgramType:
-      type: object
-      properties:
-        id:
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        name:
-          type: string
-          maxLength: 255
-      required:
-      - id
-    PaginatedPolymorphicLauncherConfigEndpointList:
-      type: object
-      required:
-      - count
-      - results
-      properties:
-        count:
-          type: integer
-          example: 123
-        next:
-          type:
-          - string
-          - 'null'
-          format: uri
-          example: http://api.example.org/accounts/?offset=400&limit=100
-        previous:
-          type:
-          - string
-          - 'null'
-          format: uri
-          example: http://api.example.org/accounts/?offset=200&limit=100
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/PolymorphicLauncherConfigEndpoint'
-    PaginatedPolymorphicLauncherConfigFamilyEndpointList:
-      type: object
-      required:
-      - count
-      - results
-      properties:
-        count:
-          type: integer
-          example: 123
-        next:
-          type:
-          - string
-          - 'null'
-          format: uri
-          example: http://api.example.org/accounts/?offset=400&limit=100
-        previous:
-          type:
-          - string
-          - 'null'
-          format: uri
-          example: http://api.example.org/accounts/?offset=200&limit=100
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/PolymorphicLauncherConfigFamilyEndpoint'
-    AgencyNormal:
-      type: object
-      properties:
-        response_mode:
-          type: string
-          readOnly: true
-          default: normal
-        id:
-          type: integer
-          readOnly: true
-        url:
-          type: string
-          format: uri
-          readOnly: true
-        name:
-          type: string
-          maxLength: 200
-        abbrev:
-          type: string
-          maxLength: 255
-        type:
-          $ref: '#/components/schemas/AgencyType'
-        featured:
-          type: boolean
-        country:
-          type: array
-          items:
-            $ref: '#/components/schemas/Country'
-        description:
-          type:
-          - string
-          - 'null'
-          maxLength: 2048
-        administrator:
-          type:
-          - string
-          - 'null'
-          maxLength: 200
-        founding_year:
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        launchers:
-          type: string
-          maxLength: 500
-        spacecraft:
-          type: string
-          maxLength: 500
-        parent:
-          type:
-          - string
-          - 'null'
-          readOnly: true
-        image:
-          allOf:
-          - $ref: '#/components/schemas/Image'
-        logo:
-          allOf:
-          - $ref: '#/components/schemas/Image'
-        social_logo:
-          allOf:
-          - $ref: '#/components/schemas/Image'
-      required:
-      - country
-      - id
-      - image
-      - logo
-      - name
-      - parent
-      - response_mode
-      - social_logo
-      - type
-      - url
-    PolymorphicLauncherConfigEndpoint:
-      oneOf:
-      - $ref: '#/components/schemas/LauncherConfigList'
-      - $ref: '#/components/schemas/LauncherConfigNormal'
-      - $ref: '#/components/schemas/LauncherConfigDetailed'
-      discriminator:
-        propertyName: response_mode
-        mapping:
-          list: '#/components/schemas/LauncherConfigList'
-          normal: '#/components/schemas/LauncherConfigNormal'
-          detailed: '#/components/schemas/LauncherConfigDetailed'
-    AgencyType:
-      type: object
-      properties:
-        id:
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        name:
-          type: string
-          maxLength: 255
-      required:
-      - id
-    ImageVariant:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        type:
-          $ref: '#/components/schemas/ImageVariantType'
-        image_url:
-          type: string
-          format: uri
-      required:
-      - id
-      - image_url
-      - type
-    SocialMedia:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        name:
-          type: string
-          maxLength: 255
-        url:
-          type:
-          - string
-          - 'null'
-          format: uri
-        logo:
-          allOf:
-          - $ref: '#/components/schemas/Image'
-      required:
-      - id
-      - logo
-      - url
-    LauncherStatus:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        name:
-          type: string
-          maxLength: 50
-      required:
-      - id
-    LauncherConfigList:
-      type: object
-      properties:
-        response_mode:
-          type: string
-          readOnly: true
-          default: list
-        id:
-          type: integer
-          readOnly: true
-        url:
-          type: string
-          format: uri
-          readOnly: true
-        name:
-          type: string
-          maxLength: 200
-        families:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/LauncherConfigFamilyMini'
-        full_name:
-          type: string
-          maxLength: 200
-        variant:
-          type: string
-          maxLength: 200
-      required:
-      - families
-      - id
-      - name
-      - response_mode
-      - url
-    PaginatedLauncherStatusList:
-      type: object
-      required:
-      - count
-      - results
-      properties:
-        count:
-          type: integer
-          example: 123
-        next:
-          type:
-          - string
-          - 'null'
-          format: uri
-          example: http://api.example.org/accounts/?offset=400&limit=100
-        previous:
-          type:
-          - string
-          - 'null'
-          format: uri
-          example: http://api.example.org/accounts/?offset=200&limit=100
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/LauncherStatus'
-    Image:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        name:
-          type: string
-          maxLength: 255
-        image_url:
-          type: string
-          format: uri
-        thumbnail_url:
-          type: string
-          format: uri
-        credit:
-          type:
-          - string
-          - 'null'
-          maxLength: 255
-        license:
-          $ref: '#/components/schemas/ImageLicense'
-        single_use:
-          type: boolean
-        variants:
-          type: array
-          items:
-            $ref: '#/components/schemas/ImageVariant'
-      required:
-      - id
-      - image_url
-      - license
-      - name
-      - thumbnail_url
-      - variants
-    LauncherConfigNormal:
-      type: object
-      properties:
-        response_mode:
-          type: string
-          readOnly: true
-          default: normal
-        id:
-          type: integer
-          readOnly: true
-        url:
-          type: string
-          format: uri
-          readOnly: true
-        name:
-          type: string
-          maxLength: 200
-        families:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/LauncherConfigFamilyNormal'
-        full_name:
-          type: string
-          maxLength: 200
-        variant:
-          type: string
-          maxLength: 200
-        active:
-          type: boolean
-        is_placeholder:
-          type: boolean
-        manufacturer:
-          allOf:
-          - $ref: '#/components/schemas/AgencyNormal'
-        program:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProgramNormal'
-        reusable:
-          type: boolean
-        image:
-          allOf:
-          - $ref: '#/components/schemas/Image'
-        info_url:
-          type:
-          - string
-          - 'null'
-          maxLength: 200
-        wiki_url:
-          type:
-          - string
-          - 'null'
-          maxLength: 200
-      required:
-      - families
-      - id
-      - image
-      - manufacturer
-      - name
-      - program
-      - response_mode
-      - url
-    ImageVariantType:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        name:
-          type: string
-          maxLength: 255
-      required:
-      - id
-    SocialMediaLink:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        social_media:
-          $ref: '#/components/schemas/SocialMedia'
-        url:
-          type:
-          - string
-          - 'null'
-          format: uri
-      required:
-      - id
-      - social_media
-      - url
-    AgencyDetailed:
-      type: object
-      properties:
-        response_mode:
-          type: string
-          readOnly: true
-          default: normal
-        id:
-          type: integer
-          readOnly: true
-        url:
-          type: string
-          format: uri
-          readOnly: true
-        name:
-          type: string
-          maxLength: 200
-        abbrev:
-          type: string
-          maxLength: 255
-        type:
-          $ref: '#/components/schemas/AgencyType'
-        featured:
-          type: boolean
-        country:
-          type: array
-          items:
-            $ref: '#/components/schemas/Country'
-        description:
-          type:
-          - string
-          - 'null'
-          maxLength: 2048
-        administrator:
-          type:
-          - string
-          - 'null'
-          maxLength: 200
-        founding_year:
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        launchers:
-          type: string
-          maxLength: 500
-        spacecraft:
-          type: string
-          maxLength: 500
-        parent:
-          type:
-          - string
-          - 'null'
-          readOnly: true
-        image:
-          allOf:
-          - $ref: '#/components/schemas/Image'
-        logo:
-          allOf:
-          - $ref: '#/components/schemas/Image'
-        social_logo:
-          allOf:
-          - $ref: '#/components/schemas/Image'
-        total_launch_count:
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        consecutive_successful_launches:
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        successful_launches:
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        failed_launches:
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        pending_launches:
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        consecutive_successful_landings:
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        successful_landings:
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        failed_landings:
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        attempted_landings:
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        successful_landings_spacecraft:
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        failed_landings_spacecraft:
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        attempted_landings_spacecraft:
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        successful_landings_payload:
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        failed_landings_payload:
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        attempted_landings_payload:
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        info_url:
-          type:
-          - string
-          - 'null'
-          format: uri
-          maxLength: 200
-        wiki_url:
-          type:
-          - string
-          - 'null'
-          format: uri
-          maxLength: 200
-        social_media_links:
-          type: array
-          items:
-            $ref: '#/components/schemas/SocialMediaLink'
-      required:
-      - country
-      - id
-      - image
-      - logo
-      - name
-      - parent
-      - response_mode
-      - social_logo
-      - social_media_links
-      - type
-      - url
-    LauncherConfigFamilyDetailed:
-      type: object
-      properties:
-        response_mode:
-          type: string
-          readOnly: true
-          default: detailed
-        id:
-          type: integer
-          readOnly: true
-        name:
-          type: string
-          maxLength: 200
-        manufacturer:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/AgencyDetailed'
-        parent:
-          allOf:
-          - $ref: '#/components/schemas/LauncherConfigFamilyNormal'
-        description:
-          type: string
-          maxLength: 2048
-        active:
-          type: boolean
-        maiden_flight:
-          type:
-          - string
-          - 'null'
-          format: date
-          title: Maiden Flight Date
-        total_launch_count:
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        consecutive_successful_launches:
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        successful_launches:
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        failed_launches:
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        pending_launches:
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        attempted_landings:
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        successful_landings:
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        failed_landings:
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        consecutive_successful_landings:
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-      required:
-      - id
-      - manufacturer
-      - name
-      - parent
-      - response_mode
-    MissionPatch:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        name:
-          type: string
-          maxLength: 200
         priority:
           type: integer
           maximum: 2147483647
           minimum: -2147483648
-        image_url:
-          type: string
-          format: uri
-        agency:
-          allOf:
-          - $ref: '#/components/schemas/AgencyMini'
-        response_mode:
-          type: string
-          readOnly: true
-          default: normal
-      required:
-      - agency
-      - id
-      - image_url
-      - name
-      - response_mode
-    PolymorphicLauncherConfigFamilyEndpoint:
-      oneOf:
-      - $ref: '#/components/schemas/LauncherConfigFamilyMini'
-      - $ref: '#/components/schemas/LauncherConfigFamilyNormal'
-      - $ref: '#/components/schemas/LauncherConfigFamilyDetailed'
-      discriminator:
-        propertyName: response_mode
-        mapping:
-          list: '#/components/schemas/LauncherConfigFamilyMini'
-          normal: '#/components/schemas/LauncherConfigFamilyNormal'
-          detailed: '#/components/schemas/LauncherConfigFamilyDetailed'
-    ProgramNormal:
-      type: object
-      properties:
-        response_mode:
-          type: string
-          readOnly: true
-          default: normal
-        id:
-          type: integer
-          readOnly: true
-        url:
-          type: string
-          format: uri
-          readOnly: true
-        name:
-          type: string
-          maxLength: 255
-        image:
-          allOf:
-          - $ref: '#/components/schemas/Image'
-        info_url:
+        link:
           type:
           - string
           - 'null'
           format: uri
           maxLength: 200
-        wiki_url:
-          type:
-          - string
-          - 'null'
-          format: uri
-          maxLength: 200
-        description:
-          type:
-          - string
-          - 'null'
-          maxLength: 40000
-        agencies:
-          type: array
-          items:
-            $ref: '#/components/schemas/AgencyMini'
-        start_date:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        end_date:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        mission_patches:
-          type: array
-          items:
-            $ref: '#/components/schemas/MissionPatch'
-        type:
-          $ref: '#/components/schemas/ProgramType'
       required:
-      - agencies
       - id
-      - image
-      - mission_patches
-      - name
-      - response_mode
-      - type
-      - url
   securitySchemes:
     Token_Authentication:
       type: apiKey

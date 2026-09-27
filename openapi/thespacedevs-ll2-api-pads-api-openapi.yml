@@ -288,28 +288,76 @@ components:
           maxLength: 255
       required:
       - id
-    ImageLicense:
+    Location:
       type: object
       properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: normal
         id:
           type: integer
+          readOnly: true
+        url:
+          type: string
+          format: uri
           readOnly: true
         name:
           type: string
           maxLength: 255
-        priority:
-          type: integer
+        celestial_body:
+          $ref: '#/components/schemas/CelestialBodyDetailed'
+        active:
+          type: boolean
+        country:
+          allOf:
+          - $ref: '#/components/schemas/Country'
+        description:
+          type:
+          - string
+          - 'null'
+          maxLength: 2048
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+        map_image:
+          type:
+          - string
+          - 'null'
+          format: uri
+        longitude:
+          type:
+          - number
+          - 'null'
+          format: double
+        latitude:
+          type:
+          - number
+          - 'null'
+          format: double
+        timezone_name:
+          type: string
+          maxLength: 255
+        total_launch_count:
+          type:
+          - integer
+          - 'null'
           maximum: 2147483647
           minimum: -2147483648
-        link:
+        total_landing_count:
           type:
-          - string
+          - integer
           - 'null'
-          format: uri
-          maxLength: 200
+          maximum: 2147483647
+          minimum: -2147483648
       required:
+      - celestial_body
+      - country
       - id
-    Image:
+      - image
+      - response_mode
+      - url
+    ImageVariantType:
       type: object
       properties:
         id:
@@ -318,32 +366,8 @@ components:
         name:
           type: string
           maxLength: 255
-        image_url:
-          type: string
-          format: uri
-        thumbnail_url:
-          type: string
-          format: uri
-        credit:
-          type:
-          - string
-          - 'null'
-          maxLength: 255
-        license:
-          $ref: '#/components/schemas/ImageLicense'
-        single_use:
-          type: boolean
-        variants:
-          type: array
-          items:
-            $ref: '#/components/schemas/ImageVariant'
       required:
       - id
-      - image_url
-      - license
-      - name
-      - thumbnail_url
-      - variants
     Pad:
       type: object
       properties:
@@ -435,117 +459,21 @@ components:
       - image
       - location
       - url
-    ImageVariantType:
+    ImageVariant:
       type: object
       properties:
         id:
           type: integer
           readOnly: true
-        name:
-          type: string
-          maxLength: 255
-      required:
-      - id
-    AgencyNormal:
-      type: object
-      properties:
-        response_mode:
-          type: string
-          readOnly: true
-          default: normal
-        id:
-          type: integer
-          readOnly: true
-        url:
-          type: string
-          format: uri
-          readOnly: true
-        name:
-          type: string
-          maxLength: 200
-        abbrev:
-          type: string
-          maxLength: 255
         type:
-          $ref: '#/components/schemas/AgencyType'
-        featured:
-          type: boolean
-        country:
-          type: array
-          items:
-            $ref: '#/components/schemas/Country'
-        description:
-          type:
-          - string
-          - 'null'
-          maxLength: 2048
-        administrator:
-          type:
-          - string
-          - 'null'
-          maxLength: 200
-        founding_year:
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        launchers:
+          $ref: '#/components/schemas/ImageVariantType'
+        image_url:
           type: string
-          maxLength: 500
-        spacecraft:
-          type: string
-          maxLength: 500
-        parent:
-          type:
-          - string
-          - 'null'
-          readOnly: true
-        image:
-          allOf:
-          - $ref: '#/components/schemas/Image'
-        logo:
-          allOf:
-          - $ref: '#/components/schemas/Image'
-        social_logo:
-          allOf:
-          - $ref: '#/components/schemas/Image'
+          format: uri
       required:
-      - country
       - id
-      - image
-      - logo
-      - name
-      - parent
-      - response_mode
-      - social_logo
+      - image_url
       - type
-      - url
-    PaginatedPadList:
-      type: object
-      required:
-      - count
-      - results
-      properties:
-        count:
-          type: integer
-          example: 123
-        next:
-          type:
-          - string
-          - 'null'
-          format: uri
-          example: http://api.example.org/accounts/?offset=400&limit=100
-        previous:
-          type:
-          - string
-          - 'null'
-          format: uri
-          example: http://api.example.org/accounts/?offset=200&limit=100
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Pad'
     Country:
       type: object
       properties:
@@ -570,6 +498,18 @@ components:
         nationality_name_composed:
           type: string
           description: e.g. Franco
+          maxLength: 255
+      required:
+      - id
+    AgencyType:
+      type: object
+      properties:
+        id:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        name:
+          type: string
           maxLength: 255
       required:
       - id
@@ -654,7 +594,67 @@ components:
       - name
       - response_mode
       - type
-    Location:
+    Image:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        image_url:
+          type: string
+          format: uri
+        thumbnail_url:
+          type: string
+          format: uri
+        credit:
+          type:
+          - string
+          - 'null'
+          maxLength: 255
+        license:
+          $ref: '#/components/schemas/ImageLicense'
+        single_use:
+          type: boolean
+        variants:
+          type: array
+          items:
+            $ref: '#/components/schemas/ImageVariant'
+      required:
+      - id
+      - image_url
+      - license
+      - name
+      - thumbnail_url
+      - variants
+    PaginatedPadList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+          example: http://api.example.org/accounts/?offset=400&limit=100
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+          example: http://api.example.org/accounts/?offset=200&limit=100
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Pad'
+    AgencyNormal:
       type: object
       properties:
         response_mode:
@@ -670,86 +670,86 @@ components:
           readOnly: true
         name:
           type: string
+          maxLength: 200
+        abbrev:
+          type: string
           maxLength: 255
-        celestial_body:
-          $ref: '#/components/schemas/CelestialBodyDetailed'
-        active:
+        type:
+          $ref: '#/components/schemas/AgencyType'
+        featured:
           type: boolean
         country:
-          allOf:
-          - $ref: '#/components/schemas/Country'
+          type: array
+          items:
+            $ref: '#/components/schemas/Country'
         description:
           type:
           - string
           - 'null'
           maxLength: 2048
-        image:
-          allOf:
-          - $ref: '#/components/schemas/Image'
-        map_image:
+        administrator:
           type:
           - string
           - 'null'
-          format: uri
-        longitude:
+          maxLength: 200
+        founding_year:
           type:
-          - number
+          - integer
           - 'null'
-          format: double
-        latitude:
-          type:
-          - number
-          - 'null'
-          format: double
-        timezone_name:
+          maximum: 2147483647
+          minimum: -2147483648
+        launchers:
           type: string
-          maxLength: 255
-        total_launch_count:
+          maxLength: 500
+        spacecraft:
+          type: string
+          maxLength: 500
+        parent:
           type:
-          - integer
+          - string
           - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        total_landing_count:
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
+          readOnly: true
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+        logo:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+        social_logo:
+          allOf:
+          - $ref: '#/components/schemas/Image'
       required:
-      - celestial_body
       - country
       - id
       - image
+      - logo
+      - name
+      - parent
       - response_mode
+      - social_logo
+      - type
       - url
-    AgencyType:
-      type: object
-      properties:
-        id:
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        name:
-          type: string
-          maxLength: 255
-      required:
-      - id
-    ImageVariant:
+    ImageLicense:
       type: object
       properties:
         id:
           type: integer
           readOnly: true
-        type:
-          $ref: '#/components/schemas/ImageVariantType'
-        image_url:
+        name:
           type: string
+          maxLength: 255
+        priority:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        link:
+          type:
+          - string
+          - 'null'
           format: uri
+          maxLength: 200
       required:
       - id
-      - image_url
-      - type
   securitySchemes:
     Token_Authentication:
       type: apiKey

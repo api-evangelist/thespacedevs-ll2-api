@@ -113,6 +113,21 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    TimelineEventType:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        abbrev:
+          type: string
+          maxLength: 255
+        description:
+          type: string
+          maxLength: 2048
+      required:
+      - abbrev
+      - id
     PaginatedTimelineEventTypeList:
       type: object
       required:
@@ -138,21 +153,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TimelineEventType'
-    TimelineEventType:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        abbrev:
-          type: string
-          maxLength: 255
-        description:
-          type: string
-          maxLength: 2048
-      required:
-      - abbrev
-      - id
   securitySchemes:
     Token_Authentication:
       type: apiKey
