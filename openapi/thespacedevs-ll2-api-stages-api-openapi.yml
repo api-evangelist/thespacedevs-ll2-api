@@ -113,6 +113,18 @@ paths:
           description: ''
 components:
   schemas:
+    FirstStageType:
+      type: object
+      properties:
+        id:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        name:
+          type: string
+          maxLength: 50
+      required:
+      - id
     PaginatedFirstStageTypeList:
       type: object
       required:
@@ -138,18 +150,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/FirstStageType'
-    FirstStageType:
-      type: object
-      properties:
-        id:
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        name:
-          type: string
-          maxLength: 50
-      required:
-      - id
   securitySchemes:
     Token_Authentication:
       type: apiKey

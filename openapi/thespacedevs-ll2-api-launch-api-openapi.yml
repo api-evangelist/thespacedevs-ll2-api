@@ -113,6 +113,25 @@ paths:
           description: ''
 components:
   schemas:
+    LaunchStatus:
+      type: object
+      properties:
+        id:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        name:
+          type: string
+          readOnly: true
+        abbrev:
+          type: string
+          maxLength: 255
+        description:
+          type: string
+          maxLength: 2048
+      required:
+      - id
+      - name
     PaginatedLaunchStatusList:
       type: object
       required:
@@ -138,25 +157,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/LaunchStatus'
-    LaunchStatus:
-      type: object
-      properties:
-        id:
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        name:
-          type: string
-          readOnly: true
-        abbrev:
-          type: string
-          maxLength: 255
-        description:
-          type: string
-          maxLength: 2048
-      required:
-      - id
-      - name
   securitySchemes:
     Token_Authentication:
       type: apiKey

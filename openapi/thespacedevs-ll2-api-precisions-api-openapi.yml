@@ -113,24 +113,6 @@ paths:
           description: ''
 components:
   schemas:
-    NetPrecision:
-      type: object
-      properties:
-        id:
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        name:
-          type: string
-          maxLength: 255
-        abbrev:
-          type: string
-          maxLength: 255
-        description:
-          type: string
-          maxLength: 2048
-      required:
-      - id
     PaginatedNetPrecisionList:
       type: object
       required:
@@ -156,6 +138,24 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/NetPrecision'
+    NetPrecision:
+      type: object
+      properties:
+        id:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        name:
+          type: string
+          maxLength: 255
+        abbrev:
+          type: string
+          maxLength: 255
+        description:
+          type: string
+          maxLength: 2048
+      required:
+      - id
   securitySchemes:
     Token_Authentication:
       type: apiKey

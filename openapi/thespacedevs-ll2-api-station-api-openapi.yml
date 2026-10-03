@@ -111,18 +111,6 @@ paths:
           description: ''
 components:
   schemas:
-    SpaceStationStatus:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        name:
-          type: string
-          maxLength: 255
-      required:
-      - id
-      - name
     PaginatedSpaceStationStatusList:
       type: object
       required:
@@ -148,6 +136,18 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SpaceStationStatus'
+    SpaceStationStatus:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+      - name
   securitySchemes:
     Token_Authentication:
       type: apiKey

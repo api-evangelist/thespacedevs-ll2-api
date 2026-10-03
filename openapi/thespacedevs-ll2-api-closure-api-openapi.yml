@@ -111,6 +111,18 @@ paths:
           description: ''
 components:
   schemas:
+    RoadClosureStatus:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+      - name
     PaginatedRoadClosureStatusList:
       type: object
       required:
@@ -136,18 +148,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/RoadClosureStatus'
-    RoadClosureStatus:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        name:
-          type: string
-          maxLength: 255
-      required:
-      - id
-      - name
   securitySchemes:
     Token_Authentication:
       type: apiKey

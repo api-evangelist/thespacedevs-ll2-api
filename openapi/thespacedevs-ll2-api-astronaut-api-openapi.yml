@@ -303,6 +303,22 @@ paths:
           description: ''
 components:
   schemas:
+    AstronautRole:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        role:
+          type: string
+          maxLength: 255
+        priority:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+      required:
+      - id
+      - role
     PaginatedAstronautStatusList:
       type: object
       required:
@@ -353,6 +369,18 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AstronautRole'
+    AstronautType:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+      - name
     PaginatedAstronautTypeList:
       type: object
       required:
@@ -378,34 +406,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AstronautType'
-    AstronautRole:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        role:
-          type: string
-          maxLength: 255
-        priority:
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-      required:
-      - id
-      - role
-    AstronautType:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        name:
-          type: string
-          maxLength: 255
-      required:
-      - id
-      - name
     AstronautStatus:
       type: object
       properties:

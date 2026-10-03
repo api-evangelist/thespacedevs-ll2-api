@@ -111,27 +111,6 @@ paths:
           description: ''
 components:
   schemas:
-    ImageLicense:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        name:
-          type: string
-          maxLength: 255
-        priority:
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        link:
-          type:
-          - string
-          - 'null'
-          format: uri
-          maxLength: 200
-      required:
-      - id
     PaginatedImageLicenseList:
       type: object
       required:
@@ -157,6 +136,27 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ImageLicense'
+    ImageLicense:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        priority:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        link:
+          type:
+          - string
+          - 'null'
+          format: uri
+          maxLength: 200
+      required:
+      - id
   securitySchemes:
     Token_Authentication:
       type: apiKey
