@@ -113,18 +113,6 @@ paths:
           description: ''
 components:
   schemas:
-    AgencyType:
-      type: object
-      properties:
-        id:
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        name:
-          type: string
-          maxLength: 255
-      required:
-      - id
     PaginatedAgencyTypeList:
       type: object
       required:
@@ -150,6 +138,18 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AgencyType'
+    AgencyType:
+      type: object
+      properties:
+        id:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
   securitySchemes:
     Token_Authentication:
       type: apiKey

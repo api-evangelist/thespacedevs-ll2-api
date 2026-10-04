@@ -336,25 +336,13 @@ paths:
           description: ''
 components:
   schemas:
-    AgencyType:
-      type: object
-      properties:
-        id:
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        name:
-          type: string
-          maxLength: 255
-      required:
-      - id
-    LocationSerializerNoCelestialBody:
+    LocationSerializerWithPads:
       type: object
       properties:
         response_mode:
           type: string
           readOnly: true
-          default: normal
+          default: detailed
         id:
           type: integer
           readOnly: true
@@ -365,6 +353,8 @@ components:
         name:
           type: string
           maxLength: 255
+        celestial_body:
+          $ref: '#/components/schemas/CelestialBodyDetailed'
         active:
           type: boolean
         country:
@@ -408,62 +398,122 @@ components:
           - 'null'
           maximum: 2147483647
           minimum: -2147483648
+        pads:
+          type: array
+          items:
+            $ref: '#/components/schemas/PadSerializerNoLocation'
       required:
+      - celestial_body
       - country
       - id
       - image
+      - pads
       - response_mode
       - url
-    PaginatedLandingLocationList:
+    PolymorphicLocationEndpoint:
+      oneOf:
+      - $ref: '#/components/schemas/Location'
+      - $ref: '#/components/schemas/LocationSerializerWithPads'
+      discriminator:
+        propertyName: response_mode
+        mapping:
+          normal: '#/components/schemas/Location'
+          detailed: '#/components/schemas/LocationSerializerWithPads'
+    Image:
       type: object
-      required:
-      - count
-      - results
       properties:
-        count:
+        id:
           type: integer
-          example: 123
-        next:
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        image_url:
+          type: string
+          format: uri
+        thumbnail_url:
+          type: string
+          format: uri
+        credit:
           type:
           - string
           - 'null'
-          format: uri
-          example: http://api.example.org/accounts/?offset=400&limit=100
-        previous:
-          type:
-          - string
-          - 'null'
-          format: uri
-          example: http://api.example.org/accounts/?offset=200&limit=100
-        results:
+          maxLength: 255
+        license:
+          $ref: '#/components/schemas/ImageLicense'
+        single_use:
+          type: boolean
+        variants:
           type: array
           items:
-            $ref: '#/components/schemas/LandingLocation'
-    PaginatedPolymorphicLocationEndpointList:
-      type: object
+            $ref: '#/components/schemas/ImageVariant'
       required:
-      - count
-      - results
+      - id
+      - image_url
+      - license
+      - name
+      - thumbnail_url
+      - variants
+    Country:
+      type: object
       properties:
-        count:
+        id:
           type: integer
-          example: 123
-        next:
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        alpha_2_code:
+          type: string
+          description: ISO 3166-1 alpha-2
+          maxLength: 2
+        alpha_3_code:
+          type: string
+          description: ISO 3166-1 alpha-3
+          maxLength: 3
+        nationality_name:
+          type: string
+          description: e.g. French
+          maxLength: 255
+        nationality_name_composed:
+          type: string
+          description: e.g. Franco
+          maxLength: 255
+      required:
+      - id
+    CelestialBodyType:
+      type: object
+      properties:
+        id:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+    ImageLicense:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        priority:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        link:
           type:
           - string
           - 'null'
           format: uri
-          example: http://api.example.org/accounts/?offset=400&limit=100
-        previous:
-          type:
-          - string
-          - 'null'
-          format: uri
-          example: http://api.example.org/accounts/?offset=200&limit=100
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/PolymorphicLocationEndpoint'
+          maxLength: 200
+      required:
+      - id
     PadSerializerNoLocation:
       type: object
       properties:
@@ -551,6 +601,174 @@ components:
       - id
       - image
       - url
+    LandingLocation:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        active:
+          type: boolean
+        abbrev:
+          type: string
+          maxLength: 255
+        description:
+          type:
+          - string
+          - 'null'
+          maxLength: 2048
+        location:
+          $ref: '#/components/schemas/LocationSerializerNoCelestialBody'
+        longitude:
+          type:
+          - number
+          - 'null'
+          format: double
+        latitude:
+          type:
+          - number
+          - 'null'
+          format: double
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+        successful_landings:
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        attempted_landings:
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        failed_landings:
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        celestial_body:
+          $ref: '#/components/schemas/CelestialBodyNormal'
+      required:
+      - celestial_body
+      - id
+      - image
+      - location
+    CelestialBodyNormal:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: normal
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        type:
+          $ref: '#/components/schemas/CelestialBodyType'
+        diameter:
+          type:
+          - number
+          - 'null'
+          format: double
+          description: m
+        mass:
+          type:
+          - number
+          - 'null'
+          format: double
+          description: kg
+        gravity:
+          type:
+          - number
+          - 'null'
+          format: double
+          description: m/s^2
+        length_of_day:
+          type:
+          - string
+          - 'null'
+        atmosphere:
+          type: boolean
+        image:
+          $ref: '#/components/schemas/Image'
+        description:
+          type:
+          - string
+          - 'null'
+        wiki_url:
+          type:
+          - string
+          - 'null'
+          format: uri
+          maxLength: 200
+      required:
+      - id
+      - image
+      - name
+      - response_mode
+      - type
+    PaginatedPolymorphicLocationEndpointList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+          example: http://api.example.org/accounts/?offset=400&limit=100
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+          example: http://api.example.org/accounts/?offset=200&limit=100
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/PolymorphicLocationEndpoint'
+    AgencyType:
+      type: object
+      properties:
+        id:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+    ImageVariant:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        type:
+          $ref: '#/components/schemas/ImageVariantType'
+        image_url:
+          type: string
+          format: uri
+      required:
+      - id
+      - image_url
+      - type
     Location:
       type: object
       properties:
@@ -648,7 +866,98 @@ components:
       - response_mode
       - type
       - url
-    ImageLicense:
+    LocationSerializerNoCelestialBody:
+      type: object
+      properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: normal
+        id:
+          type: integer
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        active:
+          type: boolean
+        country:
+          allOf:
+          - $ref: '#/components/schemas/Country'
+        description:
+          type:
+          - string
+          - 'null'
+          maxLength: 2048
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+        map_image:
+          type:
+          - string
+          - 'null'
+          format: uri
+        longitude:
+          type:
+          - number
+          - 'null'
+          format: double
+        latitude:
+          type:
+          - number
+          - 'null'
+          format: double
+        timezone_name:
+          type: string
+          maxLength: 255
+        total_launch_count:
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+        total_landing_count:
+          type:
+          - integer
+          - 'null'
+          maximum: 2147483647
+          minimum: -2147483648
+      required:
+      - country
+      - id
+      - image
+      - response_mode
+      - url
+    PaginatedLandingLocationList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+          example: http://api.example.org/accounts/?offset=400&limit=100
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+          example: http://api.example.org/accounts/?offset=200&limit=100
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/LandingLocation'
+    ImageVariantType:
       type: object
       properties:
         id:
@@ -657,16 +966,6 @@ components:
         name:
           type: string
           maxLength: 255
-        priority:
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        link:
-          type:
-          - string
-          - 'null'
-          format: uri
-          maxLength: 200
       required:
       - id
     CelestialBodyDetailed:
@@ -750,305 +1049,6 @@ components:
       - name
       - response_mode
       - type
-    Country:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        name:
-          type: string
-          maxLength: 255
-        alpha_2_code:
-          type: string
-          description: ISO 3166-1 alpha-2
-          maxLength: 2
-        alpha_3_code:
-          type: string
-          description: ISO 3166-1 alpha-3
-          maxLength: 3
-        nationality_name:
-          type: string
-          description: e.g. French
-          maxLength: 255
-        nationality_name_composed:
-          type: string
-          description: e.g. Franco
-          maxLength: 255
-      required:
-      - id
-    LandingLocation:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        name:
-          type: string
-          maxLength: 255
-        active:
-          type: boolean
-        abbrev:
-          type: string
-          maxLength: 255
-        description:
-          type:
-          - string
-          - 'null'
-          maxLength: 2048
-        location:
-          $ref: '#/components/schemas/LocationSerializerNoCelestialBody'
-        longitude:
-          type:
-          - number
-          - 'null'
-          format: double
-        latitude:
-          type:
-          - number
-          - 'null'
-          format: double
-        image:
-          allOf:
-          - $ref: '#/components/schemas/Image'
-        successful_landings:
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        attempted_landings:
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        failed_landings:
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        celestial_body:
-          $ref: '#/components/schemas/CelestialBodyNormal'
-      required:
-      - celestial_body
-      - id
-      - image
-      - location
-    CelestialBodyType:
-      type: object
-      properties:
-        id:
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        name:
-          type: string
-          maxLength: 255
-      required:
-      - id
-    ImageVariantType:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        name:
-          type: string
-          maxLength: 255
-      required:
-      - id
-    Image:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        name:
-          type: string
-          maxLength: 255
-        image_url:
-          type: string
-          format: uri
-        thumbnail_url:
-          type: string
-          format: uri
-        credit:
-          type:
-          - string
-          - 'null'
-          maxLength: 255
-        license:
-          $ref: '#/components/schemas/ImageLicense'
-        single_use:
-          type: boolean
-        variants:
-          type: array
-          items:
-            $ref: '#/components/schemas/ImageVariant'
-      required:
-      - id
-      - image_url
-      - license
-      - name
-      - thumbnail_url
-      - variants
-    CelestialBodyNormal:
-      type: object
-      properties:
-        response_mode:
-          type: string
-          readOnly: true
-          default: normal
-        id:
-          type: integer
-          readOnly: true
-        name:
-          type: string
-          maxLength: 255
-        type:
-          $ref: '#/components/schemas/CelestialBodyType'
-        diameter:
-          type:
-          - number
-          - 'null'
-          format: double
-          description: m
-        mass:
-          type:
-          - number
-          - 'null'
-          format: double
-          description: kg
-        gravity:
-          type:
-          - number
-          - 'null'
-          format: double
-          description: m/s^2
-        length_of_day:
-          type:
-          - string
-          - 'null'
-        atmosphere:
-          type: boolean
-        image:
-          $ref: '#/components/schemas/Image'
-        description:
-          type:
-          - string
-          - 'null'
-        wiki_url:
-          type:
-          - string
-          - 'null'
-          format: uri
-          maxLength: 200
-      required:
-      - id
-      - image
-      - name
-      - response_mode
-      - type
-    LocationSerializerWithPads:
-      type: object
-      properties:
-        response_mode:
-          type: string
-          readOnly: true
-          default: detailed
-        id:
-          type: integer
-          readOnly: true
-        url:
-          type: string
-          format: uri
-          readOnly: true
-        name:
-          type: string
-          maxLength: 255
-        celestial_body:
-          $ref: '#/components/schemas/CelestialBodyDetailed'
-        active:
-          type: boolean
-        country:
-          allOf:
-          - $ref: '#/components/schemas/Country'
-        description:
-          type:
-          - string
-          - 'null'
-          maxLength: 2048
-        image:
-          allOf:
-          - $ref: '#/components/schemas/Image'
-        map_image:
-          type:
-          - string
-          - 'null'
-          format: uri
-        longitude:
-          type:
-          - number
-          - 'null'
-          format: double
-        latitude:
-          type:
-          - number
-          - 'null'
-          format: double
-        timezone_name:
-          type: string
-          maxLength: 255
-        total_launch_count:
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        total_landing_count:
-          type:
-          - integer
-          - 'null'
-          maximum: 2147483647
-          minimum: -2147483648
-        pads:
-          type: array
-          items:
-            $ref: '#/components/schemas/PadSerializerNoLocation'
-      required:
-      - celestial_body
-      - country
-      - id
-      - image
-      - pads
-      - response_mode
-      - url
-    ImageVariant:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        type:
-          $ref: '#/components/schemas/ImageVariantType'
-        image_url:
-          type: string
-          format: uri
-      required:
-      - id
-      - image_url
-      - type
-    PolymorphicLocationEndpoint:
-      oneOf:
-      - $ref: '#/components/schemas/Location'
-      - $ref: '#/components/schemas/LocationSerializerWithPads'
-      discriminator:
-        propertyName: response_mode
-        mapping:
-          normal: '#/components/schemas/Location'
-          detailed: '#/components/schemas/LocationSerializerWithPads'
   securitySchemes:
     Token_Authentication:
       type: apiKey

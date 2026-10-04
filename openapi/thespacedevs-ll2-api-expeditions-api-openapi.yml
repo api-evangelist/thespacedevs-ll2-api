@@ -247,22 +247,49 @@ paths:
           description: ''
 components:
   schemas:
-    AstronautRole:
+    SpacewalkList:
       type: object
       properties:
+        response_mode:
+          type: string
+          readOnly: true
+          default: list
         id:
           type: integer
           readOnly: true
-        role:
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        name:
           type: string
           maxLength: 255
-        priority:
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
+        start:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        end:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        duration:
+          type:
+          - string
+          - 'null'
+          readOnly: true
+        location:
+          type:
+          - string
+          - 'null'
+          maxLength: 255
       required:
+      - duration
       - id
-      - role
+      - name
+      - response_mode
+      - url
     AgencyMini:
       type: object
       properties:
@@ -291,32 +318,50 @@ components:
       - response_mode
       - type
       - url
-    SpaceStationType:
+    ExpeditionNormal:
       type: object
       properties:
         id:
           type: integer
+          readOnly: true
+        url:
+          type: string
+          format: uri
           readOnly: true
         name:
           type: string
           maxLength: 255
-      required:
-      - id
-      - name
-    AstronautFlight:
-      type: object
-      properties:
-        id:
-          type: integer
+        start:
+          type: string
+          format: date-time
+        end:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        response_mode:
+          type: string
           readOnly: true
-        role:
-          $ref: '#/components/schemas/AstronautRole'
-        astronaut:
-          $ref: '#/components/schemas/AstronautDetailed'
+          default: normal
+        spacestation:
+          $ref: '#/components/schemas/SpaceStationNormal'
+        mission_patches:
+          type: array
+          items:
+            $ref: '#/components/schemas/MissionPatch'
+        spacewalks:
+          type: array
+          items:
+            $ref: '#/components/schemas/SpacewalkList'
       required:
-      - astronaut
       - id
-      - role
+      - mission_patches
+      - name
+      - response_mode
+      - spacestation
+      - spacewalks
+      - start
+      - url
     AgencyNormal:
       type: object
       properties:
@@ -392,6 +437,159 @@ components:
       - social_logo
       - type
       - url
+    SpaceStationType:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+      - name
+    AstronautFlight:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        role:
+          $ref: '#/components/schemas/AstronautRole'
+        astronaut:
+          $ref: '#/components/schemas/AstronautDetailed'
+      required:
+      - astronaut
+      - id
+      - role
+    SpaceStationNormal:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        image:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+        status:
+          $ref: '#/components/schemas/SpaceStationStatus'
+        founded:
+          type: string
+          format: date
+        deorbited:
+          type:
+          - string
+          - 'null'
+          format: date
+        description:
+          type: string
+          maxLength: 2048
+        orbit:
+          type:
+          - string
+          - 'null'
+          readOnly: true
+        type:
+          $ref: '#/components/schemas/SpaceStationType'
+      required:
+      - description
+      - founded
+      - id
+      - image
+      - name
+      - orbit
+      - status
+      - type
+      - url
+    ImageLicense:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        priority:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        link:
+          type:
+          - string
+          - 'null'
+          format: uri
+          maxLength: 200
+      required:
+      - id
+    SocialMedia:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        url:
+          type:
+          - string
+          - 'null'
+          format: uri
+        logo:
+          allOf:
+          - $ref: '#/components/schemas/Image'
+      required:
+      - id
+      - logo
+      - url
+    ImageVariant:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        type:
+          $ref: '#/components/schemas/ImageVariantType'
+        image_url:
+          type: string
+          format: uri
+      required:
+      - id
+      - image_url
+      - type
+    AstronautStatus:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+      - name
+    SpaceStationStatus:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+      - name
     Country:
       type: object
       properties:
@@ -419,149 +617,31 @@ components:
           maxLength: 255
       required:
       - id
-    Image:
+    PaginatedPolymorphicExpeditionEndpointList:
       type: object
+      required:
+      - count
+      - results
       properties:
-        id:
+        count:
           type: integer
-          readOnly: true
-        name:
-          type: string
-          maxLength: 255
-        image_url:
-          type: string
-          format: uri
-        thumbnail_url:
-          type: string
-          format: uri
-        credit:
+          example: 123
+        next:
           type:
           - string
           - 'null'
-          maxLength: 255
-        license:
-          $ref: '#/components/schemas/ImageLicense'
-        single_use:
-          type: boolean
-        variants:
+          format: uri
+          example: http://api.example.org/accounts/?offset=400&limit=100
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+          example: http://api.example.org/accounts/?offset=200&limit=100
+        results:
           type: array
           items:
-            $ref: '#/components/schemas/ImageVariant'
-      required:
-      - id
-      - image_url
-      - license
-      - name
-      - thumbnail_url
-      - variants
-    AstronautType:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        name:
-          type: string
-          maxLength: 255
-      required:
-      - id
-      - name
-    ImageVariantType:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        name:
-          type: string
-          maxLength: 255
-      required:
-      - id
-    SpacewalkList:
-      type: object
-      properties:
-        response_mode:
-          type: string
-          readOnly: true
-          default: list
-        id:
-          type: integer
-          readOnly: true
-        url:
-          type: string
-          format: uri
-          readOnly: true
-        name:
-          type: string
-          maxLength: 255
-        start:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        end:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        duration:
-          type:
-          - string
-          - 'null'
-          readOnly: true
-        location:
-          type:
-          - string
-          - 'null'
-          maxLength: 255
-      required:
-      - duration
-      - id
-      - name
-      - response_mode
-      - url
-    AgencyType:
-      type: object
-      properties:
-        id:
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        name:
-          type: string
-          maxLength: 255
-      required:
-      - id
-    SocialMedia:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        name:
-          type: string
-          maxLength: 255
-        url:
-          type:
-          - string
-          - 'null'
-          format: uri
-        logo:
-          allOf:
-          - $ref: '#/components/schemas/Image'
-      required:
-      - id
-      - logo
-      - url
-    PolymorphicExpeditionEndpoint:
-      oneOf:
-      - $ref: '#/components/schemas/ExpeditionNormal'
-      - $ref: '#/components/schemas/ExpeditionDetailed'
-      discriminator:
-        propertyName: response_mode
-        mapping:
-          normal: '#/components/schemas/ExpeditionNormal'
-          detailed: '#/components/schemas/ExpeditionDetailed'
+            $ref: '#/components/schemas/PolymorphicExpeditionEndpoint'
     AstronautDetailed:
       type: object
       properties:
@@ -655,52 +735,18 @@ components:
       - time_in_space
       - type
       - url
-    SpaceStationNormal:
+    AstronautType:
       type: object
       properties:
         id:
           type: integer
           readOnly: true
-        url:
-          type: string
-          format: uri
-          readOnly: true
         name:
           type: string
           maxLength: 255
-        image:
-          allOf:
-          - $ref: '#/components/schemas/Image'
-        status:
-          $ref: '#/components/schemas/SpaceStationStatus'
-        founded:
-          type: string
-          format: date
-        deorbited:
-          type:
-          - string
-          - 'null'
-          format: date
-        description:
-          type: string
-          maxLength: 2048
-        orbit:
-          type:
-          - string
-          - 'null'
-          readOnly: true
-        type:
-          $ref: '#/components/schemas/SpaceStationType'
       required:
-      - description
-      - founded
       - id
-      - image
       - name
-      - orbit
-      - status
-      - type
-      - url
     SpaceStationDetailed:
       type: object
       properties:
@@ -754,7 +800,16 @@ components:
       - status
       - type
       - url
-    ImageLicense:
+    PolymorphicExpeditionEndpoint:
+      oneOf:
+      - $ref: '#/components/schemas/ExpeditionNormal'
+      - $ref: '#/components/schemas/ExpeditionDetailed'
+      discriminator:
+        propertyName: response_mode
+        mapping:
+          normal: '#/components/schemas/ExpeditionNormal'
+          detailed: '#/components/schemas/ExpeditionDetailed'
+    Image:
       type: object
       properties:
         id:
@@ -763,18 +818,32 @@ components:
         name:
           type: string
           maxLength: 255
-        priority:
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        link:
+        image_url:
+          type: string
+          format: uri
+        thumbnail_url:
+          type: string
+          format: uri
+        credit:
           type:
           - string
           - 'null'
-          format: uri
-          maxLength: 200
+          maxLength: 255
+        license:
+          $ref: '#/components/schemas/ImageLicense'
+        single_use:
+          type: boolean
+        variants:
+          type: array
+          items:
+            $ref: '#/components/schemas/ImageVariant'
       required:
       - id
+      - image_url
+      - license
+      - name
+      - thumbnail_url
+      - variants
     MissionPatch:
       type: object
       properties:
@@ -804,131 +873,34 @@ components:
       - image_url
       - name
       - response_mode
-    ImageVariant:
+    AgencyType:
       type: object
       properties:
         id:
           type: integer
-          readOnly: true
-        type:
-          $ref: '#/components/schemas/ImageVariantType'
-        image_url:
-          type: string
-          format: uri
-      required:
-      - id
-      - image_url
-      - type
-    PaginatedPolymorphicExpeditionEndpointList:
-      type: object
-      required:
-      - count
-      - results
-      properties:
-        count:
-          type: integer
-          example: 123
-        next:
-          type:
-          - string
-          - 'null'
-          format: uri
-          example: http://api.example.org/accounts/?offset=400&limit=100
-        previous:
-          type:
-          - string
-          - 'null'
-          format: uri
-          example: http://api.example.org/accounts/?offset=200&limit=100
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/PolymorphicExpeditionEndpoint'
-    ExpeditionNormal:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        url:
-          type: string
-          format: uri
-          readOnly: true
-        name:
-          type: string
-          maxLength: 255
-        start:
-          type: string
-          format: date-time
-        end:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        response_mode:
-          type: string
-          readOnly: true
-          default: normal
-        spacestation:
-          $ref: '#/components/schemas/SpaceStationNormal'
-        mission_patches:
-          type: array
-          items:
-            $ref: '#/components/schemas/MissionPatch'
-        spacewalks:
-          type: array
-          items:
-            $ref: '#/components/schemas/SpacewalkList'
-      required:
-      - id
-      - mission_patches
-      - name
-      - response_mode
-      - spacestation
-      - spacewalks
-      - start
-      - url
-    SocialMediaLink:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        social_media:
-          $ref: '#/components/schemas/SocialMedia'
-        url:
-          type:
-          - string
-          - 'null'
-          format: uri
-      required:
-      - id
-      - social_media
-      - url
-    SpaceStationStatus:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
+          maximum: 2147483647
+          minimum: -2147483648
         name:
           type: string
           maxLength: 255
       required:
       - id
-      - name
-    AstronautStatus:
+    AstronautRole:
       type: object
       properties:
         id:
           type: integer
           readOnly: true
-        name:
+        role:
           type: string
           maxLength: 255
+        priority:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
       required:
       - id
-      - name
+      - role
     ExpeditionDetailed:
       type: object
       properties:
@@ -977,6 +949,34 @@ components:
       - spacestation
       - spacewalks
       - start
+      - url
+    ImageVariantType:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+    SocialMediaLink:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        social_media:
+          $ref: '#/components/schemas/SocialMedia'
+        url:
+          type:
+          - string
+          - 'null'
+          format: uri
+      required:
+      - id
+      - social_media
       - url
   securitySchemes:
     Token_Authentication:

@@ -111,6 +111,17 @@ paths:
           description: ''
 components:
   schemas:
+    ImageVariantType:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
     PaginatedImageVariantTypeList:
       type: object
       required:
@@ -136,17 +147,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ImageVariantType'
-    ImageVariantType:
-      type: object
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        name:
-          type: string
-          maxLength: 255
-      required:
-      - id
   securitySchemes:
     Token_Authentication:
       type: apiKey
